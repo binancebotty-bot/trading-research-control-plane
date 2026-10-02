@@ -37,7 +37,7 @@ def main():
     print(f"Hypothesis: {args.hypothesis}")
     print()
     
-    pipeline = ResearchPipeline(max_workers=args.max_workers)
+    pipeline = ResearchPipeline()
     
     result = pipeline.run_pipeline(
         hypothesis=args.hypothesis,

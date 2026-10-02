@@ -42,7 +42,7 @@ from strategies_core import STRATEGIES
 from tv_parity_backtester_v2 import (
     run_strategy_engine, run_engine, backtest, backtest_grid,
     CostModel, load_data, calc_atr, calc_ema, calc_rsi, calc_adx,
-    calc_donchian, calc_bollinger, calc_vwma, crossover, crossunder,
+    calc_donchian, calc_bollinger, calc_vwma,
     print_strategy_results, run_tests, run_engine_tests,
     SIDE_BUY, SIDE_SELL, ORDER_MARKET, ORDER_LIMIT, ORDER_STOP,
     STATUS_FILLED, STATUS_PENDING, STATUS_CANCELLED

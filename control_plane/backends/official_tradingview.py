@@ -404,4 +404,11 @@ def create_official_tv_backend(**kwargs) -> OfficialTradingViewBackend:
 
 # Need pandas for timestamp
 import pandas as pd
-from tvDatafeed import Interval  # type: ignore
+
+# tvDatafeed is optional - only needed for unofficial fallback
+try:
+    from tvDatafeed import Interval
+    HAS_TVDATAFEED = True
+except ImportError:
+    HAS_TVDATAFEED = False
+    Interval = None

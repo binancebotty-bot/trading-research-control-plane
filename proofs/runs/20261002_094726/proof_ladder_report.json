@@ -1,0 +1,2474 @@
+{
+  "run_id": "127d9ce259eae149",
+  "timestamp": "2026-10-02T09:48:14.490995",
+  "total_steps": 21,
+  "passed": 21,
+  "failed": 0,
+  "results": [
+    {
+      "step": "initialize",
+      "status": "PASS",
+      "elapsed_seconds": 0.014857292175292969,
+      "timestamp": "2026-10-02T09:47:28.557216",
+      "result": {
+        "success": true,
+        "server_info": {
+          "protocolVersion": "2024-11-05",
+          "capabilities": {
+            "tools": {
+              "listChanged": true
+            }
+          },
+          "serverInfo": {
+            "name": "tradingview",
+            "version": "2.0.0",
+            "description": "AI-assisted TradingView chart analysis and Pine Script development via Chrome DevTools Protocol"
+          },
+          "instructions": "TradingView MCP \u2014 78 tools for reading and controlling a live TradingView Desktop chart.\n\nTOOL SELECTION GUIDE \u2014 use this to pick the right tool:\n\nReading your chart:\n- chart_get_state \u2192 get symbol, timeframe, all indicator names + entity IDs (call first)\n- data_get_study_values \u2192 get current numeric values from ALL visible indicators (RSI, MACD, BB, EMA, etc.)\n- quote_get \u2192 get real-time price snapshot (last, OHLC, volume)\n- data_get_ohlcv \u2192 get price bars. ALWAYS pass summary=true unless you need individual bars\n\nReading custom Pine indicator output (line.new/label.new/table.new/box.new drawings):\n- data_get_pine_lines \u2192 horizontal price levels from custom indicators (deduplicated, sorted)\n- data_get_pine_labels \u2192 text annotations with prices (\"PDH 24550\", \"Bias Long\", etc.)\n- data_get_pine_tables \u2192 table data as formatted rows (session stats, analytics dashboards)\n- data_get_pine_boxes \u2192 price zones as {high, low} pairs\n- ALWAYS pass study_filter to target a specific indicator by name (e.g., study_filter=\"Profiler\")\n- Indicators must be VISIBLE on chart for these to work\n\nChanging the chart:\n- chart_set_symbol, chart_set_timeframe, chart_set_type \u2192 change ticker/resolution/style\n- chart_manage_indicator \u2192 add/remove studies. USE FULL NAMES: \"Relative Strength Index\" not \"RSI\"\n- chart_scroll_to_date \u2192 jump to a date (ISO format)\n- indicator_set_inputs \u2192 change indicator settings (length, source, etc.)\n\nPine Script development:\n- pine_set_source \u2192 inject code, pine_smart_compile \u2192 compile + check errors\n- pine_get_errors \u2192 read errors, pine_get_console \u2192 read log output\n- WARNING: pine_get_source can return 200KB+ for complex scripts \u2014 avoid unless editing\n\nScreenshots: capture_screenshot \u2192 regions: \"full\", \"chart\", \"strategy_tester\"\nReplay: replay_start \u2192 replay_step \u2192 replay_trade \u2192 replay_status \u2192 replay_stop\nBatch: batch_run \u2192 run action across multiple symbols/timeframes\nDrawing: draw_shape \u2192 horizontal_line, trend_line, rectangle, text\nAlerts: alert_create, alert_list, alert_delete\nLaunch: tv_launch \u2192 auto-detect and start TradingView with CDP on any platform\nPanes: pane_list, pane_set_layout (s, 2h, 2v, 4, 6, 8), pane_focus, pane_set_symbol\nTabs: tab_list, tab_new, tab_close, tab_switch\n\nCONTEXT MANAGEMENT:\n- ALWAYS use summary=true on data_get_ohlcv\n- ALWAYS use study_filter on pine tools when you know which indicator you want\n- NEVER use verbose=true unless user specifically asks for raw data\n- Prefer capture_screenshot for visual context over pulling large datasets\n- Call chart_get_state ONCE at start, reuse entity IDs"
+        }
+      }
+    },
+    {
+      "step": "tool_discovery",
+      "status": "PASS",
+      "elapsed_seconds": 0.008617162704467773,
+      "timestamp": "2026-10-02T09:47:28.565858",
+      "result": {
+        "success": true,
+        "total_tools": 97,
+        "categories": {
+          "health": 5,
+          "chart": 10,
+          "pine": 22,
+          "data": 10,
+          "other": 2,
+          "capture": 1,
+          "drawing": 5,
+          "alerts": 3,
+          "batch": 1,
+          "replay": 6,
+          "indicator": 4,
+          "ui": 20,
+          "morning": 3,
+          "live_trading": 5
+        },
+        "tools": [
+          {
+            "name": "tv_health_check",
+            "description": "Check CDP connection to TradingView and return current chart state",
+            "category": "health"
+          },
+          {
+            "name": "tv_discover",
+            "description": "Report which known TradingView API paths are available and their methods",
+            "category": "health"
+          },
+          {
+            "name": "tv_ui_state",
+            "description": "Get current UI state: which panels are open, what buttons are visible/enabled/disabled",
+            "category": "health"
+          },
+          {
+            "name": "tv_launch",
+            "description": "Launch TradingView Desktop with Chrome DevTools Protocol (remote debugging) enabled. Auto-detects install location on Mac, Windows, and Linux.",
+            "category": "health"
+          },
+          {
+            "name": "chart_get_state",
+            "description": "Get current chart state (symbol, timeframe, chart type, indicators)",
+            "category": "chart"
+          },
+          {
+            "name": "chart_set_symbol",
+            "description": "Change the chart symbol",
+            "category": "chart"
+          },
+          {
+            "name": "chart_set_timeframe",
+            "description": "Change the chart timeframe/resolution",
+            "category": "chart"
+          },
+          {
+            "name": "chart_set_type",
+            "description": "Change chart type",
+            "category": "chart"
+          },
+          {
+            "name": "chart_manage_indicator",
+            "description": "Add or remove an indicator/study on the chart",
+            "category": "chart"
+          },
+          {
+            "name": "chart_get_visible_range",
+            "description": "Get the visible date range (unix timestamps) and bars range on the chart",
+            "category": "chart"
+          },
+          {
+            "name": "chart_set_visible_range",
+            "description": "Zoom the chart to a specific date range (unix timestamps)",
+            "category": "chart"
+          },
+          {
+            "name": "chart_scroll_to_date",
+            "description": "Jump the chart view to center on a specific date",
+            "category": "chart"
+          },
+          {
+            "name": "symbol_info",
+            "description": "Get detailed metadata about the current symbol (name, exchange, type, description)",
+            "category": "chart"
+          },
+          {
+            "name": "symbol_search",
+            "description": "Search for symbols by name or keyword",
+            "category": "chart"
+          },
+          {
+            "name": "pine_get_source",
+            "description": "Get current Pine Script source code from the editor",
+            "category": "pine"
+          },
+          {
+            "name": "pine_set_source",
+            "description": "Set Pine Script source code in the editor",
+            "category": "pine"
+          },
+          {
+            "name": "pine_compile_dom",
+            "description": "Legacy: DOM-click \"Add/Update on chart\" for the current editor script. Prefer pine_compile (Lab) for reliable server-side compilation.",
+            "category": "pine"
+          },
+          {
+            "name": "pine_get_errors",
+            "description": "Get Pine Script compilation errors from Monaco markers",
+            "category": "pine"
+          },
+          {
+            "name": "pine_save",
+            "description": "Save the current Pine Script (Ctrl+S)",
+            "category": "pine"
+          },
+          {
+            "name": "pine_get_console",
+            "description": "Read Pine Script console/log output (compile messages, log.info(), errors)",
+            "category": "pine"
+          },
+          {
+            "name": "pine_smart_compile",
+            "description": "Intelligent compile: detects button, compiles, checks errors, reports study changes",
+            "category": "pine"
+          },
+          {
+            "name": "pine_new",
+            "description": "Create a new blank Pine Script",
+            "category": "pine"
+          },
+          {
+            "name": "pine_open",
+            "description": "Open a saved Pine Script by name",
+            "category": "pine"
+          },
+          {
+            "name": "pine_list_scripts",
+            "description": "List saved Pine Scripts",
+            "category": "pine"
+          },
+          {
+            "name": "pine_analyze",
+            "description": "Run static analysis on Pine Script code WITHOUT compiling \u2014 catches array out-of-bounds, unguarded array.first()/last(), bad loop bounds, and implicit bool casts. Works offline, no TradingView connection needed.",
+            "category": "pine"
+          },
+          {
+            "name": "pine_check",
+            "description": "Compile Pine Script via TradingView's server API without needing the chart open. Returns compilation errors/warnings. Useful for validating code before injecting into the chart.",
+            "category": "pine"
+          },
+          {
+            "name": "data_get_ohlcv",
+            "description": "Get OHLCV bar data from the chart. Use summary=true for compact stats instead of all bars (saves context).",
+            "category": "data"
+          },
+          {
+            "name": "data_get_indicator",
+            "description": "Get indicator/study info and input values",
+            "category": "data"
+          },
+          {
+            "name": "data_get_strategy_results",
+            "description": "Get strategy performance metrics from Strategy Tester",
+            "category": "data"
+          },
+          {
+            "name": "data_get_trades",
+            "description": "Get trade list from Strategy Tester",
+            "category": "data"
+          },
+          {
+            "name": "data_get_equity",
+            "description": "Get equity curve data from Strategy Tester",
+            "category": "data"
+          },
+          {
+            "name": "quote_get",
+            "description": "Get real-time quote data for a symbol (price, OHLC, volume)",
+            "category": "other"
+          },
+          {
+            "name": "depth_get",
+            "description": "Get order book / DOM (Depth of Market) data from the chart",
+            "category": "other"
+          },
+          {
+            "name": "data_get_pine_lines",
+            "description": "Read horizontal price levels drawn by Pine Script indicators (line.new). Returns deduplicated price levels per study. Use study_filter to target a specific indicator.",
+            "category": "data"
+          },
+          {
+            "name": "data_get_pine_labels",
+            "description": "Read text labels drawn by Pine Script indicators (label.new). Returns text and price pairs. Use study_filter to target a specific indicator.",
+            "category": "data"
+          },
+          {
+            "name": "data_get_pine_tables",
+            "description": "Read table data drawn by Pine Script indicators (table.new). Returns formatted text rows per table. Use study_filter to target a specific indicator.",
+            "category": "data"
+          },
+          {
+            "name": "data_get_pine_boxes",
+            "description": "Read box/zone boundaries drawn by Pine Script indicators (box.new). Returns deduplicated {high, low} price zones. Use study_filter to target a specific indicator.",
+            "category": "data"
+          },
+          {
+            "name": "data_get_study_values",
+            "description": "Get current indicator values from the data window for all visible studies (RSI, MACD, Bollinger Bands, EMAs, custom indicators with plot()).",
+            "category": "data"
+          },
+          {
+            "name": "capture_screenshot",
+            "description": "Take a screenshot of the TradingView chart",
+            "category": "capture"
+          },
+          {
+            "name": "draw_shape",
+            "description": "Draw a shape/line on the chart",
+            "category": "drawing"
+          },
+          {
+            "name": "draw_list",
+            "description": "List all shapes/drawings on the chart",
+            "category": "drawing"
+          },
+          {
+            "name": "draw_clear",
+            "description": "Remove all drawings from the chart",
+            "category": "drawing"
+          },
+          {
+            "name": "draw_remove_one",
+            "description": "Remove a specific drawing by entity ID",
+            "category": "drawing"
+          },
+          {
+            "name": "draw_get_properties",
+            "description": "Get properties and points of a specific drawing",
+            "category": "drawing"
+          },
+          {
+            "name": "alert_create",
+            "description": "Create a price alert via the TradingView alert dialog",
+            "category": "alerts"
+          },
+          {
+            "name": "alert_list",
+            "description": "List active alerts",
+            "category": "alerts"
+          },
+          {
+            "name": "alert_delete",
+            "description": "Delete all alerts or open context menu for deletion",
+            "category": "alerts"
+          },
+          {
+            "name": "batch_run",
+            "description": "Run an action across multiple symbols and/or timeframes",
+            "category": "batch"
+          },
+          {
+            "name": "replay_start",
+            "description": "Start bar replay mode, optionally at a specific date",
+            "category": "replay"
+          },
+          {
+            "name": "replay_step",
+            "description": "Advance one bar in replay mode",
+            "category": "replay"
+          },
+          {
+            "name": "replay_autoplay",
+            "description": "Toggle autoplay in replay mode, optionally set speed",
+            "category": "replay"
+          },
+          {
+            "name": "replay_stop",
+            "description": "Stop replay and return to realtime",
+            "category": "replay"
+          },
+          {
+            "name": "replay_trade",
+            "description": "Execute a trade action in replay mode (buy, sell, or close position)",
+            "category": "replay"
+          },
+          {
+            "name": "replay_status",
+            "description": "Get current replay mode status",
+            "category": "replay"
+          },
+          {
+            "name": "indicator_set_inputs",
+            "description": "Change indicator/study input values (e.g., length, source, period)",
+            "category": "indicator"
+          },
+          {
+            "name": "indicator_toggle_visibility",
+            "description": "Show or hide an indicator/study on the chart",
+            "category": "indicator"
+          },
+          {
+            "name": "watchlist_get",
+            "description": "Get all symbols from the current TradingView watchlist with last price, change, and change%",
+            "category": "indicator"
+          },
+          {
+            "name": "watchlist_add",
+            "description": "Add a symbol to the TradingView watchlist",
+            "category": "indicator"
+          },
+          {
+            "name": "ui_click",
+            "description": "Click a UI element by aria-label, data-name, text content, or class substring",
+            "category": "ui"
+          },
+          {
+            "name": "ui_open_panel",
+            "description": "Open, close, or toggle TradingView panels (pine-editor, strategy-tester, watchlist, alerts, trading)",
+            "category": "ui"
+          },
+          {
+            "name": "ui_fullscreen",
+            "description": "Toggle TradingView fullscreen mode",
+            "category": "ui"
+          },
+          {
+            "name": "layout_list",
+            "description": "List saved chart layouts",
+            "category": "ui"
+          },
+          {
+            "name": "layout_switch",
+            "description": "Switch to a saved chart layout by name or ID",
+            "category": "ui"
+          },
+          {
+            "name": "ui_keyboard",
+            "description": "Press keyboard keys or shortcuts (e.g., Enter, Escape, Alt+S, Ctrl+Z)",
+            "category": "ui"
+          },
+          {
+            "name": "ui_type_text",
+            "description": "Type text into the currently focused input/textarea element",
+            "category": "ui"
+          },
+          {
+            "name": "ui_hover",
+            "description": "Hover over a UI element by aria-label, data-name, or text content",
+            "category": "ui"
+          },
+          {
+            "name": "ui_scroll",
+            "description": "Scroll the chart or page up/down/left/right",
+            "category": "ui"
+          },
+          {
+            "name": "ui_mouse_click",
+            "description": "Click at specific x,y coordinates on the TradingView window",
+            "category": "ui"
+          },
+          {
+            "name": "ui_find_element",
+            "description": "Find UI elements by text, aria-label, or CSS selector and return their positions",
+            "category": "ui"
+          },
+          {
+            "name": "ui_evaluate",
+            "description": "Execute JavaScript code in the TradingView page context for advanced automation",
+            "category": "ui"
+          },
+          {
+            "name": "pane_list",
+            "description": "List all chart panes in the current layout with their symbols and active state",
+            "category": "ui"
+          },
+          {
+            "name": "pane_set_layout",
+            "description": "Change the chart grid layout (e.g., single, 2x2, 2h, 3v)",
+            "category": "ui"
+          },
+          {
+            "name": "pane_focus",
+            "description": "Focus a specific chart pane by index (0-based)",
+            "category": "ui"
+          },
+          {
+            "name": "pane_set_symbol",
+            "description": "Set the symbol on a specific pane by index",
+            "category": "ui"
+          },
+          {
+            "name": "tab_list",
+            "description": "List all open TradingView chart tabs",
+            "category": "ui"
+          },
+          {
+            "name": "tab_new",
+            "description": "Open a new chart tab",
+            "category": "ui"
+          },
+          {
+            "name": "tab_close",
+            "description": "Close the current chart tab",
+            "category": "ui"
+          },
+          {
+            "name": "tab_switch",
+            "description": "Switch to a chart tab by index",
+            "category": "ui"
+          },
+          {
+            "name": "morning_brief",
+            "description": "Scan your watchlist, read all indicator values, and return structured data for a session brief. Reads rules.json for your bias criteria and watchlist. Claude applies the rules to generate your daily bias.",
+            "category": "morning"
+          },
+          {
+            "name": "session_save",
+            "description": "Save today's morning brief to ~/.tradingview-mcp/sessions/YYYY-MM-DD.json for future reference.",
+            "category": "morning"
+          },
+          {
+            "name": "session_get",
+            "description": "Retrieve a saved session brief. Returns today's if available, otherwise yesterday's.",
+            "category": "morning"
+          },
+          {
+            "name": "tv_state_snapshot",
+            "description": "Lab: snapshot chart symbol/timeframe, whether the Pine editor is open, Strategy Tester visibility, and any open modal.",
+            "category": "health"
+          },
+          {
+            "name": "pine_detect_blocking_modal",
+            "description": "Lab: detect & classify any blocking TradingView modal (SAVE_SCRIPT_MODAL, UNSAVED_CHANGES_MODAL, PUBLISH_MODAL, LOGIN_MODAL, BROKER_OR_ORDER_MODAL, PAYMENT_OR_UPGRADE_MODAL, UNKNOWN_MODAL). Returns structured status, never clicks anything.",
+            "category": "pine"
+          },
+          {
+            "name": "pine_resolve_known_modal",
+            "description": "Lab: safely resolve ONLY a known+expected modal. Save Script confirmed only when name matches expected_script_name. Publish/login/broker/payment are always refused (UNSAFE_ACTION_REFUSED).",
+            "category": "pine"
+          },
+          {
+            "name": "pine_compile",
+            "description": "Lab: compile Pine source via TradingView pine-facade (server-side, no popup). Returns OK_COMPILED or COMPILE_ERROR with exact line/column errors. This is the reliable compile/validation path.",
+            "category": "pine"
+          },
+          {
+            "name": "pine_read_compile_errors",
+            "description": "Lab: compile source and return only the error list (line/column/message).",
+            "category": "pine"
+          },
+          {
+            "name": "pine_replace_script",
+            "description": "Lab: inject Pine source into the live Monaco editor (opens the Pine editor first; refuses if a blocking modal is up). Does NOT save or add to chart.",
+            "category": "pine"
+          },
+          {
+            "name": "pine_add_to_chart",
+            "description": "Lab: add the current editor script to the chart (foregrounds the Pine editor + modal preflight first). Clicks \"Add to chart\", or \"Update on chart\" when the script is already on chart \u2014 the latter autosaves the linked script and is reported via the warning/autosaved_linked_script fields. Pass allow_update_existing=false to refuse the update case instead.",
+            "category": "pine"
+          },
+          {
+            "name": "pine_save_script",
+            "description": "Lab: save current script (Ctrl+S). If the Save Script name dialog appears it is confirmed only when expected_script_name matches; otherwise refused.",
+            "category": "pine"
+          },
+          {
+            "name": "strategy_tester_read_summary",
+            "description": "Lab: read the Strategy Tester backtest summary (net profit, trades, % profitable, profit factor, max drawdown) from the chart model API. Returns STRATEGY_TESTER_NOT_AVAILABLE if no strategy is on the chart.",
+            "category": "pine"
+          },
+          {
+            "name": "pine_full_cycle_indicator",
+            "description": "Lab: full indicator cycle \u2014 compile (facade) \u2192 inject \u2192 optionally add to chart. Stops at COMPILE_ERROR with errors.",
+            "category": "pine"
+          },
+          {
+            "name": "pine_full_cycle_strategy",
+            "description": "Lab: full strategy cycle \u2014 compile (facade) \u2192 inject \u2192 add to chart \u2192 read Strategy Tester summary. add_to_chart defaults FALSE (adding can autosave over a linked saved script). Stops at COMPILE_ERROR with errors.",
+            "category": "pine"
+          },
+          {
+            "name": "live_trading_status",
+            "description": "LIVE: read the strict-gate status (enabled/disabled, factors, caps, time/orders remaining). Never reveals the confirm_token.",
+            "category": "live_trading"
+          },
+          {
+            "name": "live_broker_status",
+            "description": "LIVE: read-only \u2014 is a broker (e.g. Binance) connected in TradingView?",
+            "category": "live_trading"
+          },
+          {
+            "name": "live_place_order",
+            "description": "LIVE: preview (default) or submit a REAL broker order. dry_run defaults TRUE and sends nothing. A real submit (dry_run=false) requires the gate to be ARMED by a human PLUS confirm_token + i_understand_real_money=true, and is still capped by the armed whitelist/notional/budget. Refuses with a structured status otherwise.",
+            "category": "live_trading"
+          },
+          {
+            "name": "webhook_health",
+            "description": "LIVE: check the webhook bot is reachable (GET /test). Set env WEBHOOK_URL first.",
+            "category": "live_trading"
+          },
+          {
+            "name": "webhook_place_order",
+            "description": "LIVE: place an order ON COMMAND through the existing webhook bot (same endpoint TradingView alerts use). dry_run defaults TRUE (returns the exact JSON, sends nothing). A real send needs dry_run=false + the gate ARMED + confirm_token + i_understand_real_money=true, and respects the armed caps. Supports the bot payload: fixed_usd/fixed_qty/strategy/match_last, optional tp_price, LIMIT type/price.",
+            "category": "live_trading"
+          }
+        ]
+      }
+    },
+    {
+      "step": "health_check",
+      "status": "PASS",
+      "elapsed_seconds": 0.22910404205322266,
+      "timestamp": "2026-10-02T09:47:28.794983",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "cdp_connected": true,
+          "target_id": "0C5B9E3CD87A45DCA0C0872796FB9396",
+          "target_url": "https://www.tradingview.com/chart/5ddhlPd0/",
+          "target_title": "FILUSDC.P 1.03780 \u25bc \u22121.95% HERMES",
+          "chart_symbol": "HYPERLIQUID:FILUSDC.P",
+          "chart_resolution": "60",
+          "chart_type": 1,
+          "api_available": true
+        },
+        "error": null,
+        "latency_ms": 229.08520698547363
+      }
+    },
+    {
+      "step": "chart_state_read",
+      "status": "PASS",
+      "elapsed_seconds": 0.0035004615783691406,
+      "timestamp": "2026-10-02T09:47:28.798502",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "symbol": "HYPERLIQUID:FILUSDC.P",
+          "resolution": "60",
+          "chartType": 1,
+          "studies": [
+            {
+              "id": "Tt9oOD",
+              "name": "Aggressive Flow Momentum"
+            },
+            {
+              "id": "U54xEM",
+              "name": "Volume"
+            }
+          ]
+        },
+        "error": null,
+        "latency_ms": 3.4825801849365234
+      }
+    },
+    {
+      "step": "symbol_read",
+      "status": "PASS",
+      "elapsed_seconds": 0.0012600421905517578,
+      "timestamp": "2026-10-02T09:47:28.799778",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "symbol": "FILUSDC.P",
+          "full_name": "HYPERLIQUID:FILUSDC.P",
+          "exchange": "Hyperliquid",
+          "description": "Filecoin Perpetual Contract",
+          "type": "swap",
+          "pro_name": "HYPERLIQUID:FILUSDC.P",
+          "typespecs": [
+            "perpetual",
+            "crypto"
+          ],
+          "resolution": "60",
+          "chart_type": 1
+        },
+        "error": null,
+        "latency_ms": 1.245260238647461
+      }
+    },
+    {
+      "step": "timeframe_read",
+      "status": "PASS",
+      "elapsed_seconds": 0.0010590553283691406,
+      "timestamp": "2026-10-02T09:47:28.800851",
+      "result": {
+        "success": true,
+        "timeframe": "unknown",
+        "latency_ms": 1.0402202606201172
+      }
+    },
+    {
+      "step": "pine_source_read",
+      "status": "PASS",
+      "elapsed_seconds": 0.005756378173828125,
+      "timestamp": "2026-10-02T09:47:28.806620",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "source": "//@version=6\n// =============================================================================\n// Aggressive Flow Momentum  \u2014  validated in Python, mirrored here 1:1\n// =============================================================================\n// CONCEPT\n//   We have no historical L2 book, but every bar records the RESULT of the\n//   order flow that produced it. Two OHLCV statistics recover the aggressive\n//   flow signature:\n//\n//     CLV (Close Location Value) = 2*(close-low)/(high-low) - 1   in [-1, +1]\n//         +1 => bar closed on its high  => net aggressive BUYING dominated\n//         -1 => bar closed on its low   => net aggressive SELLING dominated\n//          0 => closed mid-range        => balanced / absorbed\n//         This is the OHLCV ancestor of footprint delta.\n//\n//     Volume z-score\n//         Volume measures the QUANTITY of aggression in the bar.\n//\n//   SIGNAL (long only)\n//     volZ > volThreshold          abnormal quantity of trading\n//     clv  > clvThreshold          aggressive buyers in control\n//     emaFast > emaSlow            uptrend regime\n//   EXIT\n//     Fixed time exit after holdBars bars. This is deliberate: the measured\n//     edge is a time exit, so no stop/target is applied (the 10x ATR levels in\n//     the Python version exist only to make the simulator exit on time).\n//\n// VALIDATION (Python, 4h, 10 assets, LAST 30% OF EACH SERIES HELD OUT)\n//     pooled PF 1.69 | 433 trades | worst DD -15.6% | median Sharpe +2.03\n//     beats buy & hold on 6/10 assets @ 25% equity per trade\n//     Strongest: LINK 2.25, ETH 2.18, XRP 2.19, DOGE 1.94\n//     Weak: SOL 0.96, AVAX 0.98, ADA 1.14  -> edge is regime-dependent\n//     PARITY: trade list matches Python _simulate() bar-for-bar on\n//     BTC/ETH/SOL/XRP/DOGE 4h (see pine_parity_check.py). Remaining risk is\n//     TradingView's own fill/timing engine, not the logic.\n// FINAL VALIDATION (2026-09-30)\n//     Strict 5-fold walkforward (4h-only, frozen params): pooled PF 2.13,\n//     37/50 profitable folds, medPF 1.78. 4h-only beats the 1h+4h mix (1.40).\n//     Cost sensitivity: PF 1.66+ even at 0.20%/side fees.\n//     Bootstrap DD (2000 resamples @ 25% sizing): P(loss)=0%, but worst-case\n//     DD 45-82% if losses cluster -> SIZE AT 5-10% OF EQUITY PER TRADE, not\n//     the 25% default below, for a survivable drawdown profile.\n//     A flow + trend-overlay portfolio was tested and REJECTED (worse DD,\n//     lower medPF, fewer profitable folds). Flow alone is the robust system.\n// =============================================================================\nstrategy(\"Aggressive Flow Momentum\", overlay = true,\n     initial_capital = 10000, default_qty_type = strategy.percent_of_equity,\n     default_qty_value = 25, pyramiding = 0,\n     commission_type = strategy.commission.percent, commission_value = 0.06,\n     process_orders_on_close = false, calc_on_every_tick = false)\n\n// \u2500\u2500 inputs \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\ngrpFlow = \"Order-flow detection\"\nvolLen      = input.int(50, \"Volume z-score length\", minval = 5,   group = grpFlow)\nvolThreshold= input.float(1.5, \"Volume z-score threshold\", step = 0.1, group = grpFlow)\nclvThreshold= input.float(0.5, \"CLV threshold\", step = 0.05,          group = grpFlow)\n\ngrpTrend = \"Trend regime\"\nemaFastLen  = input.int(20, \"Fast EMA length\", minval = 2, group = grpTrend)\nemaSlowLen  = input.int(50, \"Slow EMA length\", minval = 3, group = grpTrend)\n\ngrpExit = \"Exit\"\nholdBars = input.int(12, \"Time exit (bars)\", minval = 1, group = grpExit)\n\nuseLong  = input.bool(true,  \"Allow long\",  group = grpExit)\nuseShort = input.bool(false, \"Allow short\", group = grpExit)\n\n// \u2500\u2500 order-flow features \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nrng      = high - low\nrawClv   = nz((close - low) / (rng == 0 ? 1 : rng), 0.0)\nclv      = 2.0 * rawClv - 1.0\n\nvolMean  = ta.sma(volume, volLen)\nvolSd    = ta.stdev(volume, volLen)\nvolZ     = volSd == 0 ? 0.0 : (volume - volMean) / volSd\n\nemaFast  = ta.ema(close, emaFastLen)\nemaSlow  = ta.ema(close, emaSlowLen)\n\n// \u2500\u2500 signals \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nlongSignal  = useLong  and volZ > volThreshold and clv > clvThreshold and emaFast > emaSlow\nshortSignal = useShort and volZ > volThreshold and clv < -clvThreshold and emaFast < emaSlow\n\n// \u2500\u2500 fixed time exit \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n// PARITY NOTE: the Python _simulate() exits ONLY on stop, target, or the time\n// limit. It has NO \"exit when the signal disappears\" rule. An earlier draft of\n// this file added one and it silently changed the trade count, so it is\n// deliberately absent here. Do not re-add it.\nvar int barsHeld = 0\ninPos = strategy.position_size != 0\n\nif inPos\n    barsHeld += 1\nelse\n    barsHeld := 0\n\nif inPos and barsHeld >= holdBars\n    strategy.close_all(comment = \"time exit\")\n\n// \u2500\u2500 entries (one position at a time) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nif not inPos\n    if longSignal\n        strategy.entry(\"Long\", strategy.long)\n        barsHeld := 0\n    else if shortSignal\n        strategy.entry(\"Short\", strategy.short)\n        barsHeld := 0\n\n// \u2500\u2500 diagnostics \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\nplot(emaFast, \"Fast EMA\", color = color.new(color.teal, 0), linewidth = 1)\nplot(emaSlow, \"Slow EMA\", color = color.new(color.red,   0), linewidth = 1)\n\nbgcolor(volZ > volThreshold and clv > clvThreshold and emaFast > emaSlow\n         ? color.new(color.green, 88)\n         : volZ > volThreshold and clv < -clvThreshold and emaFast < emaSlow\n         ? color.new(color.red, 88) : na, title = \"Aggressive flow state\")\n",
+          "line_count": 117,
+          "char_count": 5648
+        },
+        "error": null,
+        "latency_ms": 5.73277473449707
+      }
+    },
+    {
+      "step": "pine_static_analysis",
+      "status": "PASS",
+      "elapsed_seconds": 0.003715038299560547,
+      "timestamp": "2026-10-02T09:47:28.810346",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "issue_count": 0,
+          "diagnostics": [],
+          "note": "No static analysis issues found. Use pine_compile or pine_smart_compile for full server-side compilation check."
+        },
+        "error": null,
+        "latency_ms": 1.1827945709228516
+      }
+    },
+    {
+      "step": "pine_compile",
+      "status": "PASS",
+      "elapsed_seconds": 0.43861961364746094,
+      "timestamp": "2026-10-02T09:47:29.248977",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "status": "OK_COMPILED",
+          "compiled": true,
+          "error_count": 0,
+          "warning_count": 0,
+          "errors": [],
+          "warnings": []
+        },
+        "error": null,
+        "latency_ms": 436.22756004333496
+      }
+    },
+    {
+      "step": "compiler_diagnostics",
+      "status": "PASS",
+      "elapsed_seconds": 0.003079652786254883,
+      "timestamp": "2026-10-02T09:47:29.252082",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "has_errors": false,
+          "error_count": 0,
+          "errors": []
+        },
+        "error": null,
+        "latency_ms": 3.0667781829833984
+      }
+    },
+    {
+      "step": "pine_source_write",
+      "status": "PASS",
+      "elapsed_seconds": 0.22979044914245605,
+      "timestamp": "2026-10-02T09:47:29.481889",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "lines_set": 7,
+          "method": "textarea"
+        },
+        "error": null,
+        "latency_ms": 229.77447509765625
+      }
+    },
+    {
+      "step": "compile_modified_fixture",
+      "status": "PASS",
+      "elapsed_seconds": 0.40332818031311035,
+      "timestamp": "2026-10-02T09:47:29.885240",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "status": "OK_COMPILED",
+          "compiled": true,
+          "error_count": 0,
+          "warning_count": 0,
+          "errors": [],
+          "warnings": []
+        },
+        "error": null,
+        "latency_ms": 403.3067226409912
+      }
+    },
+    {
+      "step": "add_to_chart",
+      "status": "PASS",
+      "elapsed_seconds": 2.525632619857788,
+      "timestamp": "2026-10-02T09:47:32.410900",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "status": "OK_ADDED_TO_CHART",
+          "button_clicked": "Update on chart",
+          "autosaved_linked_script": true,
+          "warning": "\"Update on chart\" autosaved the editor content over the linked script.",
+          "modal_after": null
+        },
+        "error": null,
+        "latency_ms": 2525.6142616271973
+      }
+    },
+    {
+      "step": "strategy_tester_availability",
+      "status": "PASS",
+      "elapsed_seconds": 0.007380247116088867,
+      "timestamp": "2026-10-02T09:47:32.418303",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "bottom_panel": {
+            "open": true,
+            "height": 830
+          },
+          "right_panel": {
+            "open": false,
+            "width": 45
+          },
+          "pine_editor": {
+            "open": true,
+            "width": 890,
+            "height": 1128
+          },
+          "strategy_tester": {
+            "open": false
+          },
+          "widgetbar": {
+            "open": false
+          },
+          "buttons": {
+            "top_bar": [
+              {
+                "label": "Logged in as CompoundBot\nActive layout: ",
+                "disabled": false,
+                "x": 0,
+                "y": 0
+              },
+              {
+                "label": "FILUSDC.P",
+                "disabled": false,
+                "x": 4,
+                "y": 5
+              },
+              {
+                "label": "Compare symbols",
+                "disabled": false,
+                "x": 136,
+                "y": 0
+              },
+              {
+                "label": "1s",
+                "disabled": false,
+                "x": 183,
+                "y": 0
+              },
+              {
+                "label": "5s",
+                "disabled": false,
+                "x": 208,
+                "y": 0
+              },
+              {
+                "label": "15s",
+                "disabled": false,
+                "x": 233,
+                "y": 0
+              },
+              {
+                "label": "30s",
+                "disabled": false,
+                "x": 265,
+                "y": 0
+              },
+              {
+                "label": "1m",
+                "disabled": false,
+                "x": 298,
+                "y": 0
+              },
+              {
+                "label": "3m",
+                "disabled": false,
+                "x": 329,
+                "y": 0
+              },
+              {
+                "label": "5m",
+                "disabled": false,
+                "x": 360,
+                "y": 0
+              },
+              {
+                "label": "15m",
+                "disabled": false,
+                "x": 391,
+                "y": 0
+              },
+              {
+                "label": "1h",
+                "disabled": false,
+                "x": 429,
+                "y": 0
+              },
+              {
+                "label": "3h",
+                "disabled": false,
+                "x": 456,
+                "y": 0
+              },
+              {
+                "label": "4h",
+                "disabled": false,
+                "x": 483,
+                "y": 0
+              },
+              {
+                "label": "6h",
+                "disabled": false,
+                "x": 510,
+                "y": 0
+              },
+              {
+                "label": "12h",
+                "disabled": false,
+                "x": 537,
+                "y": 0
+              },
+              {
+                "label": "D",
+                "disabled": false,
+                "x": 571,
+                "y": 0
+              },
+              {
+                "label": "W",
+                "disabled": false,
+                "x": 592,
+                "y": 0
+              },
+              {
+                "label": "M",
+                "disabled": false,
+                "x": 616,
+                "y": 0
+              },
+              {
+                "label": "Chart interval",
+                "disabled": false,
+                "x": 638,
+                "y": 0
+              },
+              {
+                "label": "Candles",
+                "disabled": false,
+                "x": 671,
+                "y": 0
+              },
+              {
+                "label": "Line",
+                "disabled": false,
+                "x": 709,
+                "y": 0
+              },
+              {
+                "label": "Bar's style",
+                "disabled": false,
+                "x": 747,
+                "y": 0
+              },
+              {
+                "label": "Indicators",
+                "disabled": false,
+                "x": 780,
+                "y": 0
+              },
+              {
+                "label": "Favorite indicators",
+                "disabled": false,
+                "x": 888,
+                "y": 0
+              },
+              {
+                "label": "Indicator templates",
+                "disabled": false,
+                "x": 912,
+                "y": 0
+              },
+              {
+                "label": "Alert",
+                "disabled": false,
+                "x": 959,
+                "y": 0
+              },
+              {
+                "label": "Replay",
+                "disabled": false,
+                "x": 1037,
+                "y": 0
+              },
+              {
+                "label": "Undo change resolution",
+                "disabled": false,
+                "x": 1135,
+                "y": 0
+              },
+              {
+                "label": "Layout setup",
+                "disabled": false,
+                "x": 1211,
+                "y": 0
+              },
+              {
+                "label": "HERMESSave",
+                "disabled": false,
+                "x": 1249,
+                "y": 0
+              },
+              {
+                "label": "Manage layouts",
+                "disabled": false,
+                "x": 1314,
+                "y": 0
+              },
+              {
+                "label": "Quick search",
+                "disabled": false,
+                "x": 1347,
+                "y": 0
+              },
+              {
+                "label": "Settings",
+                "disabled": false,
+                "x": 1385,
+                "y": 0
+              },
+              {
+                "label": "Fullscreen mode",
+                "disabled": false,
+                "x": 1423,
+                "y": 0
+              },
+              {
+                "label": "Take a snapshot",
+                "disabled": false,
+                "x": 1461,
+                "y": 0
+              },
+              {
+                "label": "Indicators, metrics, and strategies",
+                "disabled": false,
+                "x": 780,
+                "y": 0
+              },
+              {
+                "label": "Create alert",
+                "disabled": false,
+                "x": 888,
+                "y": 0
+              },
+              {
+                "label": "Bar replay",
+                "disabled": false,
+                "x": 926,
+                "y": 0
+              },
+              {
+                "label": "Share your idea with the trade community",
+                "disabled": false,
+                "x": 1346,
+                "y": 0
+              },
+              {
+                "label": "Trade",
+                "disabled": false,
+                "x": 1388,
+                "y": 5
+              },
+              {
+                "label": "Cross",
+                "disabled": false,
+                "x": 0,
+                "y": 48
+              },
+              {
+                "label": "Filecoin Perpetual Contract",
+                "disabled": false,
+                "x": 87,
+                "y": 49
+              },
+              {
+                "label": "More",
+                "disabled": false,
+                "x": 439,
+                "y": 46
+              },
+              {
+                "label": "Watchlist, details, and news",
+                "disabled": false,
+                "x": 1406,
+                "y": 44
+              },
+              {
+                "label": "Move split-view to overlay",
+                "disabled": false,
+                "x": 1475,
+                "y": 16
+              },
+              {
+                "label": "Close",
+                "disabled": false,
+                "x": 2331,
+                "y": 16
+              }
+            ],
+            "toolbar": [
+              {
+                "label": "Trendline",
+                "disabled": false,
+                "x": 0,
+                "y": 86
+              },
+              {
+                "label": "Hide",
+                "disabled": false,
+                "x": 116,
+                "y": 70
+              },
+              {
+                "label": "Remove",
+                "disabled": false,
+                "x": 172,
+                "y": 70
+              }
+            ],
+            "left_sidebar": [
+              {
+                "label": "Fib retracement",
+                "disabled": false,
+                "x": 0,
+                "y": 124
+              },
+              {
+                "label": "XABCD pattern",
+                "disabled": false,
+                "x": 0,
+                "y": 162
+              },
+              {
+                "label": "Long position",
+                "disabled": false,
+                "x": 0,
+                "y": 200
+              },
+              {
+                "label": "Brush",
+                "disabled": false,
+                "x": 0,
+                "y": 238
+              },
+              {
+                "label": "Text",
+                "disabled": false,
+                "x": 0,
+                "y": 276
+              },
+              {
+                "label": "Icon",
+                "disabled": false,
+                "x": 0,
+                "y": 314
+              },
+              {
+                "label": "Measure",
+                "disabled": false,
+                "x": 0,
+                "y": 365
+              },
+              {
+                "label": "Zoom in",
+                "disabled": false,
+                "x": 0,
+                "y": 403
+              },
+              {
+                "label": "Keep drawing",
+                "disabled": false,
+                "x": 0,
+                "y": 492
+              },
+              {
+                "label": "Lock drawings and indicators",
+                "disabled": false,
+                "x": 0,
+                "y": 530
+              },
+              {
+                "label": "Hide all drawings",
+                "disabled": false,
+                "x": 0,
+                "y": 568
+              },
+              {
+                "label": "New drawings will not be synced",
+                "disabled": false,
+                "x": 0,
+                "y": 606
+              },
+              {
+                "label": "Remove objects",
+                "disabled": false,
+                "x": 0,
+                "y": 657
+              },
+              {
+                "label": "Show Favorite Drawing Tools Toolbar",
+                "disabled": false,
+                "x": 0,
+                "y": 1203
+              },
+              {
+                "label": "Edit alert",
+                "disabled": false,
+                "x": -282,
+                "y": 1199
+              }
+            ],
+            "other": [
+              {
+                "label": "2",
+                "disabled": false,
+                "x": 65,
+                "y": 121
+              },
+              {
+                "label": "Date Range",
+                "disabled": false,
+                "x": 64,
+                "y": 388
+              },
+              {
+                "label": "1D",
+                "disabled": false,
+                "x": 64,
+                "y": 388
+              },
+              {
+                "label": "5D",
+                "disabled": false,
+                "x": 92,
+                "y": 388
+              },
+              {
+                "label": "1M",
+                "disabled": false,
+                "x": 120,
+                "y": 388
+              },
+              {
+                "label": "3M",
+                "disabled": false,
+                "x": 149,
+                "y": 388
+              },
+              {
+                "label": "6M",
+                "disabled": false,
+                "x": 178,
+                "y": 388
+              },
+              {
+                "label": "YTD",
+                "disabled": false,
+                "x": 208,
+                "y": 388
+              },
+              {
+                "label": "1Y",
+                "disabled": false,
+                "x": 244,
+                "y": 388
+              },
+              {
+                "label": "All",
+                "disabled": false,
+                "x": 272,
+                "y": 388
+              },
+              {
+                "label": "Go to",
+                "disabled": false,
+                "x": 309,
+                "y": 388
+              },
+              {
+                "label": "08:47:33 UTC",
+                "disabled": false,
+                "x": 1302,
+                "y": 388
+              },
+              {
+                "label": "Object tree and data window",
+                "disabled": false,
+                "x": 1406,
+                "y": 136
+              },
+              {
+                "label": "Chats",
+                "disabled": false,
+                "x": 1406,
+                "y": 182
+              },
+              {
+                "label": "Aggressive Flow Momentum",
+                "disabled": false,
+                "x": 56,
+                "y": 431
+              },
+              {
+                "label": "Collapse panel",
+                "disabled": false,
+                "x": 1328,
+                "y": 431
+              },
+              {
+                "label": "Maximize panel",
+                "disabled": false,
+                "x": 1364,
+                "y": 431
+              },
+              {
+                "label": "light-tab-0",
+                "disabled": false,
+                "x": 79,
+                "y": 480
+              },
+              {
+                "label": "light-tab-1",
+                "disabled": false,
+                "x": 110,
+                "y": 480
+              },
+              {
+                "label": "Mar 22, 2025 \u2014 Sep 30, 2026",
+                "disabled": false,
+                "x": 149,
+                "y": 477
+              },
+              {
+                "label": "10\u202fK\u00a0USDC",
+                "disabled": false,
+                "x": 406,
+                "y": 477
+              },
+              {
+                "label": "Default detalization",
+                "disabled": false,
+                "x": 539,
+                "y": 477
+              },
+              {
+                "label": "Script execution1",
+                "disabled": false,
+                "x": 743,
+                "y": 477
+              },
+              {
+                "label": "Add alert",
+                "disabled": false,
+                "x": 993,
+                "y": 477
+              },
+              {
+                "label": "equity-chart-scale-settings",
+                "disabled": false,
+                "x": 1290,
+                "y": 641
+              },
+              {
+                "label": "Expand chart",
+                "disabled": false,
+                "x": 1354,
+                "y": 641
+              }
+            ],
+            "pine_header": [
+              {
+                "label": "99+",
+                "disabled": false,
+                "x": 1406,
+                "y": 90
+              },
+              {
+                "label": "SaveSave",
+                "disabled": false,
+                "x": 1724,
+                "y": 62
+              },
+              {
+                "label": "Publish scriptPublish script",
+                "disabled": false,
+                "x": 2175,
+                "y": 62
+              }
+            ],
+            "bottom_bar": [
+              {
+                "label": "AI Copilot",
+                "disabled": false,
+                "x": 1406,
+                "y": 888
+              },
+              {
+                "label": "Screeners",
+                "disabled": false,
+                "x": 1406,
+                "y": 932
+              },
+              {
+                "label": "Pine",
+                "disabled": false,
+                "x": 1406,
+                "y": 976
+              },
+              {
+                "label": "Calendars",
+                "disabled": false,
+                "x": 1406,
+                "y": 1020
+              },
+              {
+                "label": "7",
+                "disabled": false,
+                "x": 1406,
+                "y": 1066
+              },
+              {
+                "label": "Notifications",
+                "disabled": false,
+                "x": 1406,
+                "y": 1112
+              },
+              {
+                "label": "Products",
+                "disabled": false,
+                "x": 1406,
+                "y": 1158
+              },
+              {
+                "label": "Help Center",
+                "disabled": false,
+                "x": 1406,
+                "y": 1215
+              },
+              {
+                "label": "Breakdown",
+                "disabled": false,
+                "x": 76,
+                "y": 1101
+              },
+              {
+                "label": "Periodical",
+                "disabled": false,
+                "x": 172,
+                "y": 1101
+              },
+              {
+                "label": "Benchmarking",
+                "disabled": false,
+                "x": 261,
+                "y": 1101
+              },
+              {
+                "label": "Margin usage",
+                "disabled": false,
+                "x": 376,
+                "y": 1101
+              },
+              {
+                "label": "Growth and decline",
+                "disabled": false,
+                "x": 485,
+                "y": 1101
+              },
+              {
+                "label": "By signals",
+                "disabled": false,
+                "x": 1207,
+                "y": 1220
+              },
+              {
+                "label": "By side",
+                "disabled": false,
+                "x": 1294,
+                "y": 1220
+              },
+              {
+                "label": "Distribution",
+                "disabled": false,
+                "x": 76,
+                "y": 1432
+              },
+              {
+                "label": "Streaks",
+                "disabled": false,
+                "x": 177,
+                "y": 1432
+              },
+              {
+                "label": "Time patterns",
+                "disabled": false,
+                "x": 249,
+                "y": 1432
+              },
+              {
+                "label": "Line 1, Col 1",
+                "disabled": false,
+                "x": 2182,
+                "y": 1239
+              },
+              {
+                "label": "Show more",
+                "disabled": false,
+                "x": 64,
+                "y": 1078
+              },
+              {
+                "label": "toast-group-close-button-orders",
+                "disabled": false,
+                "x": 180,
+                "y": 1078
+              },
+              {
+                "label": "Show more99+",
+                "disabled": false,
+                "x": 309,
+                "y": 1078
+              },
+              {
+                "label": "toast-group-close-button-alerts",
+                "disabled": false,
+                "x": 436,
+                "y": 1078
+              },
+              {
+                "label": "toast-group-close-button-alertsFireContr",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-alertsWatchlist",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-trading-notific",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-gift",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-force-password-",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-chat-message",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-abandoned-cart",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-account-deletio",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-account-deletio",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-support-portal",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-global-notifica",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-news-notificati",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-chart_warning",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-chart_info",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-x-share-group",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-bf-notification",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-coupon-notifica",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "toast-group-close-button-charting-ad",
+                "disabled": false,
+                "x": 180,
+                "y": 1261
+              },
+              {
+                "label": "Connect",
+                "disabled": false,
+                "x": 1126,
+                "y": 840
+              }
+            ]
+          },
+          "key_buttons": {
+            "save": {
+              "text": "SaveSave",
+              "disabled": false,
+              "visible": true
+            },
+            "publish_script": {
+              "text": "Publish scriptPublish script",
+              "disabled": false,
+              "visible": true
+            }
+          },
+          "chart": {
+            "symbol": "HYPERLIQUID:FILUSDC.P",
+            "resolution": "60",
+            "chartType": 1,
+            "study_count": 2
+          },
+          "replay": {
+            "available": true,
+            "started": false
+          }
+        },
+        "error": null,
+        "latency_ms": 7.243156433105469
+      }
+    },
+    {
+      "step": "strategy_tester_summary",
+      "status": "PASS",
+      "elapsed_seconds": 0.004889249801635742,
+      "timestamp": "2026-10-02T09:47:32.423209",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "status": "OK",
+          "summary": {
+            "strategy_name": "Aggressive Flow Momentum",
+            "net_profit": 49.56913390019781,
+            "total_trades": 101,
+            "percent_profitable": 0.39603960396039606,
+            "profit_factor": 1.0107679642324858
+          },
+          "metric_count": 107,
+          "results": {
+            "success": true,
+            "metric_count": 107,
+            "source": "internal_api_plus_panel_text",
+            "strategy_name": "Aggressive Flow Momentum",
+            "candidate_count": 1,
+            "metrics": {
+              "currency": "USDC",
+              "settings.dateRange.backtest.from": 1742637600000,
+              "settings.dateRange.backtest.to": 1790776800000,
+              "settings.dateRange.trade.from": 1743480000000,
+              "settings.dateRange.trade.to": 1790776800000,
+              "buyHold.length": 102,
+              "buyHoldPercent.length": 102,
+              "filledOrders.length": 202,
+              "performance.all.avgBarsInLossTrade": 13,
+              "performance.all.avgBarsInTrade": 13,
+              "performance.all.avgBarsInWinTrade": 13,
+              "performance.all.avgLosTrade": 75.46540227,
+              "performance.all.avgLosTradePercent": 0.031066717649976688,
+              "performance.all.avgTrade": 0.490783504,
+              "performance.all.avgTradePercent": 0.0009058519350719094,
+              "performance.all.avgWinTrade": 116.3239668,
+              "performance.all.avgWinTradePercent": 0.04966402055227102,
+              "performance.all.commissionPaid": 293.0780412598,
+              "performance.all.grossLoss": 4603.389538632802,
+              "performance.all.grossLossPercent": 0.4603389538632802,
+              "performance.all.grossLossWC": 4431.183627510002,
+              "performance.all.grossProfit": 4652.958672533,
+              "performance.all.grossProfitPercent": 0.4652958672533,
+              "performance.all.grossProfitWC": 4773.83080267,
+              "performance.all.largestLosTrade": 710.1469680077998,
+              "performance.all.largestLosTradePercent": 0.303331005174,
+              "performance.all.largestWinTrade": 1142.37750466,
+              "performance.all.largestWinTradePercent": 0.486478716226,
+              "performance.all.marginCalls": 0,
+              "performance.all.maxContractsHeld": 3335.569,
+              "performance.all.netProfit": 49.56913390019781,
+              "performance.all.netProfitPercent": 0.0049569133900197815,
+              "performance.all.numberOfLosingTrades": 61,
+              "performance.all.numberOfWiningTrades": 40,
+              "performance.all.percentProfitable": 0.39603960396039606,
+              "performance.all.profitFactor": 1.0107679642324858,
+              "performance.all.ratioAvgWinAvgLoss": 1.5414211453324835,
+              "performance.all.totalOpenTrades": 0,
+              "performance.all.totalTrades": 101,
+              "performance.long.avgBarsInLossTrade": 13,
+              "performance.long.avgBarsInTrade": 13,
+              "performance.long.avgBarsInWinTrade": 13,
+              "performance.long.avgLosTrade": 75.46540227,
+              "performance.long.avgLosTradePercent": 0.031066717649976688,
+              "performance.long.avgTrade": 0.490783504,
+              "performance.long.avgTradePercent": 0.0009058519350719094,
+              "performance.long.avgWinTrade": 116.3239668,
+              "performance.long.avgWinTradePercent": 0.04966402055227102,
+              "performance.long.commissionPaid": 293.0780412598,
+              "performance.long.grossLoss": 4603.389538632802,
+              "performance.long.grossLossPercent": 0.4603389538632802,
+              "performance.long.grossLossWC": 4431.183627510002,
+              "performance.long.grossProfit": 4652.958672533,
+              "performance.long.grossProfitPercent": 0.4652958672533,
+              "performance.long.grossProfitWC": 4773.83080267,
+              "performance.long.largestLosTrade": 710.1469680077998,
+              "performance.long.largestLosTradePercent": 0.303331005174,
+              "performance.long.largestWinTrade": 1142.37750466,
+              "performance.long.largestWinTradePercent": 0.486478716226,
+              "performance.long.marginCalls": 0,
+              "performance.long.maxContractsHeld": 3335.569,
+              "performance.long.netProfit": 49.56913390019781,
+              "performance.long.netProfitPercent": 0.0049569133900197815,
+              "performance.long.numberOfLosingTrades": 61,
+              "performance.long.numberOfWiningTrades": 40,
+              "performance.long.percentProfitable": 0.39603960396039606,
+              "performance.long.profitFactor": 1.0107679642324858,
+              "performance.long.ratioAvgWinAvgLoss": 1.5414211453324835,
+              "performance.long.totalOpenTrades": 0,
+              "performance.long.totalTrades": 101,
+              "performance.maxStrategyDrawDown": 2679.291166256001,
+              "performance.openPL": 0,
+              "performance.buyHoldReturn": -6279.176484000001,
+              "performance.sharpeRatio": 0.00764874396876842,
+              "performance.sortinoRatio": 0.01674787624119248,
+              "performance.maxStrategyDrawDownPercent": 0.2629749841693347,
+              "performance.maxStrategyRunUp": 2761.609166751001,
+              "performance.maxStrategyRunUpPercent": 0.24464709192680711,
+              "performance.buyHoldReturnPercent": -0.6279176484000002,
+              "performance.openPLPercent": 0,
+              "performance.buyHoldGainPercent": -0.6279176686942991,
+              "performance.maxMarginUsed": 4230.337236,
+              "performance.avgMarginUsed": 223.6856693,
+              "performance.openMarginUsed": 0,
+              "performance.short.avgBarsInLossTrade": 0,
+              "performance.short.avgBarsInTrade": 0,
+              "performance.short.avgBarsInWinTrade": 0,
+              "performance.short.commissionPaid": 0,
+              "performance.short.grossLoss": 0,
+              "performance.short.grossLossPercent": 0,
+              "performance.short.grossLossWC": 0,
+              "performance.short.grossProfit": 0,
+              "performance.short.grossProfitPercent": 0,
+              "performance.short.grossProfitWC": 0,
+              "performance.short.marginCalls": 0,
+              "performance.short.maxContractsHeld": 0,
+              "performance.short.netProfit": 0,
+              "performance.short.netProfitPercent": 0,
+              "performance.short.numberOfLosingTrades": 0,
+              "performance.short.numberOfWiningTrades": 0,
+              "performance.short.totalOpenTrades": 0,
+              "performance.short.totalTrades": 0,
+              "trades.length": 101,
+              "marginUsage.length": 203,
+              "firstTradeIndex": 0,
+              "Profitable trades": "39.60%40/101",
+              "Profit factor": "1.011"
+            }
+          }
+        },
+        "error": null,
+        "latency_ms": 4.838228225708008
+      }
+    },
+    {
+      "step": "trade_extraction",
+      "status": "PASS",
+      "elapsed_seconds": 0.003231048583984375,
+      "timestamp": "2026-10-02T09:47:32.426455",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "trade_count": 20,
+          "raw_result_count": 20,
+          "source": "internal_api_plus_panel_text",
+          "strategy_name": "Aggressive Flow Momentum",
+          "candidate_count": 1,
+          "candidate_names": [
+            "Aggressive Flow Momentum"
+          ],
+          "active_study_names": [
+            "Crosshair",
+            "FILUSDC.P \u00b7 Hyperliquid, 1h",
+            "Dividends",
+            "Ideas on chart",
+            "Splits",
+            "Earnings",
+            "Dates calculator for continuous",
+            "FuturesContractExpiration",
+            "Volume",
+            "LatestUpdatesSource",
+            "Aggressive Flow Momentum"
+          ],
+          "category_lengths": null,
+          "order_raw_debug": [
+            {
+              "ctor": "Object",
+              "keys": [
+                "b",
+                "c",
+                "e",
+                "id",
+                "p",
+                "q",
+                "tm",
+                "tp"
+              ],
+              "own": [
+                "b",
+                "c",
+                "e",
+                "id",
+                "p",
+                "q",
+                "tm",
+                "tp"
+              ],
+              "proto_keys": [
+                "constructor",
+                "__defineGetter__",
+                "__defineSetter__",
+                "hasOwnProperty",
+                "__lookupGetter__",
+                "__lookupSetter__",
+                "isPrototypeOf",
+                "propertyIsEnumerable",
+                "toString",
+                "valueOf",
+                "__proto__",
+                "toLocaleString"
+              ],
+              "descriptors": {
+                "b": {
+                  "enumerable": true,
+                  "type": "Boolean",
+                  "str": "true"
+                },
+                "c": {
+                  "enumerable": true,
+                  "type": "String",
+                  "str": "Long"
+                },
+                "e": {
+                  "enumerable": true,
+                  "type": "Boolean",
+                  "str": "true"
+                },
+                "id": {
+                  "enumerable": true,
+                  "type": "String",
+                  "str": "Long"
+                },
+                "p": {
+                  "enumerable": true,
+                  "type": "Number",
+                  "str": "2.8276"
+                },
+                "q": {
+                  "enumerable": true,
+                  "type": "Number",
+                  "str": "886.622"
+                },
+                "tm": {
+                  "enumerable": true,
+                  "type": "number",
+                  "str": "0"
+                },
+                "tp": {
+                  "enumerable": true,
+                  "type": "String",
+                  "str": "MARKET"
+                }
+              },
+              "str": "[object Object]"
+            },
+            {
+              "ctor": "Object",
+              "keys": [
+                "b",
+                "c",
+                "e",
+                "id",
+                "p",
+                "q",
+                "tm",
+                "tp"
+              ],
+              "own": [
+                "b",
+                "c",
+                "e",
+                "id",
+                "p",
+                "q",
+                "tm",
+                "tp"
+              ],
+              "proto_keys": [
+                "constructor",
+                "__defineGetter__",
+                "__defineSetter__",
+                "hasOwnProperty",
+                "__lookupGetter__",
+                "__lookupSetter__",
+                "isPrototypeOf",
+                "propertyIsEnumerable",
+                "toString",
+                "valueOf",
+                "__proto__",
+                "toLocaleString"
+              ],
+              "descriptors": {
+                "b": {
+                  "enumerable": true,
+                  "type": "boolean",
+                  "str": "false"
+                },
+                "c": {
+                  "enumerable": true,
+                  "type": "String",
+                  "str": "time exit"
+                },
+                "e": {
+                  "enumerable": true,
+                  "type": "boolean",
+                  "str": "false"
+                },
+                "id": {
+                  "enumerable": true,
+                  "type": "String",
+                  "str": "Close position order"
+                },
+                "p": {
+                  "enumerable": true,
+                  "type": "Number",
+                  "str": "2.899"
+                },
+                "q": {
+                  "enumerable": true,
+                  "type": "Number",
+                  "str": "886.622"
+                },
+                "tm": {
+                  "enumerable": true,
+                  "type": "Number",
+                  "str": "1"
+                },
+                "tp": {
+                  "enumerable": true,
+                  "type": "String",
+                  "str": "MARKET"
+                }
+              },
+              "str": "[object Object]"
+            },
+            {
+              "ctor": "Object",
+              "keys": [
+                "b",
+                "c",
+                "e",
+                "id",
+                "p",
+                "q",
+                "tm",
+                "tp"
+              ],
+              "own": [
+                "b",
+                "c",
+                "e",
+                "id",
+                "p",
+                "q",
+                "tm",
+                "tp"
+              ],
+              "proto_keys": [
+                "constructor",
+                "__defineGetter__",
+                "__defineSetter__",
+                "hasOwnProperty",
+                "__lookupGetter__",
+                "__lookupSetter__",
+                "isPrototypeOf",
+                "propertyIsEnumerable",
+                "toString",
+                "valueOf",
+                "__proto__",
+                "toLocaleString"
+              ],
+              "descriptors": {
+                "b": {
+                  "enumerable": true,
+                  "type": "Boolean",
+                  "str": "true"
+                },
+                "c": {
+                  "enumerable": true,
+                  "type": "String",
+                  "str": "Long"
+                },
+                "e": {
+                  "enumerable": true,
+                  "type": "Boolean",
+                  "str": "true"
+                },
+                "id": {
+                  "enumerable": true,
+                  "type": "String",
+                  "str": "Long"
+                },
+                "p": {
+                  "enumerable": true,
+                  "type": "Number",
+                  "str": "2.537"
+                },
+                "q": {
+                  "enumerable": true,
+                  "type": "Number",
+                  "str": "989.9"
+                },
+                "tm": {
+                  "enumerable": true,
+                  "type": "Number",
+                  "str": "2"
+                },
+                "tp": {
+                  "enumerable": true,
+                  "type": "String",
+                  "str": "MARKET"
+                }
+              },
+              "str": "[object Object]"
+            }
+          ],
+          "orders_text_type": null,
+          "orders_text": "",
+          "trades": [
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 2.8276,
+              "q": 886.622,
+              "tm": 0,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 2.899,
+              "q": 886.622,
+              "tm": 1,
+              "tp": "MARKET"
+            },
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 2.537,
+              "q": 989.9,
+              "tm": 2,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 2.5352,
+              "q": 989.9,
+              "tm": 3,
+              "tp": "MARKET"
+            },
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 2.5073,
+              "q": 1002.137,
+              "tm": 4,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 2.6188,
+              "q": 1002.137,
+              "tm": 5,
+              "tp": "MARKET"
+            },
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 2.8908,
+              "q": 880.611,
+              "tm": 6,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 2.8245,
+              "q": 880.611,
+              "tm": 7,
+              "tp": "MARKET"
+            },
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 2.738,
+              "q": 921.766,
+              "tm": 8,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 2.786,
+              "q": 921.766,
+              "tm": 9,
+              "tp": "MARKET"
+            },
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 2.8596,
+              "q": 887.694,
+              "tm": 10,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 2.8287,
+              "q": 887.694,
+              "tm": 11,
+              "tp": "MARKET"
+            },
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 2.8403,
+              "q": 890.047,
+              "tm": 12,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 2.7834,
+              "q": 890.047,
+              "tm": 13,
+              "tp": "MARKET"
+            },
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 2.7608,
+              "q": 910.04,
+              "tm": 14,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 2.9055,
+              "q": 910.04,
+              "tm": 15,
+              "tp": "MARKET"
+            },
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 3.2686,
+              "q": 778.461,
+              "tm": 16,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 3.1201,
+              "q": 778.461,
+              "tm": 17,
+              "tp": "MARKET"
+            },
+            {
+              "b": true,
+              "c": "Long",
+              "e": true,
+              "id": "Long",
+              "p": 2.9369,
+              "q": 856.373,
+              "tm": 18,
+              "tp": "MARKET"
+            },
+            {
+              "b": false,
+              "c": "time exit",
+              "e": false,
+              "id": "Close position order",
+              "p": 2.8476,
+              "q": 856.373,
+              "tm": 19,
+              "tp": "MARKET"
+            }
+          ],
+          "trade_summary": {
+            "profitable_trades": "39.60%40/101"
+          }
+        },
+        "error": null,
+        "latency_ms": 3.129720687866211
+      }
+    },
+    {
+      "step": "equity_extraction",
+      "status": "PASS",
+      "elapsed_seconds": 0.0027828216552734375,
+      "timestamp": "2026-10-02T09:47:32.429255",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "data_points": 0,
+          "source": "internal_api_plus_panel_text",
+          "strategy_name": "Aggressive Flow Momentum",
+          "candidate_count": 1,
+          "data": [],
+          "equity_summary": {
+            "currency": "USDC",
+            "settings.dateRange.backtest.from": 1742637600000,
+            "settings.dateRange.backtest.to": 1790776800000,
+            "settings.dateRange.trade.from": 1743480000000,
+            "settings.dateRange.trade.to": 1790776800000,
+            "buyHold.length": 102,
+            "buyHoldPercent.length": 102,
+            "filledOrders.length": 202,
+            "performance.all.avgBarsInLossTrade": 13,
+            "performance.all.avgBarsInTrade": 13,
+            "performance.all.avgBarsInWinTrade": 13,
+            "performance.all.avgLosTrade": 75.46540227,
+            "performance.all.avgLosTradePercent": 0.031066717649976688,
+            "performance.all.avgTrade": 0.490783504,
+            "performance.all.avgTradePercent": 0.0009058519350719094,
+            "performance.all.avgWinTrade": 116.3239668,
+            "performance.all.avgWinTradePercent": 0.04966402055227102,
+            "performance.all.commissionPaid": 293.0780412598,
+            "performance.all.grossLoss": 4603.389538632802,
+            "performance.all.grossLossPercent": 0.4603389538632802,
+            "performance.all.grossLossWC": 4431.183627510002,
+            "performance.all.grossProfit": 4652.958672533,
+            "performance.all.grossProfitPercent": 0.4652958672533,
+            "performance.all.grossProfitWC": 4773.83080267,
+            "performance.all.largestLosTrade": 710.1469680077998,
+            "performance.all.largestLosTradePercent": 0.303331005174,
+            "performance.all.largestWinTrade": 1142.37750466,
+            "performance.all.largestWinTradePercent": 0.486478716226,
+            "performance.all.marginCalls": 0,
+            "performance.all.maxContractsHeld": 3335.569,
+            "performance.all.netProfit": 49.56913390019781,
+            "performance.all.netProfitPercent": 0.0049569133900197815,
+            "performance.all.numberOfLosingTrades": 61,
+            "performance.all.numberOfWiningTrades": 40,
+            "performance.all.percentProfitable": 0.39603960396039606,
+            "performance.all.profitFactor": 1.0107679642324858,
+            "performance.all.ratioAvgWinAvgLoss": 1.5414211453324835,
+            "performance.all.totalOpenTrades": 0,
+            "performance.all.totalTrades": 101,
+            "performance.long.avgBarsInLossTrade": 13,
+            "performance.long.avgBarsInTrade": 13,
+            "performance.long.avgBarsInWinTrade": 13,
+            "performance.long.avgLosTrade": 75.46540227,
+            "performance.long.avgLosTradePercent": 0.031066717649976688,
+            "performance.long.avgTrade": 0.490783504,
+            "performance.long.avgTradePercent": 0.0009058519350719094,
+            "performance.long.avgWinTrade": 116.3239668,
+            "performance.long.avgWinTradePercent": 0.04966402055227102,
+            "performance.long.commissionPaid": 293.0780412598,
+            "performance.long.grossLoss": 4603.389538632802,
+            "performance.long.grossLossPercent": 0.4603389538632802,
+            "performance.long.grossLossWC": 4431.183627510002,
+            "performance.long.grossProfit": 4652.958672533,
+            "performance.long.grossProfitPercent": 0.4652958672533,
+            "performance.long.grossProfitWC": 4773.83080267,
+            "performance.long.largestLosTrade": 710.1469680077998,
+            "performance.long.largestLosTradePercent": 0.303331005174,
+            "performance.long.largestWinTrade": 1142.37750466,
+            "performance.long.largestWinTradePercent": 0.486478716226,
+            "performance.long.marginCalls": 0,
+            "performance.long.maxContractsHeld": 3335.569,
+            "performance.long.netProfit": 49.56913390019781,
+            "performance.long.netProfitPercent": 0.0049569133900197815,
+            "performance.long.numberOfLosingTrades": 61,
+            "performance.long.numberOfWiningTrades": 40,
+            "performance.long.percentProfitable": 0.39603960396039606,
+            "performance.long.profitFactor": 1.0107679642324858,
+            "performance.long.ratioAvgWinAvgLoss": 1.5414211453324835,
+            "performance.long.totalOpenTrades": 0,
+            "performance.long.totalTrades": 101,
+            "performance.maxStrategyDrawDown": 2679.291166256001,
+            "performance.openPL": 0,
+            "performance.buyHoldReturn": -6279.176484000001,
+            "performance.sharpeRatio": 0.00764874396876842,
+            "performance.sortinoRatio": 0.01674787624119248,
+            "performance.maxStrategyDrawDownPercent": 0.2629749841693347,
+            "performance.maxStrategyRunUp": 2761.609166751001,
+            "performance.maxStrategyRunUpPercent": 0.24464709192680711,
+            "performance.buyHoldReturnPercent": -0.6279176484000002,
+            "performance.openPLPercent": 0,
+            "performance.buyHoldGainPercent": -0.6279176686942991,
+            "performance.maxMarginUsed": 4230.337236,
+            "performance.avgMarginUsed": 223.6856693,
+            "performance.openMarginUsed": 0,
+            "performance.short.avgBarsInLossTrade": 0,
+            "performance.short.avgBarsInTrade": 0,
+            "performance.short.avgBarsInWinTrade": 0,
+            "performance.short.commissionPaid": 0,
+            "performance.short.grossLoss": 0,
+            "performance.short.grossLossPercent": 0,
+            "performance.short.grossLossWC": 0,
+            "performance.short.grossProfit": 0,
+            "performance.short.grossProfitPercent": 0,
+            "performance.short.grossProfitWC": 0,
+            "performance.short.marginCalls": 0,
+            "performance.short.maxContractsHeld": 0,
+            "performance.short.netProfit": 0,
+            "performance.short.netProfitPercent": 0,
+            "performance.short.numberOfLosingTrades": 0,
+            "performance.short.numberOfWiningTrades": 0,
+            "performance.short.totalOpenTrades": 0,
+            "performance.short.totalTrades": 0,
+            "trades.length": 101,
+            "marginUsage.length": 203,
+            "firstTradeIndex": 0,
+            "Profit factor": "1.011"
+          },
+          "note": "Full equity point array not exposed; returned report/equity summary metrics."
+        },
+        "error": null,
+        "latency_ms": 2.721071243286133
+      }
+    },
+    {
+      "step": "symbol_change",
+      "status": "PASS",
+      "elapsed_seconds": 10.649457454681396,
+      "timestamp": "2026-10-02T09:47:43.078727",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "symbol": "ETHUSDT",
+          "chart_ready": false
+        },
+        "error": null,
+        "latency_ms": 10648.435831069946,
+        "previous_symbol": "HYPERLIQUID:FILUSDC.P"
+      }
+    },
+    {
+      "step": "timeframe_change",
+      "status": "PASS",
+      "elapsed_seconds": 10.179824113845825,
+      "timestamp": "2026-10-02T09:47:53.258575",
+      "result": {
+        "success": true,
+        "result": {
+          "success": true,
+          "timeframe": "4h",
+          "chart_ready": false
+        },
+        "error": null,
+        "latency_ms": 10179.806470870972
+      }
+    },
+    {
+      "step": "state_restoration",
+      "status": "PASS",
+      "elapsed_seconds": 20.811070203781128,
+      "timestamp": "2026-10-02T09:48:14.069671",
+      "result": {
+        "success": true,
+        "symbol_restore": {
+          "success": true,
+          "error": null
+        },
+        "timeframe_restore": {
+          "success": true,
+          "error": null
+        }
+      }
+    },
+    {
+      "step": "full_strategy_cycle",
+      "status": "PASS",
+      "elapsed_seconds": 0.4212758541107178,
+      "timestamp": "2026-10-02T09:48:14.490970",
+      "result": {
+        "success": true,
+        "result": {
+          "success": false,
+          "status": "UNSAFE_ACTION_REFUSED",
+          "stage": "add_to_chart",
+          "compile": {
+            "success": true,
+            "status": "OK_COMPILED",
+            "compiled": true,
+            "error_count": 0,
+            "warning_count": 0,
+            "errors": [],
+            "warnings": []
+          },
+          "add": {
+            "success": false,
+            "status": "UNSAFE_ACTION_REFUSED",
+            "note": "\"Update on chart\" would autosave over the linked saved script and you passed allow_update_existing=false. Inject into a new script first, or omit the flag to proceed."
+          }
+        },
+        "error": null,
+        "latency_ms": 421.25844955444336
+      }
+    }
+  ]
+}

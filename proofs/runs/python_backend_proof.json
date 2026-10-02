@@ -1,0 +1,151 @@
+{
+  "timestamp": "2026-10-02T09:58:16.426448",
+  "total_tests": 16,
+  "passed": 4,
+  "failed": 12,
+  "results": [
+    {
+      "test": "data_load",
+      "status": "PASS",
+      "timestamp": "2026-10-02T09:58:02.189808",
+      "details": {
+        "symbol": "BTCUSDT",
+        "timeframe": "1h",
+        "rows": 77305,
+        "columns": [
+          "open",
+          "high",
+          "low",
+          "close",
+          "volume"
+        ],
+        "date_range": "2017-08-17 04:00:00 to 2026-06-17 12:00:00"
+      }
+    },
+    {
+      "test": "strategy_execution",
+      "status": "PASS",
+      "timestamp": "2026-10-02T09:58:14.549841",
+      "details": {
+        "strategy": "jackson_scalper_baseline_v1",
+        "n_trades": 0,
+        "return_pct": 0.0
+      }
+    },
+    {
+      "test": "entries_exits",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:14.646561",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "position_sizing",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:14.749273",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "costs",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:14.842663",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "equity_curve",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:14.936177",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "drawdown",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:15.035569",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "trade_ledger",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:15.133219",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "metrics",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:15.237410",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "parameter_changes",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:15.338498",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "repeatability",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:15.438210",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "batch_execution",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:15.537892",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "parallel_execution",
+      "status": "PASS",
+      "timestamp": "2026-10-02T09:58:16.187311",
+      "details": {
+        "workers": 4,
+        "strategies_run": 4,
+        "elapsed_seconds": 0.543262243270874
+      }
+    },
+    {
+      "test": "parameter_sweep",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:16.274431",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    },
+    {
+      "test": "deterministic_tests",
+      "status": "PASS",
+      "timestamp": "2026-10-02T09:58:16.346489",
+      "details": {
+        "tv_parity_tests": "True",
+        "engine_tests": "True"
+      }
+    },
+    {
+      "test": "throughput",
+      "status": "FAIL",
+      "timestamp": "2026-10-02T09:58:16.426308",
+      "details": {
+        "error": "'dict' object is not callable"
+      }
+    }
+  ]
+}

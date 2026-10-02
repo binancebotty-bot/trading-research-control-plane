@@ -1,0 +1,45 @@
+{
+  "generated": "2026-10-02T09:58:34.755530",
+  "python_result": {
+    "strategy": "jackson_scalper_baseline_v1",
+    "symbol": "BTCUSDT",
+    "timeframe": "1h",
+    "status": "ok",
+    "metrics": {
+      "n_trades": 0,
+      "return_pct": 0.0,
+      "net_profit": 0.0,
+      "win_rate": 0.0,
+      "profit_factor": 0.0,
+      "max_dd_pct": 0.0,
+      "max_dd_dol_pct": 0.0,
+      "sharpe": 0.0,
+      "avg_win_pct": 0.0,
+      "avg_loss_pct": 0.0,
+      "avg_win_usd": 0,
+      "avg_loss_usd": 0,
+      "n_win_trades": 0,
+      "n_loss_trades": 0,
+      "total_fees": 0
+    }
+  },
+  "tv_result": {
+    "tool": "strategy_tester_read_summary",
+    "args": {},
+    "note": "Tool metadata - actual execution requires MCP client"
+  },
+  "parity": {
+    "passed": true,
+    "discrepancies": [],
+    "classifications": []
+  },
+  "tolerances": {
+    "return_pct": 0.5,
+    "max_dd_pct": 0.5,
+    "win_rate": 1.0,
+    "profit_factor": 0.1,
+    "n_trades": 0.15,
+    "avg_win_pct": 3.0,
+    "avg_loss_pct": 3.0
+  }
+}
