@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pine bounded result",
+  "type": "object",
+  "required": [
+    "TASK_ID",
+    "RESPONDS_TO",
+    "STATUS",
+    "EXACT_ACTIONS_TAKEN",
+    "FILES_CHANGED",
+    "COMMANDS/TOOLS_USED",
+    "EVIDENCE_ARTIFACTS",
+    "BEFORE_STATE",
+    "AFTER_STATE",
+    "TEST_RESULTS",
+    "UNEXPECTED_FINDINGS",
+    "REVERT_STATUS",
+    "REMAINING_BLOCKER",
+    "NEXT_ACTION_REQUEST"
+  ],
+  "properties": {
+    "TASK_ID": {
+      "type": "string"
+    },
+    "RESPONDS_TO": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "STATUS": {
+      "enum": [
+        "PASS",
+        "FAIL",
+        "BLOCKED"
+      ]
+    },
+    "EXACT_ACTIONS_TAKEN": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "FILES_CHANGED": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "COMMANDS/TOOLS_USED": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "EVIDENCE_ARTIFACTS": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "BEFORE_STATE": {
+      "type": "string"
+    },
+    "AFTER_STATE": {
+      "type": "string"
+    },
+    "TEST_RESULTS": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "NAME",
+          "STATUS",
+          "EVIDENCE"
+        ],
+        "properties": {
+          "NAME": {
+            "type": "string"
+          },
+          "STATUS": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT_RUN",
+              "BLOCKED"
+            ]
+          },
+          "EVIDENCE": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "UNEXPECTED_FINDINGS": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "REVERT_STATUS": {
+      "type": "string"
+    },
+    "REMAINING_BLOCKER": {
+      "type": "string"
+    },
+    "NEXT_ACTION_REQUEST": {
+      "const": "CONTROLLER_ONLY"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Evidence/status only; no reconstructed project narrative. After every result send explicit next-instruction request and read its anchored reply."
+}

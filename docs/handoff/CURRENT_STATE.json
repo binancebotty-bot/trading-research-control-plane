@@ -1,0 +1,88 @@
+{
+  "VERSION": 1,
+  "AUTHORITY_HIGH_WATER": 5955161164,
+  "TASK_DIRECTIVE_COMMENT_ID": 5955092204,
+  "GATE0_COMMENT_ID": 5955000891,
+  "MAILBOX": "binancebotty-bot/trading-research-control-plane Issue #1",
+  "REPO_ROOT": "C:/Users/wigmore/trading-research-control-plane",
+  "BRANCH": "master",
+  "LOGICAL_IMPLEMENTATION_OWNER": "20260803_100203_2a8a55",
+  "CURRENT_RUNTIME_CONTINUATION": "20261002_141307_d81a85",
+  "CONTINUATION_RULE": "Model/session continuation preserves one logical owner; record actual runtime ID; no second writer.",
+  "ONLY_HERMES_GPT_CONTACT": "6abf60c8-4598-83eb-bc80-57a926d80b2e",
+  "CONTROLLER_URL": "https://chatgpt.com/g/g-p-6abf7e5431a88191b750f7e326eebec9-pinescript-development/c/6abf60c8-4598-83eb-bc80-57a926d80b2e",
+  "CONTROLLER_CDP_PORT": 9223,
+  "MISSION_OVERSIGHT_CONTACT": "HUMAN_ONLY",
+  "RICHARD_RELAY_REQUIRED": "NO",
+  "OVERALL_PLATFORM_MISSION": "Durable AI-controlled trading/research stack: Python/py2pine research, iterative Pine development, genuine TradingView validation, modular approved TradingView/direct-exchange execution, long bounded research campaigns, off-machine recovery, eventual automated/live trading only inside separately Human-approved risk/execution envelopes.",
+  "OVERALL_PLATFORM_DONE": "On a fresh/recovered machine, safely receive a trading/research instruction, create/modify strategy, test locally, genuinely validate in TradingView, preserve durable evidence/state, and execute real trading only when separately authorised, without hidden chat/manual reconstruction. Subsequent research/improvement/trading are recurring platform missions.",
+  "CURRENT_PHASE_1": "Python versus real TradingView certification; commissioning handoff preparation currently authorised; no product execution released.",
+  "PHASE_1_DONE": [
+    "Canonical backend executes real MCP JSON-RPC, with truthful capability classification.",
+    "Disposable deterministic strategy/date range produces multiple actual trades in both engines; real execution identity, metrics/trades, trade-by-trade and aggregate comparison with explicit tolerances; Controller accepts.",
+    "Persist genuine Python->candidate->Pine->exact write/hash readback->compile->chart->tester->metrics/trades->comparison->experiment trace within protected editor/chart envelope.",
+    "Regression rejects placeholder/zero-trade/missing evidence and mutation without readback; accurate docs/registry and sanitized tracked proof; delivered local/remote commit parity and independent Controller acceptance."
+  ],
+  "PHASE_1_SAFETY": {
+    "LIVE_TRADING": "FORBIDDEN",
+    "BROKER_EXCHANGE_EXECUTION": "FORBIDDEN",
+    "AUTONOMOUS_RESEARCH_CAMPAIGNS": "NOT_AUTHORISED",
+    "PRODUCT_TV_MUTATION": "FORBIDDEN_UNLESS_NEW_EXPLICIT_BOUNDED_CONTROLLER_PACKET"
+  },
+  "HUMAN_ONLY": [
+    "First activation of real-money execution on any route.",
+    "Research/paper/testnet strategy promotion to live.",
+    "Material capital/leverage/exposure/drawdown/risk-envelope changes.",
+    "Exchange credentials, wallet authority, API permissions, security access changes.",
+    "Irreversible/destructive repo/evidence/account/production-state actions.",
+    "Substantive WHY/platform DONE/permanent-guardrail changes.",
+    "Autonomy expansion beyond authorised envelope."
+  ],
+  "OLD_CERTIFICATION_DIRECTIVE": {
+    "ID": "PINE-RC-20261002-CERTIFICATION-RECOVERY-1",
+    "COMMENT": 5951127802,
+    "STATE": "SUSPENDED_NON_EXECUTABLE_PENDING_HANDOFF_ADJUDICATION"
+  },
+  "CURRENT_TASK": "PINE-RC-20261002-GATE0-LOWER-MODEL-HANDOFF-ALIGN-1",
+  "TASK_AUTHORITY": "CONTROLLER_RESPONSE_ONLY",
+  "LOWER_MODEL_SIMULATION": "DO_NOT_RUN",
+  "MODEL_SWITCH": "DO_NOT_SWITCH",
+  "BASELINE_HEAD": "1f50a8d63e47cd385dd58b168dcc81104f279a8d",
+  "WORKTREE": "DIRTY; matching local/remote HEAD does not mean clean. Preserve all pre-existing product dirt. Verify task-specific state only.",
+  "KNOWN_FALSE_PROOF": "proofs/parity_results.json: Python trades=0; TV metadata placeholder; passed=true is rejected, not certification.",
+  "LOCKED": [
+    "One implementation writer.",
+    "No Build-4 reads/contact/control.",
+    "Preserve existing strategy/data/tooling estate and unrelated dirt.",
+    "No blind process/browser termination, restart, GUI focus stealing.",
+    "Preserve operator composer and protected Pine editor; read-before-write and specific-script authorisation.",
+    "No framework/new-tool/architecture growth unless explicit packet.",
+    "Evidence: actual execution > Git identity > machine state > logs > prose."
+  ],
+  "CLOSED_LOOP_PROOF": {
+    "CHALLENGE": 5953639923,
+    "RESPONSE": 5953750202,
+    "ACK": 5953756786,
+    "PROVEN": 5953785204
+  },
+  "MISSION_EVIDENCE": {
+    "BOOTSTRAP": 5953638147,
+    "CONTROLLER_REVIEW": 5953790770,
+    "MISSION_LOCK": 5953891147,
+    "CHANNEL_CORRECTION": 5953938779,
+    "CHANNEL_RECONCILIATION": 5954010487,
+    "GATE0": 5955000891,
+    "GATE0_CONTROLLER_RECONCILIATION": 5955092204
+  },
+  "NORMAL_START_HISTORY_REQUIRED": "NO",
+  "NEXT_INSTRUCTION_REQUEST_REQUIRED": "YES",
+  "WAIT_ANCHORED_TO_OWN_REQUEST": "YES",
+  "CYCLE_FINAL_ACTION": "READ_CONTROLLER_RESPONSE_TO_OWN_REQUEST",
+  "NEXT_TASK_SOURCE": "CONTROLLER_RESPONSE",
+  "PASSIVE_WAIT_AFTER_REPORT": "FORBIDDEN",
+  "START": "docs/handoff/WORKER_START.md",
+  "TASK_SCHEMA": "docs/handoff/BOUNDED_TASK_PACKET.schema.json",
+  "RESULT_SCHEMA": "docs/handoff/BOUNDED_RESULT.schema.json",
+  "LOOP": "docs/handoff/CONTINUOUS_CONTROLLER_LOOP.md",
+  "ANTI_DRIFT": "docs/handoff/ANTI_DRIFT.md"
+}

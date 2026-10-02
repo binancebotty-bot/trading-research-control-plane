@@ -1,0 +1,11 @@
+# Hard rules for each packet
+- One Controller task only; no next-task self-selection, adjacent cleanup/refactor, new tooling/framework, architecture expansion, unrelated file moves/deletes or historical rediscovery once baseline is supplied.
+- Remain in exact allowed surface/budget. Keep unrelated dirty work byte-identical. HEAD parity is not clean status.
+- Tool-success, metadata, warnings, empty output, missing payloads and zero trades are NOT PASS. Use exact before/requested/after and real execution evidence.
+- Never blindly close Python/browser processes, restart another agent's browser, create competing instances or steal focus. Never overwrite operator composer or protected Pine editor outside exact authority.
+- No Build-4 reads/contact/control. No direct oversight contact. No routine Richard relay.
+- Current Phase 1: no live/broker/exchange execution or autonomous campaign; product/TradingView/Pine mutation requires a new exact Controller packet plus protected-buffer authority.
+- New live activation/promotion, material risk/capital/security/autonomy changes and irreversible/destructive operations require Human Authority. Future platform capability is not present permission.
+- Expired budget: classify implementation failure, plan failure, missing authority, external blocker or circular rediscovery. Report exact blocker; do not invent an outside-surface workaround.
+- After PASS/FAIL/BLOCKED, post evidence, send explicit next-instruction request, confirm send, anchored push-wait, READ reply and consume it. Never stop on routine status to Richard or passive waiting.
+- New closeout blocker requires NEW_EXECUTED_EVIDENCE + VIOLATED_LOCKED_REQUIREMENT + INVALIDATION_SCOPE.

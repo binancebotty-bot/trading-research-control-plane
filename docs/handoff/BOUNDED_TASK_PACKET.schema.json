@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Pine bounded task packet",
+  "type": "object",
+  "required": [
+    "TASK_ID",
+    "DIRECTIVE_COMMENT_ID",
+    "OBJECTIVE",
+    "FIXED_SURFACE",
+    "ALLOWED_SURFACE",
+    "FORBIDDEN_SURFACE",
+    "BASELINE",
+    "INPUT_ARTIFACTS",
+    "REQUIRED_ACTIONS",
+    "REQUIRED_EVIDENCE",
+    "SUCCESS_THRESHOLD",
+    "EVALUATOR",
+    "PROGRESS_BUDGET",
+    "KEEP_RULE",
+    "REVERT_RULE",
+    "ESCALATION_RULE",
+    "STOP_CONDITION",
+    "RESPONSE_SCHEMA"
+  ],
+  "properties": {
+    "TASK_ID": {
+      "type": "string",
+      "minLength": 1
+    },
+    "DIRECTIVE_COMMENT_ID": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "OBJECTIVE": {
+      "type": "string",
+      "minLength": 1
+    },
+    "FIXED_SURFACE": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "ALLOWED_SURFACE": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "FORBIDDEN_SURFACE": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "BASELINE": {
+      "type": "object",
+      "required": [
+        "HEAD",
+        "STATE_POINTER"
+      ],
+      "properties": {
+        "HEAD": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "STATE_POINTER": {
+          "const": "docs/handoff/CURRENT_STATE.json"
+        },
+        "TASK_SPECIFIC_STATE": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "INPUT_ARTIFACTS": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "REQUIRED_ACTIONS": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "REQUIRED_EVIDENCE": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "SUCCESS_THRESHOLD": {
+      "type": "string",
+      "minLength": 1
+    },
+    "EVALUATOR": {
+      "type": "string",
+      "minLength": 1
+    },
+    "PROGRESS_BUDGET": {
+      "type": "object",
+      "required": [
+        "MAX_ACTIONS",
+        "MAX_SECONDS"
+      ],
+      "properties": {
+        "MAX_ACTIONS": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "MAX_SECONDS": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "KEEP_RULE": {
+      "type": "string",
+      "minLength": 1
+    },
+    "REVERT_RULE": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ESCALATION_RULE": {
+      "type": "string",
+      "minLength": 1
+    },
+    "STOP_CONDITION": {
+      "type": "string",
+      "description": "End bounded execution on exact success/failure/blocker/budget; then report and explicitly request/READ next Controller instruction. Never implicit stand-down."
+    },
+    "RESPONSE_SCHEMA": {
+      "const": "docs/handoff/BOUNDED_RESULT.schema.json"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Controller supplies one task-specific delta and exact pointers; do not duplicate mission history. Worker never chooses next task."
+}
