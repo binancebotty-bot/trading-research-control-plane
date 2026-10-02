@@ -1,0 +1,73 @@
+# Secrets - NEVER commit these
+.env
+.env.local
+.env.production
+*.pem
+*.key
+credentials.json
+config.yaml
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+
+# Experiments (may contain sensitive data)
+experiments/
+
+# Proofs (generated)
+proofs/*.md
+!proofs/FINAL_CAPABILITY_REPORT.md
+!proofs/PYTHON_TV_PARITY_REPORT.md
+
+# Registry (generated)
+registry/capabilities.json
+
+# Test coverage
+.coverage
+htmlcov/
+.pytest_cache/
+
+# MyPy
+.mypy_cache/
+.dmypy.json

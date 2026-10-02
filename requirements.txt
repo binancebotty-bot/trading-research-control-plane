@@ -1,0 +1,21 @@
+# Trading Research Control Plane - Dependencies
+# Python 3.10+
+
+# Core
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Data
+python-dotenv>=1.0.0
+
+# Testing
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Optional: Official TV API (when available)
+# tvDatafeed>=2.0.0
+
+# Development
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.0.0
