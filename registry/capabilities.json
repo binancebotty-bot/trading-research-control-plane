@@ -59,7 +59,8 @@
       "CURRENT_EXPOSED_MCP_TOOL_COUNT": 98,
       "CURRENT_IMPLEMENTED_UNEXPOSED_COUNT": 9,
       "GAP_RECORD_COUNT": 12,
-      "CAPABILITY_RECORD_COUNT": 119
+      "CAPABILITY_RECORD_COUNT": 120,
+      "HISTORICAL_ADDED_RECORD_COUNT": 1
     },
     "SOURCE_SHA256": {
       "src/core/alerts.js": "97e04f9f04765c68e31255cdb6910cece2f97c8f87c99977c87a61dbb6363daa",
@@ -169,7 +170,16 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\scripts\\pine_recover.mjs",
+            "SHA256": "3e128201f78e167a274f6585881db7e5d4f424f2f7ca86ffd5aa291da675aa01",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "MIGRATION_CLASS": "PARTIAL",
+            "SOURCE_DELTA": "Draft/storage/list/error/study diagnostic script; no restore/re-attestation implementation; READ ONLY header is not full nondestructive-path proof."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CENSUS_GAP.drawings",
@@ -213,7 +223,16 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\scripts\\tv_open_pine.mjs",
+            "SHA256": "ce336151c382fdcd8b6d4752c86365d15e486bb1ee0bbe79d0f8864dd515f942",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "MIGRATION_CLASS": "PARTIAL",
+            "SOURCE_DELTA": "First URL-containing TradingView target selected at lines4-8; editor clicks then source-length read; header says clear but inspected body does not clear source. Not exact-target/protected-buffer certified; do not run."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CENSUS_GAP.historical_trading_stack_live_trading_migrations",
@@ -1016,7 +1035,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js.before_strategy_extractors_patch_20260513_170527.bak:204",
+            "SHA256": "357accb267fa1ff7e30aa9232580e0ecc4b77be3f1752a370c97e1f8ec46c959",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getEquity",
+            "HISTORICAL_LINE": 204,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js.before_equity_patch_20260513_170601.bak:236",
+            "SHA256": "e1a9f638a296d07a8824d8139147a1b77ed24347d6dc8f3016e8d1bbca7c4748",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getEquity",
+            "HISTORICAL_LINE": 236,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.data_get_indicator",
@@ -1229,7 +1272,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js.before_strategy_extractors_patch_20260513_170527.bak:135",
+            "SHA256": "357accb267fa1ff7e30aa9232580e0ecc4b77be3f1752a370c97e1f8ec46c959",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getStrategyResults",
+            "HISTORICAL_LINE": 135,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js.before_equity_patch_20260513_170601.bak:135",
+            "SHA256": "e1a9f638a296d07a8824d8139147a1b77ed24347d6dc8f3016e8d1bbca7c4748",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getStrategyResults",
+            "HISTORICAL_LINE": 135,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.data_get_study_values",
@@ -1287,7 +1354,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js.before_strategy_extractors_patch_20260513_170527.bak:167",
+            "SHA256": "357accb267fa1ff7e30aa9232580e0ecc4b77be3f1752a370c97e1f8ec46c959",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getTrades",
+            "HISTORICAL_LINE": 167,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js.before_equity_patch_20260513_170601.bak:201",
+            "SHA256": "e1a9f638a296d07a8824d8139147a1b77ed24347d6dc8f3016e8d1bbca7c4748",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getTrades",
+            "HISTORICAL_LINE": 201,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.depth_get",
@@ -1655,11 +1746,21 @@
           "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_trade.js#placeOrder"
         ],
         "KNOWN_LIMITATIONS": [
-          "Static source registration, not live activation or runtime verification."
+          "Static source registration, not live activation or runtime verification.",
+          "live_place_order is deliberately PARTIAL: src/core/live_trade.js:82-102 does NOT call host.placeOrder; returns execution_path_pending_broker_verification."
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "MIGRATION_CLASS": "PARTIAL",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\live_trade.js:82-102",
+            "EVIDENCE_BASELINE_COMMENT": 5962283764,
+            "MIGRATION_CLASS": "PARTIAL"
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.live_trading_status",
@@ -1899,7 +2000,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:109",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "analyze",
+            "HISTORICAL_LINE": 109,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:78",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "analyze",
+            "HISTORICAL_LINE": 78,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_check",
@@ -1929,7 +2054,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:217",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "check",
+            "HISTORICAL_LINE": 217,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:186",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "check",
+            "HISTORICAL_LINE": 186,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_compile",
@@ -1991,7 +2140,31 @@
           "pine_compile"
         ],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:315",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "compile",
+            "HISTORICAL_LINE": 315,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:284",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "compile",
+            "HISTORICAL_LINE": 284,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_detect_blocking_modal",
@@ -2113,7 +2286,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:408",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getConsole",
+            "HISTORICAL_LINE": 408,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:379",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getConsole",
+            "HISTORICAL_LINE": 379,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_get_errors",
@@ -2141,7 +2338,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:351",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getErrors",
+            "HISTORICAL_LINE": 351,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:322",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getErrors",
+            "HISTORICAL_LINE": 322,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_get_source",
@@ -2169,7 +2390,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:278",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getSource",
+            "HISTORICAL_LINE": 278,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:247",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "getSource",
+            "HISTORICAL_LINE": 247,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_list_scripts",
@@ -2197,7 +2442,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:620",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "listScripts",
+            "HISTORICAL_LINE": 620,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:591",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "listScripts",
+            "HISTORICAL_LINE": 591,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_new",
@@ -2228,7 +2497,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:537",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "newScript",
+            "HISTORICAL_LINE": 537,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:508",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "newScript",
+            "HISTORICAL_LINE": 508,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_open",
@@ -2262,7 +2555,31 @@
           "pine_open_saved_exact"
         ],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:566",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "openScript",
+            "HISTORICAL_LINE": 566,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:537",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "openScript",
+            "HISTORICAL_LINE": 537,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_open_saved_exact",
@@ -2421,7 +2738,31 @@
           "pine_save_script"
         ],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:376",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "save",
+            "HISTORICAL_LINE": 376,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:347",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "save",
+            "HISTORICAL_LINE": 347,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_save_script",
@@ -2483,7 +2824,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:297",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "setSource",
+            "HISTORICAL_LINE": 297,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:266",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "setSource",
+            "HISTORICAL_LINE": 266,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.pine_smart_compile",
@@ -2512,7 +2877,31 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak:458",
+            "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "smartCompile",
+            "HISTORICAL_LINE": 458,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak:429",
+            "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "FUNCTION": "smartCompile",
+            "HISTORICAL_LINE": 429,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ]
       },
       {
         "CAPABILITY_ID": "CURRENT_MCP.quote_get",
@@ -3566,12 +3955,369 @@
           "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/webhook.js#webhookPlaceOrder"
         ],
         "KNOWN_LIMITATIONS": [
-          "Static source registration, not live activation or runtime verification."
+          "Static source registration, not live activation or runtime verification.",
+          "src/core/webhook.js:16-28 forwards sl_price,48-94 has gated real POST path; tools/live.js exposed it in prior baseline. trading_stack/tv-binance-bot/bot.py:165-179 implements TRUE OCO and245-251 calls it after BUY. Historical WEBHOOK_EXECUTION_GUIDE.md:180-187 says OCO needs enhancement: stale relative to local bot source. Actual intended deployment/backend/real exchange OCO remains UNVERIFIED."
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census.",
+        "MIGRATION_CLASS": "PRESENT_AND_EXPOSED",
+        "HISTORICAL_EVIDENCE": [
+          {
+            "SOURCE_PROVENANCE": "TRADING_STACK",
+            "POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\webhook.js:16-28,48-94",
+            "DOWNSTREAM_SOURCE": "C:/Users/wigmore/trading_stack/tv-binance-bot/bot.py:165-179,245-251",
+            "EVIDENCE_BASELINE_COMMENT": 5962283764
+          }
+        ]
+      },
+      {
+        "CAPABILITY_ID": "HISTORICAL_TV.bitget_lock_aware_sell_retry",
+        "DOMAIN": "broker_account_trading_actions",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson@01c193ada6a115a6e33fa594063f91fbf291ed09:scalper-run.js#placeSellWithRetry"
+        ],
+        "SOURCE_PROVENANCE": "TRADING_STACK",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "MIGRATION_CLASS": "PRESENT_NOT_EXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "TRADE",
+        "HUMAN_AUTHORITY_REQUIRED": "YES",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5962283764",
+          "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson@01c193ada6a115a6e33fa594063f91fbf291ed09:scalper-run.js"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Historical standalone BitGet retry primitive, not MCP; desired migration and downstream equivalents unresolved; source is not execution/safety proof. Never run."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must reconcile desired exposure; no port/rebuild/execute authority."
       }
     ]
+  },
+  "HISTORICAL_TV_CENSUS_CONTINUE2": {
+    "AUTHORITY_COMMENT": 5962406608,
+    "EVIDENCE_BASELINE_COMMENT": 5962283764,
+    "THREE_PRIOR_FINDINGS_PERSISTED": "YES",
+    "SIX_EXACT_POINTERS_INSPECTED": "YES",
+    "UNITS": [
+      {
+        "PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\scripts\\pine_recover.mjs",
+        "SHA256": "3e128201f78e167a274f6585881db7e5d4f424f2f7ca86ffd5aa291da675aa01",
+        "SOURCE_PROVENANCE": "TRADING_STACK",
+        "SOURCE_ONLY_NOT_EXECUTED": true,
+        "DELTAS": [
+          {
+            "CLASSIFICATION": "PARTIAL",
+            "SOURCE_DELTA": "Draft/storage/list/error/study diagnostic script; no restore/re-attestation implementation; READ ONLY header is not full nondestructive-path proof."
+          }
+        ]
+      },
+      {
+        "PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\scripts\\tv_open_pine.mjs",
+        "SHA256": "ce336151c382fdcd8b6d4752c86365d15e486bb1ee0bbe79d0f8864dd515f942",
+        "SOURCE_PROVENANCE": "TRADING_STACK",
+        "SOURCE_ONLY_NOT_EXECUTED": true,
+        "DELTAS": [
+          {
+            "CLASSIFICATION": "PARTIAL",
+            "SOURCE_DELTA": "First URL-containing TradingView target selected at lines4-8; editor clicks then source-length read; header says clear but inspected body does not clear source. Not exact-target/protected-buffer certified; do not run."
+          }
+        ]
+      },
+      {
+        "PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.bak",
+        "SHA256": "88ebe77f637c482819e25d701ae4637e0ba8bf59349dafdb693ee3a1cabc3f91",
+        "SOURCE_PROVENANCE": "TRADING_STACK",
+        "SOURCE_ONLY_NOT_EXECUTED": true,
+        "DELTAS": [
+          {
+            "FUNCTION": "analyze",
+            "HISTORICAL_LINE": 109,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "check",
+            "HISTORICAL_LINE": 217,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getSource",
+            "HISTORICAL_LINE": 278,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "setSource",
+            "HISTORICAL_LINE": 297,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "compile",
+            "HISTORICAL_LINE": 315,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getErrors",
+            "HISTORICAL_LINE": 351,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "save",
+            "HISTORICAL_LINE": 376,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getConsole",
+            "HISTORICAL_LINE": 408,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "smartCompile",
+            "HISTORICAL_LINE": 458,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "newScript",
+            "HISTORICAL_LINE": 537,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "openScript",
+            "HISTORICAL_LINE": 566,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "listScripts",
+            "HISTORICAL_LINE": 620,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": true,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ],
+        "CURRENT_PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js",
+        "CURRENT_SHA256": "dcc06cd39a42e76d5966aa059145b7706b477bfe247d7530aef2043a8646d58d"
+      },
+      {
+        "PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js.before_update_button_patch_20260513_170309.bak",
+        "SHA256": "6d23536527e33ac3971cafb5f3f3e591d8b4b26325575686eb6c918772e79eb1",
+        "SOURCE_PROVENANCE": "TRADING_STACK",
+        "SOURCE_ONLY_NOT_EXECUTED": true,
+        "DELTAS": [
+          {
+            "FUNCTION": "ensurePineEditorOpen",
+            "HISTORICAL_LINE": 42,
+            "CURRENT_PRESENT": false,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "UNVERIFIED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "analyze",
+            "HISTORICAL_LINE": 78,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "check",
+            "HISTORICAL_LINE": 186,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getSource",
+            "HISTORICAL_LINE": 247,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "setSource",
+            "HISTORICAL_LINE": 266,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "compile",
+            "HISTORICAL_LINE": 284,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getErrors",
+            "HISTORICAL_LINE": 322,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "save",
+            "HISTORICAL_LINE": 347,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getConsole",
+            "HISTORICAL_LINE": 379,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "smartCompile",
+            "HISTORICAL_LINE": 429,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "newScript",
+            "HISTORICAL_LINE": 508,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "openScript",
+            "HISTORICAL_LINE": 537,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "listScripts",
+            "HISTORICAL_LINE": 591,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ],
+        "CURRENT_PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\pine.js",
+        "CURRENT_SHA256": "dcc06cd39a42e76d5966aa059145b7706b477bfe247d7530aef2043a8646d58d"
+      },
+      {
+        "PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js.before_strategy_extractors_patch_20260513_170527.bak",
+        "SHA256": "357accb267fa1ff7e30aa9232580e0ecc4b77be3f1752a370c97e1f8ec46c959",
+        "SOURCE_PROVENANCE": "TRADING_STACK",
+        "SOURCE_ONLY_NOT_EXECUTED": true,
+        "DELTAS": [
+          {
+            "FUNCTION": "getStrategyResults",
+            "HISTORICAL_LINE": 135,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getTrades",
+            "HISTORICAL_LINE": 167,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getEquity",
+            "HISTORICAL_LINE": 204,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ],
+        "CURRENT_PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js",
+        "CURRENT_SHA256": "53bebdeab2a1eba3c26e79b37c07e3c917c8f06f130600d451caa172f8c7bcfe"
+      },
+      {
+        "PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js.before_equity_patch_20260513_170601.bak",
+        "SHA256": "e1a9f638a296d07a8824d8139147a1b77ed24347d6dc8f3016e8d1bbca7c4748",
+        "SOURCE_PROVENANCE": "TRADING_STACK",
+        "SOURCE_ONLY_NOT_EXECUTED": true,
+        "DELTAS": [
+          {
+            "FUNCTION": "getStrategyResults",
+            "HISTORICAL_LINE": 135,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getTrades",
+            "HISTORICAL_LINE": 201,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          },
+          {
+            "FUNCTION": "getEquity",
+            "HISTORICAL_LINE": 236,
+            "CURRENT_PRESENT": true,
+            "SAME_EXACT_BLOCK": false,
+            "CLASSIFICATION": "PRESENT_AND_EXPOSED",
+            "LIMITATION": "Block difference is not proof of behavioral equivalence, regression or executed migration."
+          }
+        ],
+        "CURRENT_PATH": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js",
+        "CURRENT_SHA256": "53bebdeab2a1eba3c26e79b37c07e3c917c8f06f130600d451caa172f8c7bcfe"
+      }
+    ],
+    "HISTORICAL_CENSUS_STATUS": "IN_PROGRESS_BOUNDED_BATCH_ONLY",
+    "CURRENT_PROVEN_LIVE_PROMOTIONS": 0
   }
 }
