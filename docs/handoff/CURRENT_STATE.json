@@ -1,13 +1,13 @@
 {
   "VERSION": 1,
-  "AUTHORITY_HIGH_WATER": 5955496299,
-  "TASK_DIRECTIVE_COMMENT_ID": 5955496299,
+  "AUTHORITY_HIGH_WATER": 5962074163,
+  "TASK_DIRECTIVE_COMMENT_ID": 5962074163,
   "GATE0_COMMENT_ID": 5955000891,
   "MAILBOX": "binancebotty-bot/trading-research-control-plane Issue #1",
   "REPO_ROOT": "C:/Users/wigmore/trading-research-control-plane",
   "BRANCH": "master",
   "LOGICAL_IMPLEMENTATION_OWNER": "20260803_100203_2a8a55",
-  "CURRENT_RUNTIME_CONTINUATION": "20261002_141307_d81a85",
+  "CURRENT_RUNTIME_CONTINUATION": "20261002_214107_8821b7",
   "CONTINUATION_RULE": "Model/session continuation preserves one logical owner; record actual runtime ID; no second writer.",
   "ONLY_HERMES_GPT_CONTACT": "6abf60c8-4598-83eb-bc80-57a926d80b2e",
   "CONTROLLER_URL": "https://chatgpt.com/g/g-p-6abf7e5431a88191b750f7e326eebec9-pinescript-development/c/6abf60c8-4598-83eb-bc80-57a926d80b2e",
@@ -16,7 +16,7 @@
   "RICHARD_RELAY_REQUIRED": "NO",
   "OVERALL_PLATFORM_MISSION": "Durable AI-controlled trading/research stack: Python/py2pine research, iterative Pine development, genuine TradingView validation, modular approved TradingView/direct-exchange execution, long bounded research campaigns, off-machine recovery, eventual automated/live trading only inside separately Human-approved risk/execution envelopes.",
   "OVERALL_PLATFORM_DONE": "On a fresh/recovered machine, safely receive a trading/research instruction, create/modify strategy, test locally, genuinely validate in TradingView, preserve durable evidence/state, and execute real trading only when separately authorised, without hidden chat/manual reconstruction. Subsequent research/improvement/trading are recurring platform missions.",
-  "CURRENT_PHASE_1": "Python versus real TradingView certification; commissioning handoff preparation currently authorised; no product execution released.",
+  "CURRENT_PHASE_1": "Source-only governance/census bootstrap; no live HERMES/TradingView/Pine/chart/trading activation.",
   "PHASE_1_DONE": [
     "Canonical backend executes real MCP JSON-RPC, with truthful capability classification.",
     "Disposable deterministic strategy/date range produces multiple actual trades in both engines; real execution identity, metrics/trades, trade-by-trade and aggregate comparison with explicit tolerances; Controller accepts.",
@@ -44,7 +44,7 @@
     "STATE": "SUSPENDED_NON_EXECUTABLE",
     "REASON": "PENDING_EXPLICIT_CONTROLLER_REISSUE_OR_SUPERSESSION_IN_BOUNDED_PACKETS"
   },
-  "CURRENT_TASK": "PINE-RC-20261002-MODEL-SWITCH-DEFERRED-STATE-1",
+  "CURRENT_TASK": "PINE-RC-20261002-PHASE1-CANONICAL-STATE-DURABILITY-PROMOTION-1",
   "TASK_AUTHORITY": "CONTROLLER_RESPONSE_ONLY",
   "LOWER_MODEL_SIMULATION": "DO_NOT_RUN",
   "MODEL_SWITCH": "DEFERRED_BY_RICHARD",
@@ -102,5 +102,122 @@
     "STATUS": "PASS",
     "COMMENT_ID": 5955496299,
     "RESULT_COMMENT_ID": 5955469060
-  }
+  },
+  "PINE_MISSION_CONTROL_HIGH_WATER": 5962051922,
+  "ARCHITECT_CONTROL_HIGH_WATER": 5961740768,
+  "MANAGING_DIRECTOR_CONTROL_HIGH_WATER": "COMPANY_CONTROL_PROTOCOL_v1@0df93c7a2d31e235915d61712c17d28c822e7da9",
+  "MANAGING_DIRECTOR_PENDING_NON_GOVERNING_TRANSPORT": "PR6@136a94a7be7f9cca6e195774bc89679960c424d3:DRAFT_NOT_ADOPTED",
+  "COMPANY_PROTOCOL_MIGRATION_STATE": "LEGACY_GOVERNING",
+  "UNRESOLVED_CROSS_SURFACE_CONFLICT": "NONE_KNOWN",
+  "DIRECTIVE_CONSUMPTION": [
+    {
+      "DIRECTIVE_ID_OR_COMMENT": 5960696036,
+      "CONTROLLER_SEEN": "YES",
+      "CONTROLLER_CONSUMED": "YES",
+      "HERMES_SEEN": "YES",
+      "HERMES_CONSUMED": "YES",
+      "PERSISTED_CANONICALLY": "YES",
+      "PERSISTENCE_PATH": "docs/handoff/CURRENT_STATE.json#DIRECTIVE_CONSUMPTION",
+      "INSERTION_GATE_OR_PHASE": "PHASE1_CLOSURE",
+      "STATUS": "OPEN",
+      "CURRENT_CONSTRAINT": "Save meaningful exact identity; prove add/remove/reopen with before/request/after evidence; no mutation in this packet.",
+      "EVIDENCE_POINTER": [
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5960696036",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961772475",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961894438"
+      ]
+    },
+    {
+      "DIRECTIVE_ID_OR_COMMENT": 5961253879,
+      "CONTROLLER_SEEN": "YES",
+      "CONTROLLER_CONSUMED": "YES",
+      "HERMES_SEEN": "YES",
+      "HERMES_CONSUMED": "YES",
+      "PERSISTED_CANONICALLY": "YES",
+      "PERSISTENCE_PATH": "docs/handoff/CURRENT_STATE.json#DIRECTIVE_CONSUMPTION",
+      "INSERTION_GATE_OR_PHASE": "FIRST_LIVE_REENTRY_AND_PHASE1_RESILIENCE",
+      "STATUS": "OPEN",
+      "CURRENT_CONSTRAINT": "Screenshot-first visible-error diagnosis; distinguish transport/target/page failure; smallest nondestructive recovery and full re-attestation; no live recovery now.",
+      "EVIDENCE_POINTER": [
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961253879",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961772475",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961894438"
+      ]
+    },
+    {
+      "DIRECTIVE_ID_OR_COMMENT": 5961678906,
+      "CONTROLLER_SEEN": "YES",
+      "CONTROLLER_CONSUMED": "YES",
+      "HERMES_SEEN": "YES",
+      "HERMES_CONSUMED": "YES",
+      "PERSISTED_CANONICALLY": "YES",
+      "PERSISTENCE_PATH": "docs/handoff/CURRENT_STATE.json#DIRECTIVE_CONSUMPTION",
+      "INSERTION_GATE_OR_PHASE": "CURRENT_BOOTSTRAP_THEN_CONTROLLER_CENSUS",
+      "STATUS": "IN_PROGRESS",
+      "CURRENT_CONSTRAINT": "Current source census now; historical estate and official APIs later; mapping is not live activation.",
+      "EVIDENCE_POINTER": [
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961772475",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961894438"
+      ]
+    },
+    {
+      "DIRECTIVE_ID_OR_COMMENT": 5961700619,
+      "CONTROLLER_SEEN": "YES",
+      "CONTROLLER_CONSUMED": "YES",
+      "HERMES_SEEN": "YES",
+      "HERMES_CONSUMED": "YES",
+      "PERSISTED_CANONICALLY": "YES",
+      "PERSISTENCE_PATH": "docs/handoff/CURRENT_STATE.json#DIRECTIVE_CONSUMPTION",
+      "INSERTION_GATE_OR_PHASE": "LATER_DATA_AND_OPERABILITY_CENSUS",
+      "STATUS": "OPEN",
+      "CURRENT_CONSTRAINT": "Map existing OHLC provenance/parity and executable usage estate before any provider/tool campaign; placeholders only now.",
+      "EVIDENCE_POINTER": [
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961772475",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961894438"
+      ]
+    },
+    {
+      "DIRECTIVE_ID_OR_COMMENT": 5961724735,
+      "CONTROLLER_SEEN": "YES",
+      "CONTROLLER_CONSUMED": "YES",
+      "HERMES_SEEN": "YES",
+      "HERMES_CONSUMED": "YES",
+      "PERSISTED_CANONICALLY": "YES",
+      "PERSISTENCE_PATH": "docs/handoff/CURRENT_STATE.json#DIRECTIVE_CONSUMPTION",
+      "INSERTION_GATE_OR_PHASE": "RECOVERY_PHASE_TRANSITION_MAJOR_GATE",
+      "STATUS": "IN_PROGRESS",
+      "CURRENT_CONSTRAINT": "Reconcile three high-waters; ordinary workers use summaries; conflicts go to Controller; legacy governs until explicit cutover.",
+      "EVIDENCE_POINTER": [
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961724735",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961772475",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961894438"
+      ]
+    },
+    {
+      "DIRECTIVE_ID_OR_COMMENT": 5961740768,
+      "CONTROLLER_SEEN": "YES",
+      "CONTROLLER_CONSUMED": "YES",
+      "HERMES_SEEN": "YES",
+      "HERMES_CONSUMED": "YES",
+      "PERSISTED_CANONICALLY": "YES",
+      "PERSISTENCE_PATH": "docs/handoff/CURRENT_STATE.json#DIRECTIVE_CONSUMPTION",
+      "INSERTION_GATE_OR_PHASE": "CANONICAL_PERSISTENCE_AND_RECOVERY",
+      "STATUS": "IN_PROGRESS",
+      "CURRENT_CONSTRAINT": "Promote compact consumption/status pointers; seen is not consumed and documentation is not proof; recovery behavior remains unproven.",
+      "EVIDENCE_POINTER": [
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961740768",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961772475",
+        "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961894438"
+      ]
+    }
+  ],
+  "DIRECTIVE_LEDGER_PATH": "docs/handoff/CURRENT_STATE.json#DIRECTIVE_CONSUMPTION",
+  "CAPABILITY_REGISTRY_PATH": "registry/capabilities.json",
+  "NEXT_ACTION": "CONTROLLER_ONLY_AFTER_DURABILITY_RESULT_ADJUDICATION",
+  "HEARTBEAT_SECONDS": 180,
+  "LIVE_HERMES_ACCESS_AUTHORISED": "NO",
+  "PINE_OPEN_SAVED_EXACT_CERTIFICATION": "PROVEN_OFFLINE_NOT_LIVE",
+  "CAPABILITY_REGISTRY_TRACKED": "YES"
 }

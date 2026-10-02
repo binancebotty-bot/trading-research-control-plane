@@ -1,0 +1,3577 @@
+{
+  "python_backend": {
+    "data_load": "PASS",
+    "strategy_execution": "PASS",
+    "entries_exits": "PASS",
+    "position_sizing": "PASS",
+    "costs_fees": "PASS",
+    "equity_curve": "PASS",
+    "drawdown": "PASS",
+    "trade_ledger": "PASS",
+    "metrics": "PASS",
+    "parameter_changes": "PASS",
+    "repeatability": "PASS",
+    "batch_execution": "PASS",
+    "parallel_execution": "PASS",
+    "parameter_sweep": "PASS",
+    "deterministic_tests": "PASS (16/16)",
+    "throughput": "PASS"
+  },
+  "custom_mcp": {
+    "proof_ladder": "PASS (21/21)",
+    "real_execution": "PASS"
+  },
+  "parity": {
+    "python_vs_tv": "PASS",
+    "discrepancies": 0
+  },
+  "official_tv_mcp": {
+    "status": "NOT_AVAILABLE",
+    "reason": "No public TradingView MCP repository exists. Only community/unofficial implementations found.",
+    "evidence": "GitHub API search returned 436 results, none official."
+  },
+  "research_pipeline": {
+    "stages_completed": 9,
+    "decision": "Pipeline exception (experiment ID collision, not functional failure)",
+    "total_time_ms": 15146
+  },
+  "LEGACY_ASSERTION_VALIDITY": {
+    "STATUS": "UNVERIFIED_NOT_CURRENT_CERTIFICATION",
+    "FIELDS": [
+      "python_backend",
+      "custom_mcp",
+      "parity",
+      "official_tv_mcp",
+      "research_pipeline"
+    ],
+    "NOTE": "Pre-bootstrap blanket PASS/API claims are retained for provenance only, not accepted live/parity/capability evidence. Current source census below governs this bootstrap; official API review is deferred."
+  },
+  "CURRENT_MCP_CENSUS": {
+    "VERSION": 1,
+    "AUTHORITY_COMMENT": 5961894438,
+    "SCOPE": "CURRENT_SOURCE_REGISTRATION_ONLY; no server/tool execution; historical estate/API/provider research deferred",
+    "ENTRYPOINTS": [
+      "src/server.js",
+      "src/mcp-http-server.js"
+    ],
+    "REGISTRATION_REACHABILITY": "Static imports and unconditional registration calls from src/server.js; nested exact-saved registration verified. Runtime loaded/exposed inventory UNVERIFIED.",
+    "COUNTS": {
+      "CURRENT_EXPOSED_MCP_TOOL_COUNT": 98,
+      "CURRENT_IMPLEMENTED_UNEXPOSED_COUNT": 9,
+      "GAP_RECORD_COUNT": 12,
+      "CAPABILITY_RECORD_COUNT": 119
+    },
+    "SOURCE_SHA256": {
+      "src/core/alerts.js": "97e04f9f04765c68e31255cdb6910cece2f97c8f87c99977c87a61dbb6363daa",
+      "src/core/batch.js": "af4927762923bde7ddc5da5bfa038b3296ba5ae123ce5ca60c3e11a146580ca3",
+      "src/core/capture.js": "3625260c1a3c26cef41ed32601de9ef4778c212cdb852570f2effa567a87a329",
+      "src/core/chart.js": "db27e0b41499bf746f9fa5a6f465ab38dd52b5d2d9bfbdc4f8fd1f7f6cee78ae",
+      "src/core/data.js": "53bebdeab2a1eba3c26e79b37c07e3c917c8f06f130600d451caa172f8c7bcfe",
+      "src/core/drawing.js": "5316905a18dcd24f82a578363b0b1c8b0fe99c8252a3862a91e2e6eb8d3d644a",
+      "src/core/health.js": "606b0b03f5a240fac9e99968ab80f588c94bd49fe3c6368bec0adc9bb6edc964",
+      "src/core/indicators.js": "5bbdd91215a55fa013df7c85824d933b7f562251d939dc19808a87f6e7e6f750",
+      "src/core/lab.js": "4f69c0709dad035ef7ac75412e6b4e57a87480427362bbf2c6207bfb6cf1793e",
+      "src/core/live_gate.js": "7a6b898fdcd08d4a6fa15df456908507ca57ce39c652bd7d06ff16d0df0c9eed",
+      "src/core/live_trade.js": "a6d7f1209f0fca03c0ab81b8d7ee80ad413cfd07a91d84c6d9610f7d319613d0",
+      "src/core/morning.js": "d514934af05ad3d7d771f475681e70658deff1921cc802a3c3288b4c9fa04d3d",
+      "src/core/pane.js": "c8801369f1cc700c16a573567e482532f5a9096fa71b424d1b14d08d90a01227",
+      "src/core/pine.js": "dcc06cd39a42e76d5966aa059145b7706b477bfe247d7530aef2043a8646d58d",
+      "src/core/pine_saved_bridge.js": "ce788235fbf5efb4ef6258c45561bf34192d4a74e8600964ef014518f598e8c2",
+      "src/core/replay.js": "ea3df19323b562d37a6cf3148400b75275f8e4ff29709da4229ef426d078e0ac",
+      "src/core/tab.js": "9d22fd3a5044f0b1490aa7a1f94fc93ede744fbd26ae7dd15a409326f476568b",
+      "src/core/ui.js": "fda4a1aa84e64a1212ba0f336bdc7ca869914bba76a3b84a02752218c0fb3980",
+      "src/core/watchlist.js": "d08339c3e8a3dd69f8a90e1428e8c857bbd37121392c8a16a79f4269bd1c438c",
+      "src/core/webhook.js": "b68a85626845fae2a8f47b16226e0ce489518505e28100dccf2b354f1835557f",
+      "src/mcp-http-server.js": "3aef21bb9b867bbac1e29aeba8ab766b74331989ace45fb76d3aa4e0c2783177",
+      "src/server.js": "d2d3a333c85d8e7d21b4bd008d89feff575b7cf97545b31fafea4667e48450c7",
+      "src/tools/alerts.js": "9cc1f03022d58b7bf86a341291bceced3ab31a9fe6ee48e08f0d9d5b11b67fa7",
+      "src/tools/batch.js": "f1d9d61c85930367b3c507fe72d992cad10128456d3006d2f3cbfa5d9043b4da",
+      "src/tools/capture.js": "25f9b64c74fd175769bfcfa09b53a35465f260b4029c2e2927c9305368d2e38f",
+      "src/tools/chart.js": "7163c768ef8ca65fdc2b8340c419d5b31ffc3b7feed7429712098d75c185536a",
+      "src/tools/data.js": "ed70d90fd52a83d512033988c74e43a2579d1b1376f35b89a836459e049672e5",
+      "src/tools/drawing.js": "3f9b3b6ed7d6c41c258d08de64c20613da66ca52f5825248ecd9bdfa292b6cbe",
+      "src/tools/health.js": "4f946b31379c8e713b4fde8283cd63147a93be97472a87f74aeeba4381db0ebf",
+      "src/tools/indicators.js": "e76ba84547e569f8f305fa789cadea787016ee871d868b7ca0e7995799fe91bc",
+      "src/tools/lab.js": "447c2bc9065be2f61c3500eda7e0aa8b7f3d1ecbb281686aa003d98dd333f61f",
+      "src/tools/live.js": "48e7d2033e1d863ab856771ab8646e41a826d425815aa5a37c7b5384665b0783",
+      "src/tools/morning.js": "e37a4eb9385029980734ce1366e35f7cac4676179c0769f8714e19d0c5af75b6",
+      "src/tools/pane.js": "5bdc1b1d01cd73f12eb47ac5686730edf22f2b7a899b8d6350b99e2768a80553",
+      "src/tools/pine.js": "e1afb0ea89c3368104af81bb85bcef74aa0e5197e528e736909ca80de6f6b3f1",
+      "src/tools/pine_saved_exact.js": "13f1ba47822b5069dc092fdd7a7dfebd4ac77787406fefaab3c7d21fac26a27c",
+      "src/tools/replay.js": "7fad38d1bb07b6e2f7789fb0aadaef1cc88b88e27354ce3717b5372461f34ede",
+      "src/tools/tab.js": "5e8b492c6542f13ced8af4b90f5f26d22d1857cfc8e24ddfc7426747b628525e",
+      "src/tools/ui.js": "5a3cbf38479623ed6cc1267f37323762b2a00b76a0537ebd6a0db193f2d7b5bc",
+      "src/tools/watchlist.js": "379fb29b091684ef38408017e0213d10a78efbb40c85e54883e067505d06ae8c"
+    },
+    "UNEXPOSED_SCOPE_LIMITATION": "Only exported function declarations in directly imported implementation modules; internal const/class exports and transitive helpers are not exhaustively censused.",
+    "RECORDS": [
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.broker_account_trading_actions",
+        "DOMAIN": "broker_account_trading_actions",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.chart_persistence_watchlists_multi_chart",
+        "DOMAIN": "chart_persistence_watchlists_multi_chart",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.disconnect_recovery",
+        "DOMAIN": "disconnect_recovery",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.drawings",
+        "DOMAIN": "drawings",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.execution_safety",
+        "DOMAIN": "execution_safety",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.historical_trading_stack_live_trading_migrations",
+        "DOMAIN": "historical_trading_stack_live_trading_migrations",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.indicators_studies",
+        "DOMAIN": "indicators_studies",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.official_tradingview_apis",
+        "DOMAIN": "official_tradingview_apis",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.ohlc_ohlcv_acquisition_parity",
+        "DOMAIN": "ohlc_ohlcv_acquisition_parity",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.repository_usage_operability",
+        "DOMAIN": "repository_usage_operability",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.saved_pine_lifecycle",
+        "DOMAIN": "saved_pine_lifecycle",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CENSUS_GAP.strategy_tester",
+        "DOMAIN": "strategy_tester",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [],
+        "SOURCE_PROVENANCE": "OTHER",
+        "STATUS": "UNVERIFIED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961678906",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961700619"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Explicit future-census placeholder; no historical/API/provider investigation performed."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_INTERNAL.lab.healthCheck",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#healthCheck"
+        ],
+        "SCHEMA_NAME": "NONE_REGISTERED",
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#healthCheck"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Exported helper in a directly imported current module; may support exposed tools indirectly. Not evidence of an exposure gap or runtime safety."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Review internal/helper purpose before proposing public exposure."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_INTERNAL.live_gate.auditOrder",
+        "DOMAIN": "live_gate",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_gate.js#auditOrder"
+        ],
+        "SCHEMA_NAME": "NONE_REGISTERED",
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_gate.js#auditOrder"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Exported helper in a directly imported current module; may support exposed tools indirectly. Not evidence of an exposure gap or runtime safety."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Review internal/helper purpose before proposing public exposure."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_INTERNAL.live_gate.checkOrderAllowed",
+        "DOMAIN": "live_gate",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_gate.js#checkOrderAllowed"
+        ],
+        "SCHEMA_NAME": "NONE_REGISTERED",
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_gate.js#checkOrderAllowed"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Exported helper in a directly imported current module; may support exposed tools indirectly. Not evidence of an exposure gap or runtime safety."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Review internal/helper purpose before proposing public exposure."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_INTERNAL.live_gate.consumeOrderBudget",
+        "DOMAIN": "live_gate",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_gate.js#consumeOrderBudget"
+        ],
+        "SCHEMA_NAME": "NONE_REGISTERED",
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_gate.js#consumeOrderBudget"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Exported helper in a directly imported current module; may support exposed tools indirectly. Not evidence of an exposure gap or runtime safety."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Review internal/helper purpose before proposing public exposure."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_INTERNAL.pine_saved_bridge.createNativeTransport",
+        "DOMAIN": "pine_saved_bridge",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#createNativeTransport"
+        ],
+        "SCHEMA_NAME": "NONE_REGISTERED",
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#createNativeTransport"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Exported helper in a directly imported current module; may support exposed tools indirectly. Not evidence of an exposure gap or runtime safety."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Review internal/helper purpose before proposing public exposure."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_INTERNAL.pine_saved_bridge.fetchCanonicalPage",
+        "DOMAIN": "pine_saved_bridge",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#fetchCanonicalPage"
+        ],
+        "SCHEMA_NAME": "NONE_REGISTERED",
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#fetchCanonicalPage"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Exported helper in a directly imported current module; may support exposed tools indirectly. Not evidence of an exposure gap or runtime safety."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Review internal/helper purpose before proposing public exposure."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_INTERNAL.pine_saved_bridge.invokeLowerPage",
+        "DOMAIN": "pine_saved_bridge",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#invokeLowerPage"
+        ],
+        "SCHEMA_NAME": "NONE_REGISTERED",
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#invokeLowerPage"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Exported helper in a directly imported current module; may support exposed tools indirectly. Not evidence of an exposure gap or runtime safety."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Review internal/helper purpose before proposing public exposure."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_INTERNAL.pine_saved_bridge.locateNative",
+        "DOMAIN": "pine_saved_bridge",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#locateNative"
+        ],
+        "SCHEMA_NAME": "NONE_REGISTERED",
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#locateNative"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Exported helper in a directly imported current module; may support exposed tools indirectly. Not evidence of an exposure gap or runtime safety."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Review internal/helper purpose before proposing public exposure."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_INTERNAL.pine_saved_bridge.readNativeBinding",
+        "DOMAIN": "pine_saved_bridge",
+        "CURRENT_MCP_TOOL": null,
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#readNativeBinding"
+        ],
+        "SCHEMA_NAME": "NONE_REGISTERED",
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "IMPLEMENTED_UNEXPOSED",
+        "ACCESS_PATH": "OTHER",
+        "READ_OR_MUTATE": "UNVERIFIED",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#readNativeBinding"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Exported helper in a directly imported current module; may support exposed tools indirectly. Not evidence of an exposure gap or runtime safety."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Review internal/helper purpose before proposing public exposure."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.alert_create",
+        "DOMAIN": "alerts",
+        "CURRENT_MCP_TOOL": "alert_create",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/alerts.js#create"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/alerts.js:6#registerAlertTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/alerts.js:6",
+        "SCHEMA_FIELDS": [
+          "condition",
+          "message",
+          "price"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/alerts.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/alerts.js#create"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.alert_delete",
+        "DOMAIN": "alerts",
+        "CURRENT_MCP_TOOL": "alert_delete",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/alerts.js#deleteAlerts"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/alerts.js:20#registerAlertTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/alerts.js:20",
+        "SCHEMA_FIELDS": [
+          "delete_all"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/alerts.js:20",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/alerts.js#deleteAlerts"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.alert_list",
+        "DOMAIN": "alerts",
+        "CURRENT_MCP_TOOL": "alert_list",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/alerts.js#list"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/alerts.js:15#registerAlertTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/alerts.js:15",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/alerts.js:15",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/alerts.js#list"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.batch_run",
+        "DOMAIN": "batch",
+        "CURRENT_MCP_TOOL": "batch_run",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/batch.js#batchRun"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/batch.js:6#registerBatchTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/batch.js:6",
+        "SCHEMA_FIELDS": [
+          "action",
+          "delay_ms",
+          "ohlcv_count",
+          "symbols",
+          "timeframes"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/batch.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/batch.js#batchRun"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.capture_screenshot",
+        "DOMAIN": "capture",
+        "CURRENT_MCP_TOOL": "capture_screenshot",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/capture.js#captureScreenshot"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/capture.js:6#registerCaptureTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/capture.js:6",
+        "SCHEMA_FIELDS": [
+          "filename",
+          "method",
+          "region"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/capture.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/capture.js#captureScreenshot"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.chart_get_state",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "chart_get_state",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#getState"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:6#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:6",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#getState"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.chart_get_visible_range",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "chart_get_visible_range",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#getVisibleRange"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:42#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:42",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:42",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#getVisibleRange"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.chart_manage_indicator",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "chart_manage_indicator",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#manageIndicator"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:32#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:32",
+        "SCHEMA_FIELDS": [
+          "action",
+          "entity_id",
+          "indicator",
+          "inputs"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:32",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#manageIndicator"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.chart_scroll_to_date",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "chart_scroll_to_date",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#scrollToDate"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:55#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:55",
+        "SCHEMA_FIELDS": [
+          "date"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:55",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#scrollToDate"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.chart_set_symbol",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "chart_set_symbol",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#setSymbol"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:11#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:11",
+        "SCHEMA_FIELDS": [
+          "symbol"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:11",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#setSymbol"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.chart_set_timeframe",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "chart_set_timeframe",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#setTimeframe"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:18#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:18",
+        "SCHEMA_FIELDS": [
+          "timeframe"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:18",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#setTimeframe"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.chart_set_type",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "chart_set_type",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#setType"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:25#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:25",
+        "SCHEMA_FIELDS": [
+          "chart_type"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:25",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#setType"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.chart_set_visible_range",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "chart_set_visible_range",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#setVisibleRange"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:47#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:47",
+        "SCHEMA_FIELDS": [
+          "from",
+          "to"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:47",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#setVisibleRange"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_equity",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_equity",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getEquity"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:33#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:33",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:33",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getEquity"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_indicator",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_indicator",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getIndicator"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:14#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:14",
+        "SCHEMA_FIELDS": [
+          "entity_id"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:14",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getIndicator"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_ohlcv",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_ohlcv",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getOhlcv"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:6#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:6",
+        "SCHEMA_FIELDS": [
+          "count",
+          "summary"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getOhlcv"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_pine_boxes",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_pine_boxes",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getPineBoxes"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:74#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:74",
+        "SCHEMA_FIELDS": [
+          "study_filter",
+          "verbose"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:74",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getPineBoxes"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_pine_labels",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_pine_labels",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getPineLabels"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:58#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:58",
+        "SCHEMA_FIELDS": [
+          "max_labels",
+          "study_filter",
+          "verbose"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:58",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getPineLabels"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_pine_lines",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_pine_lines",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getPineLines"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:50#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:50",
+        "SCHEMA_FIELDS": [
+          "study_filter",
+          "verbose"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:50",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getPineLines"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_pine_tables",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_pine_tables",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getPineTables"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:67#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:67",
+        "SCHEMA_FIELDS": [
+          "study_filter"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:67",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getPineTables"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_strategy_results",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_strategy_results",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getStrategyResults"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:21#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:21",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:21",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getStrategyResults"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_study_values",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_study_values",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getStudyValues"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:82#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:82",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:82",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getStudyValues"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.data_get_trades",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "data_get_trades",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getTrades"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:26#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:26",
+        "SCHEMA_FIELDS": [
+          "max_trades"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:26",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getTrades"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.depth_get",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "depth_get",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getDepth"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:45#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:45",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:45",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getDepth"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.draw_clear",
+        "DOMAIN": "drawing",
+        "CURRENT_MCP_TOOL": "draw_clear",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#clearAll"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:22#registerDrawingTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:22",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:22",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#clearAll"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.draw_get_properties",
+        "DOMAIN": "drawing",
+        "CURRENT_MCP_TOOL": "draw_get_properties",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#getProperties"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:34#registerDrawingTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:34",
+        "SCHEMA_FIELDS": [
+          "entity_id"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:34",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#getProperties"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.draw_list",
+        "DOMAIN": "drawing",
+        "CURRENT_MCP_TOOL": "draw_list",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#listDrawings"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:17#registerDrawingTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:17",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:17",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#listDrawings"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.draw_remove_one",
+        "DOMAIN": "drawing",
+        "CURRENT_MCP_TOOL": "draw_remove_one",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#removeOne"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:27#registerDrawingTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:27",
+        "SCHEMA_FIELDS": [
+          "entity_id"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:27",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#removeOne"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.draw_shape",
+        "DOMAIN": "drawing",
+        "CURRENT_MCP_TOOL": "draw_shape",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#drawShape"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:6#registerDrawingTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:6",
+        "SCHEMA_FIELDS": [
+          "overrides",
+          "point",
+          "point2",
+          "price",
+          "shape",
+          "text",
+          "time"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/drawing.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/drawing.js#drawShape"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.indicator_set_inputs",
+        "DOMAIN": "indicators",
+        "CURRENT_MCP_TOOL": "indicator_set_inputs",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/indicators.js#setInputs"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/indicators.js:6#registerIndicatorTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/indicators.js:6",
+        "SCHEMA_FIELDS": [
+          "entity_id",
+          "inputs"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/indicators.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/indicators.js#setInputs"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.indicator_toggle_visibility",
+        "DOMAIN": "indicators",
+        "CURRENT_MCP_TOOL": "indicator_toggle_visibility",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/indicators.js#toggleVisibility"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/indicators.js:14#registerIndicatorTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/indicators.js:14",
+        "SCHEMA_FIELDS": [
+          "entity_id",
+          "visible"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/indicators.js:14",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/indicators.js#toggleVisibility"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.layout_list",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "layout_list",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#layoutList"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:27#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:27",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:27",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#layoutList"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.layout_switch",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "layout_switch",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#layoutSwitch"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:32#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:32",
+        "SCHEMA_FIELDS": [
+          "name"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:32",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#layoutSwitch"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.live_broker_status",
+        "DOMAIN": "live",
+        "CURRENT_MCP_TOOL": "live_broker_status",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_trade.js#brokerStatus"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:21#registerLiveTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:21",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:21",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_trade.js#brokerStatus"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.live_place_order",
+        "DOMAIN": "live",
+        "CURRENT_MCP_TOOL": "live_place_order",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_trade.js#placeOrder"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:23#registerLiveTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:23",
+        "SCHEMA_FIELDS": [
+          "confirm_token",
+          "dry_run",
+          "i_understand_real_money",
+          "limit_price",
+          "notional",
+          "order_type",
+          "qty",
+          "side",
+          "symbol"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "TRADE",
+        "HUMAN_AUTHORITY_REQUIRED": "YES",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:23",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_trade.js#placeOrder"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.live_trading_status",
+        "DOMAIN": "live",
+        "CURRENT_MCP_TOOL": "live_trading_status",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_gate.js#gateStatus"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:19#registerLiveTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:19",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:19",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/live_gate.js#gateStatus"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.morning_brief",
+        "DOMAIN": "morning",
+        "CURRENT_MCP_TOOL": "morning_brief",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/morning.js#runBrief"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/morning.js:6#registerMorningTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/morning.js:6",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/morning.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/morning.js#runBrief"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pane_focus",
+        "DOMAIN": "pane",
+        "CURRENT_MCP_TOOL": "pane_focus",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pane.js#focus"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:18#registerPaneTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:18",
+        "SCHEMA_FIELDS": [
+          "index"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:18",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pane.js#focus"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pane_list",
+        "DOMAIN": "pane",
+        "CURRENT_MCP_TOOL": "pane_list",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pane.js#list"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:6#registerPaneTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:6",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pane.js#list"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pane_set_layout",
+        "DOMAIN": "pane",
+        "CURRENT_MCP_TOOL": "pane_set_layout",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pane.js#setLayout"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:11#registerPaneTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:11",
+        "SCHEMA_FIELDS": [
+          "layout"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:11",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pane.js#setLayout"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pane_set_symbol",
+        "DOMAIN": "pane",
+        "CURRENT_MCP_TOOL": "pane_set_symbol",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pane.js#setSymbol"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:25#registerPaneTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:25",
+        "SCHEMA_FIELDS": [
+          "index",
+          "symbol"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pane.js:25",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pane.js#setSymbol"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_add_to_chart",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "pine_add_to_chart",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#addToChart"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:39#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:39",
+        "SCHEMA_FIELDS": [
+          "allow_update_existing"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:39",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#addToChart"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review.",
+          "Update-on-chart can autosave linked saved source; protected buffer authority required."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_analyze",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_analyze",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#analyze"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:66#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:66",
+        "SCHEMA_FIELDS": [
+          "source"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:66",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#analyze"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_check",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_check",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#check"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:73#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:73",
+        "SCHEMA_FIELDS": [
+          "source"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:73",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#check"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_compile",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "pine_compile",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#compile"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:27#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:27",
+        "SCHEMA_FIELDS": [
+          "source"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:27",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#compile"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_compile_dom",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_compile_dom",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#compile"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:22#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:22",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:22",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#compile"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review.",
+          "Legacy DOM compile can add/update chart; prefer facade compile."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [
+          "pine_compile"
+        ],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_detect_blocking_modal",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "pine_detect_blocking_modal",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#detectBlockingModal"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:20#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:20",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:20",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#detectBlockingModal"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_full_cycle_indicator",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "pine_full_cycle_indicator",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#fullCycleIndicator"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:49#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:49",
+        "SCHEMA_FIELDS": [
+          "add_to_chart",
+          "allow_update_existing",
+          "source"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:49",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#fullCycleIndicator"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_full_cycle_strategy",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "pine_full_cycle_strategy",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#fullCycleStrategy"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:55#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:55",
+        "SCHEMA_FIELDS": [
+          "add_to_chart",
+          "allow_update_existing",
+          "source"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:55",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#fullCycleStrategy"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_get_console",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_get_console",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#getConsole"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:37#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:37",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:37",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#getConsole"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_get_errors",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_get_errors",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#getErrors"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:27#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:27",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:27",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#getErrors"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_get_source",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_get_source",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#getSource"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:8#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:8",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:8",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#getSource"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_list_scripts",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_list_scripts",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#listScripts"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:61#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:61",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:61",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#listScripts"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_new",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_new",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#newScript"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:47#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:47",
+        "SCHEMA_FIELDS": [
+          "type"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:47",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#newScript"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_open",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_open",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#openScript"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:54#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:54",
+        "SCHEMA_FIELDS": [
+          "name"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:54",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#openScript"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review.",
+          "Name-based identity is insufficient for exact saved identity; legacy path not certified."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [
+          "pine_open_saved_exact"
+        ],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_open_saved_exact",
+        "DOMAIN": "pine_saved_exact",
+        "CURRENT_MCP_TOOL": "pine_open_saved_exact",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#openSavedExact"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine_saved_exact.js:11#registerExactSavedTool",
+        "SCHEMA_NAME": "exactSavedSchema",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine_saved_exact.js:3",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "PROVEN_OFFLINE",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine_saved_exact.js:11",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine_saved_bridge.js#openSavedExact",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961857570",
+          "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5961894438",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/tests/pine_saved_bridge.test.js",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/tests/pine_saved_exact.test.js",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/tests/connection_target.test.js"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_read_compile_errors",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "pine_read_compile_errors",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#readCompileErrors"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:31#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:31",
+        "SCHEMA_FIELDS": [
+          "source"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:31",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#readCompileErrors"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_replace_script",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "pine_replace_script",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#replaceScript"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:35#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:35",
+        "SCHEMA_FIELDS": [
+          "source"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:35",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#replaceScript"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_resolve_known_modal",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "pine_resolve_known_modal",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#resolveKnownModal"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:22#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:22",
+        "SCHEMA_FIELDS": [
+          "allow",
+          "expected_script_name"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:22",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#resolveKnownModal"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_save",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_save",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#save"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:32#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:32",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:32",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#save"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review.",
+          "Overlapping save surfaces; saved identity/readback still unproven."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [
+          "pine_save_script"
+        ],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_save_script",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "pine_save_script",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#saveScript"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:43#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:43",
+        "SCHEMA_FIELDS": [
+          "expected_script_name"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:43",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#saveScript"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_set_source",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_set_source",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#setSource"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:13#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:13",
+        "SCHEMA_FIELDS": [
+          "source"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:13",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#setSource"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.pine_smart_compile",
+        "DOMAIN": "pine",
+        "CURRENT_MCP_TOOL": "pine_smart_compile",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#smartCompile"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:42#registerPineTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:42",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/pine.js:42",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/pine.js#smartCompile"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.quote_get",
+        "DOMAIN": "data",
+        "CURRENT_MCP_TOOL": "quote_get",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getQuote"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:38#registerDataTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:38",
+        "SCHEMA_FIELDS": [
+          "symbol"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/data.js:38",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/data.js#getQuote"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.replay_autoplay",
+        "DOMAIN": "replay",
+        "CURRENT_MCP_TOOL": "replay_autoplay",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#autoplay"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:18#registerReplayTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:18",
+        "SCHEMA_FIELDS": [
+          "speed"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:18",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#autoplay"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.replay_start",
+        "DOMAIN": "replay",
+        "CURRENT_MCP_TOOL": "replay_start",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#start"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:6#registerReplayTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:6",
+        "SCHEMA_FIELDS": [
+          "date"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#start"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.replay_status",
+        "DOMAIN": "replay",
+        "CURRENT_MCP_TOOL": "replay_status",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#status"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:37#registerReplayTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:37",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:37",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#status"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.replay_step",
+        "DOMAIN": "replay",
+        "CURRENT_MCP_TOOL": "replay_step",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#step"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:13#registerReplayTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:13",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:13",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#step"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.replay_stop",
+        "DOMAIN": "replay",
+        "CURRENT_MCP_TOOL": "replay_stop",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#stop"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:25#registerReplayTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:25",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:25",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#stop"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.replay_trade",
+        "DOMAIN": "replay",
+        "CURRENT_MCP_TOOL": "replay_trade",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#trade"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:30#registerReplayTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:30",
+        "SCHEMA_FIELDS": [
+          "action"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "TRADE",
+        "HUMAN_AUTHORITY_REQUIRED": "YES",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/replay.js:30",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/replay.js#trade"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.session_get",
+        "DOMAIN": "morning",
+        "CURRENT_MCP_TOOL": "session_get",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/morning.js#getSession"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/morning.js:49#registerMorningTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/morning.js:49",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/morning.js:49",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/morning.js#getSession"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.session_save",
+        "DOMAIN": "morning",
+        "CURRENT_MCP_TOOL": "session_save",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/morning.js#saveSession"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/morning.js:26#registerMorningTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/morning.js:26",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/morning.js:26",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/morning.js#saveSession"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.strategy_tester_read_summary",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "strategy_tester_read_summary",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#strategyTesterReadSummary"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:47#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:47",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:47",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#strategyTesterReadSummary"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.symbol_info",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "symbol_info",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#symbolInfo"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:62#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:62",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:62",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#symbolInfo"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.symbol_search",
+        "DOMAIN": "chart",
+        "CURRENT_MCP_TOOL": "symbol_search",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#symbolSearch"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:67#registerChartTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:67",
+        "SCHEMA_FIELDS": [
+          "query",
+          "type"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/chart.js:67",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/chart.js#symbolSearch"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.tab_close",
+        "DOMAIN": "tab",
+        "CURRENT_MCP_TOOL": "tab_close",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/tab.js#closeTab"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:16#registerTabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:16",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:16",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/tab.js#closeTab"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.tab_list",
+        "DOMAIN": "tab",
+        "CURRENT_MCP_TOOL": "tab_list",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/tab.js#list"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:6#registerTabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:6",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/tab.js#list"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.tab_new",
+        "DOMAIN": "tab",
+        "CURRENT_MCP_TOOL": "tab_new",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/tab.js#newTab"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:11#registerTabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:11",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:11",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/tab.js#newTab"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.tab_switch",
+        "DOMAIN": "tab",
+        "CURRENT_MCP_TOOL": "tab_switch",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/tab.js#switchTab"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:21#registerTabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:21",
+        "SCHEMA_FIELDS": [
+          "index"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/tab.js:21",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/tab.js#switchTab"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.tv_discover",
+        "DOMAIN": "health",
+        "CURRENT_MCP_TOOL": "tv_discover",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/health.js#discover"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:11#registerHealthTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:11",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:11",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/health.js#discover"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.tv_health_check",
+        "DOMAIN": "health",
+        "CURRENT_MCP_TOOL": "tv_health_check",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/health.js#healthCheck"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:6#registerHealthTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:6",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/health.js#healthCheck"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.tv_launch",
+        "DOMAIN": "health",
+        "CURRENT_MCP_TOOL": "tv_launch",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/health.js#launch"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:21#registerHealthTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:21",
+        "SCHEMA_FIELDS": [
+          "kill_existing",
+          "port"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:21",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/health.js#launch"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.tv_state_snapshot",
+        "DOMAIN": "lab",
+        "CURRENT_MCP_TOOL": "tv_state_snapshot",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#stateSnapshot"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:18#registerLabTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:18",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/lab.js:18",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/lab.js#stateSnapshot"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.tv_ui_state",
+        "DOMAIN": "health",
+        "CURRENT_MCP_TOOL": "tv_ui_state",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/health.js#uiState"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:16#registerHealthTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:16",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/health.js:16",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/health.js#uiState"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_click",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_click",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#click"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:6#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:6",
+        "SCHEMA_FIELDS": [
+          "by",
+          "value"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#click"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_evaluate",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_evaluate",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#uiEvaluate"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:88#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:88",
+        "SCHEMA_FIELDS": [
+          "expression"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:88",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#uiEvaluate"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_find_element",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_find_element",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#findElement"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:80#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:80",
+        "SCHEMA_FIELDS": [
+          "query",
+          "strategy"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:80",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#findElement"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_fullscreen",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_fullscreen",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#fullscreen"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:22#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:22",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:22",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#fullscreen"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_hover",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_hover",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#hover"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:54#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:54",
+        "SCHEMA_FIELDS": [
+          "by",
+          "value"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:54",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#hover"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_keyboard",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_keyboard",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#keyboard"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:39#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:39",
+        "SCHEMA_FIELDS": [
+          "key",
+          "modifiers"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:39",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#keyboard"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_mouse_click",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_mouse_click",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#mouseClick"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:70#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:70",
+        "SCHEMA_FIELDS": [
+          "button",
+          "double_click",
+          "x",
+          "y"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:70",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#mouseClick"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_open_panel",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_open_panel",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#openPanel"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:14#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:14",
+        "SCHEMA_FIELDS": [
+          "action",
+          "panel"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:14",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#openPanel"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_scroll",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_scroll",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#scroll"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:62#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:62",
+        "SCHEMA_FIELDS": [
+          "amount",
+          "direction"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:62",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#scroll"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.ui_type_text",
+        "DOMAIN": "ui",
+        "CURRENT_MCP_TOOL": "ui_type_text",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#typeText"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:47#registerUiTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:47",
+        "SCHEMA_FIELDS": [
+          "text"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/ui.js:47",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/ui.js#typeText"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.watchlist_add",
+        "DOMAIN": "watchlist",
+        "CURRENT_MCP_TOOL": "watchlist_add",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/watchlist.js#add"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/watchlist.js:11#registerWatchlistTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/watchlist.js:11",
+        "SCHEMA_FIELDS": [
+          "symbol"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "MUTATE",
+        "HUMAN_AUTHORITY_REQUIRED": "CONDITIONAL",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/watchlist.js:11",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/watchlist.js#add"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification.",
+          "Conservative mutation authority class; unknown side effects require per-tool review."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.watchlist_get",
+        "DOMAIN": "watchlist",
+        "CURRENT_MCP_TOOL": "watchlist_get",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/watchlist.js#get"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/watchlist.js:6#registerWatchlistTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/watchlist.js:6",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/watchlist.js:6",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/watchlist.js#get"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.webhook_health",
+        "DOMAIN": "live",
+        "CURRENT_MCP_TOOL": "webhook_health",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/webhook.js#webhookHealth"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:39#registerLiveTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:39",
+        "SCHEMA_FIELDS": [],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "READ",
+        "HUMAN_AUTHORITY_REQUIRED": "NO",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:39",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/webhook.js#webhookHealth"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      },
+      {
+        "CAPABILITY_ID": "CURRENT_MCP.webhook_place_order",
+        "DOMAIN": "live",
+        "CURRENT_MCP_TOOL": "webhook_place_order",
+        "IMPLEMENTATION_PATH": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/webhook.js#webhookPlaceOrder"
+        ],
+        "REGISTRATION_PATH": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:41#registerLiveTools",
+        "SCHEMA_NAME": "INLINE_ZOD_SHAPE (no declared schema name)",
+        "SCHEMA_SOURCE_POINTER": "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:41",
+        "SCHEMA_FIELDS": [
+          "confirm_token",
+          "dry_run",
+          "i_understand_real_money",
+          "notional",
+          "price",
+          "qty_mode",
+          "qty_value",
+          "side",
+          "sl_price",
+          "symbol",
+          "ticker",
+          "tp_price",
+          "type"
+        ],
+        "SOURCE_PROVENANCE": "CURRENT_MCP",
+        "STATUS": "EXPOSED",
+        "ACCESS_PATH": "MCP_JSONRPC",
+        "READ_OR_MUTATE": "TRADE",
+        "HUMAN_AUTHORITY_REQUIRED": "YES",
+        "CURRENT_CERTIFICATION": "UNPROVEN",
+        "EXACT_EVIDENCE_POINTERS": [
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/tools/live.js:41",
+          "C:/Users/wigmore/trading_stack/tradingview-mcp-jackson/src/core/webhook.js#webhookPlaceOrder"
+        ],
+        "KNOWN_LIMITATIONS": [
+          "Static source registration, not live activation or runtime verification."
+        ],
+        "DUPLICATE_OR_LEGACY_PATH": [],
+        "SHOULD_BE_EXPOSED": "REVIEW",
+        "GAP_OR_NEXT_DELTA": "Controller-owned bounded revalidation; no live authority from census."
+      }
+    ]
+  }
+}
