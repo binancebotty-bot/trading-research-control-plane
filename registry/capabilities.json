@@ -320,7 +320,36 @@
         ],
         "DUPLICATE_OR_LEGACY_PATH": [],
         "SHOULD_BE_EXPOSED": "REVIEW",
-        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet."
+        "GAP_OR_NEXT_DELTA": "Controller must issue the later bounded census/evidence packet.",
+        "OHLCV_ESTATE_BATCH1": {
+          "EVIDENCE_CLASS": "SOURCE_ONLY_UNVERIFIED_RUNTIME",
+          "EVIDENCE_COMMENT": 5962580160,
+          "CANDIDATE_PATHS_FOUND": 10,
+          "UNITS_DEEPLY_INSPECTED": 6,
+          "EXISTING_MECHANISMS_FOUND": 4,
+          "DETERMINISTIC_DATASET_REUSE": "PARTIAL_SIZE_SKIP_ONLY_NO_MANIFEST",
+          "EXACT_PY2PINE_BINDING": "UNVERIFIED",
+          "TV_PARITY_DATA_COMPARABILITY": "UNPROVEN",
+          "PROVIDER_RUNTIME_CERTIFICATION": "NONE",
+          "SOURCE_PATH_EVIDENCE": [
+            {
+              "SOURCE_POINTER": "C:\\Users\\wigmore\\trading_stack\\tradingview-mcp-jackson\\src\\core\\data.js:[1, 105]",
+              "FINDING": "Active chart internal bars; default100/cap5000; volume missing becomes0; symbol/timeframe inherited, persistence/identity/Python bridge/parity unresolved."
+            },
+            {
+              "SOURCE_POINTER": "C:\\Users\\wigmore\\trading_stack\\data\\download_ohlcv.py:[1, 249]",
+              "FINDING": "Binance public spot10assets1h/4h/1d;1000page,1000hour windows,lastTimestamp+1ms; UTC formatted naive strings,floatOHLCV; now-minus1hour for all intervals; skips existing>1000bytes without completeness/freshness check."
+            },
+            {
+              "SOURCE_POINTER": "C:\\Users\\wigmore\\trading_stack\\Tradingview Backtesting\\download_binance_1h.py:[1, 68]",
+              "FINDING": "ActualBTCUSDT1m despite1h filename; rawms/stringOHLCV;fixed start1502942400000,1000page/200000rows; append existing from fixed start risks duplicates; ORACLE output only referenced/not read."
+            },
+            {
+              "SOURCE_POINTER": "C:\\Users\\wigmore\\trading_stack\\Tradingview Backtesting\\run_core_backtests.py:[1, 100]",
+              "FINDING": "Existing Python CSV consumer; matching symbol/timeframe path; timestamps without explicit UTC; sorts,drops invalidOHLC,dedupkeepfirst; raw epoch input unit compatibility must not be assumed; exact py2pine binding UNVERIFIED."
+            }
+          ]
+        }
       },
       {
         "CAPABILITY_ID": "CENSUS_GAP.repository_usage_operability",
