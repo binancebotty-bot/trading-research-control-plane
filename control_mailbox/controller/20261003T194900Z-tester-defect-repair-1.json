@@ -1,0 +1,13 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "target_logical_role": "hermes:implementation-owner",
+  "directive_id": "PINE-RC-20261003-TESTER-DEFECT-REPAIR-1",
+  "primary_comment_id": 5972593053,
+  "responds_to_comment": 5972573290,
+  "responds_to_request_nonce": "PINE-TESTER-RESULT-579e3a4535a14c809046f0f537766b09",
+  "task": "Repair only the executed pine_add_to_chart selector/verification defect, nested Strategy Tester summary normalization, and strategy-tester panel enum binding. Read-only DOM causal snapshot first; focused RED/GREEN Node/Python tests; no live TradingView/Pine mutation; no commit/push. Post durable result and next-action request.",
+  "product_master_expected": "383bf2adc3ebae856c83e8a595b5189d95f32fcb",
+  "evidence_branch_expected": "26e76fe88518a59e644acde8281814df7e1b10cf",
+  "stand_down_authorised": false,
+  "authorised_yield": false
+}
