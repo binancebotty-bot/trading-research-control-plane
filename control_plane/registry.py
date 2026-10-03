@@ -13,9 +13,82 @@ from dataclasses import dataclass, field, asdict
 from enum import Enum
 from datetime import datetime
 
-from .backends.python_py2pine import PythonPy2PineBackend
-from .backends.custom_tradingview_mcp import CustomTradingViewMCPBackend
-from .backends.official_tradingview import OfficialTradingViewBackend
+def discover_pine_control(state):
+    """Validate registered Pine control metadata, without product discovery."""
+    exact = {
+        'HUMAN_AUTHORITY': 'richard:operator',
+        'COMPANY_CONTROL_PROTOCOL': 'RICHARD-COMPANY-CONTROL-v1',
+        'COMPANY_CONTROL_PROTOCOL_SHA': '0df93c7a2d31e235915d61712c17d28c822e7da9',
+        'MIGRATION_STATE': 'CUTOVER_READY',
+        'EFFECTIVE_GOVERNANCE': 'LEGACY_GOVERNING_UNTIL_EXPLICIT_ARCHITECT_V1_CUTOVER',
+        'GENERAL_OPERATIONS_EVIDENCE_BOARD': 'Issue #1',
+        'CONTROL_REGISTRY_ROUTING_INDEX': 'Issue #2',
+        'PROJECT_ARCHITECT_CONTROL_BOARD': 'Issue #3',
+        'MANAGING_DIRECTOR_CONTROL_BOARD': 'Issue #4',
+        'PROJECT_ARCHITECT_SESSION_UUID': '6abf7e35-26f4-83eb-ac7d-2e238d241d55',
+        'REVIEWER_CONTROLLER_SESSION_UUID': '6abf60c8-4598-83eb-bc80-57a926d80b2e',
+        'HERMES_LOGICAL_OWNER': '20260803_100203_2a8a55',
+        'MANAGING_DIRECTOR_SESSION_UUID': 'UNREGISTERED_IN_PINE_DO_NOT_GUESS',
+        'PROJECT_ARCHITECT_BOARD_HIGH_WATER': 5962793620,
+        'ARCHITECT_CONTROL_HIGH_WATER': 5962829405,
+        'MANAGING_DIRECTOR_CONTROL_HIGH_WATER': 'NONE',
+        'UNRESOLVED_CROSS_SURFACE_CONFLICT': 'NONE',
+        'SEEN_NE_CONSUMED': 'LOCKED',
+        'UNRESOLVED_AUTHORITY_CONFLICT_POLICY': 'FAIL_CLOSED_AND_ROUTE_UPWARD',
+        'PRODUCT_PACKET_5962813500_STATE': 'SUSPENDED_PRESERVED',
+    }
+    if not isinstance(state, dict):
+        raise ValueError('FAIL_CLOSED: control state must be an object')
+    for key, expected in exact.items():
+        if state.get(key) != expected:
+            raise ValueError('FAIL_CLOSED: invalid registered field ' + key)
+    # Never resolve a Pine route from injected cross-project control metadata.
+    def cross_project(value):
+        if isinstance(value, dict):
+            return any(cross_project(k) or cross_project(v) for k, v in value.items())
+        if isinstance(value, list):
+            return any(cross_project(v) for v in value)
+        return isinstance(value, str) and any(
+            token in value.lower() for token in ('build4', 'build-4', 'build_4', 'hyperliquid'))
+    control_keys = ('fallback', 'supervisor', 'nonce', 'session', 'authority', 'control', 'route')
+    for key, value in state.items():
+        if any(token in key.lower() for token in control_keys):
+            # Existing negative policy text is not a fallback binding.
+            if key == 'UNRESOLVED_AUTHORITY_CONFLICT_POLICY':
+                continue
+            if cross_project(key) or cross_project(value):
+                raise ValueError('FAIL_CLOSED: cross-project control candidate ' + key)
+    high = state.get('GENERAL_CONTROL_HIGH_WATER')
+    if type(high) is not int or high < 5962898559:
+        raise ValueError('FAIL_CLOSED: missing or invalid consumed high-water')
+    if high not in state.get('CONTROL_ALIGNMENT_CONSUMED', []):
+        raise ValueError('FAIL_CLOSED: high-water seen but not consumed')
+    return {**{key: state[key] for key in exact}, 'GENERAL_CONTROL_HIGH_WATER': high}
+
+
+def pine_control_session_route(state, role):
+    """Return only validated registered direct routes; unknown MD fails closed."""
+    out = discover_pine_control(state)
+    routes = {'project-architect': 'PROJECT_ARCHITECT_SESSION_UUID',
+              'reviewer-controller': 'REVIEWER_CONTROLLER_SESSION_UUID'}
+    if role not in routes:
+        raise ValueError('FAIL_CLOSED: role unavailable or unregistered')
+    return out[routes[role]]
+
+
+if __name__ == '__main__':
+    import sys
+    if sys.argv[1:] != ['discover']:
+        print('FAIL_CLOSED: expected discover', file=sys.stderr)
+        raise SystemExit(2)
+    try:
+        state_path = Path(__file__).resolve().parents[1] / 'docs/handoff/CURRENT_STATE.json'
+        result = discover_pine_control(json.loads(state_path.read_text(encoding='utf-8-sig')))
+        print(json.dumps(result, indent=2))
+    except (OSError, ValueError, TypeError) as exc:
+        print('FAIL_CLOSED: ' + str(exc), file=sys.stderr)
+        raise SystemExit(2)
+    raise SystemExit(0)
 
 
 class CapabilityClassification(Enum):
@@ -64,6 +137,9 @@ class CapabilityRegistry:
     """
     
     def __init__(self, registry_path: Optional[Path] = None):
+        from .backends.python_py2pine import PythonPy2PineBackend
+        from .backends.custom_tradingview_mcp import CustomTradingViewMCPBackend
+        from .backends.official_tradingview import OfficialTradingViewBackend
         self.registry_path = registry_path or Path("registry/capabilities.json")
         self.capabilities: Dict[str, Capability] = {}
         self._backends = {

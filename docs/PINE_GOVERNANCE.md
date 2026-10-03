@@ -5,7 +5,7 @@ Start at `docs/handoff/WORKER_START.md`, then `CURRENT_STATE.json`, then ONE Con
 ## Authority
 Canonical repository/mailbox: `binancebotty-bot/trading-research-control-plane` Issue #1; local root `C:/Users/wigmore/trading-research-control-plane`, branch `master`.
 Sole logical implementation owner: Hermes `20260803_100203_2a8a55`; accepted physical continuation `20261002_141307_d81a85` is NOT a second writer. Record actual runtime identity.
-ONLY Hermes GPT contact: Controller `6abf60c8-4598-83eb-bc80-57a926d80b2e`. Oversight is HUMAN_ONLY: never message/wake/consult it directly. No Build-4 contact or routine Richard relay.
+ONLY Hermes GPT contact: Controller `6abf60c8-4598-83eb-bc80-57a926d80b2e`. Historical Oversight is mapped to Project Architect on Issue #3; Hermes still contacts only the bound Reviewer/Controller. Never directly wake another role. No Build-4 contact or routine Richard relay.
 Authority pointers: mission lock `5953891147`; channel correction `5953938779` / reconciliation `5954010487`; Human Gate-0 ratification `5955000891`; current handoff directive `5955092204`; wake-continuation correction `5955161164`. Richard's newest explicit-request continuation rule governs every cycle.
 
 ## Mission split
@@ -31,3 +31,32 @@ Bootstrap `5953638147`; challenge `5953639923` → response `5953750202` → ACK
 Baseline HEAD `1f50a8d63e47cd385dd58b168dcc81104f279a8d`; verify task-specific freshness. Matching HEAD is NOT clean worktree. Pre-existing dirty backend/client and untracked certification/probe files remain protected.
 Known rejected parity: `proofs/parity_results.json` has Python trades=0, TV metadata and passed=true; `5951127802` already invalidates it. Historical browser/preflight/PID records are not current proof or overwrite authority.
 Current stable facts/pointers live in CURRENT_STATE; task delta only in Controller packet; RESULT contains evidence/status, not reconstructed history. Controller carries sequencing/reasoning; worker performs bounded execution only.
+
+## Company Control v1 alignment — directive 5962898559
+- `HUMAN_AUTHORITY=richard:operator`
+- `GENERAL_OPERATIONS_EVIDENCE_BOARD=Issue #1`
+- `CONTROL_REGISTRY_ROUTING_INDEX=Issue #2`
+- `PROJECT_ARCHITECT_CONTROL_BOARD=Issue #3`
+- `MANAGING_DIRECTOR_CONTROL_BOARD=Issue #4`
+- `PROJECT_ARCHITECT_SESSION_UUID=6abf7e35-26f4-83eb-ac7d-2e238d241d55`
+- `REVIEWER_CONTROLLER_SESSION_UUID=6abf60c8-4598-83eb-bc80-57a926d80b2e`
+- `HERMES_LOGICAL_OWNER=20260803_100203_2a8a55`
+- `MANAGING_DIRECTOR_SESSION_UUID=UNREGISTERED_IN_PINE_DO_NOT_GUESS`
+- `COMPANY_CONTROL_PROTOCOL=RICHARD-COMPANY-CONTROL-v1`
+- `COMPANY_CONTROL_PROTOCOL_SHA=0df93c7a2d31e235915d61712c17d28c822e7da9`
+- `MIGRATION_STATE=CUTOVER_READY`
+- `EFFECTIVE_GOVERNANCE=LEGACY_GOVERNING_UNTIL_EXPLICIT_ARCHITECT_V1_CUTOVER`
+- `GENERAL_CONTROL_HIGH_WATER=5966817190`
+- `PROJECT_ARCHITECT_BOARD_HIGH_WATER=5962793620`
+- `ARCHITECT_CONTROL_HIGH_WATER=5962829405`
+- `MANAGING_DIRECTOR_CONTROL_HIGH_WATER=NONE`
+- `UNRESOLVED_CROSS_SURFACE_CONFLICT=NONE`
+- `SEEN_NE_CONSUMED=LOCKED`
+- `UNRESOLVED_AUTHORITY_CONFLICT_POLICY=FAIL_CLOSED_AND_ROUTE_UPWARD`
+- `PRODUCT_PACKET_5962813500_STATE=SUSPENDED_PRESERVED`
+- `PRESERVED_PRODUCT_FINDINGS_COMMENT=5962861901`
+- `CONTROL_ALIGNMENT_IMPLEMENTATION=IMPLEMENTED_FOCUSED_GREEN_PENDING_CONTROLLER_ADJUDICATION`
+- Company chain: richard:operator -> company:managing-director -> gpt:project-architect -> gpt:reviewer-controller -> hermes:implementation-owner.
+- Historical gpt:mission-oversight provenance is preserved; mapped Project Architect identity does not authorise direct Hermes UI contact. Hermes requests/rulings continue through the bound Reviewer/Controller. No MD UUID guessing or other-project fallback.
+- Product packet5962813500 stays suspended; findings remain in comment5962861901, not copied into product registries.
+- Discovery/fail-closed implementation is focused-test GREEN via `python -m control_plane.registry discover`; independent adjudication remains pending. No V1_GOVERNING cutover is performed by this alignment.
