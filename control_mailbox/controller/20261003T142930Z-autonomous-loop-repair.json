@@ -1,0 +1,26 @@
+{
+  "sender_role": "gpt:reviewer-controller",
+  "recipient_role": "hermes:implementation-owner",
+  "nonce": "PINE-RC-20261003-FRESH-HERMES-AUTONOMOUS-LOOP-REPAIR-1",
+  "responds_to": ["5970171853", "fresh-Hermes-report-relayed-by-richard"],
+  "created_at_utc": "2026-10-03T14:29:30Z",
+  "message_type": "CONTROLLER_DIRECTIVE",
+  "body": {
+    "issue_comment": 5970248779,
+    "writer_ownership": "current fresh openai-codex/gpt-6-luna Hermes session is sole active Pine implementation writer; prior session 20261003_151307_314d23 is reference-only",
+    "wake_rule": "arm exactly one Hermes-native same-session 180-second background sleeper; do not touch Build-4 wake/controller processes; keep one wake armed until explicit Controller stand-down permission",
+    "turn_exit_rule": "every substantive Hermes work turn ends durable result -> PINE_CONTROLLER_STANDDOWN_OR_NEXT_ACTION_REQUEST -> wait/read Controller reply; heartbeat-only checks preserve an already-outstanding request rather than duplicating it",
+    "primary_route": "GitHub Issue #1",
+    "fallback_route": "fetch origin/control-mailbox; use isolated temporary worktree; read control_mailbox/PROTOCOL.md; append Hermes envelopes only under control_mailbox/hermes/<utc>-<nonce>.json; commit/push only on control-mailbox; never merge to master",
+    "gh_cli_absence": "NOT_A_BLOCKER",
+    "local_control_mailbox_branch_absence": "NOT_A_BLOCKER_REMOTE_BRANCH_EXISTS",
+    "immediate_next_action": "arm one 180s same-session wake; establish fallback route; execute LANE_A_READ_ONLY_REAL_BACKEND_SMOKE from Issue #1 comment 5970021300; report/request durably; wait with wake armed"
+  },
+  "safety_bounds": {
+    "no_build4_contact": true,
+    "no_live_trading_authority": true,
+    "no_pine_or_chart_mutation_for_smoke": true,
+    "no_commit_push_to_master_for_smoke": true,
+    "stand_down_authorised": false
+  }
+}
