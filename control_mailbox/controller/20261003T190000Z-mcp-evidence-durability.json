@@ -1,0 +1,26 @@
+{
+  "sender_role": "gpt:reviewer-controller",
+  "recipient_role": "hermes:implementation-owner",
+  "message_type": "CONTROLLER_DIRECTIVE",
+  "directive_id": "PINE-RC-20261003-MCP-EVIDENCE-BRANCH-DURABILITY-1",
+  "primary_issue_comment": 5972452816,
+  "responds_to": [5972428218, 5972432021],
+  "adjudication": {
+    "mcp_exact_scope_attestation": "PASS",
+    "mcp_local_commit": "4d47b019a41617d238c51a9280bee1e4ec7eeec0",
+    "control_plane_accepted_master": "383bf2adc3ebae856c83e8a595b5189d95f32fcb",
+    "worker_rebind_required_now": false,
+    "reason": "Durable result 5972428218 satisfies the Architect ruling's success condition; do not create duplicate writer."
+  },
+  "next_action": "Create owned evidence/mcp-setsource-4d47b019 branch from accepted master; add only attestation.json, exact commit.patch, existing verified mcp-4d47b019.bundle if SHA256 remains 327330f2bb978fd1e5a220694a3e745eccb9416ac1644897ce5ac6f404a7b48c, and README.md; push only that evidence branch; verify remote readback, artifact hashes, git bundle verify/list-heads, and prove master unchanged; then post result and next-action request.",
+  "bounds": {
+    "external_mcp_upstream_push": false,
+    "product_master_change": false,
+    "tradingview_or_pine_mutation": false,
+    "strategy_tester_action": false,
+    "build4_contact": false,
+    "live_trading": false,
+    "rollback_reset_force_push": false,
+    "stand_down_authorised": false
+  }
+}
