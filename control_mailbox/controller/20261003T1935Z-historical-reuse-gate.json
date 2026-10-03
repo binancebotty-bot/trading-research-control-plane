@@ -1,0 +1,28 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "message_type": "PINE_HISTORICAL_REUSE_GATE_ADDENDUM",
+  "applies_to_issue1_comment": 5972593053,
+  "primary_issue1_comment": 5972698260,
+  "classification": "CIRCULAR_REDISCOVERY_RISK",
+  "reuse_before_rediscovery": "HARD_GATE",
+  "required_history": [
+    "C:/Users/wigmore/WINAGENT-HERMES BRIDGE/bridge_brain/shared_state/protocols/TRADINGVIEW_MCP_CONTROL_MAP.md",
+    "C:/Users/wigmore/WINAGENT-HERMES BRIDGE/bridge_runtime/tradingview_mcp_discovery_task.txt",
+    "p2_mcp_step0_package_inventory_latest.json",
+    "p2_mcp_tool_source_scan_latest.json",
+    "tv_mcp_tool_modules_summary.json",
+    "tradingview_control_proof.json",
+    "prior Hermes/OpenCode Pine/TV proof runs"
+  ],
+  "required_classification": ["REUSE_EXACT", "ADAPT_EXISTING", "GENUINELY_NEW_REGRESSION"],
+  "anti_waste": [
+    "no broad MCP remap",
+    "no reproof of PASSED_CLOSED CDP/9222/target identity absent contradictory evidence",
+    "no repeat selector experiments for confidence",
+    "bulk archaeology delegated to verified free/local worker",
+    "no silent paid delegation"
+  ],
+  "product_authority_change": "NONE",
+  "live_retry_authorised": false,
+  "stand_down_authorised": false
+}
