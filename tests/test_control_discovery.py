@@ -104,6 +104,26 @@ runpy.run_module('control_plane.registry', run_name='__main__')
         self.assertEqual(out['MANAGING_DIRECTOR_SESSION_UUID'], 'UNREGISTERED_IN_PINE_DO_NOT_GUESS')
         self.assertEqual(out['SEEN_NE_CONSUMED'], 'LOCKED')
 
+    def test_issue2_readback_reconciliation(self):
+        expected = {
+            'GENERAL_CONTROL_HIGH_WATER': 5967092755,
+            'ARCHITECT_CONTROL_HIGH_WATER': 5966949420,
+            'MANAGING_DIRECTOR_CONTROL_HIGH_WATER': 5963021075,
+            'ISSUE2_BINDING_COMMENT_ID': 5967135600,
+            'PINE_BUILD4_ISOLATION': 'PERMANENT',
+            'CROSS_PROJECT_FALLBACK': 'FORBIDDEN',
+        }
+        out = self.ns['discover_pine_control'](self.state)
+        for key, value in expected.items():
+            self.assertEqual(out.get(key), value, key)
+        for key in ('ISSUE2_BINDING_COMMENT_ID', 'ARCHITECT_CONTROL_HIGH_WATER',
+                    'MANAGING_DIRECTOR_CONTROL_HIGH_WATER'):
+            for value in (None, 'wrong'):
+                state = copy.deepcopy(self.state)
+                state[key] = value
+                with self.subTest(key=key, value=value), self.assertRaises(ValueError):
+                    self.ns['discover_pine_control'](state)
+
     def test_unknown_command_fail_closed(self):
         import subprocess
         import sys
