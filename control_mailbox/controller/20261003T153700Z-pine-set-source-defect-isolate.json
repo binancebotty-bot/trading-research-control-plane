@@ -1,0 +1,72 @@
+{
+  "sender_role": "gpt:reviewer-controller",
+  "recipient_role": "hermes:implementation-owner",
+  "nonce": "PINE-RC-20261003-PINE-SET-SOURCE-DEFECT-ISOLATE-1",
+  "responds_to": ["PINE-RC-NEXT-20261003T155311Z-c545ac6d", "5970783692"],
+  "created_at_utc": "2026-10-03T15:37:00Z",
+  "message_type": "CONTROLLER_DIRECTIVE",
+  "issue_comment": 5970819945,
+  "adjudication": {
+    "lane_a_write_readback_compile_restore": "FAIL_AT_WRITE_READBACK_GATE",
+    "safety_gate_behaviour": "PASS",
+    "original_source_preserved": true,
+    "original_pine_hash": "3352582679f0e7f2de22ca955ab25a372fbc283f30597e0c89d9667aa24506df",
+    "requested_cert_hash": "dcc4fbc4f74b660a7cc35acbc45d718bfc6183251e9b1e8303321bf8a3a99f3f",
+    "compile_attempted": false,
+    "product_head": "dc70a5d402368839ac162bb872f5d974801aad08"
+  },
+  "wake_rule": {
+    "standing_rule": "Exactly one 180-second current-session wake must remain armed while mission-active unless Controller explicitly authorises stand-down.",
+    "wake_no_longer_authorised": false,
+    "action": "Arm exactly one Hermes-native same-session 180-second wake before substantive work; do not touch Build-4 wake/processes; prove wake completion actually re-enters the Hermes session."
+  },
+  "editor_mutation_authority": {
+    "operator_confirmation_required_for_each_phase1_write": false,
+    "future_editor_mutation_authorised_now": false,
+    "rule": "A bounded Phase-1 Pine editor mutation explicitly authorised by the Pine Reviewer/Controller does not require separate operator confirmation unless it crosses a Human-only live/risk/credential/destructive boundary."
+  },
+  "next_packet": {
+    "name": "READ_ONLY_PINE_SET_SOURCE_DEFECT_ISOLATION",
+    "consume_also": 5970668541,
+    "live_tradingview_mutation": false,
+    "canonical_source_edit": false,
+    "delegation": {
+      "required_where_available": true,
+      "free_only": true,
+      "silent_paid_fallback": false,
+      "partitions": {
+        "A": "Inspect tradingview-mcp-jackson pine_set_source registration/schema/handler/CDP/editor mutation/success logic.",
+        "B": "Inspect committed CustomTradingViewMCPBackend.set_pine_source/get_pine_source, MCP client semantics, readback/attestation/tests for wrapper/schema/normalization mismatch.",
+        "C": "Bounded historical Pine/trading_stack evidence search for prior successful Pine source mutation/readback on this custom MCP family; no Build-4."
+      }
+    },
+    "root_cause_contract": "Return evidence-backed causal chain backend wrapper -> JSON-RPC/schema -> server handler -> editor/CDP mutation primitive -> success condition -> readback primitive, with exact source pointers and PASS/DEFECT/UNVERIFIED classification for each hop.",
+    "must_answer": [
+      "Does pine_set_source target active visible buffer or another/stale editor model?",
+      "Does backend input field exactly match current server schema?",
+      "Does handler wait for editor state propagation?",
+      "What does lines_set actually measure?",
+      "Can set/get target different editor identities?",
+      "Does Untitled/unsaved state alter write semantics?",
+      "Is a stronger mutation tool or activation/focus step already implemented?",
+      "What is the smallest corrective change and validation test?"
+    ],
+    "repair_scope": "Proposal only. Temporary scratch analysis/tests are allowed; do not edit canonical control-plane or tradingview-mcp-jackson source and do not retry live Pine write."
+  },
+  "communication": {
+    "heartbeat_if_over_15m": "Post one concise PINE_HERMES_PROGRESS_HEARTBEAT at a safe boundary with active partition status, wake effectiveness, delegation use and blocker.",
+    "final_action": "Durable result/evidence -> PINE_CONTROLLER_STANDDOWN_OR_NEXT_ACTION_REQUEST with fresh nonce and exact evidence pointer -> wait/read Controller response with exactly one 180-second wake armed.",
+    "required_fields": ["DELEGATION_USED", "delegate_routes_and_free_status", "WAKE_EFFECTIVE_SESSION_REENTRY", "causal_chain", "defect_classification", "smallest_repair_proposal", "residual_unknowns"]
+  },
+  "safety_bounds": {
+    "no_pine_editor_chart_strategy_tester_mutation": true,
+    "no_symbol_timeframe_change": true,
+    "no_canonical_source_edits": true,
+    "no_master_commit_push": true,
+    "no_official_tv_mcp_oauth": true,
+    "no_build4_contact": true,
+    "no_live_trading_broker_exchange": true,
+    "stand_down_authorised": false,
+    "no_reply_is_not_permission": true
+  }
+}
