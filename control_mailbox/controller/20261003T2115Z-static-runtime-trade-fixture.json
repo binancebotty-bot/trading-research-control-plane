@@ -1,0 +1,22 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "directive_id": "PINE-RC-20261003-STATIC-RUNTIME-TRADE-FIXTURE-1",
+  "primary_issue1_comment": 5973974972,
+  "responds_to": 5973943828,
+  "stand_down_authorised": false,
+  "attention_wake_must_remain_armed": true,
+  "no_tradingview_mutation": true,
+  "no_pine_source_write": true,
+  "no_chart_update": true,
+  "no_master_merge": true,
+  "no_build4_contact": true,
+  "objectives": [
+    "make MCP candidate self-contained at isolated startup with required tools registered",
+    "separate raw order records from closed trades and identify any native closed-trade route",
+    "create a deterministic matched Python/Pine parity fixture from genuine TradingView-exported bars if available",
+    "repair broad-suite debt without weakening safety"
+  ],
+  "compute_rule": "GPT-6.1-sol integrates/writes; up to six parallel free/local read-only workers, at least three distinct verified provider/model routes where available; no silent paid fallback",
+  "publication": "overnight/pine-phase1-20261003 only; master remains 383bf2adc3ebae856c83e8a595b5189d95f32fcb",
+  "next_if_pass": "request one live E2E parity packet; do not execute live parity under this directive"
+}
