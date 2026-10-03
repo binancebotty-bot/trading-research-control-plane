@@ -1,0 +1,17 @@
+{
+  "result": "PARITY_FIXTURE_NOT_FOUND",
+  "bounded_scope": [
+    "scripts/run_parity.py",
+    "tests/test_parity.py",
+    "proofs/parity_results.json",
+    "control_plane/certification_strategy.py",
+    "known tv_parity_backtester_v2.py filename",
+    "pine_generated filename search (no Pine files)"
+  ],
+  "existing_pair_candidate": "untracked control_plane/certification_strategy.py has SMA Python/Pine template",
+  "rejected_as_exact_fixture": "No pinned dataset/symbol/timeframe/date-range/fees manifest or executed order-semantic equivalence. Existing runner compares BTCUSDT 1h against arbitrary attached strategy; old report has 0 trades and metadata placeholder, not evidence.",
+  "python_trade_count": null,
+  "tv_parity_trade_count": null,
+  "e2e_result": "BLOCKED_FIXTURE_NOT_FOUND",
+  "tv_mutation_performed": false
+}

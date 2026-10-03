@@ -1,0 +1,10 @@
+{
+  "mcp_commit": "fe6a673a75d5e67d50d0fd20c11a1fd9516113f3",
+  "required_lab_tools": {
+    "pine_add_to_chart": false,
+    "pine_compile": true,
+    "strategy_tester_read_summary": false
+  },
+  "bundle_object_recovery": "PASS",
+  "runtime_lab_registration": "SUPPLEMENTAL_NOT_SELF_CONTAINED"
+}

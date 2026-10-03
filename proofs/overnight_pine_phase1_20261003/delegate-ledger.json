@@ -1,0 +1,32 @@
+[
+  {
+    "route": "ollama",
+    "model": "qwen3-coder:30b-32k",
+    "partition": "C parity fixture",
+    "generation_status": "REAL_GENERATION_COMPLETE",
+    "started_at": 1791064516.8494334,
+    "finished_at": 1791064624.1872003,
+    "useful_finding": "Exact fixture requires pinned dataset/range; legacy report has zero trades and metadata placeholder.",
+    "rejected_finding": "Do not attribute legacy zero-trade result to the new unexecuted SMA template; equivalence and minimum two trades claim unproved."
+  },
+  {
+    "route": "ollama",
+    "model": "ZimaBlueAI/Qwen3.5-9B-DeepSeek-V4-Flash-GGUF:latest",
+    "partition": "D broad-suite triage",
+    "generation_status": "REAL_GENERATION_COMPLETE",
+    "started_at": 1791064516.8569415,
+    "finished_at": 1791064535.8876905,
+    "useful_finding": "Registry instance/dict bug and legacy capability expectations identified.",
+    "rejected_finding": "Reject claim registry blocks direct B/C: real canonical extraction succeeded. Reject inventing pine_compile_facade/schema methods and treating Pine close[1] positive history as stale."
+  },
+  {
+    "route": "openrouter",
+    "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "partition": "A/B integration critique",
+    "generation_status": "REAL_GENERATION_COMPLETE",
+    "started_at": 1791064516.8609424,
+    "finished_at": 1791064541.8251045,
+    "useful_finding": "Null/zero normalization fidelity and supplemental artifact warning.",
+    "rejected_finding": "Reject made-up MCP file boundaries and claims ui_evaluate bypasses canonical transport. Transport call.ok concern retained as deferred API-hardening risk, not silently fixed."
+  }
+]

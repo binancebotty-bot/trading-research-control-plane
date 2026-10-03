@@ -97,6 +97,7 @@ class PineCompileResult:
 class StrategyTesterResult:
     """Strategy Tester metrics, extracted from a real run."""
 
+    strategy_name: Optional[str] = None
     net_profit: Optional[float] = None
     total_trades: Optional[int] = None
     percent_profitable: Optional[float] = None
@@ -112,6 +113,7 @@ class StrategyTesterResult:
 
     def to_dict(self) -> Dict[str, Any]:
         return {
+            "strategy_name": self.strategy_name,
             "net_profit": self.net_profit,
             "total_trades": self.total_trades,
             "percent_profitable": self.percent_profitable,
@@ -411,17 +413,20 @@ class CustomTradingViewMCPBackend:
             attestation=call.attestation,
         )
 
-    def add_to_chart(self, allow_update_existing: bool = True) -> TVCallResult:
-        return self.call_tool(
-            "pine_add_to_chart", {"allow_update_existing": allow_update_existing}
-        )
+    def add_to_chart(self, allow_update_existing: bool = True, expected_study_id: Optional[str] = None) -> TVCallResult:
+        args = {"allow_update_existing": allow_update_existing}
+        if expected_study_id is not None:
+            if not isinstance(expected_study_id, str) or not expected_study_id or expected_study_id.strip() != expected_study_id:
+                raise ValueError("expected_study_id must be an exact non-empty string without surrounding whitespace")
+            args["expected_study_id"] = expected_study_id
+        return self.call_tool("pine_add_to_chart", args)
 
     def create_new_script(self, script_type: str = "strategy") -> TVCallResult:
         return self.call_tool("pine_new", {"type": script_type})
 
     def open_strategy_tester(self) -> TVCallResult:
         """Foreground the Strategy Tester panel (bottom widget bar)."""
-        return self.call_tool("ui_open_panel", {"panel": "Strategy Tester", "action": "open"})
+        return self.call_tool("ui_open_panel", {"panel": "strategy-tester", "action": "open"})
 
     def ui_evaluate(self, expression: str) -> TVCallResult:
         """
@@ -450,17 +455,27 @@ class CustomTradingViewMCPBackend:
         """Read Strategy Tester summary from a real run."""
         call = self.call_tool("strategy_tester_read_summary", {})
         data = call.payload if isinstance(call.payload, dict) else {}
+        summary = data.get("summary") if isinstance(data.get("summary"), dict) else {}
+
+        def metric(camel: str, snake: str):
+            for shape in (summary, data):
+                for key in (camel, snake):
+                    if key in shape:
+                        return shape[key]
+            return None
+
         return StrategyTesterResult(
-            net_profit=data.get("netProfit", data.get("net_profit")),
-            total_trades=data.get("totalTrades", data.get("total_trades")),
-            percent_profitable=data.get("percentProfitable", data.get("percent_profitable")),
-            profit_factor=data.get("profitFactor", data.get("profit_factor")),
-            max_drawdown=data.get("maxDrawdown", data.get("max_drawdown")),
-            avg_trade=data.get("avgTrade", data.get("avg_trade")),
-            avg_win=data.get("avgWin", data.get("avg_win")),
-            avg_loss=data.get("avgLoss", data.get("avg_loss")),
-            largest_win=data.get("largestWin", data.get("largest_win")),
-            largest_loss=data.get("largestLoss", data.get("largest_loss")),
+            strategy_name=metric("strategyName", "strategy_name"),
+            net_profit=metric("netProfit", "net_profit"),
+            total_trades=metric("totalTrades", "total_trades"),
+            percent_profitable=metric("percentProfitable", "percent_profitable"),
+            profit_factor=metric("profitFactor", "profit_factor"),
+            max_drawdown=metric("maxDrawdown", "max_drawdown"),
+            avg_trade=metric("avgTrade", "avg_trade"),
+            avg_win=metric("avgWin", "avg_win"),
+            avg_loss=metric("avgLoss", "avg_loss"),
+            largest_win=metric("largestWin", "largest_win"),
+            largest_loss=metric("largestLoss", "largest_loss"),
             raw_data=data,
             attestation=call.attestation,
         )

@@ -40,3 +40,4 @@ def test_stop_only_owns_assigned_child():
     owned.kill.assert_not_called()
     assert unrelated.mock_calls == []
     assert client._process is None
+

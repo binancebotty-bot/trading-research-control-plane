@@ -1,0 +1,29 @@
+✔ disabled QA update never invokes keys or clicks (1.6904ms)
+✔ renamed editor title dispatches exactly once to stable ID without metadata (1.1412ms)
+✔ unchanged chart can attest dispatch only, never applied source (0.5645ms)
+✔ missing action control refuses without keyboard fallback (0.4799ms)
+✔ explicit update refusal preserves chart and does not click (0.5055ms)
+✔ confirmed ADD preserves exact newly created identity without expected ID (0.8683ms)
+✔ missing expected study ID refuses before click (0.5269ms)
+✔ wrong expected study ID refuses before click (0.488ms)
+✔ empty expected study ID refuses before click (0.4859ms)
+✔ non-string expected study ID refuses before click (0.4976ms)
+✔ whitespace expected study ID refuses before click (0.4816ms)
+✔ duplicate pre-operation expected ID refuses (0.5006ms)
+✔ missing expected ID in chart refuses (0.5869ms)
+✔ ambiguous Update control refuses (0.4754ms)
+✔ control becoming disabled before dispatch refuses (0.5331ms)
+✔ extraOnClick fails post-dispatch with no certification and no retry (0.5306ms)
+✔ removeOnClick fails post-dispatch with no certification and no retry (0.5672ms)
+✔ duplicateAfter fails post-dispatch with no certification and no retry (0.4955ms)
+✔ ADD no-op remains unconfirmed (0.4963ms)
+✔ ADD extra unexpected identities remains unconfirmed (0.5283ms)
+✔ MCP registration exposes optional expected_study_id without coercion (2.0965ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 192.4954

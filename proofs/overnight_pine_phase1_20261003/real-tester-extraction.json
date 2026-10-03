@@ -1,0 +1,965 @@
+{
+  "directive": 5973810971,
+  "live_trading": false,
+  "source_writes": 0,
+  "chart_before": {
+    "tool": "chart_get_state",
+    "ok": true,
+    "genuine": true,
+    "payload": {
+      "success": true,
+      "symbol": "BINANCE:ETHUSDT",
+      "resolution": "15",
+      "chartType": 1,
+      "studies": [
+        {
+          "id": "Tt9oOD",
+          "name": "Aggressive Flow Momentum"
+        },
+        {
+          "id": "U54xEM",
+          "name": "Volume"
+        }
+      ]
+    },
+    "error": null,
+    "attestation": {
+      "tool": "chart_get_state",
+      "transport": "stdio-jsonrpc",
+      "target_id": "45E755139AED5CFD6968076B7A677A0C",
+      "target_url": "https://www.tradingview.com/chart/5ddhlPd0/",
+      "target_title": "ETHUSDT 2,684.64 \u25b2 +0.6% HERMES",
+      "cdp_host": "127.0.0.1",
+      "cdp_port": 9222,
+      "request_id": "2",
+      "payload_sha256": "28b1e58fd937319c080db3fac829101d705401980ff6a056f9d2d7a25fc2c023",
+      "payload_nonempty": true,
+      "placeholder_markers": [],
+      "is_request_echo": false,
+      "executed_at": "2026-10-03T22:57:14.455363",
+      "is_genuine": true
+    },
+    "raw_response": "{\n  \"success\": true,\n  \"symbol\": \"BINANCE:ETHUSDT\",\n  \"resolution\": \"15\",\n  \"chartType\": 1,\n  \"studies\": [\n    {\n      \"id\": \"Tt9oOD\",\n      \"name\": \"Aggressive Flow Momentum\"\n    },\n    {\n      \"id\": \"U54xEM\",\n      \"name\": \"Volume\"\n    }\n  ]\n}",
+    "execution_time_ms": 178.12323570251465
+  },
+  "snapshot_before": {
+    "tool": "tv_state_snapshot",
+    "ok": true,
+    "genuine": true,
+    "payload": {
+      "success": true,
+      "status": "OK",
+      "chart": {
+        "symbol": "BINANCE:ETHUSDT",
+        "timeframe": "15",
+        "pine_editor_open": true,
+        "strategy_tester_visible": false
+      },
+      "modal": {
+        "present": false
+      }
+    },
+    "error": null,
+    "attestation": {
+      "tool": "tv_state_snapshot",
+      "transport": "stdio-jsonrpc",
+      "target_id": "45E755139AED5CFD6968076B7A677A0C",
+      "target_url": "https://www.tradingview.com/chart/5ddhlPd0/",
+      "target_title": "ETHUSDT 2,684.64 \u25b2 +0.6% HERMES",
+      "cdp_host": "127.0.0.1",
+      "cdp_port": 9222,
+      "request_id": "6",
+      "payload_sha256": "2b0654cf9ec24004cb57ddb395cf8d0adf86fb168d96934b7c6293347f51ece3",
+      "payload_nonempty": true,
+      "placeholder_markers": [],
+      "is_request_echo": false,
+      "executed_at": "2026-10-03T22:57:14.535400",
+      "is_genuine": true
+    },
+    "raw_response": "{\n  \"success\": true,\n  \"status\": \"OK\",\n  \"chart\": {\n    \"symbol\": \"BINANCE:ETHUSDT\",\n    \"timeframe\": \"15\",\n    \"pine_editor_open\": true,\n    \"strategy_tester_visible\": false\n  },\n  \"modal\": {\n    \"present\": false\n  }\n}",
+    "execution_time_ms": 80.03640174865723
+  },
+  "tester": {
+    "strategy_name": "Aggressive Flow Momentum",
+    "net_profit": -71.71596319400192,
+    "total_trades": 163,
+    "percent_profitable": 0.4110429447852761,
+    "profit_factor": 0.9595788030924745,
+    "max_drawdown": null,
+    "avg_trade": null,
+    "avg_win": null,
+    "avg_loss": null,
+    "largest_win": null,
+    "largest_loss": null,
+    "raw_data": {
+      "success": true,
+      "status": "OK",
+      "summary": {
+        "strategy_name": "Aggressive Flow Momentum",
+        "net_profit": -71.71596319400192,
+        "total_trades": 163,
+        "percent_profitable": 0.4110429447852761,
+        "profit_factor": 0.9595788030924745
+      },
+      "metric_count": 105,
+      "results": {
+        "success": true,
+        "metric_count": 105,
+        "source": "internal_api_plus_panel_text",
+        "strategy_name": "Aggressive Flow Momentum",
+        "candidate_count": 1,
+        "metrics": {
+          "currency": "USDT",
+          "settings.dateRange.backtest.from": 1772323200000,
+          "settings.dateRange.backtest.to": 1791062100000,
+          "settings.dateRange.trade.from": 1772464500000,
+          "settings.dateRange.trade.to": 1791062100000,
+          "buyHold.length": 164,
+          "buyHoldPercent.length": 164,
+          "filledOrders.length": 326,
+          "performance.all.avgBarsInLossTrade": 13,
+          "performance.all.avgBarsInTrade": 13,
+          "performance.all.avgBarsInWinTrade": 13,
+          "performance.all.avgLosTrade": 18.48142411,
+          "performance.all.avgLosTradePercent": 0.007336749307295969,
+          "performance.all.avgTrade": -0.4399752343,
+          "performance.all.avgTradePercent": -0.00015371295956724987,
+          "performance.all.avgWinTrade": 25.41045898,
+          "performance.all.avgWinTradePercent": 0.010138398822253005,
+          "performance.all.commissionPaid": 492.2943291940001,
+          "performance.all.grossLoss": 1774.2167150089995,
+          "performance.all.grossLossPercent": 0.17742167150089994,
+          "performance.all.grossLossWC": 1500.594142,
+          "performance.all.grossProfit": 1702.5007518149976,
+          "performance.all.grossProfitPercent": 0.17025007518149976,
+          "performance.all.grossProfitWC": 1921.1725079999985,
+          "performance.all.largestLosTrade": 112.98776680600005,
+          "performance.all.largestLosTradePercent": 0.044961261987,
+          "performance.all.largestWinTrade": 192.1860365709999,
+          "performance.all.largestWinTradePercent": 0.078428861051,
+          "performance.all.marginCalls": 0,
+          "performance.all.maxContractsHeld": 1.5876,
+          "performance.all.netProfit": -71.71596319400192,
+          "performance.all.netProfitPercent": -0.007171596319400192,
+          "performance.all.numberOfLosingTrades": 96,
+          "performance.all.numberOfWiningTrades": 67,
+          "performance.all.percentProfitable": 0.4110429447852761,
+          "performance.all.profitFactor": 0.9595788030924745,
+          "performance.all.ratioAvgWinAvgLoss": 1.374918882265724,
+          "performance.all.totalOpenTrades": 0,
+          "performance.all.totalTrades": 163,
+          "performance.long.avgBarsInLossTrade": 13,
+          "performance.long.avgBarsInTrade": 13,
+          "performance.long.avgBarsInWinTrade": 13,
+          "performance.long.avgLosTrade": 18.48142411,
+          "performance.long.avgLosTradePercent": 0.007336749307295969,
+          "performance.long.avgTrade": -0.4399752343,
+          "performance.long.avgTradePercent": -0.00015371295956724987,
+          "performance.long.avgWinTrade": 25.41045898,
+          "performance.long.avgWinTradePercent": 0.010138398822253005,
+          "performance.long.commissionPaid": 492.2943291940001,
+          "performance.long.grossLoss": 1774.2167150089995,
+          "performance.long.grossLossPercent": 0.17742167150089994,
+          "performance.long.grossLossWC": 1500.594142,
+          "performance.long.grossProfit": 1702.5007518149976,
+          "performance.long.grossProfitPercent": 0.17025007518149976,
+          "performance.long.grossProfitWC": 1921.1725079999985,
+          "performance.long.largestLosTrade": 112.98776680600005,
+          "performance.long.largestLosTradePercent": 0.044961261987,
+          "performance.long.largestWinTrade": 192.1860365709999,
+          "performance.long.largestWinTradePercent": 0.078428861051,
+          "performance.long.marginCalls": 0,
+          "performance.long.maxContractsHeld": 1.5876,
+          "performance.long.netProfit": -71.71596319400192,
+          "performance.long.netProfitPercent": -0.007171596319400192,
+          "performance.long.numberOfLosingTrades": 96,
+          "performance.long.numberOfWiningTrades": 67,
+          "performance.long.percentProfitable": 0.4110429447852761,
+          "performance.long.profitFactor": 0.9595788030924745,
+          "performance.long.ratioAvgWinAvgLoss": 1.374918882265724,
+          "performance.long.totalOpenTrades": 0,
+          "performance.long.totalTrades": 163,
+          "performance.maxStrategyDrawDown": 520.4788089090016,
+          "performance.openPL": 0,
+          "performance.buyHoldReturn": 3247.3412810000013,
+          "performance.sharpeRatio": -0.18993484344626674,
+          "performance.sortinoRatio": -0.24297884117816146,
+          "performance.maxStrategyDrawDownPercent": 0.05046801481818063,
+          "performance.maxStrategyRunUp": 394.7034676789972,
+          "performance.maxStrategyRunUpPercent": 0.03873209800775099,
+          "performance.buyHoldReturnPercent": 0.32473412810000013,
+          "performance.openPLPercent": 0,
+          "performance.buyHoldGainPercent": 0.3247390916395941,
+          "performance.maxMarginUsed": 2679.4935,
+          "performance.avgMarginUsed": 238.1942302,
+          "performance.openMarginUsed": 0,
+          "performance.short.avgBarsInLossTrade": 0,
+          "performance.short.avgBarsInTrade": 0,
+          "performance.short.avgBarsInWinTrade": 0,
+          "performance.short.commissionPaid": 0,
+          "performance.short.grossLoss": 0,
+          "performance.short.grossLossPercent": 0,
+          "performance.short.grossLossWC": 0,
+          "performance.short.grossProfit": 0,
+          "performance.short.grossProfitPercent": 0,
+          "performance.short.grossProfitWC": 0,
+          "performance.short.marginCalls": 0,
+          "performance.short.maxContractsHeld": 0,
+          "performance.short.netProfit": 0,
+          "performance.short.netProfitPercent": 0,
+          "performance.short.numberOfLosingTrades": 0,
+          "performance.short.numberOfWiningTrades": 0,
+          "performance.short.totalOpenTrades": 0,
+          "performance.short.totalTrades": 0,
+          "trades.length": 163,
+          "marginUsage.length": 327,
+          "firstTradeIndex": 0
+        }
+      }
+    },
+    "attestation": {
+      "tool": "strategy_tester_read_summary",
+      "transport": "stdio-jsonrpc",
+      "target_id": "45E755139AED5CFD6968076B7A677A0C",
+      "target_url": "https://www.tradingview.com/chart/5ddhlPd0/",
+      "target_title": "ETHUSDT 2,685.35 \u25b2 +0.63% HERMES",
+      "cdp_host": "127.0.0.1",
+      "cdp_port": 9222,
+      "request_id": "2",
+      "payload_sha256": "c313fec67df07f6a7263de29baa9ba5f49cedd04fe2877e9e77d5effb49aee94",
+      "payload_nonempty": true,
+      "placeholder_markers": [],
+      "is_request_echo": false,
+      "executed_at": "2026-10-03T22:58:16.663206",
+      "is_genuine": true
+    }
+  },
+  "trades": {
+    "tool": "data_get_trades",
+    "ok": true,
+    "genuine": true,
+    "payload": {
+      "success": true,
+      "trade_count": 20,
+      "raw_result_count": 20,
+      "source": "internal_api_plus_panel_text",
+      "strategy_name": "Aggressive Flow Momentum",
+      "candidate_count": 1,
+      "candidate_names": [
+        "Aggressive Flow Momentum"
+      ],
+      "active_study_names": [
+        "Crosshair",
+        "ETHUSDT \u00b7 Binance, 15",
+        "Ideas on chart",
+        "AlertLabel",
+        "AlertLabel",
+        "AlertLabel",
+        "Volume",
+        "Dividends",
+        "Splits",
+        "Earnings",
+        "Dates calculator for continuous",
+        "Brush",
+        "Risk/reward long",
+        "Risk/reward long",
+        "Brush",
+        "Brush",
+        "Risk/reward short",
+        "Brush",
+        "Brush",
+        "Risk/reward long",
+        "Brush",
+        "Risk/reward long",
+        "FuturesContractExpiration",
+        "LatestUpdatesSource",
+        "Aggressive Flow Momentum"
+      ],
+      "category_lengths": null,
+      "order_raw_debug": [
+        {
+          "ctor": "Object",
+          "keys": [
+            "b",
+            "c",
+            "e",
+            "id",
+            "p",
+            "q",
+            "tm",
+            "tp"
+          ],
+          "own": [
+            "b",
+            "c",
+            "e",
+            "id",
+            "p",
+            "q",
+            "tm",
+            "tp"
+          ],
+          "proto_keys": [
+            "constructor",
+            "__defineGetter__",
+            "__defineSetter__",
+            "hasOwnProperty",
+            "__lookupGetter__",
+            "__lookupSetter__",
+            "isPrototypeOf",
+            "propertyIsEnumerable",
+            "toString",
+            "valueOf",
+            "__proto__",
+            "toLocaleString"
+          ],
+          "descriptors": {
+            "b": {
+              "enumerable": true,
+              "type": "Boolean",
+              "str": "true"
+            },
+            "c": {
+              "enumerable": true,
+              "type": "String",
+              "str": "Long"
+            },
+            "e": {
+              "enumerable": true,
+              "type": "Boolean",
+              "str": "true"
+            },
+            "id": {
+              "enumerable": true,
+              "type": "String",
+              "str": "Long"
+            },
+            "p": {
+              "enumerable": true,
+              "type": "Number",
+              "str": "2028.49"
+            },
+            "q": {
+              "enumerable": true,
+              "type": "Number",
+              "str": "1.2316"
+            },
+            "tm": {
+              "enumerable": true,
+              "type": "number",
+              "str": "0"
+            },
+            "tp": {
+              "enumerable": true,
+              "type": "String",
+              "str": "MARKET"
+            }
+          },
+          "str": "[object Object]"
+        },
+        {
+          "ctor": "Object",
+          "keys": [
+            "b",
+            "c",
+            "e",
+            "id",
+            "p",
+            "q",
+            "tm",
+            "tp"
+          ],
+          "own": [
+            "b",
+            "c",
+            "e",
+            "id",
+            "p",
+            "q",
+            "tm",
+            "tp"
+          ],
+          "proto_keys": [
+            "constructor",
+            "__defineGetter__",
+            "__defineSetter__",
+            "hasOwnProperty",
+            "__lookupGetter__",
+            "__lookupSetter__",
+            "isPrototypeOf",
+            "propertyIsEnumerable",
+            "toString",
+            "valueOf",
+            "__proto__",
+            "toLocaleString"
+          ],
+          "descriptors": {
+            "b": {
+              "enumerable": true,
+              "type": "boolean",
+              "str": "false"
+            },
+            "c": {
+              "enumerable": true,
+              "type": "String",
+              "str": "time exit"
+            },
+            "e": {
+              "enumerable": true,
+              "type": "boolean",
+              "str": "false"
+            },
+            "id": {
+              "enumerable": true,
+              "type": "String",
+              "str": "Close position order"
+            },
+            "p": {
+              "enumerable": true,
+              "type": "Number",
+              "str": "2038.85"
+            },
+            "q": {
+              "enumerable": true,
+              "type": "Number",
+              "str": "1.2316"
+            },
+            "tm": {
+              "enumerable": true,
+              "type": "Number",
+              "str": "1"
+            },
+            "tp": {
+              "enumerable": true,
+              "type": "String",
+              "str": "MARKET"
+            }
+          },
+          "str": "[object Object]"
+        },
+        {
+          "ctor": "Object",
+          "keys": [
+            "b",
+            "c",
+            "e",
+            "id",
+            "p",
+            "q",
+            "tm",
+            "tp"
+          ],
+          "own": [
+            "b",
+            "c",
+            "e",
+            "id",
+            "p",
+            "q",
+            "tm",
+            "tp"
+          ],
+          "proto_keys": [
+            "constructor",
+            "__defineGetter__",
+            "__defineSetter__",
+            "hasOwnProperty",
+            "__lookupGetter__",
+            "__lookupSetter__",
+            "isPrototypeOf",
+            "propertyIsEnumerable",
+            "toString",
+            "valueOf",
+            "__proto__",
+            "toLocaleString"
+          ],
+          "descriptors": {
+            "b": {
+              "enumerable": true,
+              "type": "Boolean",
+              "str": "true"
+            },
+            "c": {
+              "enumerable": true,
+              "type": "String",
+              "str": "Long"
+            },
+            "e": {
+              "enumerable": true,
+              "type": "Boolean",
+              "str": "true"
+            },
+            "id": {
+              "enumerable": true,
+              "type": "String",
+              "str": "Long"
+            },
+            "p": {
+              "enumerable": true,
+              "type": "Number",
+              "str": "2006.55"
+            },
+            "q": {
+              "enumerable": true,
+              "type": "Number",
+              "str": "1.2463"
+            },
+            "tm": {
+              "enumerable": true,
+              "type": "Number",
+              "str": "2"
+            },
+            "tp": {
+              "enumerable": true,
+              "type": "String",
+              "str": "MARKET"
+            }
+          },
+          "str": "[object Object]"
+        }
+      ],
+      "orders_text_type": null,
+      "orders_text": "",
+      "trades": [
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 2028.49,
+          "q": 1.2316,
+          "tm": 0,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2038.85,
+          "q": 1.2316,
+          "tm": 1,
+          "tp": "MARKET"
+        },
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 2006.55,
+          "q": 1.2463,
+          "tm": 2,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2072.33,
+          "q": 1.2463,
+          "tm": 3,
+          "tp": "MARKET"
+        },
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 2050.3,
+          "q": 1.2294,
+          "tm": 4,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2127.08,
+          "q": 1.2294,
+          "tm": 5,
+          "tp": "MARKET"
+        },
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 2150.23,
+          "q": 1.1828,
+          "tm": 6,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2163.18,
+          "q": 1.1828,
+          "tm": 7,
+          "tp": "MARKET"
+        },
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 1997.73,
+          "q": 1.2747,
+          "tm": 8,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2007.29,
+          "q": 1.2747,
+          "tm": 9,
+          "tp": "MARKET"
+        },
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 2028.17,
+          "q": 1.2567,
+          "tm": 10,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2028.58,
+          "q": 1.2567,
+          "tm": 11,
+          "tp": "MARKET"
+        },
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 2050.02,
+          "q": 1.2429,
+          "tm": 12,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2022.34,
+          "q": 1.2429,
+          "tm": 13,
+          "tp": "MARKET"
+        },
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 2047.44,
+          "q": 1.2399,
+          "tm": 14,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2041.26,
+          "q": 1.2399,
+          "tm": 15,
+          "tp": "MARKET"
+        },
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 2045.05,
+          "q": 1.2401,
+          "tm": 16,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2065.48,
+          "q": 1.2401,
+          "tm": 17,
+          "tp": "MARKET"
+        },
+        {
+          "b": true,
+          "c": "Long",
+          "e": true,
+          "id": "Long",
+          "p": 2080.21,
+          "q": 1.2218,
+          "tm": 18,
+          "tp": "MARKET"
+        },
+        {
+          "b": false,
+          "c": "time exit",
+          "e": false,
+          "id": "Close position order",
+          "p": 2069.76,
+          "q": 1.2218,
+          "tm": 19,
+          "tp": "MARKET"
+        }
+      ],
+      "trade_summary": {}
+    },
+    "error": null,
+    "attestation": {
+      "tool": "data_get_trades",
+      "transport": "stdio-jsonrpc",
+      "target_id": "45E755139AED5CFD6968076B7A677A0C",
+      "target_url": "https://www.tradingview.com/chart/5ddhlPd0/",
+      "target_title": "ETHUSDT 2,684.64 \u25b2 +0.6% HERMES",
+      "cdp_host": "127.0.0.1",
+      "cdp_port": 9222,
+      "request_id": "10",
+      "payload_sha256": "33d6d0cd3ab27c9eaa90c644e66a6d3dba2251eaab5a2d8cf63ed7b47d53a9c2",
+      "payload_nonempty": true,
+      "placeholder_markers": [],
+      "is_request_echo": false,
+      "executed_at": "2026-10-03T22:57:14.678971",
+      "is_genuine": true
+    },
+    "raw_response": "{\n  \"success\": true,\n  \"trade_count\": 20,\n  \"raw_result_count\": 20,\n  \"source\": \"internal_api_plus_panel_text\",\n  \"strategy_name\": \"Aggressive Flow Momentum\",\n  \"candidate_count\": 1,\n  \"candidate_names\": [\n    \"Aggressive Flow Momentum\"\n  ],\n  \"active_study_names\": [\n    \"Crosshair\",\n    \"ETHUSDT \u00b7 Binance, 15\",\n    \"Ideas on chart\",\n    \"AlertLabel\",\n    \"AlertLabel\",\n    \"AlertLabel\",\n    \"Volume\",\n    \"Dividends\",\n    \"Splits\",\n    \"Earnings\",\n    \"Dates calculator for continuous\",\n    \"Brush\",\n    \"Risk/reward long\",\n    \"Risk/reward long\",\n    \"Brush\",\n    \"Brush\",\n    \"Risk/reward short\",\n    \"Brush\",\n    \"Brush\",\n    \"Risk/reward long\",\n    \"Brush\",\n    \"Risk/reward long\",\n    \"FuturesContractExpiration\",\n    \"LatestUpdatesSource\",\n    \"Aggressive Flow Momentum\"\n  ],\n  \"category_lengths\": null,\n  \"order_raw_debug\": [\n    {\n      \"ctor\": \"Object\",\n      \"keys\": [\n        \"b\",\n        \"c\",\n        \"e\",\n        \"id\",\n        \"p\",\n        \"q\",\n        \"tm\",\n        \"tp\"\n      ],\n      \"own\": [\n        \"b\",\n        \"c\",\n        \"e\",\n        \"id\",\n        \"p\",\n        \"q\",\n        \"tm\",\n        \"tp\"\n      ],\n      \"proto_keys\": [\n        \"constructor\",\n        \"__defineGetter__\",\n        \"__defineSetter__\",\n        \"hasOwnProperty\",\n        \"__lookupGetter__\",\n        \"__lookupSetter__\",\n        \"isPrototypeOf\",\n        \"propertyIsEnumerable\",\n        \"toString\",\n        \"valueOf\",\n        \"__proto__\",\n        \"toLocaleString\"\n      ],\n      \"descriptors\": {\n        \"b\": {\n          \"enumerable\": true,\n          \"type\": \"Boolean\",\n          \"str\": \"true\"\n        },\n        \"c\": {\n          \"enumerable\": true,\n          \"type\": \"String\",\n          \"str\": \"Long\"\n        },\n        \"e\": {\n          \"enumerable\": true,\n          \"type\": \"Boolean\",\n          \"str\": \"true\"\n        },\n        \"id\": {\n          \"enumerable\": true,\n          \"type\": \"String\",\n          \"str\": \"Long\"\n        },\n        \"p\": {\n          \"enumerable\": true,\n          \"type\": \"Number\",\n          \"str\": \"2028.49\"\n        },\n        \"q\": {\n          \"enumerable\": true,\n          \"type\": \"Number\",\n          \"str\": \"1.2316\"\n        },\n        \"tm\": {\n          \"enumerable\": true,\n          \"type\": \"number\",\n          \"str\": \"0\"\n        },\n        \"tp\": {\n          \"enumerable\": true,\n          \"type\": \"String\",\n          \"str\": \"MARKET\"\n        }\n      },\n      \"str\": \"[object Object]\"\n    },\n    {\n      \"ctor\": \"Object\",\n      \"keys\": [\n        \"b\",\n        \"c\",\n        \"e\",\n        \"id\",\n        \"p\",\n        \"q\",\n        \"tm\",\n        \"tp\"\n      ],\n      \"own\": [\n        \"b\",\n        \"c\",\n        \"e\",\n        \"id\",\n        \"p\",\n        \"q\",\n        \"tm\",\n        \"tp\"\n      ],\n      \"proto_keys\": [\n        \"constructor\",\n        \"__defineGetter__\",\n        \"__defineSetter__\",\n        \"hasOwnProperty\",\n        \"__lookupGetter__\",\n        \"__lookupSetter__\",\n        \"isPrototypeOf\",\n        \"propertyIsEnumerable\",\n        \"toString\",\n        \"valueOf\",\n        \"__proto__\",\n        \"toLocaleString\"\n      ],\n      \"descriptors\": {\n        \"b\": {\n          \"enumerable\": true,\n          \"type\": \"boolean\",\n          \"str\": \"false\"\n        },\n        \"c\": {\n          \"enumerable\": true,\n          \"type\": \"String\",\n          \"str\": \"time exit\"\n        },\n        \"e\": {\n          \"enumerable\": true,\n          \"type\": \"boolean\",\n          \"str\": \"false\"\n        },\n        \"id\": {\n          \"enumerable\": true,\n          \"type\": \"String\",\n          \"str\": \"Close position order\"\n        },\n        \"p\": {\n          \"enumerable\": true,\n          \"type\": \"Number\",\n          \"str\": \"2038.85\"\n        },\n        \"q\": {\n          \"enumerable\": true,\n          \"type\": \"Number\",\n          \"str\": \"1.2316\"\n        },\n        \"tm\": {\n          \"enumerable\": true,\n          \"type\": \"Number\",\n          \"str\": \"1\"\n        },\n        \"tp\": {\n          \"enumerable\": true,\n          \"type\": \"String\",\n          \"str\": \"MARKET\"\n        }\n      },\n      \"str\": \"[object Object]\"\n    },\n    {\n      \"ctor\": \"Object\",\n      \"keys\": [\n        \"b\",\n        \"c\",\n        \"e\",\n        \"id\",\n        \"p\",\n        \"q\",\n        \"tm\",\n        \"tp\"\n      ],\n      \"own\": [\n        \"b\",\n        \"c\",\n        \"e\",\n        \"id\",\n        \"p\",\n        \"q\",\n        \"tm\",\n        \"tp\"\n      ],\n      \"proto_keys\": [\n        \"constructor\",\n        \"__defineGetter__\",\n        \"__defineSetter__\",\n        \"hasOwnProperty\",\n        \"__lookupGetter__\",\n        \"__lookupSetter__\",\n        \"isPrototypeOf\",\n        \"propertyIsEnumerable\",\n        \"toString\",\n        \"valueOf\",\n        \"__proto__\",\n        \"toLocaleString\"\n      ],\n      \"descriptors\": {\n        \"b\": {\n          \"enumerable\": true,\n          \"type\": \"Boolean\",\n          \"str\": \"true\"\n        },\n        \"c\": {\n          \"enumerable\": true,\n          \"type\": \"String\",\n          \"str\": \"Long\"\n        },\n        \"e\": {\n          \"enumerable\": true,\n          \"type\": \"Boolean\",\n          \"str\": \"true\"\n        },\n        \"id\": {\n          \"enumerable\": true,\n          \"type\": \"String\",\n          \"str\": \"Long\"\n        },\n        \"p\": {\n          \"enumerable\": true,\n          \"type\": \"Number\",\n          \"str\": \"2006.55\"\n        },\n        \"q\": {\n          \"enumerable\": true,\n          \"type\": \"Number\",\n          \"str\": \"1.2463\"\n        },\n        \"tm\": {\n          \"enumerable\": true,\n          \"type\": \"Number\",\n          \"str\": \"2\"\n        },\n        \"tp\": {\n          \"enumerable\": true,\n          \"type\": \"String\",\n          \"str\": \"MARKET\"\n        }\n      },\n      \"str\": \"[object Object]\"\n    }\n  ],\n  \"orders_text_type\": null,\n  \"orders_text\": \"\",\n  \"trades\": [\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 2028.49,\n      \"q\": 1.2316,\n      \"tm\": 0,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2038.85,\n      \"q\": 1.2316,\n      \"tm\": 1,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 2006.55,\n      \"q\": 1.2463,\n      \"tm\": 2,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2072.33,\n      \"q\": 1.2463,\n      \"tm\": 3,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 2050.3,\n      \"q\": 1.2294,\n      \"tm\": 4,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2127.08,\n      \"q\": 1.2294,\n      \"tm\": 5,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 2150.23,\n      \"q\": 1.1828,\n      \"tm\": 6,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2163.18,\n      \"q\": 1.1828,\n      \"tm\": 7,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 1997.73,\n      \"q\": 1.2747,\n      \"tm\": 8,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2007.29,\n      \"q\": 1.2747,\n      \"tm\": 9,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 2028.17,\n      \"q\": 1.2567,\n      \"tm\": 10,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2028.58,\n      \"q\": 1.2567,\n      \"tm\": 11,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 2050.02,\n      \"q\": 1.2429,\n      \"tm\": 12,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2022.34,\n      \"q\": 1.2429,\n      \"tm\": 13,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 2047.44,\n      \"q\": 1.2399,\n      \"tm\": 14,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2041.26,\n      \"q\": 1.2399,\n      \"tm\": 15,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 2045.05,\n      \"q\": 1.2401,\n      \"tm\": 16,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2065.48,\n      \"q\": 1.2401,\n      \"tm\": 17,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": true,\n      \"c\": \"Long\",\n      \"e\": true,\n      \"id\": \"Long\",\n      \"p\": 2080.21,\n      \"q\": 1.2218,\n      \"tm\": 18,\n      \"tp\": \"MARKET\"\n    },\n    {\n      \"b\": false,\n      \"c\": \"time exit\",\n      \"e\": false,\n      \"id\": \"Close position order\",\n      \"p\": 2069.76,\n      \"q\": 1.2218,\n      \"tm\": 19,\n      \"tp\": \"MARKET\"\n    }\n  ],\n  \"trade_summary\": {}\n}",
+    "execution_time_ms": 13.012409210205078
+  },
+  "equity": {
+    "tool": "data_get_equity",
+    "ok": true,
+    "genuine": true,
+    "payload": {
+      "success": true,
+      "data_points": 0,
+      "source": "internal_api_plus_panel_text",
+      "strategy_name": "Aggressive Flow Momentum",
+      "candidate_count": 1,
+      "data": [],
+      "equity_summary": {
+        "currency": "USDT",
+        "settings.dateRange.backtest.from": 1772323200000,
+        "settings.dateRange.backtest.to": 1791062100000,
+        "settings.dateRange.trade.from": 1772464500000,
+        "settings.dateRange.trade.to": 1791062100000,
+        "buyHold.length": 164,
+        "buyHoldPercent.length": 164,
+        "filledOrders.length": 326,
+        "performance.all.avgBarsInLossTrade": 13,
+        "performance.all.avgBarsInTrade": 13,
+        "performance.all.avgBarsInWinTrade": 13,
+        "performance.all.avgLosTrade": 18.48142411,
+        "performance.all.avgLosTradePercent": 0.007336749307295969,
+        "performance.all.avgTrade": -0.4399752343,
+        "performance.all.avgTradePercent": -0.00015371295956724987,
+        "performance.all.avgWinTrade": 25.41045898,
+        "performance.all.avgWinTradePercent": 0.010138398822253005,
+        "performance.all.commissionPaid": 492.2943291940001,
+        "performance.all.grossLoss": 1774.2167150089995,
+        "performance.all.grossLossPercent": 0.17742167150089994,
+        "performance.all.grossLossWC": 1500.594142,
+        "performance.all.grossProfit": 1702.5007518149976,
+        "performance.all.grossProfitPercent": 0.17025007518149976,
+        "performance.all.grossProfitWC": 1921.1725079999985,
+        "performance.all.largestLosTrade": 112.98776680600005,
+        "performance.all.largestLosTradePercent": 0.044961261987,
+        "performance.all.largestWinTrade": 192.1860365709999,
+        "performance.all.largestWinTradePercent": 0.078428861051,
+        "performance.all.marginCalls": 0,
+        "performance.all.maxContractsHeld": 1.5876,
+        "performance.all.netProfit": -71.71596319400192,
+        "performance.all.netProfitPercent": -0.007171596319400192,
+        "performance.all.numberOfLosingTrades": 96,
+        "performance.all.numberOfWiningTrades": 67,
+        "performance.all.percentProfitable": 0.4110429447852761,
+        "performance.all.profitFactor": 0.9595788030924745,
+        "performance.all.ratioAvgWinAvgLoss": 1.374918882265724,
+        "performance.all.totalOpenTrades": 0,
+        "performance.all.totalTrades": 163,
+        "performance.long.avgBarsInLossTrade": 13,
+        "performance.long.avgBarsInTrade": 13,
+        "performance.long.avgBarsInWinTrade": 13,
+        "performance.long.avgLosTrade": 18.48142411,
+        "performance.long.avgLosTradePercent": 0.007336749307295969,
+        "performance.long.avgTrade": -0.4399752343,
+        "performance.long.avgTradePercent": -0.00015371295956724987,
+        "performance.long.avgWinTrade": 25.41045898,
+        "performance.long.avgWinTradePercent": 0.010138398822253005,
+        "performance.long.commissionPaid": 492.2943291940001,
+        "performance.long.grossLoss": 1774.2167150089995,
+        "performance.long.grossLossPercent": 0.17742167150089994,
+        "performance.long.grossLossWC": 1500.594142,
+        "performance.long.grossProfit": 1702.5007518149976,
+        "performance.long.grossProfitPercent": 0.17025007518149976,
+        "performance.long.grossProfitWC": 1921.1725079999985,
+        "performance.long.largestLosTrade": 112.98776680600005,
+        "performance.long.largestLosTradePercent": 0.044961261987,
+        "performance.long.largestWinTrade": 192.1860365709999,
+        "performance.long.largestWinTradePercent": 0.078428861051,
+        "performance.long.marginCalls": 0,
+        "performance.long.maxContractsHeld": 1.5876,
+        "performance.long.netProfit": -71.71596319400192,
+        "performance.long.netProfitPercent": -0.007171596319400192,
+        "performance.long.numberOfLosingTrades": 96,
+        "performance.long.numberOfWiningTrades": 67,
+        "performance.long.percentProfitable": 0.4110429447852761,
+        "performance.long.profitFactor": 0.9595788030924745,
+        "performance.long.ratioAvgWinAvgLoss": 1.374918882265724,
+        "performance.long.totalOpenTrades": 0,
+        "performance.long.totalTrades": 163,
+        "performance.maxStrategyDrawDown": 520.4788089090016,
+        "performance.openPL": 0,
+        "performance.buyHoldReturn": 3247.3412810000013,
+        "performance.sharpeRatio": -0.18993484344626674,
+        "performance.sortinoRatio": -0.24297884117816146,
+        "performance.maxStrategyDrawDownPercent": 0.05046801481818063,
+        "performance.maxStrategyRunUp": 394.7034676789972,
+        "performance.maxStrategyRunUpPercent": 0.03873209800775099,
+        "performance.buyHoldReturnPercent": 0.32473412810000013,
+        "performance.openPLPercent": 0,
+        "performance.buyHoldGainPercent": 0.3247390916395941,
+        "performance.maxMarginUsed": 2679.4935,
+        "performance.avgMarginUsed": 238.1942302,
+        "performance.openMarginUsed": 0,
+        "performance.short.avgBarsInLossTrade": 0,
+        "performance.short.avgBarsInTrade": 0,
+        "performance.short.avgBarsInWinTrade": 0,
+        "performance.short.commissionPaid": 0,
+        "performance.short.grossLoss": 0,
+        "performance.short.grossLossPercent": 0,
+        "performance.short.grossLossWC": 0,
+        "performance.short.grossProfit": 0,
+        "performance.short.grossProfitPercent": 0,
+        "performance.short.grossProfitWC": 0,
+        "performance.short.marginCalls": 0,
+        "performance.short.maxContractsHeld": 0,
+        "performance.short.netProfit": 0,
+        "performance.short.netProfitPercent": 0,
+        "performance.short.numberOfLosingTrades": 0,
+        "performance.short.numberOfWiningTrades": 0,
+        "performance.short.totalOpenTrades": 0,
+        "performance.short.totalTrades": 0,
+        "trades.length": 163,
+        "marginUsage.length": 327,
+        "firstTradeIndex": 0
+      },
+      "note": "Full equity point array not exposed; returned report/equity summary metrics."
+    },
+    "error": null,
+    "attestation": {
+      "tool": "data_get_equity",
+      "transport": "stdio-jsonrpc",
+      "target_id": "45E755139AED5CFD6968076B7A677A0C",
+      "target_url": "https://www.tradingview.com/chart/5ddhlPd0/",
+      "target_title": "ETHUSDT 2,684.64 \u25b2 +0.6% HERMES",
+      "cdp_host": "127.0.0.1",
+      "cdp_port": 9222,
+      "request_id": "12",
+      "payload_sha256": "84389689b2249e73eeec993210b5aa5d08377bfd0317a5c83999d15389041d40",
+      "payload_nonempty": true,
+      "placeholder_markers": [],
+      "is_request_echo": false,
+      "executed_at": "2026-10-03T22:57:14.683484",
+      "is_genuine": true
+    },
+    "raw_response": "{\n  \"success\": true,\n  \"data_points\": 0,\n  \"source\": \"internal_api_plus_panel_text\",\n  \"strategy_name\": \"Aggressive Flow Momentum\",\n  \"candidate_count\": 1,\n  \"data\": [],\n  \"equity_summary\": {\n    \"currency\": \"USDT\",\n    \"settings.dateRange.backtest.from\": 1772323200000,\n    \"settings.dateRange.backtest.to\": 1791062100000,\n    \"settings.dateRange.trade.from\": 1772464500000,\n    \"settings.dateRange.trade.to\": 1791062100000,\n    \"buyHold.length\": 164,\n    \"buyHoldPercent.length\": 164,\n    \"filledOrders.length\": 326,\n    \"performance.all.avgBarsInLossTrade\": 13,\n    \"performance.all.avgBarsInTrade\": 13,\n    \"performance.all.avgBarsInWinTrade\": 13,\n    \"performance.all.avgLosTrade\": 18.48142411,\n    \"performance.all.avgLosTradePercent\": 0.007336749307295969,\n    \"performance.all.avgTrade\": -0.4399752343,\n    \"performance.all.avgTradePercent\": -0.00015371295956724987,\n    \"performance.all.avgWinTrade\": 25.41045898,\n    \"performance.all.avgWinTradePercent\": 0.010138398822253005,\n    \"performance.all.commissionPaid\": 492.2943291940001,\n    \"performance.all.grossLoss\": 1774.2167150089995,\n    \"performance.all.grossLossPercent\": 0.17742167150089994,\n    \"performance.all.grossLossWC\": 1500.594142,\n    \"performance.all.grossProfit\": 1702.5007518149976,\n    \"performance.all.grossProfitPercent\": 0.17025007518149976,\n    \"performance.all.grossProfitWC\": 1921.1725079999985,\n    \"performance.all.largestLosTrade\": 112.98776680600005,\n    \"performance.all.largestLosTradePercent\": 0.044961261987,\n    \"performance.all.largestWinTrade\": 192.1860365709999,\n    \"performance.all.largestWinTradePercent\": 0.078428861051,\n    \"performance.all.marginCalls\": 0,\n    \"performance.all.maxContractsHeld\": 1.5876,\n    \"performance.all.netProfit\": -71.71596319400192,\n    \"performance.all.netProfitPercent\": -0.007171596319400192,\n    \"performance.all.numberOfLosingTrades\": 96,\n    \"performance.all.numberOfWiningTrades\": 67,\n    \"performance.all.percentProfitable\": 0.4110429447852761,\n    \"performance.all.profitFactor\": 0.9595788030924745,\n    \"performance.all.ratioAvgWinAvgLoss\": 1.374918882265724,\n    \"performance.all.totalOpenTrades\": 0,\n    \"performance.all.totalTrades\": 163,\n    \"performance.long.avgBarsInLossTrade\": 13,\n    \"performance.long.avgBarsInTrade\": 13,\n    \"performance.long.avgBarsInWinTrade\": 13,\n    \"performance.long.avgLosTrade\": 18.48142411,\n    \"performance.long.avgLosTradePercent\": 0.007336749307295969,\n    \"performance.long.avgTrade\": -0.4399752343,\n    \"performance.long.avgTradePercent\": -0.00015371295956724987,\n    \"performance.long.avgWinTrade\": 25.41045898,\n    \"performance.long.avgWinTradePercent\": 0.010138398822253005,\n    \"performance.long.commissionPaid\": 492.2943291940001,\n    \"performance.long.grossLoss\": 1774.2167150089995,\n    \"performance.long.grossLossPercent\": 0.17742167150089994,\n    \"performance.long.grossLossWC\": 1500.594142,\n    \"performance.long.grossProfit\": 1702.5007518149976,\n    \"performance.long.grossProfitPercent\": 0.17025007518149976,\n    \"performance.long.grossProfitWC\": 1921.1725079999985,\n    \"performance.long.largestLosTrade\": 112.98776680600005,\n    \"performance.long.largestLosTradePercent\": 0.044961261987,\n    \"performance.long.largestWinTrade\": 192.1860365709999,\n    \"performance.long.largestWinTradePercent\": 0.078428861051,\n    \"performance.long.marginCalls\": 0,\n    \"performance.long.maxContractsHeld\": 1.5876,\n    \"performance.long.netProfit\": -71.71596319400192,\n    \"performance.long.netProfitPercent\": -0.007171596319400192,\n    \"performance.long.numberOfLosingTrades\": 96,\n    \"performance.long.numberOfWiningTrades\": 67,\n    \"performance.long.percentProfitable\": 0.4110429447852761,\n    \"performance.long.profitFactor\": 0.9595788030924745,\n    \"performance.long.ratioAvgWinAvgLoss\": 1.374918882265724,\n    \"performance.long.totalOpenTrades\": 0,\n    \"performance.long.totalTrades\": 163,\n    \"performance.maxStrategyDrawDown\": 520.4788089090016,\n    \"performance.openPL\": 0,\n    \"performance.buyHoldReturn\": 3247.3412810000013,\n    \"performance.sharpeRatio\": -0.18993484344626674,\n    \"performance.sortinoRatio\": -0.24297884117816146,\n    \"performance.maxStrategyDrawDownPercent\": 0.05046801481818063,\n    \"performance.maxStrategyRunUp\": 394.7034676789972,\n    \"performance.maxStrategyRunUpPercent\": 0.03873209800775099,\n    \"performance.buyHoldReturnPercent\": 0.32473412810000013,\n    \"performance.openPLPercent\": 0,\n    \"performance.buyHoldGainPercent\": 0.3247390916395941,\n    \"performance.maxMarginUsed\": 2679.4935,\n    \"performance.avgMarginUsed\": 238.1942302,\n    \"performance.openMarginUsed\": 0,\n    \"performance.short.avgBarsInLossTrade\": 0,\n    \"performance.short.avgBarsInTrade\": 0,\n    \"performance.short.avgBarsInWinTrade\": 0,\n    \"performance.short.commissionPaid\": 0,\n    \"performance.short.grossLoss\": 0,\n    \"performance.short.grossLossPercent\": 0,\n    \"performance.short.grossLossWC\": 0,\n    \"performance.short.grossProfit\": 0,\n    \"performance.short.grossProfitPercent\": 0,\n    \"performance.short.grossProfitWC\": 0,\n    \"performance.short.marginCalls\": 0,\n    \"performance.short.maxContractsHeld\": 0,\n    \"performance.short.netProfit\": 0,\n    \"performance.short.netProfitPercent\": 0,\n    \"performance.short.numberOfLosingTrades\": 0,\n    \"performance.short.numberOfWiningTrades\": 0,\n    \"performance.short.totalOpenTrades\": 0,\n    \"performance.short.totalTrades\": 0,\n    \"trades.length\": 163,\n    \"marginUsage.length\": 327,\n    \"firstTradeIndex\": 0\n  },\n  \"note\": \"Full equity point array not exposed; returned report/equity summary metrics.\"\n}",
+    "execution_time_ms": 4.513025283813477
+  },
+  "chart_after": {
+    "tool": "chart_get_state",
+    "ok": true,
+    "genuine": true,
+    "payload": {
+      "success": true,
+      "symbol": "BINANCE:ETHUSDT",
+      "resolution": "15",
+      "chartType": 1,
+      "studies": [
+        {
+          "id": "Tt9oOD",
+          "name": "Aggressive Flow Momentum"
+        },
+        {
+          "id": "U54xEM",
+          "name": "Volume"
+        }
+      ]
+    },
+    "error": null,
+    "attestation": {
+      "tool": "chart_get_state",
+      "transport": "stdio-jsonrpc",
+      "target_id": "45E755139AED5CFD6968076B7A677A0C",
+      "target_url": "https://www.tradingview.com/chart/5ddhlPd0/",
+      "target_title": "ETHUSDT 2,684.64 \u25b2 +0.6% HERMES",
+      "cdp_host": "127.0.0.1",
+      "cdp_port": 9222,
+      "request_id": "14",
+      "payload_sha256": "28b1e58fd937319c080db3fac829101d705401980ff6a056f9d2d7a25fc2c023",
+      "payload_nonempty": true,
+      "placeholder_markers": [],
+      "is_request_echo": false,
+      "executed_at": "2026-10-03T22:57:14.684986",
+      "is_genuine": true
+    },
+    "raw_response": "{\n  \"success\": true,\n  \"symbol\": \"BINANCE:ETHUSDT\",\n  \"resolution\": \"15\",\n  \"chartType\": 1,\n  \"studies\": [\n    {\n      \"id\": \"Tt9oOD\",\n      \"name\": \"Aggressive Flow Momentum\"\n    },\n    {\n      \"id\": \"U54xEM\",\n      \"name\": \"Volume\"\n    }\n  ]\n}",
+    "execution_time_ms": 1.003265380859375
+  },
+  "snapshot_after": {
+    "tool": "tv_state_snapshot",
+    "ok": true,
+    "genuine": true,
+    "payload": {
+      "success": true,
+      "status": "OK",
+      "chart": {
+        "symbol": "BINANCE:ETHUSDT",
+        "timeframe": "15",
+        "pine_editor_open": true,
+        "strategy_tester_visible": false
+      },
+      "modal": {
+        "present": false
+      }
+    },
+    "error": null,
+    "attestation": {
+      "tool": "tv_state_snapshot",
+      "transport": "stdio-jsonrpc",
+      "target_id": "45E755139AED5CFD6968076B7A677A0C",
+      "target_url": "https://www.tradingview.com/chart/5ddhlPd0/",
+      "target_title": "ETHUSDT 2,684.64 \u25b2 +0.6% HERMES",
+      "cdp_host": "127.0.0.1",
+      "cdp_port": 9222,
+      "request_id": "16",
+      "payload_sha256": "2b0654cf9ec24004cb57ddb395cf8d0adf86fb168d96934b7c6293347f51ece3",
+      "payload_nonempty": true,
+      "placeholder_markers": [],
+      "is_request_echo": false,
+      "executed_at": "2026-10-03T22:57:14.687484",
+      "is_genuine": true
+    },
+    "raw_response": "{\n  \"success\": true,\n  \"status\": \"OK\",\n  \"chart\": {\n    \"symbol\": \"BINANCE:ETHUSDT\",\n    \"timeframe\": \"15\",\n    \"pine_editor_open\": true,\n    \"strategy_tester_visible\": false\n  },\n  \"modal\": {\n    \"present\": false\n  }\n}",
+    "execution_time_ms": 2.498149871826172
+  },
+  "foreground_unchanged": true
+}

@@ -1,0 +1,38 @@
+{
+  "base": "4d47b019a41617d238c51a9280bee1e4ec7eeec0",
+  "local_commit": "fe6a673a75d5e67d50d0fd20c11a1fd9516113f3",
+  "bundle_sha256": "bb97690705cb5cfe782c049e4e3886ffb35f015b9a58550b900749f944e60bc0",
+  "patch_sha256": "f72e4709d4a12221c1324d24bf045f0ab3275b5436a27f1e16a817ffc7f473fd",
+  "files": [
+    {
+      "path": "src/core/lab.js",
+      "git_blob_sha256": "45005d6dc49e965813d61efa23368c27efeae0d3b0f6b8a7dc2635c17be09026",
+      "accepted_runtime_file_sha256": "45005d6dc49e965813d61efa23368c27efeae0d3b0f6b8a7dc2635c17be09026"
+    },
+    {
+      "path": "src/tools/lab.js",
+      "git_blob_sha256": "2c1eff783e5cc3c41fa468a74b65a382de186d7e4c9096414e6f70da143f285e",
+      "accepted_runtime_file_sha256": "2c1eff783e5cc3c41fa468a74b65a382de186d7e4c9096414e6f70da143f285e"
+    },
+    {
+      "path": "tests/pine_add_to_chart.test.js",
+      "git_blob_sha256": "bf492ae9e7665a982a00649b8333a3b1d81bb7a96f2a48973a8abe29b6a083ba",
+      "accepted_runtime_file_sha256": "bf492ae9e7665a982a00649b8333a3b1d81bb7a96f2a48973a8abe29b6a083ba"
+    }
+  ],
+  "isolated_bundle_verify": "PASS",
+  "isolated_list_heads": "PASS",
+  "isolated_add_contract_tests": "21 PASSED",
+  "registration": {
+    "mcp_commit": "fe6a673a75d5e67d50d0fd20c11a1fd9516113f3",
+    "required_lab_tools": {
+      "pine_add_to_chart": false,
+      "pine_compile": true,
+      "strategy_tester_read_summary": false
+    },
+    "bundle_object_recovery": "PASS",
+    "runtime_lab_registration": "SUPPLEMENTAL_NOT_SELF_CONTAINED"
+  },
+  "no_mcp_upstream_push": true,
+  "runtime_caveat": "Only the three authorised Lab files included; clean base server lacks Lab registration. Bundle recovery is Git-object proof, not complete runtime deployment."
+}

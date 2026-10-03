@@ -1,0 +1,44 @@
+[
+  {
+    "test": "tests/test_capabilities.py::TestCapabilityRegistry::test_discover_all",
+    "category": "UNRELATED_DEBT",
+    "reason": "Real registry object/dict bug, but direct canonical backend B execution succeeded without registry; not necessary for current B/C.",
+    "fixed": false
+  },
+  {
+    "test": "tests/test_capabilities.py::TestCapabilityRegistry::test_capabilities_registered",
+    "category": "UNRELATED_DEBT",
+    "reason": "Real registry object/dict bug, but direct canonical backend B execution succeeded without registry; not necessary for current B/C.",
+    "fixed": false
+  },
+  {
+    "test": "tests/test_capabilities.py::TestCapabilityRegistry::test_classification",
+    "category": "UNRELATED_DEBT",
+    "reason": "Real registry object/dict bug, but direct canonical backend B execution succeeded without registry; not necessary for current B/C.",
+    "fixed": false
+  },
+  {
+    "test": "tests/test_capabilities.py::TestCapabilityRegistry::test_to_json",
+    "category": "UNRELATED_DEBT",
+    "reason": "Real registry object/dict bug, but direct canonical backend B execution succeeded without registry; not necessary for current B/C.",
+    "fixed": false
+  },
+  {
+    "test": "tests/test_capabilities.py::TestCustomTVMCPBackend::test_capabilities",
+    "category": "STALE_TEST",
+    "reason": "Expects nonexistent pine_compile_facade/get_tool_schema legacy API; canonical API uses real pine_compile and list_tools. Do not fabricate tool.",
+    "fixed": false
+  },
+  {
+    "test": "tests/test_capabilities.py::TestCustomTVMCPBackend::test_get_tool_schema",
+    "category": "STALE_TEST",
+    "reason": "Expects nonexistent pine_compile_facade/get_tool_schema legacy API; canonical API uses real pine_compile and list_tools. Do not fabricate tool.",
+    "fixed": false
+  },
+  {
+    "test": "tests/test_safety.py::TestResearchSafety::test_check_look_ahead_bias_violation",
+    "category": "UNRELATED_DEBT",
+    "reason": "Real conservative look-ahead false positive for Pine close[1] past indexing; preserve safety check, no safety weakening.",
+    "fixed": false
+  }
+]

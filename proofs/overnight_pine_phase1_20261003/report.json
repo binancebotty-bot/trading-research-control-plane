@@ -1,0 +1,126 @@
+{
+  "directive": 5973810971,
+  "master_expected": "383bf2adc3ebae856c83e8a595b5189d95f32fcb",
+  "mcp_local_commit": "fe6a673a75d5e67d50d0fd20c11a1fd9516113f3",
+  "mcp_bundle_sha256": "bb97690705cb5cfe782c049e4e3886ffb35f015b9a58550b900749f944e60bc0",
+  "focused_tests": {
+    "original_runtime_node": 40,
+    "isolated_mcp_add_contract": 21,
+    "clean_control_plane_python": 22
+  },
+  "real_tester_summary": {
+    "strategy_name": "Aggressive Flow Momentum",
+    "total_trades": 163,
+    "net_profit": -71.71596319400192,
+    "percent_profitable": 0.4110429447852761,
+    "profit_factor": 0.9595788030924745
+  },
+  "tv_total_trades": 163,
+  "tv_trade_payload_count": 20,
+  "tv_trade_payload_semantics": "Limited raw order records from ordersData, entry/exit fields; default max_trades=20; not closed-trade list or full-history count. Source src/core/data.js:197-218. No pagination proof.",
+  "tv_equity_status": {
+    "tool_success": true,
+    "data_points": 0,
+    "note": "Full equity point array not exposed; returned report/equity summary metrics.",
+    "observed_max_drawdown": 520.4788089090016
+  },
+  "parity_fixture": "PARITY_FIXTURE_NOT_FOUND",
+  "python_trade_count": null,
+  "tv_parity_trade_count": null,
+  "parity_result": "BLOCKED_FIXTURE_NOT_FOUND",
+  "e2e_result": "BLOCKED_FIXTURE_NOT_FOUND",
+  "broad_suite": "7 failed, 69 passed, 26 subtests passed",
+  "debt_ledger": [
+    {
+      "test": "tests/test_capabilities.py::TestCapabilityRegistry::test_discover_all",
+      "category": "UNRELATED_DEBT",
+      "reason": "Real registry object/dict bug, but direct canonical backend B execution succeeded without registry; not necessary for current B/C.",
+      "fixed": false
+    },
+    {
+      "test": "tests/test_capabilities.py::TestCapabilityRegistry::test_capabilities_registered",
+      "category": "UNRELATED_DEBT",
+      "reason": "Real registry object/dict bug, but direct canonical backend B execution succeeded without registry; not necessary for current B/C.",
+      "fixed": false
+    },
+    {
+      "test": "tests/test_capabilities.py::TestCapabilityRegistry::test_classification",
+      "category": "UNRELATED_DEBT",
+      "reason": "Real registry object/dict bug, but direct canonical backend B execution succeeded without registry; not necessary for current B/C.",
+      "fixed": false
+    },
+    {
+      "test": "tests/test_capabilities.py::TestCapabilityRegistry::test_to_json",
+      "category": "UNRELATED_DEBT",
+      "reason": "Real registry object/dict bug, but direct canonical backend B execution succeeded without registry; not necessary for current B/C.",
+      "fixed": false
+    },
+    {
+      "test": "tests/test_capabilities.py::TestCustomTVMCPBackend::test_capabilities",
+      "category": "STALE_TEST",
+      "reason": "Expects nonexistent pine_compile_facade/get_tool_schema legacy API; canonical API uses real pine_compile and list_tools. Do not fabricate tool.",
+      "fixed": false
+    },
+    {
+      "test": "tests/test_capabilities.py::TestCustomTVMCPBackend::test_get_tool_schema",
+      "category": "STALE_TEST",
+      "reason": "Expects nonexistent pine_compile_facade/get_tool_schema legacy API; canonical API uses real pine_compile and list_tools. Do not fabricate tool.",
+      "fixed": false
+    },
+    {
+      "test": "tests/test_safety.py::TestResearchSafety::test_check_look_ahead_bias_violation",
+      "category": "UNRELATED_DEBT",
+      "reason": "Real conservative look-ahead false positive for Pine close[1] past indexing; preserve safety check, no safety weakening.",
+      "fixed": false
+    }
+  ],
+  "delegate_ledger": [
+    {
+      "route": "ollama",
+      "model": "qwen3-coder:30b-32k",
+      "partition": "C parity fixture",
+      "generation_status": "REAL_GENERATION_COMPLETE",
+      "started_at": 1791064516.8494334,
+      "finished_at": 1791064624.1872003,
+      "useful_finding": "Exact fixture requires pinned dataset/range; legacy report has zero trades and metadata placeholder.",
+      "rejected_finding": "Do not attribute legacy zero-trade result to the new unexecuted SMA template; equivalence and minimum two trades claim unproved."
+    },
+    {
+      "route": "ollama",
+      "model": "ZimaBlueAI/Qwen3.5-9B-DeepSeek-V4-Flash-GGUF:latest",
+      "partition": "D broad-suite triage",
+      "generation_status": "REAL_GENERATION_COMPLETE",
+      "started_at": 1791064516.8569415,
+      "finished_at": 1791064535.8876905,
+      "useful_finding": "Registry instance/dict bug and legacy capability expectations identified.",
+      "rejected_finding": "Reject claim registry blocks direct B/C: real canonical extraction succeeded. Reject inventing pine_compile_facade/schema methods and treating Pine close[1] positive history as stale."
+    },
+    {
+      "route": "openrouter",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "partition": "A/B integration critique",
+      "generation_status": "REAL_GENERATION_COMPLETE",
+      "started_at": 1791064516.8609424,
+      "finished_at": 1791064541.8251045,
+      "useful_finding": "Null/zero normalization fidelity and supplemental artifact warning.",
+      "rejected_finding": "Reject made-up MCP file boundaries and claims ui_evaluate bypasses canonical transport. Transport call.ok concern retained as deferred API-hardening risk, not silently fixed."
+    }
+  ],
+  "paid_delegation_used": false,
+  "credit_exhaustion_risk": "UNKNOWN_EXACT_BALANCE; prior operator low-credit report retained",
+  "no_build4_contact": true,
+  "no_live_trading": true,
+  "source_writes": 0,
+  "chart_update_clicks": 0,
+  "runtime_recovery_blocker": {
+    "mcp_commit": "fe6a673a75d5e67d50d0fd20c11a1fd9516113f3",
+    "required_lab_tools": {
+      "pine_add_to_chart": false,
+      "pine_compile": true,
+      "strategy_tester_read_summary": false
+    },
+    "bundle_object_recovery": "PASS",
+    "runtime_lab_registration": "SUPPLEMENTAL_NOT_SELF_CONTAINED"
+  },
+  "wrapper_strategy_identity_fix": "New strategy_name field direct metric normalization; RED 1 failed/4 passed -> focused GREEN 22 passed; exercised against live canonical JSON-RPC."
+}

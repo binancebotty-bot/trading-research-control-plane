@@ -1,0 +1,52 @@
+✔ disabled QA update never invokes keys or clicks (2.3936ms)
+✔ renamed editor title dispatches exactly once to stable ID without metadata (1.1848ms)
+✔ unchanged chart can attest dispatch only, never applied source (0.6312ms)
+✔ missing action control refuses without keyboard fallback (0.5339ms)
+✔ explicit update refusal preserves chart and does not click (0.5418ms)
+✔ confirmed ADD preserves exact newly created identity without expected ID (0.8417ms)
+✔ missing expected study ID refuses before click (0.6483ms)
+✔ wrong expected study ID refuses before click (0.7517ms)
+✔ empty expected study ID refuses before click (0.6453ms)
+✔ non-string expected study ID refuses before click (0.5813ms)
+✔ whitespace expected study ID refuses before click (0.5099ms)
+✔ duplicate pre-operation expected ID refuses (0.5889ms)
+✔ missing expected ID in chart refuses (0.4765ms)
+✔ ambiguous Update control refuses (0.4783ms)
+✔ control becoming disabled before dispatch refuses (0.5235ms)
+✔ extraOnClick fails post-dispatch with no certification and no retry (0.5971ms)
+✔ removeOnClick fails post-dispatch with no certification and no retry (0.6504ms)
+✔ duplicateAfter fails post-dispatch with no certification and no retry (0.5779ms)
+✔ ADD no-op remains unconfirmed (0.7638ms)
+✔ ADD extra unexpected identities remains unconfirmed (0.615ms)
+✔ MCP registration exposes optional expected_study_id without coercion (2.7017ms)
+▶ pine_analyze — static analysis
+  ✔ clean v6 script — no issues (2.142ms)
+  ✔ array.get out of bounds (0.7739ms)
+  ✔ array.get negative index (0.2699ms)
+  ✔ array.set out of bounds (0.1377ms)
+  ✔ array.get valid index — no issue (0.1697ms)
+  ✔ .first() on empty array (0.137ms)
+  ✔ .last() on empty array (0.1489ms)
+  ✔ .first() on non-empty array — no issue (0.1326ms)
+  ✔ strategy.entry without strategy() declaration (0.1374ms)
+  ✔ strategy.entry WITH strategy() — no issue (0.1978ms)
+  ✔ old version v3 warning (0.1717ms)
+  ✔ v5 — no version warning (0.1276ms)
+  ✔ multiple issues at once (0.177ms)
+✔ pine_analyze — static analysis (6.0587ms)
+▶ pine_check — server compile
+  ✔ should compile valid Pine Script via TradingView API (374.9576ms)
+  ✔ should return errors for invalid Pine Script (147.3534ms)
+  ✔ should handle empty source gracefully (179.5534ms)
+✔ pine_check — server compile (702.0538ms)
+✔ success changes genuine Monaco source, not hidden textarea (1.274ms)
+✔ missing model fails closed without touching textarea (1.1385ms)
+✔ no-op setter cannot report success (0.6121ms)
+ℹ tests 40
+ℹ suites 2
+ℹ pass 40
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 854.7392

@@ -1,0 +1,657 @@
+From fe6a673a75d5e67d50d0fd20c11a1fd9516113f3 Mon Sep 17 00:00:00 2001
+From: Rich Wigmore <richardwigmore@protonmail.com>
+Date: Sat, 3 Oct 2026 22:59:00 +0100
+Subject: [PATCH] fix(pine): preserve stable study identity and separate
+ dispatch certification
+
+---
+ src/core/lab.js                 | 505 ++++++++++++++++++++++++++++++++
+ src/tools/lab.js                |  61 ++++
+ tests/pine_add_to_chart.test.js |  55 ++++
+ 3 files changed, 621 insertions(+)
+ create mode 100644 src/core/lab.js
+ create mode 100644 src/tools/lab.js
+ create mode 100644 tests/pine_add_to_chart.test.js
+
+diff --git a/src/core/lab.js b/src/core/lab.js
+new file mode 100644
+index 0000000..f423ba7
+--- /dev/null
++++ b/src/core/lab.js
+@@ -0,0 +1,505 @@
++/**
++ * TV AI Lab adapter — high-level, popup-safe Pine workflow tools.
++ *
++ * Design principle (proven by scripts/lab_probe.mjs):
++ *  - COMPILE/ERROR-CHECK is done server-side via pine-facade translate_light.
++ *    This is deterministic and never raises a popup. It is the source of truth
++ *    for "does this Pine compile".
++ *  - The live Monaco editor is touched only to INJECT source and to ADD TO CHART
++ *    / read the Strategy Tester. Every editor action runs a modal preflight.
++ *  - The LLM generates/decides; this adapter detects UI state, resolves only
++ *    KNOWN+EXPECTED popups, and returns structured truth. It never clicks
++ *    unknown/dangerous modals and never fakes a compile or backtest result.
++ *
++ * Structured status values returned in `.status`:
++ *   OK, OK_COMPILED, OK_ADDED_TO_CHART, COMPILE_ERROR, BLOCKED_MODAL,
++ *   BLOCKED_UNEXPECTED_MODAL, STRATEGY_TESTER_NOT_AVAILABLE, SELECTOR_FAILED,
++ *   BROWSER_NOT_CONNECTED, UNSAFE_ACTION_REFUSED
++ */
++import { evaluate, evaluateAsync, getClient, getTargetInfo } from '../connection.js';
++import { getStrategyResults } from './data.js';
++
++// ── connection guard ──────────────────────────────────────────────────────
++async function withConn(fn) {
++  try {
++    await getClient();
++  } catch (e) {
++    return { success: false, status: 'BROWSER_NOT_CONNECTED', error: String(e && e.message || e) };
++  }
++  try {
++    return await fn();
++  } catch (e) {
++    return { success: false, status: 'SELECTOR_FAILED', error: String(e && e.message || e) };
++  }
++}
++
++// ── pine-facade server-side compile (reliable, no popup) ───────────────────
++async function facadeCompile(source) {
++  const body = JSON.stringify(source);
++  const r = await evaluateAsync(`
++    (function(){
++      var fd = new URLSearchParams();
++      fd.append('source', ${body});
++      return fetch('https://pine-facade.tradingview.com/pine-facade/translate_light?user_name=Guest&pine_id=00000000-0000-0000-0000-000000000000', {
++        method:'POST',
++        headers:{'Accept':'application/json','Content-Type':'application/x-www-form-urlencoded','Referer':'https://www.tradingview.com/'},
++        body: fd
++      }).then(function(r){return r.json();}).then(function(j){
++        var inner = j && j.result;
++        var errs = (inner && inner.errors2) ? inner.errors2.map(function(e){return {line:e.start&&e.start.line,column:e.start&&e.start.column,message:e.message};}) : [];
++        var warns = (inner && inner.warnings2) ? inner.warnings2.map(function(w){return {line:w.start&&w.start.line,column:w.start&&w.start.column,message:w.message};}) : [];
++        return { ok: errs.length===0, error_count: errs.length, warning_count: warns.length, errors: errs, warnings: warns, raw_error: j.error||null };
++      }).catch(function(e){return {ok:false, fetch_error:String(e)};});
++    })()
++  `);
++  return r;
++}
++
++// ── Monaco editor helpers (generic .monaco-editor fiber walk) ──────────────
++const FIND_MONACO = `(function(){
++  var c = document.querySelector('.monaco-editor.pine-editor-monaco') || document.querySelector('.monaco-editor');
++  if(!c) return null;
++  var el=c, fk;
++  for(var i=0;i<25&&el;i++){ fk=Object.keys(el).find(function(k){return k.indexOf('__reactFiber$')===0;}); if(fk)break; el=el.parentElement; }
++  if(!fk) return null;
++  var cur=el[fk];
++  for(var d=0;d<25&&cur;d++){
++    var mp=cur.memoizedProps;
++    if(mp&&mp.value&&mp.value.monacoEnv&&mp.value.monacoEnv.editor&&typeof mp.value.monacoEnv.editor.getEditors==='function'){
++      var eds=mp.value.monacoEnv.editor.getEditors();
++      if(eds.length) return {editor:eds[0], env:mp.value.monacoEnv};
++    }
++    cur=cur.return;
++  }
++  return null;
++})()`;
++
++async function openPineEditor() {
++  // FIRST: Check if textarea is already available (editor already open from pine_new)
++  const alreadyReady = await evaluate(`
++    (function() {
++      const ta = document.querySelector('.monaco-editor.pine-editor-monaco.standalone textarea, textarea.monaco-editor, .monaco-editor textarea, .pine-editor-container textarea, [data-name="pine-editor"] textarea');
++      if (ta) return { kind: 'textarea', found: true };
++      return { kind: 'none', found: false };
++    })()
++  `);
++  if (alreadyReady && alreadyReady.kind === 'textarea') return true;
++
++  // SECOND: Editor not ready - try to open it
++  await evaluate(`
++    (function() {
++      var bwb = window.TradingView && window.TradingView.bottomWidgetBar;
++      if (bwb && typeof bwb.activateScriptEditorTab==='function'){ try{bwb.activateScriptEditorTab();}catch(e){} }
++      else if (bwb && typeof bwb.showWidget==='function'){ try{bwb.showWidget('pine-editor');}catch(e){} }
++      var btn = document.querySelector('[data-name="pine-dialog-button"]') || document.querySelector('[aria-label="Pine Editor"]');
++      if (btn) btn.click();
++    })()
++  `);
++  
++  // THIRD: Wait for TEXTAREA to be ready (not just FIND_MONACO deep probe)
++  // The textarea is what actually receives input - it appears AFTER Monaco initializes
++  for (let i = 0; i < 40; i++) {
++    const light = await evaluate(`
++      (function() {
++        const ta = document.querySelector('.monaco-editor.pine-editor-monaco.standalone textarea, textarea.monaco-editor, .monaco-editor textarea, .pine-editor-container textarea, [data-name="pine-editor"] textarea');
++        if (ta) return { kind: 'textarea', found: true };
++        const vm = document.querySelector('.view-lines, .monaco-editor .view-lines');
++        if (vm) return { kind: 'monaco_lines', found: true };
++        const panel = document.querySelector('[data-name="pine-editor"], .pine-editor-container, .pine-editor-panel');
++        if (panel) {
++          const style = getComputedStyle(panel);
++          if (style.display !== 'none' && style.visibility !== 'hidden' && panel.offsetWidth > 0)
++            return { kind: 'panel_open', visible: true, found: true };
++        }
++        return { kind: 'none', found: false };
++      })()
++    `);
++    if (light && light.kind === 'textarea') return true;
++    await new Promise(r => setTimeout(r, 200));
++  }
++  return false;
++}
++
++// ── MODAL STATE MACHINE ────────────────────────────────────────────────────
++// Returns { present, kind, title, buttons, hasNameInput, nameValue }
++const SNAPSHOT_MODAL = `(function(){
++  // Only consider REAL TradingView dialogs, not editor chrome.
++  var roots = Array.prototype.slice.call(document.querySelectorAll(
++    '.overlap-manager-root [role="dialog"], [data-dialog-name], [data-name="dialog"], div[role="dialog"][aria-modal="true"]'
++  ));
++  var d = roots.find(function(x){ return x.offsetParent!==null; });
++  if(!d) return { present:false };
++  function t(el){ return ((el&&(el.innerText||el.textContent))||'').trim(); }
++  var titleEl = d.querySelector('[class*="title"], [data-name="dialog-title"], h2, h3');
++  var title = t(titleEl).slice(0,160);
++  var bodyText = t(d).slice(0,400);
++  var buttons = Array.prototype.slice.call(d.querySelectorAll('button, [role="button"]'))
++    .filter(function(b){return b.offsetParent!==null;})
++    .map(function(b){return (b.textContent||b.getAttribute('aria-label')||'').trim();})
++    .filter(Boolean).slice(0,10);
++  var nameInput = d.querySelector('input[type="text"], input:not([type])');
++  var dataName = d.getAttribute('data-dialog-name') || d.getAttribute('data-name') || null;
++  var hay = (dataName+' '+title+' '+bodyText).toLowerCase();
++  var kind = 'UNKNOWN_MODAL';
++  if (/\\bsign in\\b|\\blog ?in\\b|password/.test(hay) && !/save/.test(hay)) kind='LOGIN_MODAL';
++  else if (/upgrade|\\bplan\\b|payment|subscribe|go pro|billing/.test(hay)) kind='PAYMENT_OR_UPGRADE_MODAL';
++  else if (/\\border\\b|broker|buy\\b|sell\\b|position|leverage|place order/.test(hay)) kind='BROKER_OR_ORDER_MODAL';
++  else if (/publish/.test(hay)) kind='PUBLISH_MODAL';
++  else if (/unsaved|do you want to save|changes will be lost|discard/.test(hay)) kind='UNSAVED_CHANGES_MODAL';
++  else if (/save (script|as)|name your script|script name/.test(hay) || (nameInput && /save/.test(hay))) kind='SAVE_SCRIPT_MODAL';
++  return {
++    present:true, kind:kind, dataName:dataName, title:title, bodyText:bodyText,
++    buttons:buttons, hasNameInput:!!nameInput, nameValue: nameInput ? nameInput.value : null
++  };
++})()`;
++
++const SAFE_KINDS = ['SAVE_SCRIPT_MODAL', 'UNSAVED_CHANGES_MODAL'];
++
++export async function detectBlockingModal() {
++  return withConn(async () => {
++    const m = await evaluate(SNAPSHOT_MODAL);
++    if (!m.present) return { success: true, status: 'OK', present: false };
++    const safe = SAFE_KINDS.includes(m.kind);
++    return {
++      success: true,
++      status: m.kind === 'UNKNOWN_MODAL' ? 'BLOCKED_UNEXPECTED_MODAL' : 'BLOCKED_MODAL',
++      present: true,
++      kind: m.kind,
++      resolvable: safe,
++      modal: m,
++    };
++  });
++}
++
++/**
++ * Resolve only KNOWN + EXPECTED modals.
++ * @param allow             'save' | 'discard' | 'cancel'  (explicit intent)
++ * @param expected_script_name required when allow==='save' on SAVE_SCRIPT_MODAL
++ */
++export async function resolveKnownModal({ allow, expected_script_name } = {}) {
++  return withConn(async () => {
++    const m = await evaluate(SNAPSHOT_MODAL);
++    if (!m.present) return { success: true, status: 'OK', present: false, note: 'no modal to resolve' };
++
++    if (m.kind === 'UNKNOWN_MODAL')
++      return { success: false, status: 'BLOCKED_UNEXPECTED_MODAL', modal: m };
++    if (!SAFE_KINDS.includes(m.kind))
++      return { success: false, status: 'UNSAFE_ACTION_REFUSED', kind: m.kind, modal: m,
++        note: `${m.kind} must be handled by a human; adapter refuses to click it.` };
++
++    if (allow === 'cancel') {
++      const clicked = await clickModalButton(['Cancel', 'Close', 'Discard']);
++      return { success: clicked, status: clicked ? 'OK' : 'SELECTOR_FAILED', action: 'cancel', kind: m.kind };
++    }
++
++    if (m.kind === 'SAVE_SCRIPT_MODAL') {
++      if (allow !== 'save') return { success: false, status: 'UNSAFE_ACTION_REFUSED', note: 'allow must be "save" to confirm a Save Script modal', modal: m };
++      // Safety gate: name must match expected.
++      const current = (m.nameValue || '').trim();
++      if (expected_script_name && current && current !== expected_script_name) {
++        return { success: false, status: 'UNSAFE_ACTION_REFUSED',
++          note: `Save name mismatch: editor shows "${current}", expected "${expected_script_name}". Refusing.`, modal: m };
++      }
++      const clicked = await clickModalButton(['Save', 'Save script', 'OK']);
++      return { success: clicked, status: clicked ? 'OK' : 'SELECTOR_FAILED', action: 'save', name: current || expected_script_name, kind: m.kind };
++    }
++
++    if (m.kind === 'UNSAVED_CHANGES_MODAL') {
++      if (allow === 'save') {
++        const clicked = await clickModalButton(['Save', 'Save changes', 'Yes']);
++        return { success: clicked, status: clicked ? 'OK' : 'SELECTOR_FAILED', action: 'save', kind: m.kind };
++      }
++      if (allow === 'discard') {
++        const clicked = await clickModalButton(["Don't save", 'Discard', 'No']);
++        return { success: clicked, status: clicked ? 'OK' : 'SELECTOR_FAILED', action: 'discard', kind: m.kind };
++      }
++      return { success: false, status: 'UNSAFE_ACTION_REFUSED', note: 'allow must be "save" or "discard" for unsaved-changes modal', modal: m };
++    }
++    return { success: false, status: 'BLOCKED_MODAL', modal: m };
++  });
++}
++
++async function clickModalButton(labels) {
++  const want = JSON.stringify(labels.map(s => s.toLowerCase()));
++  return evaluate(`
++    (function(){
++      var want = ${want};
++      var roots = Array.prototype.slice.call(document.querySelectorAll('.overlap-manager-root [role="dialog"], [data-dialog-name], div[role="dialog"][aria-modal="true"]'));
++      var d = roots.find(function(x){return x.offsetParent!==null;});
++      if(!d) return false;
++      var btns = Array.prototype.slice.call(d.querySelectorAll('button, [role="button"]'));
++      for(var i=0;i<btns.length;i++){
++        if(btns[i].offsetParent===null) continue;
++        var t=((btns[i].textContent||btns[i].getAttribute('aria-label')||'')+'').trim().toLowerCase();
++        if(want.indexOf(t)!==-1){ btns[i].click(); return true; }
++      }
++      return false;
++    })()
++  `);
++}
++
++// preflight: refuse to act if a blocking modal is already up
++async function modalPreflight() {
++  const m = await evaluate(SNAPSHOT_MODAL);
++  if (!m.present) return null;
++  if (m.kind === 'UNKNOWN_MODAL') return { success: false, status: 'BLOCKED_UNEXPECTED_MODAL', modal: m };
++  if (!SAFE_KINDS.includes(m.kind)) return { success: false, status: 'UNSAFE_ACTION_REFUSED', kind: m.kind, modal: m };
++  return { success: false, status: 'BLOCKED_MODAL', kind: m.kind, modal: m, note: 'A known modal is open; resolve it first via pine_resolve_known_modal.' };
++}
++
++// ── high-level tools ────────────────────────────────────────────────────────
++export async function healthCheck() {
++  return withConn(async () => {
++    const ti = await getTargetInfo();
++    const ping = await evaluate('1+1');
++    return { success: ping === 2, status: 'OK', cdp: true, target: { url: ti.url, title: ti.title } };
++  });
++}
++
++export async function stateSnapshot() {
++  return withConn(async () => {
++    const snap = await evaluate(`
++      (function(){
++        var out={};
++        try{ var api=window.TradingViewApi._activeChartWidgetWV.value(); var cw=api._chartWidget;
++          out.symbol = cw.model().mainSeries().symbol ? null : null; }catch(e){}
++        try{ out.symbol = (window.TradingViewApi.activeChart && window.TradingViewApi.activeChart().symbol && window.TradingViewApi.activeChart().symbol()) || null; }catch(e){}
++        try{ out.timeframe = (window.TradingViewApi.activeChart && window.TradingViewApi.activeChart().resolution && window.TradingViewApi.activeChart().resolution()) || null; }catch(e){}
++        out.pine_editor_open = !!${FIND_MONACO};
++        var st=document.querySelector('[data-name="backtesting"], [class*="strategyReport"]');
++        out.strategy_tester_visible = !!(st && st.offsetParent);
++        return out;
++      })()
++    `);
++    const modal = await evaluate(SNAPSHOT_MODAL);
++    return { success: true, status: 'OK', chart: snap, modal: modal.present ? modal : { present: false } };
++  });
++}
++
++export async function compile({ source }) {
++  return withConn(async () => {
++    const r = await facadeCompile(source);
++    if (r.fetch_error) return { success: false, status: 'SELECTOR_FAILED', error: r.fetch_error };
++    return {
++      success: true,
++      status: r.ok ? 'OK_COMPILED' : 'COMPILE_ERROR',
++      compiled: r.ok,
++      error_count: r.error_count,
++      warning_count: r.warning_count,
++      errors: r.errors,
++      warnings: r.warnings,
++    };
++  });
++}
++
++export async function readCompileErrors({ source }) {
++  const r = await compile({ source });
++  if (!r.success) return r;
++  return { success: true, status: r.status, errors: r.errors || [], error_count: r.error_count || 0 };
++}
++
++export async function replaceScript({ source }) {
++  return withConn(async () => {
++    const opened = await openPineEditor();
++    if (!opened) return { success: false, status: 'SELECTOR_FAILED', error: 'Pine Editor / Monaco not reachable.' };
++    const pre = await modalPreflight();
++    if (pre) return pre;
++    
++    // Use ROBUST textarea injection (same as newScript) instead of fragile FIND_MONACO
++    const escaped = JSON.stringify(source);
++    const set = await evaluate(`
++      (function() {
++        // 1. PRIMARY: Textarea approach (PROVEN WORKING - taFound: true)
++        const ta = document.querySelector('.monaco-editor.pine-editor-monaco.standalone textarea, textarea.monaco-editor, .monaco-editor textarea, .pine-editor-container textarea, [data-name="pine-editor"] textarea');
++        if (ta) { 
++          // AGGRESSIVE CLEAR AND REPLACE
++          ta.focus();
++          // Clear via selection + delete
++          ta.setSelectionRange(0, ta.value.length);
++          document.execCommand('delete');
++          // Set new value
++          ta.value = ${escaped};
++          // Fire multiple events for Monaco to pick up
++          ta.dispatchEvent(new Event('input', {bubbles: true}));
++          ta.dispatchEvent(new Event('change', {bubbles: true}));
++          ta.dispatchEvent(new Event('keyup', {bubbles: true}));
++          return { success: true, method: 'textarea', chars: ta.value.length }; 
++        }
++  
++        // 2. SECONDARY: window.monacoEditor global (if available)
++        const vm = document.querySelector('.view-lines, .monaco-editor .view-lines');
++        if (vm && window.monacoEditor && typeof window.monacoEditor.setValue === 'function') { 
++          window.monacoEditor.setValue(${escaped}); 
++          return { success: true, method: 'window_monaco', chars: ${source.length} }; 
++        }
++  
++        // 3. LAST RESORT: Deep Monaco probe (FIND_MONACO fiber traversal - BREAKS on DOM re-parent)
++        var m = ${FIND_MONACO};
++        if (m && m.editor && typeof m.editor.setValue === 'function') {
++          try {
++            m.editor.setValue(${escaped});
++            return { success: true, method: 'deep_probe', chars: ${source.length} };
++          } catch(e) { /* fall through */ }
++        }
++  
++        return { success: false };
++      })()
++    `);
++    
++    if (!set || !set.success) {
++      return { success: false, status: 'SELECTOR_FAILED', error: 'Monaco setValue failed - no injection method worked' };
++    }
++    
++    // FIX: Use single backslash for split, not double-escaped
++    return { success: true, status: 'OK', lines: source.split('\n').length, chars: source.length, method: set.method };
++  });
++}
++
++/**
++ * Add the current editor script to the chart.
++ *
++ * SAFETY: TradingView shows "Update on chart" when the editor is LINKED to an
++ * existing (often the user's saved) script — clicking it autosaves a NEW VERSION
++ * over that saved script. "Add to chart" appears for a fresh/unsaved buffer and
++ * is safe. By default we REFUSE "Update on chart" to avoid clobbering the user's
++ * scripts; pass allow_update_existing=true to override deliberately.
++ */
++export async function addToChart({ allow_update_existing, expected_study_id } = {}) {
++  return withConn(async () => {
++    const opened = await openPineEditor();
++    if (!opened) return { success: false, status: 'SELECTOR_FAILED', error: 'Pine Editor not reachable.' };
++    const pre = await modalPreflight();
++    if (pre) return pre;
++    // The current icon-only control exposes its action in React props, not DOM text.
++    const control = `
++      function actionControl() {
++        var candidates = Array.from(document.querySelectorAll('button,[role="button"]')).map(function(e) {
++          if (e.offsetParent === null) return null;
++          var key = Object.keys(e).find(function(k) { return k.indexOf('__reactProps') === 0; });
++          var props = key ? e[key] : {};
++          var labels = [e.getAttribute('data-tooltip'), e.getAttribute('title'), e.getAttribute('aria-label'), e.innerText, e.textContent];
++          if (e.getAttribute('data-qa-id') === 'add-script-to-chart') labels.push(props.title);
++          labels = labels.filter(function(t) { return typeof t === 'string'; }).map(function(t) { return t.trim(); });
++          var add = labels.some(function(t) { return /^add to chart$|^save and add to chart$/i.test(t); });
++          var update = labels.some(function(t) { return /^update on chart$/i.test(t); });
++          if (add === update) return null;
++          return {mode:add?'add':'update',disabled:!!e.disabled||e.getAttribute('aria-disabled')==='true',element:e};
++        }).filter(Boolean);
++        return candidates.length === 1 ? Object.assign({count:1},candidates[0]) : {count:candidates.length};
++      }
++    `;
++    const available = await evaluate(`(function(){${control}var c=actionControl();return {count:c.count,mode:c.mode,disabled:c.disabled};})()`);
++    if (available.count !== 1) return { success: false, status: 'SELECTOR_FAILED', error: 'Unique deterministic Add/Update control unavailable; no keyboard fallback.' };
++    if (available.disabled) return { success: false, status: 'UNSAFE_ACTION_REFUSED', error: 'Add/Update control is disabled.' };
++    const willUpdate = available.mode === 'update';
++    if (willUpdate && allow_update_existing === false) return { success: false, status: 'UNSAFE_ACTION_REFUSED', error: 'Update would autosave linked script.' };
++    const chartReadback = `(function(){
++      try {
++        var c=window.TradingViewApi.activeChart();
++        var ed=${FIND_MONACO};
++        var source=ed&&ed.editor&&ed.editor.getValue?ed.editor.getValue():'';
++        var name=source.match(/(?:strategy|indicator)\\s*\\(\\s*["']([^"']+)/);
++        return {script_name:name?name[1]:null,studies:c.getAllStudies().map(function(s){return {id:s.id,name:s.name};})};
++      } catch(e) { return null; }
++    })()`;
++    const before = await evaluate(chartReadback);
++    if (!before || !before.script_name) return { success: false, status: 'SELECTOR_FAILED', error: 'Independent chart/source readback unavailable.' };
++    const validId = typeof expected_study_id === 'string' && expected_study_id.length > 0 && expected_study_id.trim() === expected_study_id;
++    if (willUpdate && (!validId || before.studies.filter(s => s.id === expected_study_id).length !== 1))
++      return { success: false, status: 'UNSAFE_ACTION_REFUSED', error: 'Update requires one exact explicit expected_study_id.' };
++    const identityGuard = willUpdate ? `var studies=window.TradingViewApi.activeChart().getAllStudies();if(studies.filter(function(s){return s.id===${JSON.stringify(expected_study_id)};}).length!==1)return false;` : '';
++    const clicked = await evaluate(`(function(){${control}var c=actionControl();if(c.count!==1||c.disabled||c.mode!==${JSON.stringify(available.mode)})return false;${identityGuard}c.element.click();return true;})()`);
++    if (!clicked) return { success: false, status: 'SELECTOR_FAILED', error: 'Control changed or disabled before click.' };
++    await new Promise(r => setTimeout(r, 2500));
++    const after = await evaluate(chartReadback);
++    const post = await evaluate(SNAPSHOT_MODAL);
++    if (post.present) return { success: false, status: 'BLOCKED_MODAL', modal_after: post };
++    const created = after ? after.studies.filter(s => !before.studies.some(b => b.id === s.id)) : [];
++    // ID persistence attests dispatch safety only, never applied-source execution.
++    const dispatched = willUpdate && after && after.studies.length === before.studies.length &&
++      before.studies.every(b => after.studies.filter(s => s.id === b.id).length === 1) &&
++      after.studies.filter(s => s.id === expected_study_id).length === 1;
++    const added = !willUpdate && created.length === 1 && created[0].name === before.script_name;
++    const confirmed = !!(dispatched || added);
++    return { success: confirmed, status: confirmed ? (willUpdate ? 'OK_UPDATE_DISPATCHED' : 'OK_ADDED_TO_CHART') : 'ATTACHMENT_UNCONFIRMED',
++      action: available.mode, study_added: !!added, study_updated: false,
++      update_dispatched: !!dispatched, expected_study_id: willUpdate ? expected_study_id : undefined,
++      applied_source_certified: false, created_studies: created, before, after,
++      autosaved_linked_script: willUpdate ? before.studies.find(s => s.id === expected_study_id).name : false,
++      warning: willUpdate ? 'Update may autosave the linked script. Dispatch is not applied-source certification; independently verify the same study ID title and Strategy Tester strategy_name.' : undefined };
++  });
++}
++
++export async function saveScript({ expected_script_name } = {}) {
++  return withConn(async () => {
++    const opened = await openPineEditor();
++    if (!opened) return { success: false, status: 'SELECTOR_FAILED', error: 'Pine Editor not reachable.' };
++    const c = await getClient();
++    await c.Input.dispatchKeyEvent({ type: 'keyDown', modifiers: 2, key: 's', code: 'KeyS', windowsVirtualKeyCode: 83 });
++    await c.Input.dispatchKeyEvent({ type: 'keyUp', key: 's', code: 'KeyS' });
++    await new Promise(r => setTimeout(r, 1000));
++    const m = await evaluate(SNAPSHOT_MODAL);
++    if (!m.present) return { success: true, status: 'OK', note: 'Saved (no name dialog — existing script).' };
++    if (m.kind !== 'SAVE_SCRIPT_MODAL')
++      return { success: false, status: m.kind === 'UNKNOWN_MODAL' ? 'BLOCKED_UNEXPECTED_MODAL' : 'UNSAFE_ACTION_REFUSED', modal: m };
++    // new-script save dialog: only confirm if name matches expectation
++    const res = await resolveKnownModal({ allow: 'save', expected_script_name });
++    return { ...res, note: 'Save Script dialog resolved.' };
++  });
++}
++
++export async function strategyTesterReadSummary() {
++  return withConn(async () => {
++    // Best-effort foreground the Strategy Tester tab, but the data is read from
++    // the chart model API (getStrategyResults), which works even when the panel
++    // is hidden behind the Pine Editor tab — so we do NOT gate on DOM visibility.
++    await evaluate(`(function(){ try{ var b=window.TradingView&&window.TradingView.bottomWidgetBar; if(b&&b.showWidget)b.showWidget('backtesting'); }catch(e){} })()`).catch(() => {});
++    try {
++      const r = await getStrategyResults();
++      const hasData = r && r.success !== false && ((r.metric_count && r.metric_count > 0) || r.metrics || r.performance);
++      if (!hasData) return { success: false, status: 'STRATEGY_TESTER_NOT_AVAILABLE', note: 'No strategy with backtest data on chart yet. Add a strategy first.', raw: r };
++      const m = r.metrics || {};
++      const summary = {
++        strategy_name: r.strategy_name,
++        net_profit: m['performance.all.netProfit'] ?? m['performance.all.netProfitPercent'],
++        total_trades: m['performance.all.totalTrades'] ?? m['filledOrders.length'],
++        percent_profitable: m['performance.all.percentProfitable'],
++        profit_factor: m['performance.all.profitFactor'],
++        max_drawdown: m['performance.all.maxDrawDown'] ?? m['performance.all.maxDrawDownPercent'],
++      };
++      return { success: true, status: 'OK', summary, metric_count: r.metric_count, results: r };
++    } catch (e) {
++      return { success: false, status: 'STRATEGY_TESTER_NOT_AVAILABLE', error: String(e.message || e) };
++    }
++  });
++}
++
++// ── full cycles ─────────────────────────────────────────────────────────────
++export async function fullCycleIndicator({ source, add_to_chart = false, allow_update_existing } = {}) {
++  return withConn(async () => {
++    const comp = await compile({ source });
++    if (!comp.success) return comp;
++    if (!comp.compiled) return { success: true, status: 'COMPILE_ERROR', stage: 'compile', errors: comp.errors, error_count: comp.error_count };
++    const rep = await replaceScript({ source });
++    if (!rep.success) return { ...rep, stage: 'replace', compile: comp };
++    if (!add_to_chart) return { success: true, status: 'OK_COMPILED', stage: 'compiled_injected', compile: comp };
++    const add = await addToChart({ allow_update_existing });
++    return { success: add.success, status: add.status, stage: 'add_to_chart', compile: comp, add };
++  });
++}
++
++export async function fullCycleStrategy({ source, add_to_chart = false, allow_update_existing } = {}) {
++  return withConn(async () => {
++    const comp = await compile({ source });
++    if (!comp.success) return comp;
++    if (!comp.compiled) return { success: true, status: 'COMPILE_ERROR', stage: 'compile', errors: comp.errors, error_count: comp.error_count };
++    const rep = await replaceScript({ source });
++    if (!rep.success) return { ...rep, stage: 'replace', compile: comp };
++    if (!add_to_chart) return { success: true, status: 'OK_COMPILED', stage: 'compiled_injected', compile: comp };
++    const add = await addToChart({ allow_update_existing });
++    if (add.status !== 'OK_ADDED_TO_CHART') return { success: add.success, status: add.status, stage: 'add_to_chart', compile: comp, add };
++    await new Promise(r => setTimeout(r, 2500));
++    const st = await strategyTesterReadSummary();
++    return { success: true, status: st.success ? 'OK_ADDED_TO_CHART' : st.status, stage: 'strategy_tester', compile: comp, add, strategy_tester: st };
++  });
++}
+diff --git a/src/tools/lab.js b/src/tools/lab.js
+new file mode 100644
+index 0000000..601095d
+--- /dev/null
++++ b/src/tools/lab.js
+@@ -0,0 +1,61 @@
++import { z } from 'zod';
++import { jsonResult } from './_format.js';
++import * as lab from '../core/lab.js';
++
++/**
++ * TV AI Lab — high-level, popup-safe Pine workflow tools.
++ * These are the recommended entry points for autonomous agents (Hermes/OpenCode/
++ * WinAgent/Remix): they return structured status values and never click unknown
++ * or dangerous modals.
++ */
++export function registerLabTools(server) {
++  const wrap = (fn) => async (args = {}) => {
++    try { return jsonResult(await fn(args)); }
++    catch (err) { return jsonResult({ success: false, status: 'SELECTOR_FAILED', error: err.message }, true); }
++  };
++
++  // Note: tv_health_check is already provided by registerHealthTools.
++  server.tool('tv_state_snapshot', 'Lab: snapshot chart symbol/timeframe, whether the Pine editor is open, Strategy Tester visibility, and any open modal.', {}, wrap(() => lab.stateSnapshot()));
++
++  server.tool('pine_detect_blocking_modal', 'Lab: detect & classify any blocking TradingView modal (SAVE_SCRIPT_MODAL, UNSAVED_CHANGES_MODAL, PUBLISH_MODAL, LOGIN_MODAL, BROKER_OR_ORDER_MODAL, PAYMENT_OR_UPGRADE_MODAL, UNKNOWN_MODAL). Returns structured status, never clicks anything.', {}, wrap(() => lab.detectBlockingModal()));
++
++  server.tool('pine_resolve_known_modal', 'Lab: safely resolve ONLY a known+expected modal. Save Script confirmed only when name matches expected_script_name. Publish/login/broker/payment are always refused (UNSAFE_ACTION_REFUSED).', {
++    allow: z.enum(['save', 'discard', 'cancel']).describe('Explicit intent for the modal.'),
++    expected_script_name: z.string().optional().describe('Required to confirm a Save Script modal; must match the name shown.'),
++  }, wrap((a) => lab.resolveKnownModal(a)));
++
++  server.tool('pine_compile', 'Lab: compile Pine source via TradingView pine-facade (server-side, no popup). Returns OK_COMPILED or COMPILE_ERROR with exact line/column errors. This is the reliable compile/validation path.', {
++    source: z.string().describe('Full Pine Script source.'),
++  }, wrap((a) => lab.compile(a)));
++
++  server.tool('pine_read_compile_errors', 'Lab: compile source and return only the error list (line/column/message).', {
++    source: z.string().describe('Full Pine Script source.'),
++  }, wrap((a) => lab.readCompileErrors(a)));
++
++  server.tool('pine_replace_script', 'Lab: inject Pine source into the live Monaco editor (opens the Pine editor first; refuses if a blocking modal is up). Does NOT save or add to chart.', {
++    source: z.string().describe('Full Pine Script source to inject.'),
++  }, wrap((a) => lab.replaceScript(a)));
++
++  server.tool('pine_add_to_chart', 'Lab: add the current editor script to the chart (foregrounds the Pine editor + modal preflight first). Clicks "Add to chart", or "Update on chart" when the script is already on chart — the latter autosaves the linked script and is reported via the warning/autosaved_linked_script fields. Pass allow_update_existing=false to refuse the update case instead.', {
++    allow_update_existing: z.coerce.boolean().optional().describe('Set false to REFUSE "Update on chart" (which autosaves the linked script). Default: proceed and report it.'),
++    expected_study_id: z.string().optional().describe('Required in UPDATE mode: exact pre-operation existing chart-study ID. Dispatch is not applied-source certification; independently verify same ID title and Strategy Tester strategy_name.'),
++  }, wrap((a) => lab.addToChart(a)));
++
++  server.tool('pine_save_script', 'Lab: save current script (Ctrl+S). If the Save Script name dialog appears it is confirmed only when expected_script_name matches; otherwise refused.', {
++    expected_script_name: z.string().optional().describe('Expected script name to confirm a new-script save dialog.'),
++  }, wrap((a) => lab.saveScript(a)));
++
++  server.tool('strategy_tester_read_summary', 'Lab: read the Strategy Tester backtest summary (net profit, trades, % profitable, profit factor, max drawdown) from the chart model API. Returns STRATEGY_TESTER_NOT_AVAILABLE if no strategy is on the chart.', {}, wrap(() => lab.strategyTesterReadSummary()));
++
++  server.tool('pine_full_cycle_indicator', 'Lab: full indicator cycle — compile (facade) → inject → optionally add to chart. Stops at COMPILE_ERROR with errors.', {
++    source: z.string().describe('Full Pine indicator source.'),
++    add_to_chart: z.coerce.boolean().optional().describe('Add to chart after a clean compile (default false).'),
++    allow_update_existing: z.coerce.boolean().optional().describe('Permit "Update on chart" overwrite of a linked saved script (default false).'),
++  }, wrap((a) => lab.fullCycleIndicator(a)));
++
++  server.tool('pine_full_cycle_strategy', 'Lab: full strategy cycle — compile (facade) → inject → add to chart → read Strategy Tester summary. add_to_chart defaults FALSE (adding can autosave over a linked saved script). Stops at COMPILE_ERROR with errors.', {
++    source: z.string().describe('Full Pine strategy source.'),
++    add_to_chart: z.coerce.boolean().optional().describe('Add to chart + read tester (default false; review the safety note on pine_add_to_chart).'),
++    allow_update_existing: z.coerce.boolean().optional().describe('Permit "Update on chart" overwrite of a linked saved script (default false).'),
++  }, wrap((a) => lab.fullCycleStrategy(a)));
++}
+diff --git a/tests/pine_add_to_chart.test.js b/tests/pine_add_to_chart.test.js
+new file mode 100644
+index 0000000..76be754
+--- /dev/null
++++ b/tests/pine_add_to_chart.test.js
+@@ -0,0 +1,55 @@
++import fs from 'node:fs';
++import vm from 'node:vm';
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import { registerLabTools } from '../src/tools/lab.js';
++let code=fs.readFileSync(new URL('../src/core/lab.js',import.meta.url),'utf8');
++code=code.replace(/import \{ evaluate, evaluateAsync, getClient, getTargetInfo \} from '[^']+';/, 'const evaluate=globalThis.__labEvaluate; const evaluateAsync=evaluate; const getClient=async()=>globalThis.__labClient; const getTargetInfo=()=>({});');
++code=code.replace(/import \{ getStrategyResults \} from '[^']+';/,'const getStrategyResults=async()=>({});');
++code='const setTimeout=(fn)=>{fn();return 0};\n'+code;
++globalThis.__labEvaluate=async expr=>{
++  if(expr.includes('c.element.click()')) globalThis.__labBeforeClick?.();
++  return vm.runInNewContext(expr,globalThis.__labContext);
++};
++const {addToChart}=await import('data:text/javascript;base64,'+Buffer.from(code).toString('base64'));
++function fixture({disabled=false,label='Update on chart',qa=true,confirm=false,noControl=false,editorTitle='Aggressive Flow Momentum',initialStudies,extraOnClick=false,removeOnClick=false,duplicateAfter=false,controls=1,disableAtClick=false}={}){
++ let keys=0,clicks=0,metadataReads=0;
++ let studies=(initialStudies??[{id:'existing',name:'Aggressive Flow Momentum'}]).map(s=>({...s}));
++ const button={disabled,offsetParent:{},textContent:qa?'':label,innerText:qa?'':label,getAttribute:k=>k==='data-qa-id'&&qa?'add-script-to-chart':null,__reactProps$test:{title:label},click(){
++  clicks++;
++  if(confirm){if(label==='Add to chart')studies.push({id:'created',name:editorTitle});else studies=studies.map(s=>s.id==='existing'?{...s,name:editorTitle}:s);}
++  if(extraOnClick)studies.push({id:'unexpected',name:editorTitle});
++  if(removeOnClick)studies=studies.filter(s=>s.id!=='existing');
++  if(duplicateAfter)studies.push({id:'existing',name:editorTitle});
++ }};
++ const editor={getValue:()=> 'strategy('+JSON.stringify(editorTitle)+')',setValue:()=>{throw new Error('source writes forbidden');}};
++ const container={__reactFiber$test:{memoizedProps:{value:{monacoEnv:{editor:{getEditors:()=>[editor]}}}},return:null}};
++ const document={body:{innerText:''},querySelector:s=>s.includes('pine-editor-monaco')?container:s.includes('textarea')?{}:null,querySelectorAll:s=>s.includes('button')&&!noControl?Array(controls).fill(button):[]};
++ const source={id:()=> 'existing',metaInfo:()=>{metadataReads++;throw new Error('metaInfo version is not proof');}};
++ const model={dataSources:()=>[source]};
++ const window={TradingViewApi:{activeChart:()=>({getAllStudies:()=>studies}),_activeChartWidgetWV:{value:()=>({_chartWidget:{model:()=>model}})}}};
++ globalThis.__labContext={document,window,getComputedStyle:()=>({display:'block',visibility:'visible'})};
++ globalThis.__labClient={Input:{dispatchKeyEvent:async()=>{keys++;}}};
++ globalThis.__labBeforeClick=disableAtClick?()=>{button.disabled=true;}:null;
++ return {keys:()=>keys,clicks:()=>clicks,metadataReads:()=>metadataReads};
++}
++const update={expected_study_id:'existing'};
++test('disabled QA update never invokes keys or clicks',async()=>{const f=fixture({disabled:true});const r=await addToChart(update);assert.equal(r.success,false);assert.equal(f.keys(),0);assert.equal(f.clicks(),0);});
++test('renamed editor title dispatches exactly once to stable ID without metadata',async()=>{const f=fixture({confirm:true,editorTitle:'SENTINEL'});const r=await addToChart(update);assert.equal(r.success,true,JSON.stringify(r));assert.equal(f.clicks(),1);assert.equal(f.keys(),0);assert.equal(f.metadataReads(),0);assert.equal(r.update_dispatched,true);assert.equal(r.applied_source_certified,false);assert.equal(r.study_updated,false);assert.equal(r.after.studies[0].name,'SENTINEL');});
++test('unchanged chart can attest dispatch only, never applied source',async()=>{const f=fixture({qa:false});const r=await addToChart(update);assert.equal(r.success,true,JSON.stringify(r));assert.equal(r.status,'OK_UPDATE_DISPATCHED');assert.equal(r.applied_source_certified,false);assert.equal(r.study_updated,false);assert.equal(f.clicks(),1);assert.equal(f.metadataReads(),0);});
++test('missing action control refuses without keyboard fallback',async()=>{const f=fixture({noControl:true});const r=await addToChart(update);assert.equal(r.success,false);assert.equal(f.keys(),0);assert.equal(f.clicks(),0);});
++test('explicit update refusal preserves chart and does not click',async()=>{const f=fixture({confirm:true});const r=await addToChart({...update,allow_update_existing:false});assert.equal(r.success,false);assert.equal(f.clicks(),0);});
++test('confirmed ADD preserves exact newly created identity without expected ID',async()=>{const f=fixture({label:'Add to chart',confirm:true});const r=await addToChart();assert.equal(r.success,true,JSON.stringify(r));assert.equal(r.status,'OK_ADDED_TO_CHART');assert.equal(r.study_added,true);assert.equal(r.created_studies[0].id,'created');assert.equal(f.keys(),0);});
++for(const [name,args] of [['missing',{}],['wrong',{expected_study_id:'other'}],['empty',{expected_study_id:''}],['non-string',{expected_study_id:123}],['whitespace',{expected_study_id:' existing '}]] ){
++ test(name+' expected study ID refuses before click',async()=>{const f=fixture();const r=await addToChart(args);assert.equal(r.success,false);assert.equal(f.clicks(),0);assert.equal(f.keys(),0);});
++}
++test('duplicate pre-operation expected ID refuses',async()=>{const f=fixture({initialStudies:[{id:'existing',name:'One'},{id:'existing',name:'Two'}]});const r=await addToChart(update);assert.equal(r.success,false);assert.equal(f.clicks(),0);});
++test('missing expected ID in chart refuses',async()=>{const f=fixture({initialStudies:[]});const r=await addToChart(update);assert.equal(r.success,false);assert.equal(f.clicks(),0);});
++test('ambiguous Update control refuses',async()=>{const f=fixture({controls:2});const r=await addToChart(update);assert.equal(r.success,false);assert.equal(f.clicks(),0);});
++test('control becoming disabled before dispatch refuses',async()=>{const f=fixture({disableAtClick:true});const r=await addToChart(update);assert.equal(r.success,false);assert.equal(f.clicks(),0);});
++for(const flag of ['extraOnClick','removeOnClick','duplicateAfter']){
++ test(flag+' fails post-dispatch with no certification and no retry',async()=>{const f=fixture({[flag]:true});const r=await addToChart(update);assert.equal(r.success,false,JSON.stringify(r));assert.equal(r.applied_source_certified,false);assert.equal(f.clicks(),1);assert.equal(f.keys(),0);});
++}
++test('ADD no-op remains unconfirmed',async()=>{const f=fixture({label:'Add to chart'});const r=await addToChart();assert.equal(r.success,false);assert.equal(f.clicks(),1);});
++test('ADD extra unexpected identities remains unconfirmed',async()=>{const f=fixture({label:'Add to chart',confirm:true,extraOnClick:true});const r=await addToChart();assert.equal(r.success,false);assert.equal(f.clicks(),1);});
++test('MCP registration exposes optional expected_study_id without coercion',()=>{const all={};registerLabTools({tool(name,description,schema,handler){all[name]={schema,handler};}});const field=all.pine_add_to_chart.schema.expected_study_id;assert.ok(field);assert.equal(field.safeParse('existing').success,true);assert.equal(field.safeParse(123).success,false);});
+-- 
+2.54.0.windows.1
+

@@ -1,0 +1,268 @@
+......FFFF......F.F........................... [ 60%]
+..................F...........                                           [100%]
+================================== FAILURES ===================================
+__________________ TestCapabilityRegistry.test_discover_all ___________________
+
+self = <test_capabilities.TestCapabilityRegistry object at 0x0000015B2DC8A8D0>
+
+    def test_discover_all(self):
+        registry = CapabilityRegistry()
+>       results = registry.discover_all()
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_capabilities.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+control_plane\registry.py:166: in discover_all
+    self._classify_capabilities()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <control_plane.registry.CapabilityRegistry object at 0x0000015B2DD90810>
+
+    def _classify_capabilities(self):
+        """Classify capabilities across backends."""
+        # Group by functional category
+        functional_groups = {
+            'backtest': ['backtest_single', 'backtest_parallel', 'parameter_sweep', 'walk_forward', 'benchmark_throughput'],
+            'transpile': ['transpile_pine'],
+            'strategy_list': ['list_strategies'],
+            'indicator_list': ['list_indicators'],
+            'data_load': ['load_data'],
+            'tests': ['run_deterministic_tests'],
+            'pine_source': ['pine_get_source', 'pine_set_source'],
+            'pine_compile': ['pine_compile', 'pine_compile_facade', 'pine_analyze', 'pine_check', 'pine_get_errors', 'pine_get_console'],
+            'pine_save': ['pine_save', 'pine_list_scripts', 'pine_new', 'pine_open'],
+            'pine_inject': ['pine_replace_script', 'pine_add_to_chart', 'pine_save_script'],
+            'pine_full_cycle': ['pine_full_cycle_indicator', 'pine_full_cycle_strategy'],
+            'chart_control': ['chart_get_state', 'chart_set_symbol', 'chart_set_timeframe', 'chart_set_type', 'chart_manage_indicator', 'chart_get_visible_range', 'chart_set_visible_range', 'chart_scroll_to_date'],
+            'symbol_info': ['symbol_info', 'symbol_search'],
+            'strategy_tester': ['strategy_tester_read_summary'],
+            'lab_tools': ['tv_state_snapshot', 'pine_detect_blocking_modal', 'pine_resolve_known_modal'],
+            'market_data': ['market_data_ohlcv', 'market_data_quote'],
+            'fundamentals': ['fundamentals', 'analyst_estimates', 'filings'],
+            'news': ['news', 'economic_calendar'],
+            'watchlists': ['watchlists_get', 'watchlists_create', 'watchlists_update', 'watchlists_delete'],
+            'alerts': ['alerts_get', 'alerts_create', 'alerts_update', 'alerts_delete', 'alert_history'],
+        }
+    
+        # Classify each capability
+        for canonical, cap in self.capabilities.items():
+            # Find which functional group this belongs to
+            for group_name, group_caps in functional_groups.items():
+                if any(group_cap in cap.native_function for group_cap in group_caps):
+                    # Check which backends have this group
+                    backends_with_group = []
+                    for bid, bcaps in self._backends.items():
+>                       backend_caps = bcaps.get('capabilities', [])
+                                       ^^^^^^^^^
+E                       AttributeError: 'PythonPy2PineBackend' object has no attribute 'get'
+
+control_plane\registry.py:235: AttributeError
+_____________ TestCapabilityRegistry.test_capabilities_registered _____________
+
+self = <test_capabilities.TestCapabilityRegistry object at 0x0000015B2DC8AF90>
+
+    def test_capabilities_registered(self):
+        registry = CapabilityRegistry()
+>       registry.discover_all()
+
+tests\test_capabilities.py:36: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+control_plane\registry.py:166: in discover_all
+    self._classify_capabilities()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <control_plane.registry.CapabilityRegistry object at 0x0000015B2DD0FF50>
+
+    def _classify_capabilities(self):
+        """Classify capabilities across backends."""
+        # Group by functional category
+        functional_groups = {
+            'backtest': ['backtest_single', 'backtest_parallel', 'parameter_sweep', 'walk_forward', 'benchmark_throughput'],
+            'transpile': ['transpile_pine'],
+            'strategy_list': ['list_strategies'],
+            'indicator_list': ['list_indicators'],
+            'data_load': ['load_data'],
+            'tests': ['run_deterministic_tests'],
+            'pine_source': ['pine_get_source', 'pine_set_source'],
+            'pine_compile': ['pine_compile', 'pine_compile_facade', 'pine_analyze', 'pine_check', 'pine_get_errors', 'pine_get_console'],
+            'pine_save': ['pine_save', 'pine_list_scripts', 'pine_new', 'pine_open'],
+            'pine_inject': ['pine_replace_script', 'pine_add_to_chart', 'pine_save_script'],
+            'pine_full_cycle': ['pine_full_cycle_indicator', 'pine_full_cycle_strategy'],
+            'chart_control': ['chart_get_state', 'chart_set_symbol', 'chart_set_timeframe', 'chart_set_type', 'chart_manage_indicator', 'chart_get_visible_range', 'chart_set_visible_range', 'chart_scroll_to_date'],
+            'symbol_info': ['symbol_info', 'symbol_search'],
+            'strategy_tester': ['strategy_tester_read_summary'],
+            'lab_tools': ['tv_state_snapshot', 'pine_detect_blocking_modal', 'pine_resolve_known_modal'],
+            'market_data': ['market_data_ohlcv', 'market_data_quote'],
+            'fundamentals': ['fundamentals', 'analyst_estimates', 'filings'],
+            'news': ['news', 'economic_calendar'],
+            'watchlists': ['watchlists_get', 'watchlists_create', 'watchlists_update', 'watchlists_delete'],
+            'alerts': ['alerts_get', 'alerts_create', 'alerts_update', 'alerts_delete', 'alert_history'],
+        }
+    
+        # Classify each capability
+        for canonical, cap in self.capabilities.items():
+            # Find which functional group this belongs to
+            for group_name, group_caps in functional_groups.items():
+                if any(group_cap in cap.native_function for group_cap in group_caps):
+                    # Check which backends have this group
+                    backends_with_group = []
+                    for bid, bcaps in self._backends.items():
+>                       backend_caps = bcaps.get('capabilities', [])
+                                       ^^^^^^^^^
+E                       AttributeError: 'PythonPy2PineBackend' object has no attribute 'get'
+
+control_plane\registry.py:235: AttributeError
+_________________ TestCapabilityRegistry.test_classification __________________
+
+self = <test_capabilities.TestCapabilityRegistry object at 0x0000015B2DC8B690>
+
+    def test_classification(self):
+        registry = CapabilityRegistry()
+>       registry.discover_all()
+
+tests\test_capabilities.py:41: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+control_plane\registry.py:166: in discover_all
+    self._classify_capabilities()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <control_plane.registry.CapabilityRegistry object at 0x0000015B2DCC2CD0>
+
+    def _classify_capabilities(self):
+        """Classify capabilities across backends."""
+        # Group by functional category
+        functional_groups = {
+            'backtest': ['backtest_single', 'backtest_parallel', 'parameter_sweep', 'walk_forward', 'benchmark_throughput'],
+            'transpile': ['transpile_pine'],
+            'strategy_list': ['list_strategies'],
+            'indicator_list': ['list_indicators'],
+            'data_load': ['load_data'],
+            'tests': ['run_deterministic_tests'],
+            'pine_source': ['pine_get_source', 'pine_set_source'],
+            'pine_compile': ['pine_compile', 'pine_compile_facade', 'pine_analyze', 'pine_check', 'pine_get_errors', 'pine_get_console'],
+            'pine_save': ['pine_save', 'pine_list_scripts', 'pine_new', 'pine_open'],
+            'pine_inject': ['pine_replace_script', 'pine_add_to_chart', 'pine_save_script'],
+            'pine_full_cycle': ['pine_full_cycle_indicator', 'pine_full_cycle_strategy'],
+            'chart_control': ['chart_get_state', 'chart_set_symbol', 'chart_set_timeframe', 'chart_set_type', 'chart_manage_indicator', 'chart_get_visible_range', 'chart_set_visible_range', 'chart_scroll_to_date'],
+            'symbol_info': ['symbol_info', 'symbol_search'],
+            'strategy_tester': ['strategy_tester_read_summary'],
+            'lab_tools': ['tv_state_snapshot', 'pine_detect_blocking_modal', 'pine_resolve_known_modal'],
+            'market_data': ['market_data_ohlcv', 'market_data_quote'],
+            'fundamentals': ['fundamentals', 'analyst_estimates', 'filings'],
+            'news': ['news', 'economic_calendar'],
+            'watchlists': ['watchlists_get', 'watchlists_create', 'watchlists_update', 'watchlists_delete'],
+            'alerts': ['alerts_get', 'alerts_create', 'alerts_update', 'alerts_delete', 'alert_history'],
+        }
+    
+        # Classify each capability
+        for canonical, cap in self.capabilities.items():
+            # Find which functional group this belongs to
+            for group_name, group_caps in functional_groups.items():
+                if any(group_cap in cap.native_function for group_cap in group_caps):
+                    # Check which backends have this group
+                    backends_with_group = []
+                    for bid, bcaps in self._backends.items():
+>                       backend_caps = bcaps.get('capabilities', [])
+                                       ^^^^^^^^^
+E                       AttributeError: 'PythonPy2PineBackend' object has no attribute 'get'
+
+control_plane\registry.py:235: AttributeError
+_____________________ TestCapabilityRegistry.test_to_json _____________________
+
+self = <test_capabilities.TestCapabilityRegistry object at 0x0000015B2DCA3890>
+
+    def test_to_json(self):
+        registry = CapabilityRegistry()
+>       registry.discover_all()
+
+tests\test_capabilities.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+control_plane\registry.py:166: in discover_all
+    self._classify_capabilities()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = <control_plane.registry.CapabilityRegistry object at 0x0000015B2DF14810>
+
+    def _classify_capabilities(self):
+        """Classify capabilities across backends."""
+        # Group by functional category
+        functional_groups = {
+            'backtest': ['backtest_single', 'backtest_parallel', 'parameter_sweep', 'walk_forward', 'benchmark_throughput'],
+            'transpile': ['transpile_pine'],
+            'strategy_list': ['list_strategies'],
+            'indicator_list': ['list_indicators'],
+            'data_load': ['load_data'],
+            'tests': ['run_deterministic_tests'],
+            'pine_source': ['pine_get_source', 'pine_set_source'],
+            'pine_compile': ['pine_compile', 'pine_compile_facade', 'pine_analyze', 'pine_check', 'pine_get_errors', 'pine_get_console'],
+            'pine_save': ['pine_save', 'pine_list_scripts', 'pine_new', 'pine_open'],
+            'pine_inject': ['pine_replace_script', 'pine_add_to_chart', 'pine_save_script'],
+            'pine_full_cycle': ['pine_full_cycle_indicator', 'pine_full_cycle_strategy'],
+            'chart_control': ['chart_get_state', 'chart_set_symbol', 'chart_set_timeframe', 'chart_set_type', 'chart_manage_indicator', 'chart_get_visible_range', 'chart_set_visible_range', 'chart_scroll_to_date'],
+            'symbol_info': ['symbol_info', 'symbol_search'],
+            'strategy_tester': ['strategy_tester_read_summary'],
+            'lab_tools': ['tv_state_snapshot', 'pine_detect_blocking_modal', 'pine_resolve_known_modal'],
+            'market_data': ['market_data_ohlcv', 'market_data_quote'],
+            'fundamentals': ['fundamentals', 'analyst_estimates', 'filings'],
+            'news': ['news', 'economic_calendar'],
+            'watchlists': ['watchlists_get', 'watchlists_create', 'watchlists_update', 'watchlists_delete'],
+            'alerts': ['alerts_get', 'alerts_create', 'alerts_update', 'alerts_delete', 'alert_history'],
+        }
+    
+        # Classify each capability
+        for canonical, cap in self.capabilities.items():
+            # Find which functional group this belongs to
+            for group_name, group_caps in functional_groups.items():
+                if any(group_cap in cap.native_function for group_cap in group_caps):
+                    # Check which backends have this group
+                    backends_with_group = []
+                    for bid, bcaps in self._backends.items():
+>                       backend_caps = bcaps.get('capabilities', [])
+                                       ^^^^^^^^^
+E                       AttributeError: 'PythonPy2PineBackend' object has no attribute 'get'
+
+control_plane\registry.py:235: AttributeError
+__________________ TestCustomTVMCPBackend.test_capabilities ___________________
+
+self = <test_capabilities.TestCustomTVMCPBackend object at 0x0000015B2DCA3A90>
+
+    def test_capabilities(self):
+        backend = CustomTradingViewMCPBackend()
+        caps = backend.capabilities
+>       assert "pine_compile_facade" in caps
+E       AssertionError: assert 'pine_compile_facade' in ['alert_create', 'alert_delete', 'alert_list', 'batch_run', 'capture_screenshot', 'chart_get_state', ...]
+
+tests\test_capabilities.py:96: AssertionError
+_________________ TestCustomTVMCPBackend.test_get_tool_schema _________________
+
+self = <test_capabilities.TestCustomTVMCPBackend object at 0x0000015B2DC9E410>
+
+    def test_get_tool_schema(self):
+        backend = CustomTradingViewMCPBackend()
+>       schema = backend.get_tool_schema("pine_compile_facade")
+                 ^^^^^^^^^^^^^^^^^^^^^^^
+E       AttributeError: 'CustomTradingViewMCPBackend' object has no attribute 'get_tool_schema'
+
+tests\test_capabilities.py:107: AttributeError
+___________ TestResearchSafety.test_check_look_ahead_bias_violation ___________
+
+self = <test_safety.TestResearchSafety object at 0x0000015B2DD99D10>
+
+    def test_check_look_ahead_bias_violation(self):
+        safety = ResearchSafety()
+        check = safety.check_look_ahead_bias("close[1] > sma(close, 20)", ["sma"])
+        # This should pass because close[1] is past data
+>       assert check.passed is True
+E       assert False is True
+E        +  where False = SafetyCheck(passed=False, violation=<SafetyViolation.LOOK_AHEAD_BIAS: 'LOOK_AHEAD_BIAS'>, details="Potential look-ahead patterns found: ['close[']", severity='WARNING').passed
+
+tests\test_safety.py:60: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/test_capabilities.py::TestCapabilityRegistry::test_discover_all
+FAILED tests/test_capabilities.py::TestCapabilityRegistry::test_capabilities_registered
+FAILED tests/test_capabilities.py::TestCapabilityRegistry::test_classification
+FAILED tests/test_capabilities.py::TestCapabilityRegistry::test_to_json - Att...
+FAILED tests/test_capabilities.py::TestCustomTVMCPBackend::test_capabilities
+FAILED tests/test_capabilities.py::TestCustomTVMCPBackend::test_get_tool_schema
+FAILED tests/test_safety.py::TestResearchSafety::test_check_look_ahead_bias_violation
+7 failed, 69 passed, 26 subtests passed in 31.92s
