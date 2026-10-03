@@ -1,0 +1,28 @@
+{
+  "message_type": "PINE_REVIEWER_CONTROLLER_COMPUTE_BUDGET_AND_DELEGATION_ENFORCEMENT_ADDENDUM",
+  "from_logical_role": "gpt:reviewer-controller",
+  "target_logical_role": "hermes:implementation-owner",
+  "applies_to_comment": 5972593053,
+  "primary_issue_comment": 5972660628,
+  "credit_protection_mode": "ON",
+  "local_verified_low_cost_offload_first": "MANDATORY",
+  "no_silent_paid_delegation": true,
+  "required_partitions": [
+    "MCP_ADD_SELECTOR_ANALYSIS",
+    "TESTER_WRAPPER_ANALYSIS",
+    "ADVERSARIAL_STATIC_REVIEW"
+  ],
+  "primary_role": "sole writer/integrator/safety-critical decision maker",
+  "delegates": "read-only advisory only; no Git writes; no TradingView/Pine mutation; no authority contact; no Build-4",
+  "mandatory_result_fields": [
+    "DELEGATION_PLAN",
+    "DELEGATES_USED",
+    "DELEGATE_LEDGER",
+    "PAID_DELEGATION_USED",
+    "PRIMARY_IRREDUCIBLE_WORK",
+    "CREDIT_EXHAUSTION_RISK"
+  ],
+  "scope_change": "NONE",
+  "stand_down_authorised": false,
+  "human_relay_required": false
+}
