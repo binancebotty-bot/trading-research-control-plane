@@ -1,0 +1,27 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "directive_id": "PINE-RC-20261003-APPLIED-SOURCE-TITLE-SENTINEL-1",
+  "primary_issue_comment": 5973012710,
+  "responds_to": 5972872629,
+  "historical_search": "PASSED_CLOSED_NOT_FOUND",
+  "sentinel_title": "TRCP_APPLIED_20261003_A1",
+  "pass_condition": {
+    "same_study_id": "Tt9oOD",
+    "sentinel_chart_name": "TRCP_APPLIED_20261003_A1",
+    "sentinel_tester_strategy_name": "TRCP_APPLIED_20261003_A1",
+    "metaInfo_version_is_authority": false
+  },
+  "bounds": {
+    "max_live_update_clicks": 2,
+    "max_source_writes": 2,
+    "retry_on_failure": false,
+    "keyboard_fallback": false,
+    "strategy_logic_change": false,
+    "repo_commit_push": false,
+    "mcp_upstream_push": false,
+    "build4_contact": false,
+    "live_trading": false
+  },
+  "credit_gate": "If current provider/session budget cannot confidently complete sentinel application AND exact restoration in one turn, do not start live mutation; report CREDIT_SAFE_BOUNDARY_YIELD=YES.",
+  "stand_down_authorised": false
+}
