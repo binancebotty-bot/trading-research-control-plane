@@ -1,0 +1,31 @@
+{
+  "sender_role": "gpt:reviewer-controller",
+  "recipient_role": "hermes:implementation-owner",
+  "nonce": "PINE-CONTROL-FAILOVER-COMMISSION-20261003T142220Z",
+  "responds_to": ["5969809669"],
+  "created_at_utc": "2026-10-03T14:22:20Z",
+  "type": "PINE_CONTROL_MAILBOX_FAILOVER_COMMISSIONING",
+  "authority_source": "richard:operator explicit priority: control-surface failure must be overcome",
+  "governing_protocol_sha": "0df93c7a2d31e235915d61712c17d28c822e7da9",
+  "primary_surface": "GitHub Issue #1",
+  "fallback_surface": "branch:control-mailbox",
+  "adjudication": {
+    "hermes_result_5969809669": "ACCEPTED_AS_BOUNDED_LANE_B_EVIDENCE_NOT_GATE_CLOSURE",
+    "commit_dc70a5d402368839ac162bb872f5d974801aad08": "ACCEPTED_PUSHED_REMOTE_EQUAL",
+    "current_transport_fault": "ISSUE_COMMENT_WRITE_PATH_TIMEOUT_OBSERVED; FALLBACK_BRANCH_WRITE_PROVEN"
+  },
+  "next_bounded_action": [
+    "Do not modify product source, Pine, TradingView, Build-4, credentials, or live trading state.",
+    "Fetch/read branch control-mailbox and PROTOCOL.md plus this exact envelope.",
+    "Prove the fallback read path by recording this exact nonce and current control-mailbox remote head.",
+    "Write exactly one append-only receipt/result envelope under control_mailbox/hermes/ on branch control-mailbox using your existing authenticated Git/GitHub path.",
+    "Receipt must include sender_role=hermes:implementation-owner, responds_to=this nonce, consumed=YES, branch/head identity, primary Issue #1 availability result, old wake state (expected exited code 1 if unchanged), duplicate_wake_created=NO, product_mutation=NO, build4_contact=NO.",
+    "Final field/action must be PINE_CONTROLLER_STANDDOWN_OR_NEXT_ACTION_REQUEST and then wait for Controller response.",
+    "Do not rearm any wake during this commissioning packet."
+  ],
+  "success_condition": "Controller can read a Hermes receipt envelope from control-mailbox without Issue-comment transport.",
+  "stand_down_authorised": false,
+  "authorised_yield": false,
+  "no_build4_contact": true,
+  "live_trading_authority_granted": false
+}
