@@ -1,0 +1,36 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "message_type": "PINE_OVERNIGHT_HIGH_UTILISATION_CONTRACT",
+  "primary_issue1_comment": 5973262022,
+  "directive_id": "PINE-RC-20261003-OVERNIGHT-TOOLED-FUNCTIONAL-1",
+  "primary_model": "openai-codex/gpt-6.1-sol",
+  "primary_model_role": "architect_integrator_reviewer_safety_critical_operator",
+  "parallel_delegation_cap": 6,
+  "expected_available_worker_routes": 3,
+  "delegation_policy": "use all three strong available worker routes where useful; fan out 4-6 bounded partitions; no silent paid delegation",
+  "sol_credit_policy": "reserve Sol for integration, conflict resolution, canonical edits, safety-critical live TV actions, final interpretation and reporting",
+  "delegates": "non-authoritative; no canonical repo commit/push; no TradingView mutation; patch/test proposals and scratch artifacts allowed",
+  "overnight_queue": [
+    "finish current applied-source sentinel packet if restoration-capable",
+    "integrate known safe Strategy Tester wrapper fixes",
+    "harden MCP selector/update postcondition from proven evidence only",
+    "triage and repair bounded genuine full-suite control-plane defects",
+    "complete Phase-1 real TV attachment/tester certification",
+    "complete Python-TV parity and one real end-to-end trace where gates permit",
+    "leave capability matrix, deterministic certification entrypoint and morning status"
+  ],
+  "owned_integration_branch_authorised": "overnight/pine-phase1-20261003",
+  "master_push_forbidden_overnight": true,
+  "mcp_external_upstream_push_forbidden": true,
+  "live_trading_authority": false,
+  "build4_contact": false,
+  "anti_waste": [
+    "no broad MCP remap",
+    "no CDP/9222/target rediscovery absent invalidation triple",
+    "no repeated historical searches for already-missing proof",
+    "no duplicate orchestration frameworks",
+    "no zero-trade or placeholder Strategy Tester PASS",
+    "no status-only loops while independent safe work exists"
+  ],
+  "stand_down_authorised": false
+}
