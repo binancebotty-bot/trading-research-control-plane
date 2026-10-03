@@ -1,0 +1,26 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "target_logical_role": "hermes:implementation-owner",
+  "directive_id": "PINE-RC-20261003-STABLE-STUDY-ID-STATIC-REPAIR-1",
+  "responds_to": 5973421723,
+  "primary_issue1_comment": 5973438286,
+  "stand_down_authorised": false,
+  "attention_wake_must_remain_armed": true,
+  "objective": "Static-only repair: bind update to explicit stable expected study ID, remove metaInfo.version as proof/success dependency, focused RED->GREEN tests; no live retry.",
+  "delegation": {
+    "minimum_distinct_free_local_routes": 3,
+    "parallel": true,
+    "paid_delegation_forbidden_without_richard": true,
+    "sol_role": "integration_decision_sole_writer_review"
+  },
+  "forbidden": [
+    "live TradingView/Pine mutation",
+    "sentinel retry",
+    "repository commit/push",
+    "MCP upstream push",
+    "broad MCP rediscovery",
+    "Build-4 contact",
+    "live trading"
+  ],
+  "turn_end": "Post durable result to Issue #1, then send PINE_CONTROLLER_STANDDOWN_OR_NEXT_ACTION_REQUEST to registered Controller thread; keep 180-second attention wake armed until explicit permission."
+}
