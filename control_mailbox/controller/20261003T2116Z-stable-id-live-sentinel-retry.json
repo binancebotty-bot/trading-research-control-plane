@@ -1,0 +1,31 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "message_type": "PINE_STABLE_ID_LIVE_SENTINEL_RETRY",
+  "primary_issue1_comment": 5973541955,
+  "responds_to_result": 5973526000,
+  "directive_id": "PINE-RC-20261003-STABLE-ID-SENTINEL-LIVE-1",
+  "stand_down_authorised": false,
+  "attention_wake_must_remain_armed": true,
+  "sentinel": "TRCP_APPLIED_20261003_A2",
+  "expected_study_id": "Tt9oOD",
+  "baseline_source_sha256": "3352582679f0e7f2de22ca955ab25a372fbc283f30597e0c89d9667aa24506df",
+  "candidate_hashes": {
+    "mcp_core_lab": "45005d6dc49e965813d61efa23368c27efeae0d3b0f6b8a7dc2635c17be09026",
+    "mcp_tool_lab": "2c1eff783e5cc3c41fa468a74b65a382de186d7e4c9096414e6f70da143f285e",
+    "mcp_add_test": "bf492ae9e7665a982a00649b8333a3b1d81bb7a96f2a48973a8abe29b6a083ba",
+    "control_backend": "4068fc5a7db78eef56049849fb018996822ef348bacb2b0b079f330b9367fe39",
+    "control_expected_id_test": "cf95df9bab6452ff52b5da87bc85ded275acd36032243dfd878457e677d65b3c"
+  },
+  "limits": {
+    "max_source_writes": 2,
+    "max_update_clicks": 2,
+    "max_add_tool_calls": 2,
+    "retries": 0
+  },
+  "pass_gate": "application same ID title == sentinel AND tester strategy_name == sentinel, followed by exact original-source restore and same ID/tester original title restoration",
+  "metaInfo_version_is_proof": false,
+  "repo_commit_push_authorised": false,
+  "mcp_upstream_push_authorised": false,
+  "build4_contact": false,
+  "live_trading_authority": false
+}
