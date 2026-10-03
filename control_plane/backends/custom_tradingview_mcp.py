@@ -365,13 +365,11 @@ class CustomTradingViewMCPBackend:
         """
         Write Pine source to the editor and PROVE it via hash readback.
 
-        Falls back to ``pine_replace_script`` if ``pine_set_source`` reports
-        failure; either way the buffer is read back and hashed.
+        Fail closed on ``pine_set_source`` failure: never invoke an alternate
+        write mechanism. Always return the observed source/hash evidence.
         """
         before = self._read_pine_source()
         call = self.call_tool("pine_set_source", {"source": source})
-        if not call.ok:
-            call = self.call_tool("pine_replace_script", {"source": source})
         time.sleep(settle_seconds)
         after = self._read_pine_source()
         verdict = pine_write_requires_hash_readback(before, source, after)
@@ -385,7 +383,7 @@ class CustomTradingViewMCPBackend:
             "mcp_payload": call.payload,
             "mcp_attestation": call.attestation.to_dict() if call.attestation else None,
             "verdict": verdict.to_dict(),
-            "passed": verdict.passed,
+            "passed": call.ok and verdict.passed,
         }
 
     # ------------------------------------------------------------------ #
