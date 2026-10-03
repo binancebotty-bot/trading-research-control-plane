@@ -1,0 +1,20 @@
+{
+  "recovered_head": "45568bbbf5793360dbaa25ba6ecfdf6c5e4a43f1",
+  "required_tools": {
+    "pine_set_source": true,
+    "pine_add_to_chart": true,
+    "strategy_tester_read_summary": true,
+    "data_get_trades": true,
+    "data_get_equity": true
+  },
+  "all_tools_count": 92,
+  "no_unrelated_live_registration": true,
+  "dependencies": "npm ci --ignore-scripts from included package-lock.json",
+  "focused_node_tests": "44 passed",
+  "dependency_audit": {
+    "low": 1,
+    "moderate": 3,
+    "high": 4,
+    "scope": "inherited lockfile; no npm audit fix performed"
+  }
+}

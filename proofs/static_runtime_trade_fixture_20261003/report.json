@@ -1,0 +1,54 @@
+{
+  "responds_to": 5973974972,
+  "directive_id": "PINE-RC-20261003-STATIC-RUNTIME-TRADE-FIXTURE-1",
+  "self_contained_mcp_runtime": "PASS",
+  "mcp_local_head": "45568bbbf5793360dbaa25ba6ecfdf6c5e4a43f1",
+  "bundle_sha256": "51f99db5e848b23cf12e0ba3b215619afca5be84a007035f545a545cc9fe407d",
+  "required_tools_isolated_list": {
+    "pine_set_source": true,
+    "pine_add_to_chart": true,
+    "strategy_tester_read_summary": true,
+    "data_get_trades": true,
+    "data_get_equity": true
+  },
+  "native_closed_trade_endpoint": "reportData().value().trades: physically verified e/x timestamps, prices, qty and native PnL; minimal data_get_trades adapter",
+  "raw_order_semantics": "native_ordersData raw records are not closed trades; separate typed fields and complete/truncated flags",
+  "current_strategy_native_verification": {
+    "genuine": true,
+    "raw_count": 326,
+    "raw_complete": true,
+    "native_closed_count": 163,
+    "native_closed_complete": true,
+    "native_closed_pnl_sum": "-71.71595926",
+    "summary_total_trades": 163,
+    "net_profit_difference": "0.00000393400192"
+  },
+  "parity_fixture_data_source": "TradingView direct_bars through real attested MCP data_get_ohlcv",
+  "parity_fixture_data_hash": "4358a8862e036e89a7d148afdf80718d898fc4baf34746631764cf41e7310617",
+  "parity_pine_hash": "7c14e48664475569f5ca353f09625128ae5832e5170b7daddeef68e31460022f",
+  "static_python_trade_count": 3,
+  "static_python_net_profit": "3.12",
+  "static_parity_fixture_ready": true,
+  "live_parity_executed": false,
+  "full_python_suite": "98 passed; 26 subtests passed",
+  "isolated_node_focused_suite": "44 passed",
+  "master_expected": "383bf2adc3ebae856c83e8a595b5189d95f32fcb",
+  "delegate_ledger": "delegate-ledger.json; 3 distinct verified routes; advisory inaccuracies explicitly rejected",
+  "remaining_blockers": [
+    "ONE_LIVE_E2E_PARITY_PACKET_NOT_AUTHORISED",
+    "EQUITY_POINT_ARRAY_UNAVAILABLE",
+    "INHERITED_NPM_LOCKFILE_AUDIT_8_VULNERABILITIES_NO_FIX_UNDER_SCOPE"
+  ],
+  "credit_exhaustion_risk": "Primary token balance unavailable; bulk analysis routed to 2 local +1 verified free routes; no paid fallback",
+  "no_tv_mutation": true,
+  "no_pine_editor_write": true,
+  "no_mcp_upstream_push": true,
+  "no_master_merge": true,
+  "graphify": {
+    "mcp_nodes": 460,
+    "mcp_edges": 856,
+    "cp_nodes": 1173,
+    "cp_edges": 1849,
+    "llm_used": false
+  }
+}

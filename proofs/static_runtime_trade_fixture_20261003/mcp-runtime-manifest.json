@@ -1,0 +1,76 @@
+{
+  "base": "4d47b019a41617d238c51a9280bee1e4ec7eeec0",
+  "local_head": "45568bbbf5793360dbaa25ba6ecfdf6c5e4a43f1",
+  "files": [
+    {
+      "path": "src/core/data.js",
+      "sha256": "d31b6defc6441e2be5d16840f792c63b711e70d30d341c7a5dec7e080bcf5268",
+      "executed_dependency_reason": "clean runtime produced empty summary/orders/equity; exact summary/equity dependency functions plus scoped native orders/reportData.trades extraction; physically read 326 raw + 163 closed"
+    },
+    {
+      "path": "src/core/lab.js",
+      "sha256": "45005d6dc49e965813d61efa23368c27efeae0d3b0f6b8a7dc2635c17be09026",
+      "executed_dependency_reason": "prior stable-study identity/refusal work; 21 add-to-chart regressions"
+    },
+    {
+      "path": "src/server.js",
+      "sha256": "04652689e280df07e867cca50fa2e8792118cc6789700a586bf78da1a707df49",
+      "executed_dependency_reason": "isolated tools/list was red: missing pine_add_to_chart and tester; two-line Lab registration fix"
+    },
+    {
+      "path": "src/tools/data.js",
+      "sha256": "9d4227da5cb6eb43387e67c0d5c80f77ae844da38def12eeeae7fded677c6830",
+      "executed_dependency_reason": "honest native/raw semantics and configurable cap description"
+    },
+    {
+      "path": "src/tools/lab.js",
+      "sha256": "2c1eff783e5cc3c41fa468a74b65a382de186d7e4c9096414e6f70da143f285e",
+      "executed_dependency_reason": "expected_study_id schema; required Lab tester/add tools"
+    },
+    {
+      "path": "src/tools/pine.js",
+      "sha256": "8a95b28fc8c57ef9ba89199b8ad6ef7b4feeef890e18a3daaaf54de53281bf12",
+      "executed_dependency_reason": "avoid duplicate pine_compile name when registering Lab; rename legacy DOM compile only"
+    },
+    {
+      "path": "tests/data-trade-semantics.test.js",
+      "sha256": "58ea6e271afde46846e7c793eb8a13ad36bd3bb03bc650d40c7f745cfda38b87",
+      "executed_dependency_reason": "distinct native/raw streams, cap/truncation, ambiguity and invalid limit refusal"
+    },
+    {
+      "path": "tests/pine_add_to_chart.test.js",
+      "sha256": "bf492ae9e7665a982a00649b8333a3b1d81bb7a96f2a48973a8abe29b6a083ba",
+      "executed_dependency_reason": "prior accepted stable-ID boundary regression"
+    },
+    {
+      "path": "tests/runtime-startup.test.js",
+      "sha256": "575a2cf5e3e1cef7e78cdd0dd7c3229e20405d274f57c4e20569709f21badd5c",
+      "executed_dependency_reason": "clean stdio list required five tools, excludes unrelated live registration"
+    }
+  ],
+  "bundle_sha256": "51f99db5e848b23cf12e0ba3b215619afca5be84a007035f545a545cc9fe407d",
+  "patch_sha256": "65f1e17dd8cdc5a5654fb47c206f273aede6c4392866b690b0638c7e84e2fd22",
+  "isolated_runtime": {
+    "recovered_head": "45568bbbf5793360dbaa25ba6ecfdf6c5e4a43f1",
+    "required_tools": {
+      "pine_set_source": true,
+      "pine_add_to_chart": true,
+      "strategy_tester_read_summary": true,
+      "data_get_trades": true,
+      "data_get_equity": true
+    },
+    "all_tools_count": 92,
+    "no_unrelated_live_registration": true,
+    "dependencies": "npm ci --ignore-scripts from included package-lock.json",
+    "focused_node_tests": "44 passed",
+    "dependency_audit": {
+      "low": 1,
+      "moderate": 3,
+      "high": 4,
+      "scope": "inherited lockfile; no npm audit fix performed"
+    }
+  },
+  "git_object_recovery": "PASS",
+  "unrelated_original_dirty_files_preserved": true,
+  "mcp_upstream_push": false
+}

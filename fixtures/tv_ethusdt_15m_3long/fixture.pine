@@ -1,0 +1,16 @@
+//@version=6
+strategy("Hermes TV Timestamp 3L Fixture", overlay=true, initial_capital=100000, currency=currency.NONE, default_qty_type=strategy.fixed, default_qty_value=1, pyramiding=0, commission_type=strategy.commission.percent, commission_value=0, slippage=0, process_orders_on_close=true, calc_on_every_tick=false, calc_on_order_fills=false)
+if syminfo.tickerid != "BINANCE:ETHUSDT" or timeframe.period != "15"
+    runtime.error("Fixture requires BINANCE:ETHUSDT 15m")
+if barstate.isconfirmed and time == 1791037800000
+    strategy.entry("L1", strategy.long, qty=1)
+if barstate.isconfirmed and time == 1791039600000
+    strategy.close("L1", qty=1)
+if barstate.isconfirmed and time == 1791041400000
+    strategy.entry("L2", strategy.long, qty=1)
+if barstate.isconfirmed and time == 1791043200000
+    strategy.close("L2", qty=1)
+if barstate.isconfirmed and time == 1791045000000
+    strategy.entry("L3", strategy.long, qty=1)
+if barstate.isconfirmed and time == 1791046800000
+    strategy.close("L3", qty=1)

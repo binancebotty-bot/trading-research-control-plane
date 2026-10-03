@@ -1,0 +1,188 @@
+{
+  "tool": "ui_evaluate",
+  "ok": true,
+  "genuine": true,
+  "payload": {
+    "success": true,
+    "result": {
+      "strategy": "Aggressive Flow Momentum",
+      "report_keys": [
+        "currency",
+        "settings",
+        "buyHold",
+        "buyHoldPercent",
+        "filledOrders",
+        "performance",
+        "trades",
+        "marginUsage",
+        "firstTradeIndex"
+      ],
+      "trades": {
+        "is_array": true,
+        "count": 163,
+        "sample": [
+          {
+            "e": {
+              "c": "Long",
+              "p": 2028.49,
+              "tm": 1772464500000,
+              "b": 157,
+              "tp": "le"
+            },
+            "q": 1.2316,
+            "x": {
+              "c": "time exit",
+              "p": 2038.85,
+              "tm": 1772475300000,
+              "b": 169,
+              "tp": "lx"
+            },
+            "tp": {
+              "v": 9.753775,
+              "p": 0.0039018418
+            },
+            "cp": {
+              "v": 9.753775,
+              "p": 0.00097537745
+            },
+            "rn": {
+              "v": 74.256744,
+              "p": 0.029705225
+            },
+            "v": 2498.288284,
+            "dd": {
+              "v": 10.070909,
+              "p": 0.0040287063
+            },
+            "cm": 3.005601566
+          },
+          {
+            "e": {
+              "c": "Long",
+              "p": 2006.55,
+              "tm": 1772611200000,
+              "b": 320,
+              "tp": "le"
+            },
+            "q": 1.2463,
+            "x": {
+              "c": "time exit",
+              "p": 2072.33,
+              "tm": 1772622000000,
+              "b": 332,
+              "tp": "lx"
+            },
+            "tp": {
+              "v": 78.93151,
+              "p": 0.03154404
+            },
+            "cp": {
+              "v": 88.68528,
+              "p": 0.00788546
+            },
+            "rn": {
+              "v": 106.117546,
+              "p": 0.04240862
+            },
+            "v": 2500.763265,
+            "dd": {
+              "v": 9.077962,
+              "p": 0.0036278998
+            },
+            "cm": 3.0501048859999997
+          },
+          {
+            "e": {
+              "c": "Long",
+              "p": 2050.3,
+              "tm": 1772628300000,
+              "b": 339,
+              "tp": "le"
+            },
+            "q": 1.2294,
+            "x": {
+              "c": "time exit",
+              "p": 2127.08,
+              "tm": 1772639100000,
+              "b": 351,
+              "tp": "lx"
+            },
+            "tp": {
+              "v": 91.31193,
+              "p": 0.036203988
+            },
+            "cp": {
+              "v": 179.99721,
+              "p": 0.009050924
+            },
+            "rn": {
+              "v": 113.65781,
+              "p": 0.045063835
+            },
+            "v": 2520.63882,
+            "dd": {
+              "v": 5.0776434,
+              "p": 0.0020132193
+            },
+            "cm": 3.081402583
+          }
+        ]
+      },
+      "filledOrders": {
+        "is_array": true,
+        "count": 326,
+        "sample": [
+          {
+            "b": true,
+            "c": "Long",
+            "e": true,
+            "id": "Long",
+            "p": 2028.49,
+            "q": 1.2316,
+            "tm": 0,
+            "tp": "MARKET"
+          },
+          {
+            "b": false,
+            "c": "time exit",
+            "e": false,
+            "id": "Close position order",
+            "p": 2038.85,
+            "q": 1.2316,
+            "tm": 1,
+            "tp": "MARKET"
+          },
+          {
+            "b": true,
+            "c": "Long",
+            "e": true,
+            "id": "Long",
+            "p": 2006.55,
+            "q": 1.2463,
+            "tm": 2,
+            "tp": "MARKET"
+          }
+        ]
+      }
+    }
+  },
+  "error": null,
+  "attestation": {
+    "tool": "ui_evaluate",
+    "transport": "stdio-jsonrpc",
+    "target_id": "45E755139AED5CFD6968076B7A677A0C",
+    "target_url": "https://www.tradingview.com/chart/5ddhlPd0/",
+    "target_title": "ETHUSDT 2,688.14 \u25b2 +0.73% HERMES",
+    "cdp_host": "127.0.0.1",
+    "cdp_port": 9222,
+    "request_id": "2",
+    "payload_sha256": "6fed710a00922d92f6679dcb1029834735306ebbfb703582ce25b01890745013",
+    "payload_nonempty": true,
+    "placeholder_markers": [],
+    "is_request_echo": false,
+    "executed_at": "2026-10-03T23:25:00.536645",
+    "is_genuine": true
+  },
+  "raw_response": "{\n  \"success\": true,\n  \"result\": {\n    \"strategy\": \"Aggressive Flow Momentum\",\n    \"report_keys\": [\n      \"currency\",\n      \"settings\",\n      \"buyHold\",\n      \"buyHoldPercent\",\n      \"filledOrders\",\n      \"performance\",\n      \"trades\",\n      \"marginUsage\",\n      \"firstTradeIndex\"\n    ],\n    \"trades\": {\n      \"is_array\": true,\n      \"count\": 163,\n      \"sample\": [\n        {\n          \"e\": {\n            \"c\": \"Long\",\n            \"p\": 2028.49,\n            \"tm\": 1772464500000,\n            \"b\": 157,\n            \"tp\": \"le\"\n          },\n          \"q\": 1.2316,\n          \"x\": {\n            \"c\": \"time exit\",\n            \"p\": 2038.85,\n            \"tm\": 1772475300000,\n            \"b\": 169,\n            \"tp\": \"lx\"\n          },\n          \"tp\": {\n            \"v\": 9.753775,\n            \"p\": 0.0039018418\n          },\n          \"cp\": {\n            \"v\": 9.753775,\n            \"p\": 0.00097537745\n          },\n          \"rn\": {\n            \"v\": 74.256744,\n            \"p\": 0.029705225\n          },\n          \"v\": 2498.288284,\n          \"dd\": {\n            \"v\": 10.070909,\n            \"p\": 0.0040287063\n          },\n          \"cm\": 3.005601566\n        },\n        {\n          \"e\": {\n            \"c\": \"Long\",\n            \"p\": 2006.55,\n            \"tm\": 1772611200000,\n            \"b\": 320,\n            \"tp\": \"le\"\n          },\n          \"q\": 1.2463,\n          \"x\": {\n            \"c\": \"time exit\",\n            \"p\": 2072.33,\n            \"tm\": 1772622000000,\n            \"b\": 332,\n            \"tp\": \"lx\"\n          },\n          \"tp\": {\n            \"v\": 78.93151,\n            \"p\": 0.03154404\n          },\n          \"cp\": {\n            \"v\": 88.68528,\n            \"p\": 0.00788546\n          },\n          \"rn\": {\n            \"v\": 106.117546,\n            \"p\": 0.04240862\n          },\n          \"v\": 2500.763265,\n          \"dd\": {\n            \"v\": 9.077962,\n            \"p\": 0.0036278998\n          },\n          \"cm\": 3.0501048859999997\n        },\n        {\n          \"e\": {\n            \"c\": \"Long\",\n            \"p\": 2050.3,\n            \"tm\": 1772628300000,\n            \"b\": 339,\n            \"tp\": \"le\"\n          },\n          \"q\": 1.2294,\n          \"x\": {\n            \"c\": \"time exit\",\n            \"p\": 2127.08,\n            \"tm\": 1772639100000,\n            \"b\": 351,\n            \"tp\": \"lx\"\n          },\n          \"tp\": {\n            \"v\": 91.31193,\n            \"p\": 0.036203988\n          },\n          \"cp\": {\n            \"v\": 179.99721,\n            \"p\": 0.009050924\n          },\n          \"rn\": {\n            \"v\": 113.65781,\n            \"p\": 0.045063835\n          },\n          \"v\": 2520.63882,\n          \"dd\": {\n            \"v\": 5.0776434,\n            \"p\": 0.0020132193\n          },\n          \"cm\": 3.081402583\n        }\n      ]\n    },\n    \"filledOrders\": {\n      \"is_array\": true,\n      \"count\": 326,\n      \"sample\": [\n        {\n          \"b\": true,\n          \"c\": \"Long\",\n          \"e\": true,\n          \"id\": \"Long\",\n          \"p\": 2028.49,\n          \"q\": 1.2316,\n          \"tm\": 0,\n          \"tp\": \"MARKET\"\n        },\n        {\n          \"b\": false,\n          \"c\": \"time exit\",\n          \"e\": false,\n          \"id\": \"Close position order\",\n          \"p\": 2038.85,\n          \"q\": 1.2316,\n          \"tm\": 1,\n          \"tp\": \"MARKET\"\n        },\n        {\n          \"b\": true,\n          \"c\": \"Long\",\n          \"e\": true,\n          \"id\": \"Long\",\n          \"p\": 2006.55,\n          \"q\": 1.2463,\n          \"tm\": 2,\n          \"tp\": \"MARKET\"\n        }\n      ]\n    }\n  }\n}",
+  "execution_time_ms": 57.58976936340332
+}

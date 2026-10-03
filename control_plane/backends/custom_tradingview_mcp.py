@@ -483,9 +483,21 @@ class CustomTradingViewMCPBackend:
     def get_strategy_results(self) -> TVCallResult:
         return self.call_tool("data_get_strategy_results", {})
 
-    def get_trades(self) -> TVCallResult:
-        """Extract the real trade list from the Strategy Tester."""
-        return self.call_tool("data_get_trades", {})
+    def get_trades(self, max_trades: Optional[int] = None) -> TVCallResult:
+        """Read genuine raw order records; never label them native closed trades."""
+        if max_trades is not None and (isinstance(max_trades, bool) or not isinstance(max_trades, int) or not 1 <= max_trades <= 1000):
+            raise ValueError("max_trades must be an integer in 1..1000")
+        args = {} if max_trades is None else {"max_trades": max_trades}
+        result = self.call_tool("data_get_trades", args)
+        if result.ok and isinstance(result.payload, dict):
+            payload = dict(result.payload)
+            records = payload.pop("trades", payload.get("raw_order_records", []))
+            payload.pop("trade_count", None)
+            payload.update(record_semantics="raw_order_records", raw_order_records=records,
+                           raw_order_record_count=len(records), closed_trades=payload.get("closed_trades"),
+                           order_stream_complete=payload.get("order_stream_complete"))
+            result.payload = payload
+        return result
 
     def get_equity(self) -> TVCallResult:
         """Extract the real equity curve from the Strategy Tester."""

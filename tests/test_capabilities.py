@@ -93,7 +93,7 @@ class TestCustomTVMCPBackend:
     def test_capabilities(self):
         backend = CustomTradingViewMCPBackend()
         caps = backend.capabilities
-        assert "pine_compile_facade" in caps
+        assert "pine_compile" in caps
         assert "pine_full_cycle_strategy" in caps
         assert "strategy_tester_read_summary" in caps
     
@@ -104,8 +104,9 @@ class TestCustomTVMCPBackend:
     
     def test_get_tool_schema(self):
         backend = CustomTradingViewMCPBackend()
-        schema = backend.get_tool_schema("pine_compile_facade")
-        assert 'description' in schema
+        tool = next(t for t in backend.list_tools() if t.name == "pine_compile")
+        assert tool.description
+        assert "source" in tool.input_schema["properties"]
     
     def test_get_capability_registry(self):
         backend = CustomTradingViewMCPBackend()

@@ -154,11 +154,13 @@ class CapabilityRegistry:
     def discover_all(self) -> Dict[str, Any]:
         """Discover capabilities from all three backends."""
         results = {}
+        self._backend_capability_snapshots = {}
         
         for backend_id, backend in self._backends.items():
             try:
                 caps = backend.get_capability_registry()
                 results[backend_id] = caps
+                self._backend_capability_snapshots[backend_id] = caps
                 self._register_backend_capabilities(backend_id, caps)
             except Exception as e:
                 results[backend_id] = {"error": str(e)}
@@ -168,7 +170,7 @@ class CapabilityRegistry:
     
     def _register_backend_capabilities(self, backend_id: str, caps: Dict[str, Any]):
         """Register capabilities from a backend."""
-        backend_caps = caps.get('capabilities', [])
+        backend_caps = caps.get('capabilities', caps.get('tools', []))
         
         for cap_name in backend_caps:
             canonical = f"{backend_id}.{cap_name}"
@@ -231,8 +233,8 @@ class CapabilityRegistry:
                 if any(group_cap in cap.native_function for group_cap in group_caps):
                     # Check which backends have this group
                     backends_with_group = []
-                    for bid, bcaps in self._backends.items():
-                        backend_caps = bcaps.get('capabilities', [])
+                    for bid, bcaps in self._backend_capability_snapshots.items():
+                        backend_caps = bcaps.get('capabilities', bcaps.get('tools', []))
                         if any(group_cap in backend_cap for backend_cap in backend_caps for group_cap in group_caps):
                             backends_with_group.append(bid)
                     

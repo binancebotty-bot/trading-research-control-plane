@@ -19,6 +19,7 @@ TRAIN, VALIDATION, OUT_OF_SAMPLE, FORWARD
 """
 
 import hashlib
+import re
 import json
 from pathlib import Path
 from typing import Dict, List, Any, Optional, Set
@@ -147,14 +148,18 @@ class ResearchSafety:
         """Check for look-ahead bias in strategy code."""
         # Common look-ahead patterns in Pine/Python
         look_ahead_patterns = [
-            'close[', 'high[', 'low[', 'open[', 'volume[',  # Future references
+
             'security(',  # Can access future data if not careful
             'request.security',  # Pine v5
             'barstate.islast',  # Only true on last bar
             'barstate.isrealtime',  # Real-time only
         ]
         
-        violations = []
+        # Pine nonnegative literal history references are past/current bars.
+        # Unknown/dynamic or negative indexing remains conservatively blocked.
+        violations = [m.group(0) for m in re.finditer(
+            r'\b(?:close|high|low|open|volume)\s*\[([^\]]*)\]', strategy_code
+        ) if not re.fullmatch(r'\s*[0-9]+\s*', m.group(1))]
         for pattern in look_ahead_patterns:
             if pattern in strategy_code:
                 violations.append(pattern)

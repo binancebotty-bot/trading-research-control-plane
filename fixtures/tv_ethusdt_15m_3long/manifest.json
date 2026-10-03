@@ -1,0 +1,70 @@
+{
+  "source": "TradingView direct_bars through real attested MCP data_get_ohlcv",
+  "symbol": "BINANCE:ETHUSDT",
+  "resolution": "15",
+  "signal_timestamps": [
+    1791037800,
+    1791039600,
+    1791041400,
+    1791043200,
+    1791045000,
+    1791046800
+  ],
+  "signal_timestamp_semantics": "UTC bar-open seconds; fills on same bar close, +900s",
+  "data_sha256": "4358a8862e036e89a7d148afdf80718d898fc4baf34746631764cf41e7310617",
+  "pine_sha256": "7c14e48664475569f5ca353f09625128ae5832e5170b7daddeef68e31460022f",
+  "trade_count": 3,
+  "qty": 1,
+  "pyramiding": 0,
+  "commission": 0,
+  "slippage": 0,
+  "partials": false,
+  "execution": "process_orders_on_close=true",
+  "tv_acceptance": {
+    "summary_total_trades": 3,
+    "complete_raw_order_record_count": 6,
+    "require_complete_stream_proof": true,
+    "net_profit_absolute_tolerance_USDT": "0.000001",
+    "reconcile_exact_signal_times_qty_and_prices": true,
+    "native_closed_trade_equivalence_claimed": false,
+    "live_authority_required": true
+  },
+  "live_parity_status": "NOT_EXECUTED",
+  "expected_python_result": {
+    "record_semantics": "derived_controlled_closed_trades",
+    "closed_trade_count": 3,
+    "trades": [
+      {
+        "entry_signal_time": 1791037800,
+        "exit_signal_time": 1791039600,
+        "entry_fill_time": 1791038700,
+        "exit_fill_time": 1791040500,
+        "entry_price": "2681.23",
+        "exit_price": "2682.41",
+        "qty": "1",
+        "pnl": "1.18"
+      },
+      {
+        "entry_signal_time": 1791041400,
+        "exit_signal_time": 1791043200,
+        "entry_fill_time": 1791042300,
+        "exit_fill_time": 1791044100,
+        "entry_price": "2680.9",
+        "exit_price": "2679.81",
+        "qty": "1",
+        "pnl": "-1.09"
+      },
+      {
+        "entry_signal_time": 1791045000,
+        "exit_signal_time": 1791046800,
+        "entry_fill_time": 1791045900,
+        "exit_fill_time": 1791047700,
+        "entry_price": "2682.03",
+        "exit_price": "2685.06",
+        "qty": "1",
+        "pnl": "3.03"
+      }
+    ],
+    "net_profit": "3.12"
+  }
+}

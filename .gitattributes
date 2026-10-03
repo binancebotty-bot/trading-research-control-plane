@@ -1,0 +1,3 @@
+fixtures/tv_ethusdt_15m_3long/* text eol=lf
+proofs/static_runtime_trade_fixture_20261003/*.patch -text
+proofs/static_runtime_trade_fixture_20261003/*.bundle -text

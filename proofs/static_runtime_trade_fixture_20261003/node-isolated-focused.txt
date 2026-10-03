@@ -1,0 +1,56 @@
+✔ raw orders remain distinct from native report closed trades, complete streams (3.3703ms)
+✔ caller configurable cap reports both stream truncations (1.2139ms)
+✔ ambiguous strategy refuses and invalid limits throw (1.9404ms)
+✔ disabled QA update never invokes keys or clicks (2.4406ms)
+✔ renamed editor title dispatches exactly once to stable ID without metadata (1.1882ms)
+✔ unchanged chart can attest dispatch only, never applied source (0.6372ms)
+✔ missing action control refuses without keyboard fallback (0.5235ms)
+✔ explicit update refusal preserves chart and does not click (0.5545ms)
+✔ confirmed ADD preserves exact newly created identity without expected ID (0.7781ms)
+✔ missing expected study ID refuses before click (0.5437ms)
+✔ wrong expected study ID refuses before click (0.554ms)
+✔ empty expected study ID refuses before click (1.1155ms)
+✔ non-string expected study ID refuses before click (0.5832ms)
+✔ whitespace expected study ID refuses before click (0.5478ms)
+✔ duplicate pre-operation expected ID refuses (0.5651ms)
+✔ missing expected ID in chart refuses (0.4926ms)
+✔ ambiguous Update control refuses (0.4916ms)
+✔ control becoming disabled before dispatch refuses (0.5264ms)
+✔ extraOnClick fails post-dispatch with no certification and no retry (0.5878ms)
+✔ removeOnClick fails post-dispatch with no certification and no retry (0.6134ms)
+✔ duplicateAfter fails post-dispatch with no certification and no retry (0.5488ms)
+✔ ADD no-op remains unconfirmed (0.5589ms)
+✔ ADD extra unexpected identities remains unconfirmed (0.9174ms)
+✔ MCP registration exposes optional expected_study_id without coercion (2.5075ms)
+▶ pine_analyze — static analysis
+  ✔ clean v6 script — no issues (1.312ms)
+  ✔ array.get out of bounds (0.4875ms)
+  ✔ array.get negative index (0.1247ms)
+  ✔ array.set out of bounds (0.1493ms)
+  ✔ array.get valid index — no issue (0.1363ms)
+  ✔ .first() on empty array (0.1247ms)
+  ✔ .last() on empty array (0.086ms)
+  ✔ .first() on non-empty array — no issue (0.0892ms)
+  ✔ strategy.entry without strategy() declaration (0.1485ms)
+  ✔ strategy.entry WITH strategy() — no issue (0.1838ms)
+  ✔ old version v3 warning (0.1483ms)
+  ✔ v5 — no version warning (0.0996ms)
+  ✔ multiple issues at once (0.1138ms)
+✔ pine_analyze — static analysis (4.9235ms)
+▶ pine_check — server compile
+  ✔ should compile valid Pine Script via TradingView API (395.0005ms)
+  ✔ should return errors for invalid Pine Script (148.2801ms)
+  ✔ should handle empty source gracefully (210.5155ms)
+✔ pine_check — server compile (754.0478ms)
+✔ success changes genuine Monaco source, not hidden textarea (1.4503ms)
+✔ missing model fails closed without touching textarea (0.6657ms)
+✔ no-op setter cannot report success (0.5596ms)
+✔ clean stdio startup exposes required runtime tools without CDP calls (321.4843ms)
+ℹ tests 44
+ℹ suites 2
+ℹ pass 44
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 835.204
