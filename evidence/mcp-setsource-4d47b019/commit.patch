@@ -1,0 +1,87 @@
+commit 4d47b019a41617d238c51a9280bee1e4ec7eeec0
+Author: Rich Wigmore <richardwigmore@protonmail.com>
+Date:   Sat Oct 3 18:44:03 2026 +0100
+
+    Verify genuine Monaco source mutation and fail closed
+---
+ src/core/pine.js              | 25 ++++++++++++++-----------
+ tests/pine_set_source.test.js | 31 +++++++++++++++++++++++++++++++
+ 2 files changed, 45 insertions(+), 11 deletions(-)
+
+diff --git a/src/core/pine.js b/src/core/pine.js
+index 056ab07dce52f7da9869b7f8c3284369a3ea2e6f..b43f1f88f28ce484910cea94d14b9443be0ff1f2 100644
+--- a/src/core/pine.js
++++ b/src/core/pine.js
+@@ -264,21 +264,24 @@ export async function getSource() {
+ }
+ 
+ export async function setSource({ source }) {
+-  const editorReady = await ensurePineEditorOpen();
+-  if (!editorReady) throw new Error('Could not open Pine Editor.');
+-
+-  const escaped = JSON.stringify(source);
+-  const set = await evaluate(`
++  return evaluate(`
+     (function() {
+       var m = ${FIND_MONACO};
+-      if (!m) return false;
+-      m.editor.setValue(${escaped});
+-      return true;
++      if (!m || !m.editor || typeof m.editor.setValue !== 'function' || typeof m.editor.getValue !== 'function') {
++        return { success: false, error: 'MONACO_EDITOR_UNAVAILABLE' };
++      }
++      try {
++        m.editor.setValue(${JSON.stringify(source)});
++        var after = m.editor.getValue();
++        if (after !== ${JSON.stringify(source)}) {
++          return { success: false, error: 'MONACO_SOURCE_READBACK_MISMATCH' };
++        }
++        return { success: true, lines_set: after.split('\\n').length, method: 'monaco_verified', readback_verified: true };
++      } catch (e) {
++        return { success: false, error: 'MONACO_SOURCE_WRITE_FAILED: ' + String(e.message || e) };
++      }
+     })()
+   `);
+-
+-  if (!set) throw new Error('Monaco found but setValue() failed.');
+-  return { success: true, lines_set: source.split('\n').length };
+ }
+ 
+ export async function compile() {
+diff --git a/tests/pine_set_source.test.js b/tests/pine_set_source.test.js
+new file mode 100644
+index 0000000000000000000000000000000000000000..231bab1b4e05ea0bb067159830f44f71984c15cb
+--- /dev/null
++++ b/tests/pine_set_source.test.js
+@@ -0,0 +1,31 @@
++import fs from 'node:fs';
++import vm from 'node:vm';
++import assert from 'node:assert/strict';
++import test from 'node:test';
++const file = new URL('../src/core/pine.js', import.meta.url);
++const code = fs.readFileSync(file, 'utf8').replace(/import \{ evaluate, evaluateAsync, getClient \} from '[^']+';/, 'const evaluate = globalThis.__evaluate; const evaluateAsync = evaluate; const getClient = async () => ({});');
++globalThis.__evaluate = async expr => vm.runInNewContext(expr, globalThis.__context);
++const {setSource} = await import('data:text/javascript;base64,' + Buffer.from(code).toString('base64'));
++function fixture({missing=false,noop=false}={}) {
++  let value = 'ORIGINAL'; let focused = 0;
++  const editor = { getValue:()=>value, setValue:s=>{if(!noop)value=s;} };
++  const container = {__reactFiber$test:{memoizedProps:{value:{monacoEnv:{editor:{getEditors:()=>[editor]}}}}}};
++  const ta = {value:'', focus:()=>focused++, setSelectionRange:()=>{}, dispatchEvent:()=>{}};
++  const document = {querySelector:s=>s.includes('textarea')?ta:(missing?null:container),execCommand:()=>{}};
++  const context = {document,window:{},Event:class{},getComputedStyle:()=>({})};
++  globalThis.__context=context;
++  return {editor,context,value:()=>value,focused:()=>focused};
++}
++test('success changes genuine Monaco source, not hidden textarea', async () => {
++  const f=fixture(); const r=await setSource({source:'NEW\nSOURCE'});
++  assert.equal(r.success,true); assert.equal(f.value(),'NEW\nSOURCE');
++  assert.equal(f.focused(),0); assert.equal(r.lines_set,2);
++});
++test('missing model fails closed without touching textarea', async () => {
++  const f=fixture({missing:true}); const r=await setSource({source:'NEW'});
++  assert.equal(r.success,false); assert.equal(f.value(),'ORIGINAL'); assert.equal(f.focused(),0);
++});
++test('no-op setter cannot report success', async () => {
++  const f=fixture({noop:true}); const r=await setSource({source:'NEW'});
++  assert.equal(r.success,false); assert.equal(f.value(),'ORIGINAL');
++});
