@@ -6,6 +6,7 @@ No mocks, no placeholders - actual tool invocation and evidence capture.
 """
 
 import json
+import sys
 import subprocess
 import time
 import uuid
@@ -65,6 +66,15 @@ class MCPClient:
     def start(self) -> bool:
         """Start the MCP server process."""
         try:
+            launch_options = {}
+            if sys.platform == 'win32':
+                startup = subprocess.STARTUPINFO()
+                startup.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+                startup.wShowWindow = subprocess.SW_HIDE
+                launch_options = {
+                    'creationflags': subprocess.CREATE_NO_WINDOW,
+                    'startupinfo': startup,
+                }
             self._process = subprocess.Popen(
                 ["node", self.server_script],
                 cwd=self.server_dir,
@@ -73,6 +83,7 @@ class MCPClient:
                 stderr=subprocess.PIPE,
                 text=True,
                 bufsize=1,
+                **launch_options,
             )
             # Wait for server to initialize
             time.sleep(2)
