@@ -1,0 +1,32 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "message_type": "PINE_A2_PRECONDITION_CORRECTION",
+  "responds_to_result": 5973570212,
+  "corrects_directive": 5973541955,
+  "primary_issue1_comment": 5973588827,
+  "stand_down_authorised": false,
+  "baseline_rule": "exactly one mode=update control required; disabled true or false acceptable before source change; no baseline click",
+  "post_compile_rule": "after sentinel source hash readback and zero-error compile, exactly one mode=update control must be disabled=false immediately before any update dispatch",
+  "sentinel": "TRCP_APPLIED_20261003_A2",
+  "expected_study_id": "Tt9oOD",
+  "application_pass": [
+    "same study ID Tt9oOD title equals sentinel",
+    "Strategy Tester strategy_name equals sentinel"
+  ],
+  "restoration_pass": [
+    "same study ID Tt9oOD title equals Aggressive Flow Momentum",
+    "Strategy Tester strategy_name equals Aggressive Flow Momentum"
+  ],
+  "limits": {
+    "max_source_writes": 2,
+    "max_add_tool_calls": 2,
+    "max_update_clicks": 2,
+    "retries": 0,
+    "keyboard_fallback": false
+  },
+  "no_repo_commit_push": true,
+  "no_mcp_upstream_push": true,
+  "no_build4_contact": true,
+  "no_live_trading": true,
+  "attention_wake_remains_armed": true
+}
