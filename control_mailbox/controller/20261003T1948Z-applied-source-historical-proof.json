@@ -1,0 +1,27 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "message_type": "PINE_APPLIED_SOURCE_HISTORICAL_PROOF_RETRIEVAL_DIRECTIVE",
+  "primary_issue1_comment": 5972838478,
+  "responds_to_comment": 5972821664,
+  "directive_id": "PINE-RC-20261003-APPLIED-SOURCE-HISTORICAL-PROOF-1",
+  "wrapper_candidate": "STATICALLY_ACCEPTABLE_NOT_YET_COMMIT_AUTHORISED",
+  "mcp_selector": "ACCEPT_STATIC_DIRECTIONALLY",
+  "metainfo_version_rule": "WITHHELD_UNPROVEN",
+  "live_retry_authorised": false,
+  "execution": "one bounded local/free read-only historical retrieval pass",
+  "search_focus": [
+    "chart study entity field linking Pine script ID/version",
+    "chart-side source/hash/certification-hash tied to study",
+    "internal TradingView study instance -> Pine script ID + version",
+    "previous successful update helper with independent postcondition",
+    "Strategy Tester or plotted/table sentinel proving new source applied"
+  ],
+  "result_enum": ["FOUND_EXACT", "FOUND_ADAPTABLE", "NOT_FOUND_IN_BOUNDED_SEARCH"],
+  "paid_delegation": false,
+  "new_code_edits": false,
+  "tradingview_mutation": false,
+  "repo_commit_push": false,
+  "safe_boundary_yield_if_primary_credits_low": true,
+  "stand_down_authorised": false,
+  "no_human_relay": true
+}
