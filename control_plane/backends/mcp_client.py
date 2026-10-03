@@ -49,14 +49,126 @@ class MCPClient:
     """
     
     def __init__(self, server_dir: str = r"C:\Users\wigmore\trading_stack\tradingview-mcp-jackson",
-                 server_script: str = "src/server.js"):
+                 server_script: str = "src/server.js",
+                 cdp_host: str = "127.0.0.1",
+                 cdp_port: int = 9222):
         self.server_dir = server_dir
         self.server_script = server_script
+        # Must mirror the MCP server's own CDP settings (see
+        # tradingview-mcp-jackson/src/connection.js: CDP_HOST/CDP_PORT).
+        # Recorded so attestations can prove MCP and browser share one endpoint.
+        self.cdp_host = cdp_host
+        self.cdp_port = cdp_port
         self._process: Optional[subprocess.Popen] = None
         self._request_id = 0
         self._lock = threading.Lock()
         self._tools_cache: Optional[List[MCPToolInfo]] = None
         self._server_info: Optional[Dict[str, Any]] = None
+        self._target_identity: Optional[Dict[str, Any]] = None
+
+    # ------------------------------------------------------------------ #
+    # CDP endpoint verification
+    # ------------------------------------------------------------------ #
+
+    def verify_cdp_endpoint(self) -> Dict[str, Any]:
+        """
+        Query the CDP HTTP endpoint this client is configured against.
+
+        Used to prove, independently of any tool result, that a debug-enabled
+        browser is listening and that a TradingView chart page exists on it.
+        """
+        import urllib.request
+
+        base = f"http://{self.cdp_host}:{self.cdp_port}"
+        out: Dict[str, Any] = {
+            "endpoint": f"{self.cdp_host}:{self.cdp_port}",
+            "reachable": False,
+            "browser": None,
+            "targets": [],
+            "tradingview_targets": [],
+        }
+        try:
+            with urllib.request.urlopen(f"{base}/json/version", timeout=8) as resp:
+                version = json.loads(resp.read().decode("utf-8", "replace"))
+            out["reachable"] = True
+            out["browser"] = version.get("Browser")
+            out["protocol_version"] = version.get("Protocol-Version")
+            out["ws_url_present"] = bool(version.get("webSocketDebuggerUrl"))
+        except Exception as exc:
+            out["error"] = str(exc)
+            return out
+
+        try:
+            with urllib.request.urlopen(f"{base}/json/list", timeout=8) as resp:
+                targets = json.loads(resp.read().decode("utf-8", "replace"))
+            for t in targets:
+                entry = {
+                    "id": t.get("id"),
+                    "type": t.get("type"),
+                    "title": t.get("title"),
+                    "url": t.get("url"),
+                }
+                out["targets"].append(entry)
+                if t.get("type") == "page" and "tradingview.com/chart" in str(t.get("url", "")):
+                    out["tradingview_targets"].append(entry)
+        except Exception as exc:
+            out["targets_error"] = str(exc)
+        return out
+
+    def get_target_identity(self, refresh: bool = False) -> Dict[str, Any]:
+        """
+        Ask the MCP server which browser target it is actually driving.
+
+        This is the authoritative binding between an MCP result and a concrete
+        browser page. ``tv_health_check`` reports the CDP target id/url/title the
+        server resolved, which must match a page visible on the configured port.
+        """
+        if self._target_identity is not None and not refresh:
+            return self._target_identity
+        result = self.call_tool("tv_health_check", {})
+        identity: Dict[str, Any] = {
+            "available": result.success,
+            "target_id": None,
+            "target_url": None,
+            "target_title": None,
+            "cdp_connected": False,
+            "error": result.error,
+            "raw": result.result,
+        }
+        payload = result.result if isinstance(result.result, dict) else {}
+        identity["target_id"] = payload.get("target_id")
+        identity["target_url"] = payload.get("target_url")
+        identity["target_title"] = payload.get("target_title")
+        identity["cdp_connected"] = bool(payload.get("cdp_connected"))
+        identity["chart_symbol"] = payload.get("chart_symbol")
+        identity["chart_resolution"] = payload.get("chart_resolution")
+        self._target_identity = identity
+        return identity
+
+    def assert_target_matches_cdp(self) -> Dict[str, Any]:
+        """
+        Prove the MCP-controlled target is a page on our configured CDP port.
+
+        This is the check that distinguishes "a server answered" from "the server
+        is driving the visible browser we asked it to drive".
+        """
+        identity = self.get_target_identity(refresh=True)
+        cdp = self.verify_cdp_endpoint()
+        target_id = identity.get("target_id")
+        known_ids = {t.get("id") for t in cdp.get("tradingview_targets", [])}
+        known_ids |= {t.get("id") for t in cdp.get("targets", [])}
+        match = bool(target_id) and target_id in known_ids
+        return {
+            "mcp_target_id": target_id,
+            "mcp_target_url": identity.get("target_url"),
+            "mcp_target_title": identity.get("target_title"),
+            "cdp_endpoint": f"{self.cdp_host}:{self.cdp_port}",
+            "cdp_reachable": cdp.get("reachable"),
+            "cdp_browser": cdp.get("browser"),
+            "cdp_tradingview_tabs": len(cdp.get("tradingview_targets", [])),
+            "target_found_on_cdp": match,
+            "verdict": "PASS" if (match and cdp.get("reachable")) else "FAIL",
+        }
     
     def _next_id(self) -> int:
         with self._lock:
