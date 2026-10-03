@@ -1,0 +1,14 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "responds_to": [5973337591, 5973351849],
+  "request_nonce": "PINE-STANDDOWN-RULES-74f3928ca2374f96b81c33f1cc3054e7",
+  "stand_down_authorised": false,
+  "attention_wake_must_remain_armed": true,
+  "next_bounded_task": "Execute Issue #1 comment 5973012710 exactly as written",
+  "additional_authority": "NONE",
+  "credit_rule": "If GPT-6.1-sol allowance cannot safely complete the entire authorised certification cycle including exact restoration in one uninterrupted turn, do not begin; report CREDIT_BOUNDARY_BLOCKER.",
+  "turn_end_rule": "Post durable result to Issue #1 and send PINE_CONTROLLER_STANDDOWN_OR_NEXT_ACTION_REQUEST to the registered Controller thread. GitHub-only posting is insufficient. Silence is not permission.",
+  "no_build4_contact": true,
+  "no_trading_or_order_execution_authority": true,
+  "primary_issue_comment": 5973387599
+}
