@@ -1,0 +1,115 @@
+{
+  "directive_id": "PINE-RC-20261003-ONE-SHOT-LIVE-E2E-PARITY-1",
+  "responds_to": 5974254992,
+  "status": "STOP_BEFORE_WRITE",
+  "blocker": "SAVED_SNAPSHOT_BLOCKER",
+  "blocker_cause": "The native-bound current script id has zero exact matches in TradingView saved list; the known canonical saved-server reader refuses SAVED_TARGET_AMBIGUOUS_OR_DRAFT. There is no safely attributed latest saved-server source/hash snapshot.",
+  "mutation_counts": {
+    "editor_writes": 0,
+    "compile_calls": 0,
+    "chart_update_calls": 0,
+    "save_calls": 0,
+    "duplicate_strategy_adds": 0
+  },
+  "runtime": {
+    "mcp_commit": "45568bbbf5793360dbaa25ba6ecfdf6c5e4a43f1",
+    "control_plane_commit": "bae5f6afe15aa5e8a28125b537f2eba84d71e0b5",
+    "bundle_sha256": "51f99db5e848b23cf12e0ba3b215619afca5be84a007035f545a545cc9fe407d",
+    "candidate_pine_sha256": "7c14e48664475569f5ca353f09625128ae5832e5170b7daddeef68e31460022f"
+  },
+  "target": {
+    "id": "45E755139AED5CFD6968076B7A677A0C",
+    "url": "https://www.tradingview.com/chart/5ddhlPd0/",
+    "symbol": "BINANCE:ETHUSDT",
+    "resolution": "15"
+  },
+  "linked_script": {
+    "id": "USER;95fe5d3055a94ddeb2bb3ccdc9f1041d",
+    "version": "0.5",
+    "title": "Aggressive Flow Momentum",
+    "saved_list_exact_match_count": 0,
+    "saved_server_source_sha256": null
+  },
+  "pre_editor_source_sha256": "3352582679f0e7f2de22ca955ab25a372fbc283f30597e0c89d9667aa24506df",
+  "post_editor_source_sha256": "3352582679f0e7f2de22ca955ab25a372fbc283f30597e0c89d9667aa24506df",
+  "editor_restoration": "PASS_UNCHANGED_ZERO_WRITES",
+  "existing_strategy_restoration": "PASS_UNCHANGED",
+  "chart_and_panel_restoration": "PASS_UNCHANGED",
+  "original_strategy": {
+    "id": "Tt9oOD",
+    "name": "Aggressive Flow Momentum"
+  },
+  "pre_state": {
+    "chart": {
+      "success": true,
+      "symbol": "BINANCE:ETHUSDT",
+      "resolution": "15",
+      "chartType": 1,
+      "studies": [
+        {
+          "id": "Tt9oOD",
+          "name": "Aggressive Flow Momentum"
+        },
+        {
+          "id": "U54xEM",
+          "name": "Volume"
+        }
+      ]
+    },
+    "panels": {
+      "success": true,
+      "status": "OK",
+      "chart": {
+        "symbol": "BINANCE:ETHUSDT",
+        "timeframe": "15",
+        "pine_editor_open": true,
+        "strategy_tester_visible": false
+      },
+      "modal": {
+        "present": false
+      }
+    }
+  },
+  "post_state": {
+    "chart": {
+      "success": true,
+      "symbol": "BINANCE:ETHUSDT",
+      "resolution": "15",
+      "chartType": 1,
+      "studies": [
+        {
+          "id": "Tt9oOD",
+          "name": "Aggressive Flow Momentum"
+        },
+        {
+          "id": "U54xEM",
+          "name": "Volume"
+        }
+      ]
+    },
+    "panels": {
+      "success": true,
+      "status": "OK",
+      "chart": {
+        "symbol": "BINANCE:ETHUSDT",
+        "timeframe": "15",
+        "pine_editor_open": true,
+        "strategy_tester_visible": false
+      },
+      "modal": {
+        "present": false
+      }
+    }
+  },
+  "live_metrics": null,
+  "native_trades": null,
+  "parity_result": "NOT_RUN_STOP_BEFORE_WRITE",
+  "saved_snapshot_result": "BLOCKED_NO_SAFELY_ATTRIBUTED_SOURCE",
+  "saved_server_stderr": "Error: SAVED_TARGET_AMBIGUOUS_OR_DRAFT\n    at fetchCanonicalPage (<anonymous>:5:102)\n",
+  "known_native_ownership_read": {
+    "strict_helper_first_read": "MONACO_OWNER_AMBIGUOUS (2 roots: 1 visible, 1 hidden)",
+    "bounded_known_lab_monaco_read": "PASS; editor/store/originalSource hashes identical; existing exact native facade remained clean",
+    "broad_module_discovery": false
+  },
+  "stand_down_authorised": false
+}
