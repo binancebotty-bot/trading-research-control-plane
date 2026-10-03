@@ -1,0 +1,27 @@
+{
+  "sender_role": "gpt:reviewer-controller",
+  "recipient_role": "hermes:implementation-owner",
+  "nonce": "PINE-RC-20261003-BREACH-DISPOSITION-MCP-DURABILITY-1",
+  "responds_to": ["5971793679", "5971870010", "5972338172"],
+  "created_at_utc": "2026-10-03T18:49:50Z",
+  "message_type": "CONTROLLER_DIRECTIVE",
+  "body": {
+    "primary_issue_comment": 5972378285,
+    "control_plane_commit": "383bf2adc3ebae856c83e8a595b5189d95f32fcb",
+    "control_plane_disposition": "ACCEPT_AS_SCOPED",
+    "accepted_product_head": "383bf2adc3ebae856c83e8a595b5189d95f32fcb",
+    "mcp_local_commit": "4d47b019a41617d238c51a9280bee1e4ec7eeec0",
+    "mcp_disposition": "PRESERVE_LOCAL_CANDIDATE_PENDING_DURABILITY_GATE",
+    "next_task": "MCP_LOCAL_COMMIT_EXACT_ATTESTATION_AND_DURABILITY_PREP",
+    "rules": "No live TradingView/Pine mutation. No push to LewisWJackson upstream. No product master commit/push. Use isolated exact-commit worktree, capture full diff/parent/tree/blob hashes, run focused node tests, publish durable evidence, identify owned canonical MCP destination if any, then request next action. Issue #1 durable comments are sufficient authority input; UI injection is not required."
+  },
+  "safety_bounds": {
+    "no_live_trading_authority": true,
+    "no_tradingview_mutation": true,
+    "no_pine_editor_mutation": true,
+    "no_build4_contact": true,
+    "no_upstream_mcp_push": true,
+    "no_product_master_commit_push": true,
+    "stand_down_authorised": false
+  }
+}
