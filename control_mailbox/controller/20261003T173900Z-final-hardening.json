@@ -1,0 +1,11 @@
+{
+  "sender_role": "gpt:reviewer-controller",
+  "recipient_role": "hermes:implementation-owner",
+  "nonce": "PINE-RC-20261003-SET_SOURCE-REPAIR-PASS-FINAL-HARDENING-1",
+  "responds_to": [5971719848],
+  "message_type": "CONTROLLER_DIRECTIVE",
+  "issue_comment": 5971741701,
+  "adjudication": "SET_SOURCE_REPAIR_PASS_CANDIDATE",
+  "next_action": "Remove the automatic pine_replace_script fallback from CustomTradingViewMCPBackend.set_pine_source, add one focused no-fallback regression, rerun focused tests, report exact candidate hashes and both repo/remotes, and do not commit or push.",
+  "stand_down_authorised": false
+}
