@@ -1,0 +1,27 @@
+{
+  "equivalent_domain_parity": "PASS",
+  "native_time_matches_signal_bar_open": [
+    true,
+    true,
+    true,
+    true,
+    true,
+    true
+  ],
+  "python_derived_close_boundaries": [
+    1791038700,
+    1791040500,
+    1791042300,
+    1791044100,
+    1791045900,
+    1791047700
+  ],
+  "tv_native_report_time_domain": "EXECUTION_BAR_OPEN_LABEL_MILLISECONDS",
+  "native_wall_clock_close_instant_exposed": false,
+  "raw_order_time_semantic": "NON_EPOCH_ORDINAL_UNSUPPORTED_FOR_TIMESTAMP_PARITY",
+  "trade_count": 3,
+  "raw_order_count": 6,
+  "prices_quantity_direction_pnl_match": true,
+  "net_profit_abs_diff": "5.64E-13",
+  "certification_authority": "CONTROLLER_ADJUDICATION_REQUIRED"
+}

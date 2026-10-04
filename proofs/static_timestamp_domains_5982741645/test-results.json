@@ -1,0 +1,29 @@
+{
+  "focused": [
+    {
+      "label": "inherited",
+      "exit_code": 0,
+      "output": "..........................                                               [100%]\r\n26 passed in 0.12s\r\n"
+    },
+    {
+      "label": "scrubbed",
+      "exit_code": 0,
+      "output": "..........................                                               [100%]\r\n26 passed in 0.08s\r\n"
+    }
+  ],
+  "full": [
+    {
+      "label": "inherited",
+      "exit_code": 0,
+      "output": ".............................................. [ 41%]\r\n..................................................................       [100%]\r\n112 passed, 26 subtests passed in 34.35s\r\n"
+    },
+    {
+      "label": "scrubbed",
+      "exit_code": 0,
+      "output": ".............................................. [ 41%]\r\n..................................................................       [100%]\r\n112 passed, 26 subtests passed in 42.09s\r\n"
+    }
+  ],
+  "original_capture_sha256": "4d119e5ef0b8f716350e9712aa66ab1e82879f2c7f4db652beb25bf7f8625cb8",
+  "original_capture_changed": false,
+  "live_rerun": false
+}

@@ -1,0 +1,42 @@
+{
+  "workers": [
+    {
+      "worker": "5982741645-prior",
+      "engine": "ollama",
+      "model": "qwen3-coder:30b-32k",
+      "status": "COMPLETE",
+      "exit_code": 0,
+      "paid_fallback": false,
+      "started_at": 1791137380.3552763,
+      "finished_at": 1791137462.171268
+    },
+    {
+      "worker": "5982741645-semantics",
+      "engine": "ollama",
+      "model": "ZimaBlueAI/Qwen3.5-9B-DeepSeek-V4-Flash-GGUF:latest",
+      "status": "COMPLETE",
+      "exit_code": 0,
+      "paid_fallback": false,
+      "started_at": 1791137380.4227931,
+      "finished_at": 1791137544.975496
+    },
+    {
+      "worker": "5982741645-adversarial",
+      "engine": "ollama",
+      "model": "qwen3-coder:30b-32k",
+      "status": "COMPLETE",
+      "exit_code": 0,
+      "paid_fallback": false,
+      "started_at": 1791137380.4212925,
+      "finished_at": 1791137493.495093
+    }
+  ],
+  "distinct_available_local_routes": 2,
+  "requested_distinct_routes": 3,
+  "shortfall": "Only two local models installed; no third free route responsiveness verified; no paid fallback",
+  "advisory_validation": {
+    "prior": "Meaningful TV160-trade capture recovered, not a paired Python-TV trade-vector proof",
+    "semantics": "Conflates reportData native times with separate raw-order tm; hypothesis not adopted as evidence",
+    "adversarial": "False missing-count/missing-exit-time/missing-ordinal claims rejected against source checks; raw-order epoch substitution is forbidden because domains differ"
+  }
+}
