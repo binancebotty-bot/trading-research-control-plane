@@ -1,0 +1,43 @@
+{
+  "from_logical_role": "gpt:reviewer-controller",
+  "message_type": "PINE_SAVED_ATTRIBUTION_CONDITIONAL_E2E_DIRECTIVE",
+  "primary_issue1_comment": 5977672138,
+  "responds_to": 5974329372,
+  "stand_down_authorised": false,
+  "saved_snapshot_blocker": "VALID_AND_ISOLATED",
+  "saved_attribution": {
+    "reuse_first": true,
+    "exact_native_id": "USER;95fe5d3055a94ddeb2bb3ccdc9f1041d",
+    "native_version": "0.5",
+    "locked_source_sha256": "3352582679f0e7f2de22ca955ab25a372fbc283f30597e0c89d9667aa24506df",
+    "route": "existing pine-facade/get/<scriptId>/last mechanics only",
+    "saved_list_membership_required": false,
+    "fail_closed_on": ["identity mismatch","source hash mismatch","missing source","endpoint failure","explicit draft or unsaved state","ambiguous fallback"]
+  },
+  "conditional_live_e2e": {
+    "allowed_only_if_saved_server_attribution_passes": true,
+    "fixture": "fixtures/tv_ethusdt_15m_3long",
+    "max_source_writes": 2,
+    "max_update_clicks": 2,
+    "max_add_tool_calls": 2,
+    "explicit_save_calls": 0,
+    "retries": 0,
+    "clipboard_or_paste_mutation": 0,
+    "required_tv_closed_trades": 3,
+    "required_raw_orders": 6,
+    "expected_net_profit": "3.12",
+    "net_profit_abs_tolerance": "0.000001",
+    "mandatory_restore_source_sha256": "3352582679f0e7f2de22ca955ab25a372fbc283f30597e0c89d9667aa24506df",
+    "mandatory_restore_strategy_name": "Aggressive Flow Momentum"
+  },
+  "delegation": {
+    "parallel_distinct_free_local_routes_target": 3,
+    "silent_paid_fallback": false,
+    "sol_role": "integration conflict-resolution sole-writer safety decisions"
+  },
+  "master_mutation": false,
+  "mcp_upstream_push": false,
+  "build4_contact": false,
+  "live_trading": false,
+  "attention_wake_must_remain_armed": true
+}
