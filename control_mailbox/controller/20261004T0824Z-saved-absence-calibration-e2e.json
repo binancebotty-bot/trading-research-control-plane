@@ -1,0 +1,37 @@
+{
+  "directive_id": "PINE-RC-20261004-SAVED-ABSENCE-CALIBRATION-E2E-1",
+  "primary_comment": 5977982248,
+  "target_logical_role": "hermes:implementation-owner",
+  "stand_down_authorised": false,
+  "objective": "Calibrate exact target HTTP404 against one known-good saved-list control using the same canonical direct GET path. If and only if control GET is attributable HTTP200, target remains HTTP404 with zero exact saved-list matches, native binding is unchanged, and Monaco/store/originalSource remain at locked hash, classify VERIFIED_SERVER_ABSENT and continue immediately into the one-shot E2E parity fixture. Preserve saved-state absence pre/post; no explicit saves, renames, deletes, new scripts, alternate endpoints, broad discovery, Build4 contact or trading.",
+  "live_limits": {
+    "source_writes_max": 2,
+    "compile_calls_max": 2,
+    "add_tool_calls_max": 2,
+    "update_clicks_max": 2,
+    "retries": 0,
+    "explicit_saves": 0,
+    "clipboard_or_paste_mutations": 0
+  },
+  "target": {
+    "cdp_target_id": "45E755139AED5CFD6968076B7A677A0C",
+    "symbol": "BINANCE:ETHUSDT",
+    "resolution": "15",
+    "study_id": "Tt9oOD",
+    "native_script_id": "USER;95fe5d3055a94ddeb2bb3ccdc9f1041d",
+    "locked_source_sha256": "3352582679f0e7f2de22ca955ab25a372fbc283f30597e0c89d9667aa24506df"
+  },
+  "fixture_branch_sha": "bae5f6afe15aa5e8a28125b537f2eba84d71e0b5",
+  "pass_requires": [
+    "control direct GET HTTP200 with attributable identity/title/source",
+    "target direct GET HTTP404 and zero exact saved-list target matches",
+    "fixture Strategy Tester total_trades=3",
+    "native closed trades=3",
+    "complete raw orders=6",
+    "trade-by-trade timestamps/prices/qty match pinned manifest",
+    "TV vs Python 3.12 USDT abs diff <= 0.000001",
+    "exact original editor/chart/tester restoration",
+    "post saved state remains target HTTP404 plus zero exact saved-list matches"
+  ],
+  "turn_end": "Post result to Issue #1 and send PINE_CONTROLLER_STANDDOWN_OR_NEXT_ACTION_REQUEST; keep 180-second attention wake armed; silence is not permission."
+}
