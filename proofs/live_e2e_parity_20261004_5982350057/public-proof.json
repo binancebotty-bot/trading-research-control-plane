@@ -1,0 +1,387 @@
+{
+  "directive": 5982350057,
+  "runtime_head": "45568bbbf5793360dbaa25ba6ecfdf6c5e4a43f1",
+  "python": {
+    "record_semantics": "derived_controlled_closed_trades",
+    "closed_trade_count": 3,
+    "trades": [
+      {
+        "entry_signal_time": 1791037800,
+        "exit_signal_time": 1791039600,
+        "entry_fill_time": 1791038700,
+        "exit_fill_time": 1791040500,
+        "entry_price": "2681.23",
+        "exit_price": "2682.41",
+        "qty": "1",
+        "pnl": "1.18"
+      },
+      {
+        "entry_signal_time": 1791041400,
+        "exit_signal_time": 1791043200,
+        "entry_fill_time": 1791042300,
+        "exit_fill_time": 1791044100,
+        "entry_price": "2680.9",
+        "exit_price": "2679.81",
+        "qty": "1",
+        "pnl": "-1.09"
+      },
+      {
+        "entry_signal_time": 1791045000,
+        "exit_signal_time": 1791046800,
+        "entry_fill_time": 1791045900,
+        "exit_fill_time": 1791047700,
+        "entry_price": "2682.03",
+        "exit_price": "2685.06",
+        "qty": "1",
+        "pnl": "3.03"
+      }
+    ],
+    "net_profit": "3.12"
+  },
+  "tv_summary": {
+    "strategy_name": "Hermes TV Timestamp 3L Fixture",
+    "net_profit": 3.119999999999436,
+    "total_trades": 3,
+    "percent_profitable": 0.6666666666666666,
+    "profit_factor": 3.862385321100018
+  },
+  "tv_trades": {
+    "success": true,
+    "record_semantics": "raw_order_records",
+    "raw_order_record_count": 6,
+    "closed_trades": [
+      {
+        "entry_time_ms": 1791037800000,
+        "exit_time_ms": 1791039600000,
+        "entry_price": 2681.23,
+        "exit_price": 2682.41,
+        "qty": 1,
+        "native_reported_pnl": 1.18,
+        "native_commission": 0,
+        "raw_native_trade": {
+          "e": {
+            "c": "L1",
+            "p": 2681.23,
+            "tm": 1791037800000,
+            "b": 20794,
+            "tp": "le"
+          },
+          "q": 1,
+          "x": {
+            "c": "Close entry(s) order L1",
+            "p": 2682.41,
+            "tm": 1791039600000,
+            "b": 20796,
+            "tp": "lx"
+          },
+          "tp": {
+            "v": 1.18,
+            "p": 0.0004400965
+          },
+          "cp": {
+            "v": 1.18,
+            "p": 1.18e-05
+          },
+          "rn": {
+            "v": 3.43,
+            "p": 0.0012792636
+          },
+          "v": 2681.23,
+          "dd": {
+            "v": 1.24,
+            "p": 0.0004624743
+          },
+          "cm": 0
+        }
+      },
+      {
+        "entry_time_ms": 1791041400000,
+        "exit_time_ms": 1791043200000,
+        "entry_price": 2680.9,
+        "exit_price": 2679.81,
+        "qty": 1,
+        "native_reported_pnl": -1.09,
+        "native_commission": 0,
+        "raw_native_trade": {
+          "e": {
+            "c": "L2",
+            "p": 2680.9,
+            "tm": 1791041400000,
+            "b": 20798,
+            "tp": "le"
+          },
+          "q": 1,
+          "x": {
+            "c": "Close entry(s) order L2",
+            "p": 2679.81,
+            "tm": 1791043200000,
+            "b": 20800,
+            "tp": "lx"
+          },
+          "tp": {
+            "v": -1.09,
+            "p": -0.00040657987
+          },
+          "cp": {
+            "v": 0.09,
+            "p": -1.0899871e-05
+          },
+          "rn": {
+            "v": 1.78,
+            "p": 0.00066395616
+          },
+          "v": 2680.9,
+          "dd": {
+            "v": 1.48,
+            "p": 0.0005520534
+          },
+          "cm": 0
+        }
+      },
+      {
+        "entry_time_ms": 1791045000000,
+        "exit_time_ms": 1791046800000,
+        "entry_price": 2682.03,
+        "exit_price": 2685.06,
+        "qty": 1,
+        "native_reported_pnl": 3.03,
+        "native_commission": 0,
+        "raw_native_trade": {
+          "e": {
+            "c": "L3",
+            "p": 2682.03,
+            "tm": 1791045000000,
+            "b": 20802,
+            "tp": "le"
+          },
+          "q": 1,
+          "x": {
+            "c": "Close entry(s) order L3",
+            "p": 2685.06,
+            "tm": 1791046800000,
+            "b": 20804,
+            "tp": "lx"
+          },
+          "tp": {
+            "v": 3.03,
+            "p": 0.0011297413
+          },
+          "cp": {
+            "v": 3.12,
+            "p": 3.0299972e-05
+          },
+          "rn": {
+            "v": 3.61,
+            "p": 0.0013459953
+          },
+          "v": 2682.03,
+          "dd": {
+            "v": 1.09,
+            "p": 0.00040640857
+          },
+          "cm": 0
+        }
+      }
+    ],
+    "closed_trade_semantics": "native_reportData_trades",
+    "total_available_closed_trades": 3,
+    "closed_trade_stream_complete": true,
+    "raw_order_records": [
+      {
+        "b": true,
+        "c": "L1",
+        "e": true,
+        "id": "L1",
+        "p": 2681.23,
+        "q": 1,
+        "tm": 0,
+        "tp": "MARKET"
+      },
+      {
+        "b": false,
+        "c": "Close entry(s) order L1",
+        "e": false,
+        "id": "Close entry(s) order strategy.close_0",
+        "p": 2682.41,
+        "q": 1,
+        "tm": 1,
+        "tp": "MARKET"
+      },
+      {
+        "b": true,
+        "c": "L2",
+        "e": true,
+        "id": "L2",
+        "p": 2680.9,
+        "q": 1,
+        "tm": 2,
+        "tp": "MARKET"
+      },
+      {
+        "b": false,
+        "c": "Close entry(s) order L2",
+        "e": false,
+        "id": "Close entry(s) order strategy.close_1",
+        "p": 2679.81,
+        "q": 1,
+        "tm": 3,
+        "tp": "MARKET"
+      },
+      {
+        "b": true,
+        "c": "L3",
+        "e": true,
+        "id": "L3",
+        "p": 2682.03,
+        "q": 1,
+        "tm": 4,
+        "tp": "MARKET"
+      },
+      {
+        "b": false,
+        "c": "Close entry(s) order L3",
+        "e": false,
+        "id": "Close entry(s) order strategy.close_2",
+        "p": 2685.06,
+        "q": 1,
+        "tm": 5,
+        "tp": "MARKET"
+      }
+    ],
+    "total_available_order_records": 6,
+    "order_stream_complete": true,
+    "truncated": false,
+    "strategy_name": "Hermes TV Timestamp 3L Fixture",
+    "source": "native_ordersData"
+  },
+  "comparison": {
+    "live_e2e_parity": "FAIL",
+    "trade_by_trade_parity": "FAIL",
+    "counts_pass": true,
+    "complete_streams": true,
+    "checks": [
+      {
+        "trade": 1,
+        "prices_qty_pnl_match": true,
+        "entry_native_seconds": "1791037800",
+        "exit_native_seconds": "1791039600",
+        "entry_expected_fill": 1791038700,
+        "exit_expected_fill": 1791040500,
+        "entry_fill_match": false,
+        "exit_fill_match": false,
+        "native_times_match_signal_times": true
+      },
+      {
+        "trade": 2,
+        "prices_qty_pnl_match": true,
+        "entry_native_seconds": "1791041400",
+        "exit_native_seconds": "1791043200",
+        "entry_expected_fill": 1791042300,
+        "exit_expected_fill": 1791044100,
+        "entry_fill_match": false,
+        "exit_fill_match": false,
+        "native_times_match_signal_times": true
+      },
+      {
+        "trade": 3,
+        "prices_qty_pnl_match": true,
+        "entry_native_seconds": "1791045000",
+        "exit_native_seconds": "1791046800",
+        "entry_expected_fill": 1791045900,
+        "exit_expected_fill": 1791047700,
+        "entry_fill_match": false,
+        "exit_fill_match": false,
+        "native_times_match_signal_times": true
+      }
+    ],
+    "python_net_profit": "3.12",
+    "tv_net_profit": 3.119999999999436,
+    "net_profit_abs_diff": "5.64E-13",
+    "net_profit_tolerance_pass": true,
+    "raw_order_tm": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "expected_raw_signal_times": [
+      1791037800,
+      1791039600,
+      1791041400,
+      1791043200,
+      1791045000,
+      1791046800
+    ],
+    "raw_signal_time_contract_pass": false,
+    "restoration": "PASS",
+    "remaining_blocker": "NATIVE_TIMESTAMP_CONTRACT_MISMATCH: native_reportData times equal signal-bar open, not pinned +900s fills; native_ordersData tm is0..5, no native epoch signal/fill timestamp in captured raw orders."
+  },
+  "actions": {
+    "sourceWrites": 2,
+    "compiles": 2,
+    "addCalls": 2,
+    "updateClicks": 2,
+    "retries": 0,
+    "explicitSaves": 0
+  },
+  "restoration": {
+    "status": "PASS",
+    "source_hash": "3352582679f0e7f2de22ca955ab25a372fbc283f30597e0c89d9667aa24506df",
+    "saved_pre": {
+      "listStatus": 200,
+      "listCount": 1049,
+      "matchCount": 0,
+      "targetStatus": 404
+    },
+    "saved_post": {
+      "listStatus": 200,
+      "listCount": 1049,
+      "matchCount": 0,
+      "targetStatus": 404
+    },
+    "panels_pre": {
+      "success": true,
+      "status": "OK",
+      "chart": {
+        "symbol": "BINANCE:ETHUSDT",
+        "timeframe": "15",
+        "pine_editor_open": true,
+        "strategy_tester_visible": false
+      },
+      "modal": {
+        "present": false
+      }
+    },
+    "panels_post": {
+      "success": true,
+      "status": "OK",
+      "chart": {
+        "symbol": "BINANCE:ETHUSDT",
+        "timeframe": "15",
+        "pine_editor_open": true,
+        "strategy_tester_visible": false
+      },
+      "modal": {
+        "present": false
+      }
+    },
+    "studies": [
+      {
+        "id": "Tt9oOD",
+        "name": "Aggressive Flow Momentum"
+      },
+      {
+        "id": "U54xEM",
+        "name": "Volume"
+      }
+    ],
+    "tester_strategy_name": "Aggressive Flow Momentum",
+    "native_versions": [
+      "0.5",
+      "0.6",
+      "0.7"
+    ]
+  }
+}

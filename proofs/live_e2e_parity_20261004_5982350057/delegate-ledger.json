@@ -1,0 +1,18 @@
+[
+  {
+    "worker": 0,
+    "engine": "ollama",
+    "model": "ZimaBlueAI/Qwen3.5-9B-DeepSeek-V4-Flash-GGUF:latest",
+    "route_verified": true,
+    "status": "NO_USABLE_RESULT_CAPTURED_AFTER_150S_BOUND",
+    "paid_fallback": false
+  },
+  {
+    "worker": 1,
+    "engine": "ollama",
+    "model": "ZimaBlueAI/Qwen3.5-9B-DeepSeek-V4-Flash-GGUF:latest",
+    "route_verified": true,
+    "status": "NO_USABLE_RESULT_CAPTURED_AFTER_150S_BOUND",
+    "paid_fallback": false
+  }
+]

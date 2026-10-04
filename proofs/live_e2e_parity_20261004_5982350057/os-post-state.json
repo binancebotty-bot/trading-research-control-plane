@@ -1,0 +1,35 @@
+{
+  "foreground_before": 65536352,
+  "foreground_after": 65536352,
+  "foreground_preserved": true,
+  "protected_pid_count": 93,
+  "survivor_count": 87,
+  "missing": [
+    {
+      "pid": 16540,
+      "reason": "NO_LONGER_RUNNING"
+    },
+    {
+      "pid": 17028,
+      "reason": "NO_LONGER_RUNNING"
+    },
+    {
+      "pid": 25212,
+      "reason": "NO_LONGER_RUNNING"
+    },
+    {
+      "pid": 44624,
+      "reason": "NO_LONGER_RUNNING"
+    },
+    {
+      "pid": 46804,
+      "reason": "NO_LONGER_RUNNING"
+    },
+    {
+      "pid": 50696,
+      "reason": "NO_LONGER_RUNNING"
+    }
+  ],
+  "noActivate": true,
+  "chart_browser_identity_preserved": true
+}

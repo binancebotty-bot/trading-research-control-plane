@@ -1,0 +1,64 @@
+{
+  "live_e2e_parity": "FAIL",
+  "trade_by_trade_parity": "FAIL",
+  "counts_pass": true,
+  "complete_streams": true,
+  "checks": [
+    {
+      "trade": 1,
+      "prices_qty_pnl_match": true,
+      "entry_native_seconds": "1791037800",
+      "exit_native_seconds": "1791039600",
+      "entry_expected_fill": 1791038700,
+      "exit_expected_fill": 1791040500,
+      "entry_fill_match": false,
+      "exit_fill_match": false,
+      "native_times_match_signal_times": true
+    },
+    {
+      "trade": 2,
+      "prices_qty_pnl_match": true,
+      "entry_native_seconds": "1791041400",
+      "exit_native_seconds": "1791043200",
+      "entry_expected_fill": 1791042300,
+      "exit_expected_fill": 1791044100,
+      "entry_fill_match": false,
+      "exit_fill_match": false,
+      "native_times_match_signal_times": true
+    },
+    {
+      "trade": 3,
+      "prices_qty_pnl_match": true,
+      "entry_native_seconds": "1791045000",
+      "exit_native_seconds": "1791046800",
+      "entry_expected_fill": 1791045900,
+      "exit_expected_fill": 1791047700,
+      "entry_fill_match": false,
+      "exit_fill_match": false,
+      "native_times_match_signal_times": true
+    }
+  ],
+  "python_net_profit": "3.12",
+  "tv_net_profit": 3.119999999999436,
+  "net_profit_abs_diff": "5.64E-13",
+  "net_profit_tolerance_pass": true,
+  "raw_order_tm": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "expected_raw_signal_times": [
+    1791037800,
+    1791039600,
+    1791041400,
+    1791043200,
+    1791045000,
+    1791046800
+  ],
+  "raw_signal_time_contract_pass": false,
+  "restoration": "PASS",
+  "remaining_blocker": "NATIVE_TIMESTAMP_CONTRACT_MISMATCH: native_reportData times equal signal-bar open, not pinned +900s fills; native_ordersData tm is0..5, no native epoch signal/fill timestamp in captured raw orders."
+}
