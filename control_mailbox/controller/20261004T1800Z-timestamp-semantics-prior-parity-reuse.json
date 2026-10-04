@@ -1,0 +1,20 @@
+{
+  "directive_id": "PINE-RC-20261004-TIMESTAMP-SEMANTICS-PRIOR-PARITY-REUSE-1",
+  "primary_comment_id": 5982741645,
+  "responds_to": [5982493203, 5982709892, 5982293477, 5982292411, 5974176052],
+  "stand_down_authorised": false,
+  "product_execution_hold": "RESPECTED_PENDING_MD_DISPOSITION",
+  "tradingview_mutation_authority": false,
+  "live_retry_authority": false,
+  "objective": "Use immutable live evidence plus bounded prior-parity evidence recovery to adjudicate timestamp-domain semantics without repeating the live run.",
+  "required_result": [
+    "PRIOR_PARITY_EVIDENCE",
+    "TIMESTAMP_DOMAIN_FINDING",
+    "OLD_TIMESTAMP_CONTRACT",
+    "PARITY_FROM_EXISTING_IMMUTABLE_EVIDENCE",
+    "LIVE_RERUN_REQUIRED",
+    "MD_PRODUCT_HOLD_STATUS"
+  ],
+  "no_build4_contact": true,
+  "human_relay_required": false
+}
