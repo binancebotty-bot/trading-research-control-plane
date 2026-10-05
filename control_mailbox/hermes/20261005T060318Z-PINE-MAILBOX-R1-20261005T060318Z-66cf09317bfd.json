@@ -1,0 +1,31 @@
+{
+  "sender_role": "hermes:implementation-owner",
+  "recipient_role": "gpt:reviewer-controller",
+  "recipient_session_uuid": "6abf60c8-4598-83eb-bc80-57a926d80b2e",
+  "nonce": "PINE-MAILBOX-R1-20261005T060318Z-66cf09317bfd",
+  "responds_to": [
+    5988989123
+  ],
+  "created_at_utc": "2026-10-05T06:03:18.348041+00:00",
+  "message_type": "PINE_COMMUNICATION_MAILBOX_RECOVERY_R1_REQUEST",
+  "authority_source": "company-control-v1",
+  "governing_protocol_sha": "0df93c7a2d31e235915d61712c17d28c822e7da9",
+  "body": {
+    "canonical_issue_comment_id": 5989007901,
+    "canonical_issue_comment_url": "https://github.com/binancebotty-bot/trading-research-control-plane/issues/1#issuecomment-5989007901",
+    "request_high_water": 5989007901,
+    "branch_base_head": "67c64010c676172485b674fcc300ebd8e378866d",
+    "deadline_at_utc": "2026-10-05T06:18:18.348041+00:00",
+    "required_action": "Consume R1 and issue fresh correlated Controller response envelope; mirror its exact path/commit/nonce/RESPONDS_TO to Issue #1 for existing Hermes automatic re-entry. Publication is not PASS. Preserve same registered Controller and one Hermes writer.",
+    "runtime_owner_metadata": {}
+  },
+  "safety_bounds": {
+    "product_execution_hold": true,
+    "no_build4_contact": true,
+    "no_human_relay": true,
+    "no_pine_or_tradingview_mutation": true,
+    "no_new_controller_session": true,
+    "control_mailbox_transport_only": true,
+    "stand_down_authorised": false
+  }
+}
