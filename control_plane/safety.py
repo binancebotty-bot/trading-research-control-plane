@@ -165,8 +165,14 @@ class ResearchSafety:
         for pattern in look_ahead_patterns:
             if pattern in strategy_code:
                 violations.append(pattern)
-        # A NEGATIVE offset (close[-1]) references a FUTURE bar in Pine and IS a look-ahead.
-        for match in re.finditer(r'\b(?:close|high|low|open|volume)\s*\[\s*-\s*\d+\s*\]', strategy_code):
+        # Indexed series references: ONLY a non-negative LITERAL integer index
+        # (close[1], close[0]) is a known-safe past-bar reference. Dynamic/unknown
+        # indices (close[i], high[offset]) and negative indices (close[-1]) are
+        # conservatively FLAGGED -- never silently exempted.
+        for match in re.finditer(r'\b(?:close|high|low|open|volume)\s*\[([^\]]*)\]', strategy_code):
+            inner = match.group(1).strip()
+            if re.fullmatch(r'\d+', inner):
+                continue  # non-negative literal -> known-safe past-bar access
             if match.group(0) not in violations:
                 violations.append(match.group(0))
         

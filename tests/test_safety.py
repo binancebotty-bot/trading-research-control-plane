@@ -59,6 +59,22 @@ class TestResearchSafety:
         # This should pass because close[1] is past data (positive offset = prior bar).
         assert check.passed is True
 
+    def test_check_look_ahead_zero_and_literal_pass(self):
+        safety = ResearchSafety()
+        # Non-negative LITERAL indices are known-safe past-bar references.
+        assert safety.check_look_ahead_bias("close[0] > sma(close, 20)", ["sma"]).passed is True
+        assert safety.check_look_ahead_bias("high[2] < sma(close, 20)", ["sma"]).passed is True
+
+    def test_check_look_ahead_dynamic_index_fails(self):
+        safety = ResearchSafety()
+        # Dynamic/unknown index -> conservatively flagged (not exempted).
+        check = safety.check_look_ahead_bias("close[i] > sma(close, 20)", ["sma"])
+        assert check.passed is False
+        assert check.violation == SafetyViolation.LOOK_AHEAD_BIAS
+        check2 = safety.check_look_ahead_bias("high[offset] < 1", ["sma"])
+        assert check2.passed is False
+        assert check2.violation == SafetyViolation.LOOK_AHEAD_BIAS
+
     def test_check_look_ahead_negative_offset_fails(self):
         safety = ResearchSafety()
         # close[-1] references a FUTURE bar -> genuine look-ahead, must still fail.
