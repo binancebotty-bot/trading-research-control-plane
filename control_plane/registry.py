@@ -145,11 +145,14 @@ class CapabilityRegistry:
         from .backends.official_tradingview import OfficialTradingViewBackend
         self.registry_path = registry_path or Path("registry/capabilities.json")
         self.capabilities: Dict[str, Capability] = {}
+        # Backend OBJECTS (not dicts). Classification must NEVER call .get() on these;
+        # it reuses the discovery snapshots captured in discover_all().
         self._backends = {
             'PYTHON_PY2PINE': PythonPy2PineBackend(),
             'CUSTOM_MCP': CustomTradingViewMCPBackend(),
             'OFFICIAL': OfficialTradingViewBackend(),
         }
+        self._registry_snapshots: Dict[str, Dict[str, Any]] = {}
     
     def discover_all(self) -> Dict[str, Any]:
         """Discover capabilities from all three backends."""
@@ -159,6 +162,9 @@ class CapabilityRegistry:
             try:
                 caps = backend.get_capability_registry()
                 results[backend_id] = caps
+                # Single-source snapshot: classification reuses THIS, never re-discovers
+                # and never calls .get() on the backend object itself.
+                self._registry_snapshots[backend_id] = caps if isinstance(caps, dict) else {}
                 self._register_backend_capabilities(backend_id, caps)
             except Exception as e:
                 results[backend_id] = {"error": str(e)}
@@ -166,9 +172,23 @@ class CapabilityRegistry:
         self._classify_capabilities()
         return results
     
+    @staticmethod
+    def _capability_names(snapshot: Dict[str, Any]) -> List[str]:
+        """Names from a discovery snapshot, accepting the real per-backend key shapes.
+
+        Python/Official snapshots expose 'capabilities'; the custom MCP snapshot exposes
+        'tools'. Both are the same concept; read whichever is present.
+        """
+        if not isinstance(snapshot, dict):
+            return []
+        names = snapshot.get('capabilities')
+        if not names:
+            names = snapshot.get('tools')
+        return list(names) if names else []
+
     def _register_backend_capabilities(self, backend_id: str, caps: Dict[str, Any]):
         """Register capabilities from a backend."""
-        backend_caps = caps.get('capabilities', [])
+        backend_caps = self._capability_names(caps)
         
         for cap_name in backend_caps:
             canonical = f"{backend_id}.{cap_name}"
@@ -231,8 +251,8 @@ class CapabilityRegistry:
                 if any(group_cap in cap.native_function for group_cap in group_caps):
                     # Check which backends have this group
                     backends_with_group = []
-                    for bid, bcaps in self._backends.items():
-                        backend_caps = bcaps.get('capabilities', [])
+                    for bid in self._backends:
+                        backend_caps = self._capability_names(self._registry_snapshots.get(bid, {}))
                         if any(group_cap in backend_cap for backend_cap in backend_caps for group_cap in group_caps):
                             backends_with_group.append(bid)
                     

@@ -493,6 +493,25 @@ class CustomTradingViewMCPBackend:
     def capabilities(self) -> List[str]:
         return sorted(t.name for t in self.list_tools())
 
+    def get_tool_schema(self, name: str) -> Dict[str, Any]:
+        """Schema for ONE discovered tool, backed ONLY by real list_tools data.
+
+        Returns the shape the registry consumes: {'description', 'args'}.
+        An unknown tool fails closed to an EMPTY schema (no fabrication, no
+        placeholder metadata, no hardcoded schemas, no TradingView mutation).
+        """
+        empty = {"description": "", "args": {}}
+        if not name:
+            return empty
+        for tool in self.list_tools():
+            if tool.name == name:
+                schema = tool.input_schema if isinstance(tool.input_schema, dict) else {}
+                return {
+                    "description": tool.description or "",
+                    "args": schema,
+                }
+        return empty
+
     def get_capability_registry(self) -> Dict[str, Any]:
         return {
             "backend": self.backend_id,

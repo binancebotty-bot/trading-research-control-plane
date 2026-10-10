@@ -93,7 +93,10 @@ class TestCustomTVMCPBackend:
     def test_capabilities(self):
         backend = CustomTradingViewMCPBackend()
         caps = backend.capabilities
-        assert "pine_compile_facade" in caps
+        # Canonical compile capability is pine_compile. pine_compile_facade does NOT
+        # exist and must not be claimed merely to satisfy a stale test.
+        assert "pine_compile" in caps
+        assert "pine_compile_facade" not in caps
         assert "pine_full_cycle_strategy" in caps
         assert "strategy_tester_read_summary" in caps
     
@@ -104,8 +107,17 @@ class TestCustomTVMCPBackend:
     
     def test_get_tool_schema(self):
         backend = CustomTradingViewMCPBackend()
-        schema = backend.get_tool_schema("pine_compile_facade")
+        # Real discovered tool, backed only by list_tools data.
+        schema = backend.get_tool_schema("pine_compile")
         assert 'description' in schema
+        assert 'args' in schema
+
+    def test_get_tool_schema_unknown_fails_closed(self):
+        backend = CustomTradingViewMCPBackend()
+        # Unknown tool -> empty schema, never a fabricated/placeholder one.
+        schema = backend.get_tool_schema("pine_compile_facade")
+        assert schema == {'description': '', 'args': {}}
+        assert backend.get_tool_schema("definitely_not_a_tool") == {'description': '', 'args': {}}
     
     def test_get_capability_registry(self):
         backend = CustomTradingViewMCPBackend()

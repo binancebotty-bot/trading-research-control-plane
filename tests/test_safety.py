@@ -56,8 +56,22 @@ class TestResearchSafety:
     def test_check_look_ahead_bias_violation(self):
         safety = ResearchSafety()
         check = safety.check_look_ahead_bias("close[1] > sma(close, 20)", ["sma"])
-        # This should pass because close[1] is past data
+        # This should pass because close[1] is past data (positive offset = prior bar).
         assert check.passed is True
+
+    def test_check_look_ahead_negative_offset_fails(self):
+        safety = ResearchSafety()
+        # close[-1] references a FUTURE bar -> genuine look-ahead, must still fail.
+        check = safety.check_look_ahead_bias("close[-1] > sma(close, 20)", ["sma"])
+        assert check.passed is False
+        assert check.violation == SafetyViolation.LOOK_AHEAD_BIAS
+
+    def test_check_look_ahead_realtime_repaint_fails(self):
+        safety = ResearchSafety()
+        # barstate.isrealtime is a repaint/realtime-only construct -> still flagged.
+        check = safety.check_look_ahead_bias("if barstate.isrealtime\n    x = 1", ["sma"])
+        assert check.passed is False
+        assert check.violation == SafetyViolation.LOOK_AHEAD_BIAS
     
     def test_check_overfitting_no_degradation(self):
         safety = ResearchSafety()

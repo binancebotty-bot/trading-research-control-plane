@@ -145,19 +145,30 @@ class ResearchSafety:
         indicators_used: List[str],
     ) -> SafetyCheck:
         """Check for look-ahead bias in strategy code."""
-        # Common look-ahead patterns in Pine/Python
+        # Genuinely suspicious look-ahead patterns in Pine/Python.
+        #
+        # NOTE: bare series brackets (close[1], high[2], ...) are NOT look-ahead.
+        # A positive integer offset in Pine indexes PAST bars (close[1] = previous bar),
+        # so flagging the bracket itself is a false positive. Only genuinely future /
+        # repainting / realtime-only constructs are flagged.
+        import re
         look_ahead_patterns = [
-            'close[', 'high[', 'low[', 'open[', 'volume[',  # Future references
-            'security(',  # Can access future data if not careful
-            'request.security',  # Pine v5
-            'barstate.islast',  # Only true on last bar
-            'barstate.isrealtime',  # Real-time only
+            'security(',        # can access other-symbol/timeframe data carelessly
+            'request.security', # Pine v5
+            'barstate.islast',  # only true on last bar (repaint risk)
+            'barstate.isrealtime',  # real-time only
+            'lookahead',
+            'lookahead_on',
         ]
         
         violations = []
         for pattern in look_ahead_patterns:
             if pattern in strategy_code:
                 violations.append(pattern)
+        # A NEGATIVE offset (close[-1]) references a FUTURE bar in Pine and IS a look-ahead.
+        for match in re.finditer(r'\b(?:close|high|low|open|volume)\s*\[\s*-\s*\d+\s*\]', strategy_code):
+            if match.group(0) not in violations:
+                violations.append(match.group(0))
         
         if violations:
             return SafetyCheck(
